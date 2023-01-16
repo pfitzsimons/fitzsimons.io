@@ -1,0 +1,33 @@
+html {
+  color: #000;
+  font-size: 16px;
+  line-height: 1.4;
+  font-family: sans-serif;
+}
+
+.container {
+  max-width: 720px;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 80px;
+  padding: 0 12px;
+}
+
+h1 {
+    text-align: center;
+}
+
+p {
+  color: #555;
+  font-size: 20px;
+}
+
+a {
+  color: #1d8eba;
+  font-style: italic;
+}
+
+ul {
+  color: #555;
+  font-size: 20px;
+}
