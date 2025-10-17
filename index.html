@@ -1,35 +1,275 @@
 <!doctype html>
-<html class="no-js" lang="">
-
+<html lang="en" class="no-js">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Patrick Fitzsimons</title>
-  <meta name="description" content="Javascript Without Grammar">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="css/main.css">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Primary Meta -->
+  <title>Patrick Fitzsimons — Engineering Manager</title>
+  <meta name="description" content="Patrick Fitzsimons — Engineering Manager in Belfast, specialising in vulnerability detection and vulnerability management. Background in Java; currently managing three teams (16 people)." />
+  <meta name="author" content="Patrick Fitzsimons" />
+  <meta name="theme-color" content="#0ea5e9" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Patrick Fitzsimons — Engineering Manager" />
+  <meta property="og:description" content="Engineering Manager based in Belfast, focused on vulnerability detection and vulnerability management. Background in Java; managing three teams (16 people)." />
+  <meta property="og:url" content="https://www.fitzsimons.io/" />
+  <meta property="og:image" content="/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Favicon (optional) -->
+  <!-- Place favicons in / and update paths below. -->
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  <style>
+    /* ---- CSS Reset (trimmed) ---- */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body { margin: 0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
+    img, picture, video, canvas, svg { display: block; max-width: 100%; }
+    button, input, textarea, select { font: inherit; }
+    a { color: inherit; }
+
+    /* ---- Theme ---- */
+    :root {
+      --bg: #0b1220;               /* slate-950-ish */
+      --panel: #0f172a;            /* slate-900 */
+      --muted: #94a3b8;            /* slate-400 */
+      --text: #e5e7eb;             /* gray-200 */
+      --card: #111827;             /* gray-900 */
+      --border: #1f2937;           /* gray-800 */
+      --brand: #0ea5e9;            /* sky-500 */
+      --brand-2: #22d3ee;          /* cyan-400 */
+      --shadow: 0 10px 30px rgba(2, 6, 23, 0.6);
+      --radius: 16px;
+      --spacing: clamp(16px, 2vw, 24px);
+      --maxw: 1100px;
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root { --bg: #ffffff; --panel: #f8fafc; --card:#ffffff; --text:#0f172a; --muted:#475569; --border:#e5e7eb; --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);}  
+    }
+
+    html.dark { --bg: #0b1220; --panel:#0f172a; --card:#0f172a; --text:#e5e7eb; --muted:#94a3b8; --border:#1f2937; }
+
+    body { background: radial-gradient(1200px 600px at 80% -10%, rgba(56,189,248,.15), transparent),
+                     radial-gradient(1000px 500px at -10% 10%, rgba(99,102,241,.12), transparent),
+                     var(--bg);
+           color: var(--text);
+           line-height: 1.6; }
+
+    /* ---- Layout ---- */
+    .container { max-width: var(--maxw); margin-inline: auto; padding-inline: var(--spacing); }
+
+    /* Skip link */
+    .skip-link { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+    .skip-link:focus { position: fixed; left: 16px; top: 16px; width: auto; height: auto; padding: 8px 12px; background: var(--panel); color: var(--text); border-radius: 8px; box-shadow: var(--shadow); }
+
+    /* Header */
+    header { position: sticky; top: 0; z-index: 50; backdrop-filter: saturate(180%) blur(10px); background: color-mix(in oklab, var(--bg) 70%, transparent); border-bottom: 1px solid var(--border); }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 0; }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: 0.5px; }
+    .brand .logo { width: 28px; height: 28px; border-radius: 8px; background: linear-gradient(135deg, var(--brand), var(--brand-2)); box-shadow: 0 6px 20px rgba(14,165,233,.35); }
+    .brand a { text-decoration: none; }
+
+    .nav-links { display: flex; align-items: center; gap: 18px; }
+    .nav-links a { text-decoration: none; color: var(--muted); font-weight: 500; padding: 8px 10px; border-radius: 10px; transition: color .2s ease, background .2s ease, transform .04s ease; }
+    .nav-links a:hover { color: var(--text); background: color-mix(in oklab, var(--panel) 85%, transparent); }
+    .nav-links a[aria-current="page"], .nav-links a[aria-current="true"] { color: var(--text); }
+
+    .nav-ctas { display: flex; align-items: center; gap: 12px; }
+    .btn { display: inline-flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 999px; text-decoration: none; font-weight: 600; border: 1px solid var(--border); background: color-mix(in oklab, var(--panel) 85%, transparent); }
+    .btn:hover { transform: translateY(-1px); box-shadow: var(--shadow); }
+    .btn-primary { background: linear-gradient(135deg, var(--brand), var(--brand-2)); color: #062231; border-color: transparent; }
+
+    .theme-toggle { border: 1px solid var(--border); background: none; border-radius: 999px; padding: 10px 12px; cursor: pointer; color: var(--muted); }
+
+    /* Hero */
+    .hero { padding: clamp(56px, 8vw, 120px) 0 clamp(40px, 6vw, 80px); }
+    .hero-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: clamp(20px, 5vw, 56px); align-items: center; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 6px 10px; border-radius: 999px; border: 1px solid var(--border); color: var(--muted); background: color-mix(in oklab, var(--panel) 85%, transparent); }
+    .title { margin: 14px 0 10px; font-size: clamp(28px, 5vw, 52px); line-height: 1.1; letter-spacing: -0.02em; font-weight: 800; }
+    .subtitle { color: var(--muted); font-size: clamp(16px, 2.2vw, 19px); max-width: 60ch; }
+    .hero-cta { display: flex; gap: 12px; margin-top: 22px; flex-wrap: wrap; }
+
+    .hero-card { background: linear-gradient(180deg, color-mix(in oklab, var(--panel) 92%, transparent), color-mix(in oklab, var(--panel) 85%, transparent)); border: 1px solid var(--border); border-radius: var(--radius); padding: clamp(16px, 3vw, 24px); box-shadow: var(--shadow); }
+    .hero-list { margin: 0; padding-left: 18px; color: var(--muted); }
+
+    /* Sections */
+    section { padding: clamp(40px, 6vw, 80px) 0; }
+    .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 22px; }
+    .section-head h2 { font-size: clamp(22px, 3vw, 28px); margin: 0; letter-spacing: -0.01em; }
+    .section-head p { color: var(--muted); margin: 0; }
+
+    /* Cards grid */
+    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: clamp(14px, 2vw, 20px); }
+    .card { grid-column: span 12; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: clamp(16px, 3vw, 22px); transition: transform .12s ease, box-shadow .2s ease, border-color .2s ease; }
+    .card:hover { transform: translateY(-2px); box-shadow: var(--shadow); border-color: color-mix(in oklab, var(--brand) 35%, var(--border)); }
+    .card h3 { margin: 0 0 8px; font-size: 20px; }
+    .card p { margin: 0; color: var(--muted); }
+    .card .meta { margin-top: 10px; display: flex; gap: 10px; flex-wrap: wrap; }
+    .tag { font-size: 12px; padding: 6px 10px; background: color-mix(in oklab, var(--panel) 85%, transparent); border: 1px solid var(--border); border-radius: 999px; color: var(--muted); }
+
+    .span-4 { grid-column: span 4; }
+    .span-6 { grid-column: span 6; }
+
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .span-4, .span-6 { grid-column: span 12; }
+    }
+
+    /* List styles */
+    .linkish { color: var(--text); text-decoration: none; border-bottom: 1px dashed color-mix(in oklab, var(--brand) 60%, var(--border)); }
+    .linkish:hover { border-bottom-style: solid; }
+
+    /* Footer */
+    footer { padding: 34px 0 60px; color: var(--muted); border-top: 1px solid var(--border); margin-top: 40px; }
+    .footer-grid { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 16px; }
+
+    /* Mobile nav */
+    .menu-btn { display: none; }
+    @media (max-width: 740px) {
+      .nav { gap: 8px; }
+      .nav-links { display: none; }
+      .menu-btn { display: inline-flex; border: 1px solid var(--border); background: none; border-radius: 10px; padding: 10px 12px; color: var(--muted); }
+      .mobile-menu { display: none; position: absolute; inset: auto 0 0 0; top: 56px; background: var(--panel); border-top: 1px solid var(--border); box-shadow: var(--shadow); }
+      .mobile-menu a { display: block; padding: 14px var(--spacing); border-bottom: 1px solid var(--border); color: var(--muted); text-decoration: none; }
+      .mobile-menu a:hover { color: var(--text); }
+      .mobile-menu.open { display: block; }
+    }
+  </style>
 </head>
 
 <body>
-  <div class="container">
-    <h1>Patrick Fitzsimons</h1>
-      <p>I'm a Software Engineer with many years of experience the vulnerablity management industry, currently a Software Engineering Manager at <a href="https://www.rapid7.com">Rapid7</a>.</p>
-      <p>I have developed a number of vulnerablity detection means within InsightVM for high profile vulnerabilities such as:</p>
-      <ul>
-          <li>ADV210003</li>
-          <li>CVE-2021-44228</li>
-          <li>CVE-2022-22965</li>
-          <li>CVE-2022-42889</li>
-      </ul>
-      <p>In my years working in vulnerability management I have developed strong skills in, security research, system administration, software engineering,
-      and testing.</p>
-    <p>I have experience in people managment and forming strong relationships with cross-organisational teams, customers and vendors. </p>
-    <p>Contact:</p>
-      <p><a href="https://uk.linkedin.com/in/patrick-fitzsimons-221917107">LinkedIn</a></p>
-      <p><a href="mailto:contact@fitzsimons.io">Email</a></p>
-              
-    
-  </div>
-</body>
+  <header style="text-align:center; padding:40px 0 20px;">
+    <h1 style="margin:0; font-size:clamp(32px, 6vw, 60px); font-weight:800;">Patrick Fitzsimons</h1>
+  </header>
+  <a class="skip-link" href="#main">Skip to content</a>
 
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">👋 Hello — I’m Patrick Fitzsimons.</span>
+          <h1 class="title">Engineering leader focused on secure, resilient software.</h1>
+          <p class="subtitle">Based in Belfast, Northern Ireland. I specialise in vulnerability detection and vulnerability management, with a Java background. I currently manage three teams (16 people).</p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#contact">Get in touch</a>
+          </div>
+        </div>
+        <aside class="hero-card" aria-label="At a glance">
+          <h3 style="margin:0 0 8px; font-size:18px">At a glance</h3>
+          <ul class="hero-list">
+            <li>Location: Belfast, Northern Ireland</li>
+            <li>Focus: Vulnerability detection &amp; Vulnerability management</li>
+            <li>Background: Java • Security tooling • Team leadership</li>
+            <li>Currently: Managing 3 teams (16 people)</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+
+
+    <!-- About -->
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <h2>About</h2>
+          <p>A quick bio and what I do.</p>
+        </div>
+
+        <div class="grid">
+          <article class="card span-6">
+            <p>I’m an Engineering Manager based in Belfast with a background in Java development. I’ve specialised in vulnerability detection and vulnerability management—building teams and tooling that make secure-by-default the easy path. Today I manage three teams, totalling 16 people, focusing on delivery, developer experience, and measurable risk reduction. I care about clear communication, pragmatic process, and creating an environment where engineers do their best work.</p>
+          </article>
+          <aside class="card span-6">
+            <h3 style="margin-top:0">Links</h3>
+            <ul>
+              <li><a class="linkish" href="mailto:patrick@fitzsimons.io">Email</a></li>
+              <li><a class="linkish" href="https://www.linkedin.com/in/patrick-fitzsimons-221917107/" target="_blank" rel="noopener">LinkedIn</a></li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="container">
+        <div class="section-head">
+          <h2>Contact</h2>
+          <p>Best ways to reach me.</p>
+        </div>
+        <div class="card">
+          <p>Prefer email? <a class="linkish" href="mailto:patrick@fitzsimons.io">Drop me a note</a>. For quick chats, <a class="linkish" href="https://www.linkedin.com/in/patrick-fitzsimons-221917107/" target="_blank" rel="noopener">find me on LinkedIn</a>.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <p>© <span id="year"></span> Patrick Fitzsimons. All rights reserved.</p>
+      <p><a class="linkish" href="#top">Back to top ↑</a></p>
+    </div>
+  </footer>
+
+  <!-- Structured data (SEO) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Patrick Fitzsimons",
+      "url": "https://www.fitzsimons.io/",
+      "sameAs": [
+        "https://www.linkedin.com/in/patrick-fitzsimons-221917107/<!-- TODO: your LinkedIn slug -->"
+      ]
+    }
+  </script>
+
+  <script>
+    // Basic enhancements
+    document.documentElement.classList.remove('no-js');
+
+    // Theme toggle with localStorage
+    const root = document.documentElement;
+    const themeToggle = document.getElementById('themeToggle');
+    const stored = localStorage.getItem('theme');
+    if (stored === 'dark') root.classList.add('dark');
+    if (stored === 'light') root.classList.remove('dark');
+
+    themeToggle?.addEventListener('click', () => {
+      const isDark = root.classList.toggle('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+
+    // Mobile menu
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    function closeMenu(){ mobileMenu?.classList.remove('open'); menuBtn?.setAttribute('aria-expanded','false'); }
+    window.closeMenu = closeMenu;
+    menuBtn?.addEventListener('click', () => {
+      const open = mobileMenu.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', String(open));
+    });
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+  <!-- Optional: lightweight analytics (e.g., Umami, Plausible) -->
+  <!-- <script defer data-domain="fitzsimons.io" src="https://plausible.io/js/plausible.js"></script> -->
+</body>
 </html>
