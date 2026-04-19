@@ -6,469 +6,170 @@
   <title>Race Day — UK & Ireland Horse Racing</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,500;0,9..40,700;1,9..40,300&display=swap" rel="stylesheet" />
-
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,500;0,9..40,700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --turf:       #0a1f0d;
-      --turf-mid:   #122818;
-      --turf-card:  #162e1a;
-      --turf-line:  rgba(255,255,255,.07);
-      --gold:       #c9a84c;
-      --gold-light: #e8c76a;
-      --cream:      #f5efe0;
-      --cream-dim:  #c8bfa8;
-      --red:        #c94c4c;
-      --green:      #4cc97a;
-      --sky:        #4cb8c9;
-      --text:       #f0ede6;
-      --text-dim:   #8a877e;
+      --turf:      #0a1f0d;
+      --card:      #162e1a;
+      --line:      rgba(255,255,255,.07);
+      --gold:      #c9a84c;
+      --gold-lt:   #e8c76a;
+      --cream:     #f5efe0;
+      --dim:       #8a877e;
+      --green:     #4cc97a;
+      --amber:     #f0a500;
+      --red:       #e05a5a;
+      --sky:       #4cb8c9;
       --mono: 'DM Mono', monospace;
       --sans: 'DM Sans', sans-serif;
       --display: 'Bebas Neue', sans-serif;
     }
-
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { font-size: 16px; scroll-behavior: smooth; }
-    body {
-      font-family: var(--sans);
-      background: var(--turf);
-      color: var(--text);
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
+    body { font-family: var(--sans); background: var(--turf); color: var(--cream); min-height: 100vh; }
 
-    /* Subtle noise */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 0;
-      opacity: .6;
-    }
-
-    /* ── HEADER ── */
+    /* HEADER */
     #header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(10,31,13,.95);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--turf-line);
-      padding: .75rem 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 1.25rem;
-      flex-wrap: wrap;
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(10,31,13,.96); backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+      padding: .7rem 1.4rem;
+      display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap;
     }
+    #header h1 { font-family: var(--display); font-size: 1.9rem; letter-spacing: .08em; color: var(--gold); line-height: 1; }
+    #header h1 span { font-family: var(--mono); font-size: .85rem; color: var(--cream); opacity: .55; margin-left: .4rem; vertical-align: middle; }
 
-    #header h1 {
-      font-family: var(--display);
-      font-size: 2rem;
-      letter-spacing: .08em;
-      color: var(--gold);
-      line-height: 1;
-      flex-shrink: 0;
-      text-shadow: 0 0 30px rgba(201,168,76,.4);
-    }
-    #header h1 span {
-      color: var(--cream);
-      font-size: .9rem;
-      font-family: var(--mono);
-      letter-spacing: .04em;
-      font-weight: 400;
-      margin-left: .5rem;
-      vertical-align: middle;
-      opacity: .6;
-    }
-
-    #race-selector-wrap {
-      display: flex;
-      align-items: center;
-      gap: .6rem;
-      flex: 0 0 auto;
-    }
-    #race-selector-wrap label {
-      font-family: var(--mono);
-      font-size: .68rem;
-      color: var(--text-dim);
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      white-space: nowrap;
-    }
-
+    #race-selector-wrap { display: flex; align-items: center; gap: .5rem; }
+    #race-selector-wrap label { font-family: var(--mono); font-size: .65rem; color: var(--dim); letter-spacing: .1em; text-transform: uppercase; white-space: nowrap; }
     #race-select {
-      background: var(--turf-card);
-      border: 1px solid var(--gold);
-      color: var(--cream);
-      font-family: var(--mono);
-      font-size: .82rem;
-      padding: .45rem .85rem;
-      border-radius: 6px;
-      cursor: pointer;
-      min-width: 300px;
-      max-width: 480px;
+      background: var(--card); border: 1px solid var(--gold); color: var(--cream);
+      font-family: var(--mono); font-size: .8rem; padding: .42rem .8rem;
+      border-radius: 6px; cursor: pointer; min-width: 310px; max-width: 500px;
       appearance: none;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23c9a84c' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right .75rem center;
-      padding-right: 2.2rem;
-      transition: border-color .2s, box-shadow .2s;
+      background-repeat: no-repeat; background-position: right .7rem center; padding-right: 2.1rem;
     }
-    #race-select:focus {
-      outline: none;
-      border-color: var(--gold-light);
-      box-shadow: 0 0 0 3px rgba(201,168,76,.15);
-    }
-    #race-select option  { background: #122818; }
-    #race-select optgroup { background: #0a1f0d; color: var(--gold); }
+    #race-select:focus { outline: none; border-color: var(--gold-lt); box-shadow: 0 0 0 3px rgba(201,168,76,.15); }
+    #race-select option, #race-select optgroup { background: #122818; }
 
-    #header-meta {
-      margin-left: auto;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      font-family: var(--mono);
-      font-size: .72rem;
-      color: var(--text-dim);
-    }
-    #date-display { color: var(--gold-light); }
-    #refresh-btn {
-      background: none;
-      border: 1px solid var(--turf-line);
-      color: var(--text-dim);
-      padding: .3rem .7rem;
-      border-radius: 4px;
-      cursor: pointer;
-      font-family: var(--mono);
-      font-size: .7rem;
-      transition: all .2s;
-    }
+    #header-meta { margin-left: auto; display: flex; align-items: center; gap: .9rem; font-family: var(--mono); font-size: .7rem; color: var(--dim); }
+    #date-disp { color: var(--gold-lt); }
+    #refresh-btn { background: none; border: 1px solid var(--line); color: var(--dim); padding: .28rem .65rem; border-radius: 4px; cursor: pointer; font-family: var(--mono); font-size: .68rem; transition: all .2s; }
     #refresh-btn:hover { border-color: var(--gold); color: var(--gold); }
 
-    /* ── MAIN ── */
-    #main {
-      position: relative;
-      z-index: 1;
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 1.5rem 1.5rem 4rem;
-    }
+    /* MAIN */
+    #main { max-width: 1380px; margin: 0 auto; padding: 1.4rem 1.4rem 4rem; }
 
-    /* ── RACE OVERVIEW ── */
+    /* RACE OVERVIEW */
     #race-overview {
-      background: var(--turf-card);
-      border: 1px solid var(--turf-line);
-      border-radius: 12px;
-      padding: 1.25rem 1.5rem;
-      margin-bottom: 1.25rem;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: .5rem 2rem;
-      align-items: start;
+      background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+      padding: 1.2rem 1.4rem; margin-bottom: 1.2rem;
+      display: grid; grid-template-columns: 1fr auto; gap: .4rem 2rem; align-items: start;
     }
-    #race-course-badge {
-      display: inline-block;
-      background: var(--gold);
-      color: var(--turf);
-      font-family: var(--mono);
-      font-size: .68rem;
-      font-weight: 500;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      padding: .18rem .6rem;
-      border-radius: 3px;
-      margin-bottom: .4rem;
-    }
-    #race-title {
-      font-family: var(--display);
-      font-size: 2rem;
-      letter-spacing: .05em;
-      color: var(--cream);
-      line-height: 1.1;
-    }
-    #race-meta-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .45rem;
-      margin-top: .5rem;
-    }
-    .meta-pill {
-      border: 1px solid var(--turf-line);
-      border-radius: 20px;
-      padding: .18rem .7rem;
-      font-family: var(--mono);
-      font-size: .7rem;
-      color: var(--text-dim);
-    }
-    .meta-pill strong { color: var(--cream); font-weight: 500; }
-    #race-time-big {
-      font-family: var(--display);
-      font-size: 3.2rem;
-      letter-spacing: .04em;
-      color: var(--gold);
-      text-align: right;
-      line-height: 1;
-      text-shadow: 0 0 40px rgba(201,168,76,.3);
-    }
-    #race-time-label {
-      font-family: var(--mono);
-      font-size: .66rem;
-      color: var(--text-dim);
-      text-align: right;
-      margin-top: .2rem;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-    }
+    #race-badge { display: inline-block; background: var(--gold); color: var(--turf); font-family: var(--mono); font-size: .66rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; padding: .17rem .55rem; border-radius: 3px; margin-bottom: .35rem; }
+    #race-title { font-family: var(--display); font-size: 1.9rem; letter-spacing: .05em; line-height: 1.1; }
+    #race-pills { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .45rem; }
+    .pill { border: 1px solid var(--line); border-radius: 20px; padding: .16rem .65rem; font-family: var(--mono); font-size: .68rem; color: var(--dim); }
+    .pill strong { color: var(--cream); font-weight: 500; }
+    #race-time { font-family: var(--display); font-size: 3rem; letter-spacing: .04em; color: var(--gold); text-align: right; line-height: 1; text-shadow: 0 0 40px rgba(201,168,76,.3); }
+    #race-time-lbl { font-family: var(--mono); font-size: .64rem; color: var(--dim); text-align: right; margin-top: .18rem; letter-spacing: .1em; text-transform: uppercase; }
 
-    /* ── RUNNERS ── */
-    #runners-container { display: flex; flex-direction: column; gap: .55rem; }
+    /* EW NOTICE */
+    #ew-notice { font-family: var(--mono); font-size: .72rem; color: var(--gold); background: rgba(201,168,76,.08); border: 1px solid rgba(201,168,76,.2); border-radius: 6px; padding: .4rem .9rem; margin-bottom: 1rem; display: inline-block; }
 
-    .runner-card {
-      background: var(--turf-card);
-      border: 1px solid var(--turf-line);
-      border-radius: 10px;
-      padding: .9rem 1.2rem;
-      display: grid;
-      grid-template-columns: 64px 1fr auto;
-      gap: .75rem 1.1rem;
-      align-items: center;
-      transition: border-color .2s, transform .15s;
-      position: relative;
-      overflow: hidden;
-    }
-    .runner-card::before {
-      content: '';
-      position: absolute;
-      left: 0; top: 0; bottom: 0;
-      width: 4px;
-      border-radius: 10px 0 0 10px;
-    }
-    .runner-card:hover { border-color: rgba(201,168,76,.3); transform: translateX(2px); }
+    /* RUNNERS */
+    #runners { display: flex; flex-direction: column; gap: .5rem; }
 
-    .runner-card.rec-win    { border-color: rgba(76,201,122,.2); }
-    .runner-card.rec-win::before { background: var(--green); }
-    .runner-card.rec-eachway { border-color: rgba(201,168,76,.2); }
-    .runner-card.rec-eachway::before { background: var(--gold); }
-    .runner-card.rec-skip::before { background: rgba(255,255,255,.1); }
+    .rcard {
+      background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+      padding: .85rem 1.15rem; display: grid;
+      grid-template-columns: 60px 1fr auto; gap: .7rem 1rem; align-items: start;
+      position: relative; overflow: hidden; transition: border-color .2s;
+    }
+    .rcard::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; border-radius: 10px 0 0 10px; }
+    .rcard:hover { border-color: rgba(201,168,76,.25); }
+    .rcard.win    { border-color: rgba(76,201,122,.22); } .rcard.win::before    { background: var(--green); }
+    .rcard.ew     { border-color: rgba(240,165,0,.22); }  .rcard.ew::before     { background: var(--amber); }
+    .rcard.skip::before { background: rgba(255,255,255,.1); }
 
-    /* Silk column */
-    .runner-silks { flex-shrink: 0; text-align: center; }
-    .silk-img {
-      width: 48px;
-      height: 48px;
-      object-fit: contain;
-      border-radius: 6px;
-      background: rgba(255,255,255,.04);
-      display: block;
-      margin: 0 auto;
-    }
-    /* Fallback SVG silk when no image */
-    .silk-fallback {
-      width: 48px;
-      height: 48px;
-      border-radius: 6px;
-      display: block;
-      margin: 0 auto;
-    }
-    .runner-num {
-      font-family: var(--mono);
-      font-size: .65rem;
-      color: var(--text-dim);
-      text-align: center;
-      margin-top: .2rem;
-    }
+    /* Silk */
+    .silk-col { text-align: center; padding-top: .1rem; }
+    .silk-img { width: 48px; height: 48px; object-fit: contain; border-radius: 6px; background: rgba(255,255,255,.04); display: block; margin: 0 auto; }
+    .silk-svg { width: 48px; height: 48px; border-radius: 6px; display: block; margin: 0 auto; }
+    .rnum { font-family: var(--mono); font-size: .62rem; color: var(--dim); text-align: center; margin-top: .18rem; }
 
-    /* Info column */
-    .horse-name {
-      font-family: var(--display);
-      font-size: 1.3rem;
-      letter-spacing: .05em;
-      color: var(--cream);
-      line-height: 1;
-      display: flex;
-      align-items: center;
-      gap: .5rem;
-      flex-wrap: wrap;
-    }
-    .fav-tag {
-      font-family: var(--mono);
-      font-size: .58rem;
-      background: rgba(201,168,76,.12);
-      border: 1px solid rgba(201,168,76,.3);
-      color: var(--gold);
-      padding: .1rem .38rem;
-      border-radius: 3px;
-      letter-spacing: .08em;
-    }
-    .country-tag {
-      font-family: var(--mono);
-      font-size: .58rem;
-      background: rgba(255,255,255,.05);
-      border: 1px solid var(--turf-line);
-      color: var(--text-dim);
-      padding: .1rem .38rem;
-      border-radius: 3px;
-      letter-spacing: .06em;
-    }
-    .runner-people {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .2rem .7rem;
-      margin-top: .3rem;
-    }
-    .runner-person {
-      font-family: var(--mono);
-      font-size: .7rem;
-      color: var(--text-dim);
-    }
-    .runner-person strong { color: var(--cream-dim); font-weight: 500; }
-    .runner-tags {
-      display: flex;
-      gap: .3rem;
-      margin-top: .35rem;
-      flex-wrap: wrap;
-    }
-    .tag {
-      font-family: var(--mono);
-      font-size: .63rem;
-      padding: .1rem .38rem;
-      border-radius: 3px;
-      border: 1px solid var(--turf-line);
-      color: var(--text-dim);
-    }
+    /* Info */
+    .hname { font-family: var(--display); font-size: 1.25rem; letter-spacing: .05em; line-height: 1; display: flex; align-items: center; gap: .45rem; flex-wrap: wrap; }
+    .badge-fav { font-family: var(--mono); font-size: .56rem; background: rgba(201,168,76,.12); border: 1px solid rgba(201,168,76,.3); color: var(--gold); padding: .08rem .35rem; border-radius: 3px; letter-spacing: .08em; }
+    .badge-ctry { font-family: var(--mono); font-size: .56rem; background: rgba(255,255,255,.06); border: 1px solid var(--line); color: var(--dim); padding: .08rem .35rem; border-radius: 3px; }
 
-    /* Right column */
-    .runner-right {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: .35rem;
-      min-width: 110px;
-    }
-    .odds-display {
-      font-family: var(--display);
-      font-size: 1.75rem;
-      letter-spacing: .04em;
-      color: var(--gold);
-      line-height: 1;
-    }
-    .odds-decimal {
-      font-family: var(--mono);
-      font-size: .63rem;
-      color: var(--text-dim);
-    }
-    .rec-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: .28rem;
-      padding: .28rem .65rem;
-      border-radius: 20px;
-      font-family: var(--mono);
-      font-size: .66rem;
-      font-weight: 500;
-      letter-spacing: .05em;
-      text-transform: uppercase;
-      white-space: nowrap;
-    }
-    .rec-badge.win      { background: rgba(76,201,122,.12); color: var(--green);     border: 1px solid rgba(76,201,122,.28); }
-    .rec-badge.eachway  { background: rgba(201,168,76,.1);  color: var(--gold-light); border: 1px solid rgba(201,168,76,.28); }
-    .rec-badge.skip     { background: rgba(255,255,255,.04); color: var(--text-dim);  border: 1px solid var(--turf-line); }
-    .rec-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
-    .win .rec-dot     { background: var(--green); }
-    .eachway .rec-dot { background: var(--gold); }
-    .skip .rec-dot    { background: var(--text-dim); }
+    .people { display: flex; flex-wrap: wrap; gap: .18rem .65rem; margin-top: .28rem; font-family: var(--mono); font-size: .68rem; color: var(--dim); }
+    .people strong { color: #c8bfa8; font-weight: 500; }
 
-    .confidence-bar {
-      width: 80px;
-      height: 3px;
-      background: var(--turf-line);
-      border-radius: 2px;
-      overflow: hidden;
-    }
-    .confidence-fill { height: 100%; border-radius: 2px; transition: width .5s ease; }
-    .win .confidence-fill     { background: var(--green); }
-    .eachway .confidence-fill { background: var(--gold); }
-    .skip .confidence-fill    { background: var(--text-dim); opacity: .5; }
+    .tags { display: flex; gap: .28rem; margin-top: .3rem; flex-wrap: wrap; }
+    .tag { font-family: var(--mono); font-size: .61rem; padding: .08rem .35rem; border-radius: 3px; border: 1px solid var(--line); color: var(--dim); }
 
-    /* ── LEGEND ── */
-    #legend {
-      margin-top: 1.75rem;
-      background: var(--turf-card);
-      border: 1px solid var(--turf-line);
-      border-radius: 10px;
-      padding: .9rem 1.2rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: .75rem 2rem;
-      align-items: center;
-    }
-    #legend h3 {
-      font-family: var(--mono);
-      font-size: .66rem;
-      color: var(--text-dim);
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      flex: 0 0 100%;
-    }
-    .legend-item {
-      display: flex;
-      align-items: center;
-      gap: .5rem;
-      font-family: var(--sans);
-      font-size: .78rem;
-      color: var(--text-dim);
-    }
-    #legend-disclaimer {
-      margin-left: auto;
-      font-family: var(--mono);
-      font-size: .63rem;
-      color: var(--text-dim);
-      opacity: .6;
-    }
+    /* Reasoning */
+    .reasoning { margin-top: .38rem; font-family: var(--sans); font-size: .75rem; color: var(--dim); font-style: italic; line-height: 1.4; }
 
-    /* ── STATE MESSAGES ── */
-    #state-message {
-      text-align: center;
-      padding: 4rem 2rem;
-      font-family: var(--mono);
-      color: var(--text-dim);
-      font-size: .88rem;
-      line-height: 1.7;
-    }
-    .spinner {
-      display: inline-block;
-      width: 20px; height: 20px;
-      border: 2px solid var(--turf-line);
-      border-top-color: var(--gold);
-      border-radius: 50%;
-      animation: spin .7s linear infinite;
-      vertical-align: middle;
-      margin-right: .5rem;
-    }
+    /* Score bar */
+    .score-bar-wrap { margin-top: .42rem; }
+    .score-bar-row { display: flex; align-items: center; gap: .4rem; margin-bottom: .18rem; }
+    .score-bar-label { font-family: var(--mono); font-size: .58rem; color: var(--dim); width: 68px; flex-shrink: 0; text-transform: uppercase; letter-spacing: .05em; }
+    .score-bar-track { flex: 1; height: 4px; background: rgba(255,255,255,.07); border-radius: 2px; overflow: hidden; max-width: 160px; }
+    .score-bar-fill { height: 100%; border-radius: 2px; transition: width .5s ease; }
+    .score-bar-val { font-family: var(--mono); font-size: .58rem; color: var(--dim); width: 24px; text-align: right; flex-shrink: 0; }
+
+    /* Right */
+    .rright { display: flex; flex-direction: column; align-items: flex-end; gap: .32rem; min-width: 115px; }
+    .odds-big { font-family: var(--display); font-size: 1.7rem; letter-spacing: .04em; color: var(--gold); line-height: 1; }
+    .odds-dec { font-family: var(--mono); font-size: .61rem; color: var(--dim); }
+    .rec-badge { display: inline-flex; align-items: center; gap: .26rem; padding: .26rem .62rem; border-radius: 20px; font-family: var(--mono); font-size: .64rem; font-weight: 500; letter-spacing: .05em; text-transform: uppercase; white-space: nowrap; }
+    .rec-badge.win  { background: rgba(76,201,122,.1);  color: var(--green); border: 1px solid rgba(76,201,122,.28); }
+    .rec-badge.ew   { background: rgba(240,165,0,.1);   color: var(--amber); border: 1px solid rgba(240,165,0,.28); }
+    .rec-badge.skip { background: rgba(255,255,255,.04); color: var(--dim);  border: 1px solid var(--line); }
+    .rdot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+    .win  .rdot { background: var(--green); }
+    .ew   .rdot { background: var(--amber); }
+    .skip .rdot { background: var(--dim); }
+
+    .conf-bar { width: 88px; height: 3px; background: var(--line); border-radius: 2px; overflow: hidden; }
+    .conf-fill { height: 100%; border-radius: 2px; }
+    .win  .conf-fill { background: var(--green); }
+    .ew   .conf-fill { background: var(--amber); }
+    .skip .conf-fill { background: var(--dim); opacity: .45; }
+
+    .total-score { font-family: var(--mono); font-size: .62rem; color: var(--dim); }
+    .total-score span { color: var(--cream); font-weight: 500; }
+
+    /* LEGEND */
+    #legend { margin-top: 1.6rem; background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: .85rem 1.15rem; display: flex; flex-wrap: wrap; gap: .7rem 1.8rem; align-items: center; }
+    #legend h3 { font-family: var(--mono); font-size: .64rem; color: var(--dim); letter-spacing: .12em; text-transform: uppercase; flex: 0 0 100%; }
+    .leg-item { display: flex; align-items: center; gap: .45rem; font-size: .77rem; color: var(--dim); }
+    #leg-disc { margin-left: auto; font-family: var(--mono); font-size: .6rem; color: var(--dim); opacity: .55; }
+
+    /* MODEL INFO */
+    #model-info { margin-top: .8rem; background: rgba(201,168,76,.05); border: 1px solid rgba(201,168,76,.12); border-radius: 8px; padding: .7rem 1rem; font-family: var(--mono); font-size: .66rem; color: var(--dim); line-height: 1.7; }
+    #model-info strong { color: var(--gold-lt); }
+
+    /* STATE */
+    #state { text-align: center; padding: 4rem 2rem; font-family: var(--mono); color: var(--dim); font-size: .86rem; line-height: 1.7; }
+    .spinner { display: inline-block; width: 20px; height: 20px; border: 2px solid var(--line); border-top-color: var(--gold); border-radius: 50%; animation: spin .7s linear infinite; vertical-align: middle; margin-right: .5rem; }
     @keyframes spin { to { transform: rotate(360deg); } }
 
-    /* ── ANIMATIONS ── */
-    .fade-in { animation: fadeIn .3s ease both; }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(6px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .s1{animation-delay:.03s} .s2{animation-delay:.06s} .s3{animation-delay:.09s}
-    .s4{animation-delay:.12s} .s5{animation-delay:.15s} .s6{animation-delay:.18s}
-    .s7{animation-delay:.21s} .s8{animation-delay:.24s}
+    .fade { animation: fadeIn .3s ease both; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+    .s1{animation-delay:.03s}.s2{animation-delay:.06s}.s3{animation-delay:.09s}
+    .s4{animation-delay:.12s}.s5{animation-delay:.15s}.s6{animation-delay:.18s}
+    .s7{animation-delay:.21s}.s8{animation-delay:.24s}
 
-    /* ── RESPONSIVE ── */
-    @media (max-width: 680px) {
+    @media (max-width: 660px) {
       #header { flex-direction: column; align-items: flex-start; }
       #race-select { min-width: unset; width: 100%; }
       #header-meta { margin-left: 0; }
-      .runner-card { grid-template-columns: 52px 1fr; }
-      .runner-right { grid-column: 1/-1; flex-direction: row; align-items: center; justify-content: space-between; }
+      .rcard { grid-template-columns: 48px 1fr; }
+      .rright { grid-column: 1/-1; flex-direction: row; align-items: center; justify-content: space-between; }
       #race-overview { grid-template-columns: 1fr; }
-      #race-time-big, #race-time-label { text-align: left; }
+      #race-time, #race-time-lbl { text-align: left; }
     }
   </style>
 </head>
@@ -476,252 +177,259 @@
 
 <header id="header">
   <h1>RACE DAY <span>UK & IRE</span></h1>
-
   <div id="race-selector-wrap">
     <label for="race-select">RACE</label>
-    <select id="race-select"><option value="">Loading…</option></select>
+    <select id="race-select"><option>Loading…</option></select>
   </div>
-
   <div id="header-meta">
-    <span id="date-display">—</span>
-    <span id="updated-display"></span>
+    <span id="date-disp">—</span>
+    <span id="upd-disp"></span>
     <button id="refresh-btn" onclick="loadData()">↺ Refresh</button>
   </div>
 </header>
 
 <main id="main">
-  <div id="state-message"><span class="spinner"></span> Loading today's races…</div>
+  <div id="state"><span class="spinner"></span> Loading today's races…</div>
   <div id="race-overview" style="display:none"></div>
-  <div id="runners-container" style="display:none"></div>
+  <div id="ew-notice" style="display:none"></div>
+  <div id="runners" style="display:none"></div>
   <div id="legend" style="display:none"></div>
+  <div id="model-info" style="display:none"></div>
 </main>
 
 <script>
-/* ── STATE ── */
 let allRaces = [];
 
-/* ── BOOT ── */
 loadData();
 
 async function loadData() {
-  show('<span class="spinner"></span> Loading today\'s races…');
+  showState('<span class="spinner"></span> Loading today\'s races…');
   try {
     const r = await fetch('races.json?t=' + Date.now());
     if (!r.ok) throw new Error('HTTP ' + r.status);
     const data = await r.json();
     allRaces = data.races || [];
-
-    if (!allRaces.length) {
-      show('🏇 No races available for today. Check back later.');
-      return;
-    }
-
+    if (!allRaces.length) { showState('🏇 No races today. Check back later.'); return; }
     buildSelector(allRaces);
-    updateMeta(data.date, data.generated_at);
-
-    // Auto-pick nearest upcoming race
-    const nowMins = new Date().getHours() * 60 + new Date().getMinutes();
+    setMeta(data.date, data.generated_at);
+    // Auto-select nearest upcoming
+    const nowM = new Date().getHours()*60 + new Date().getMinutes();
     let pick = allRaces[0].id;
     for (const r of allRaces) {
-      const [h, m] = r.time.split(':').map(Number);
-      if (h * 60 + m >= nowMins) { pick = r.id; break; }
+      const [h,m] = r.time.split(':').map(Number);
+      if (h*60+m >= nowM) { pick = r.id; break; }
     }
     selectRace(pick);
-  } catch (e) {
-    show('⚠ Could not load race data.<br><small style="opacity:.6">' + esc(e.message) + '</small>');
+  } catch(e) {
+    showState('⚠ Could not load race data.<br><small>' + esc(e.message) + '</small>');
   }
 }
 
-/* ── SELECTOR ── */
 function buildSelector(races) {
   const sel = document.getElementById('race-select');
   sel.innerHTML = '';
-
   const byCourse = {};
-  for (const r of races) {
-    (byCourse[r.course] = byCourse[r.course] || []).push(r);
-  }
-
-  for (const [course, courseRaces] of Object.entries(byCourse)) {
-    const grp = document.createElement('optgroup');
-    grp.label = course;
-    for (const r of courseRaces) {
-      const opt = document.createElement('option');
-      opt.value = r.id;
-      const horses = r.runners.slice(0, 3).map(h => h.horse).join(', ');
-      const more   = r.runners.length > 3 ? ' +' + (r.runners.length - 3) : '';
-      opt.textContent = r.time + '  —  ' + horses + more;
-      grp.appendChild(opt);
+  for (const r of races) (byCourse[r.course] = byCourse[r.course]||[]).push(r);
+  for (const [course, list] of Object.entries(byCourse)) {
+    const g = document.createElement('optgroup');
+    g.label = course;
+    for (const r of list) {
+      const o = document.createElement('option');
+      o.value = r.id;
+      const horses = r.runners.slice(0,3).map(h=>h.horse).join(', ');
+      const more = r.runners.length > 3 ? ' +' + (r.runners.length-3) : '';
+      o.textContent = r.time + '  —  ' + horses + more;
+      g.appendChild(o);
     }
-    sel.appendChild(grp);
+    sel.appendChild(g);
   }
-
   sel.onchange = () => selectRace(sel.value);
 }
 
-function updateMeta(dateStr, genAt) {
-  const d = new Date(dateStr + 'T12:00:00');
-  document.getElementById('date-display').textContent =
-    d.toLocaleDateString('en-GB', { weekday:'short', day:'numeric', month:'long', year:'numeric' });
+function setMeta(dateStr, genAt) {
+  const d = new Date(dateStr+'T12:00:00');
+  document.getElementById('date-disp').textContent =
+    d.toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'long',year:'numeric'});
   if (genAt) {
     const g = new Date(genAt);
-    document.getElementById('updated-display').textContent =
-      'Updated ' + g.toLocaleTimeString('en-GB', { hour:'2-digit', minute:'2-digit' });
+    document.getElementById('upd-disp').textContent =
+      'Updated ' + g.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'});
   }
 }
 
-/* ── RACE RENDER ── */
 function selectRace(id) {
   document.getElementById('race-select').value = id;
-  const race = allRaces.find(r => r.id === id);
+  const race = allRaces.find(r=>r.id===id);
   if (!race) return;
-
   renderOverview(race);
+  renderEWNotice(race);
   renderRunners(race);
   renderLegend();
-
-  document.getElementById('state-message').style.display = 'none';
-  document.getElementById('race-overview').style.display  = 'grid';
-  document.getElementById('runners-container').style.display = 'flex';
-  document.getElementById('legend').style.display         = 'flex';
+  renderModelInfo();
+  ['race-overview','ew-notice','runners','legend','model-info'].forEach(i => {
+    document.getElementById(i).style.display = '';
+  });
+  document.getElementById('state').style.display = 'none';
 }
 
 function renderOverview(race) {
   document.getElementById('race-overview').innerHTML = `
     <div>
-      <span id="race-course-badge">${esc(race.course)}</span>
+      <span id="race-badge">${esc(race.course)}</span>
       <div id="race-title">${esc(race.title)}</div>
-      <div id="race-meta-pills">
-        ${pill('Dist',    race.distance)}
-        ${pill('Going',   race.going)}
-        ${pill('Class',   race.race_class)}
-        ${pill('Prize',   race.prize)}
+      <div id="race-pills">
+        ${pill('Dist', race.distance)}${pill('Going', race.going)}
+        ${pill('Class', race.race_class)}${pill('Prize', race.prize)}
         ${pill('Runners', race.num_runners)}
       </div>
     </div>
     <div>
-      <div id="race-time-big">${esc(race.time)}</div>
-      <div id="race-time-label">Post time</div>
-    </div>
-  `;
+      <div id="race-time">${esc(race.time)}</div>
+      <div id="race-time-lbl">Post time</div>
+    </div>`;
 }
 
 function pill(label, val) {
   if (!val) return '';
-  return `<span class="meta-pill"><strong>${esc(label)}</strong> ${esc(String(val))}</span>`;
+  return `<span class="pill"><strong>${esc(label)}</strong> ${esc(String(val))}</span>`;
+}
+
+function renderEWNotice(race) {
+  const el = document.getElementById('ew-notice');
+  const p = race.ew_places || 0;
+  if (p <= 1) {
+    el.textContent = '⚠ Small field — win only (no each way terms)';
+  } else {
+    el.textContent = `Each Way: pays ${p} places (1/${p<=2?'4':'5'} odds for a place)`;
+  }
 }
 
 function renderRunners(race) {
-  const el = document.getElementById('runners-container');
+  const el = document.getElementById('runners');
   el.innerHTML = '';
   race.runners.forEach((runner, idx) => {
-    const type  = (runner.recommendation?.type || 'Skip').toLowerCase();
-    const cls   = type === 'eachway' ? 'eachway' : type;
-    const label = runner.recommendation?.label || '';
-    const conf  = runner.recommendation?.confidence || 0;
-    const isFav = idx === 0 && runner.odds_dec !== null;
+    const rec  = runner.recommendation || {};
+    const type = (rec.type||'Skip').toLowerCase();
+    const cls  = type === 'eachway' ? 'ew' : type;
+    const comp = runner.components || {};
+    const isFav = idx === 0 && runner.score >= 45;
 
     const card = document.createElement('div');
-    card.className = `runner-card rec-${cls} fade-in s${Math.min(idx+1,8)}`;
+    card.className = `rcard ${cls} fade s${Math.min(idx+1,8)}`;
     card.innerHTML = `
-      <div class="runner-silks">
-        ${silkImg(runner.silk_url, runner.jockey, idx)}
-        <div class="runner-num">#${idx+1}</div>
+      <div class="silk-col">
+        ${silkEl(runner.silk_url, runner.jockey, idx)}
+        <div class="rnum">#${idx+1}</div>
       </div>
-      <div class="runner-info">
-        <div class="horse-name">
+      <div>
+        <div class="hname">
           ${esc(runner.horse)}
-          ${isFav ? '<span class="fav-tag">FAV</span>' : ''}
-          ${runner.country && runner.country !== 'GB' ? `<span class="country-tag">${esc(runner.country)}</span>` : ''}
+          ${isFav ? '<span class="badge-fav">TOP PICK</span>' : ''}
+          ${runner.country && runner.country!=='GB' ? `<span class="badge-ctry">${esc(runner.country)}</span>` : ''}
         </div>
-        <div class="runner-people">
-          ${runner.jockey  ? `<span class="runner-person">🏇 <strong>${esc(runner.jockey)}</strong></span>` : ''}
-          ${runner.trainer ? `<span class="runner-person">🎩 <strong>${esc(runner.trainer)}</strong></span>` : ''}
+        <div class="people">
+          ${runner.jockey  ? `<span>🏇 <strong>${esc(runner.jockey)}</strong></span>` : ''}
+          ${runner.trainer ? `<span>🎩 <strong>${esc(runner.trainer)}</strong></span>` : ''}
         </div>
-        <div class="runner-tags">
+        <div class="tags">
           ${runner.form   ? `<span class="tag">Form: ${esc(runner.form)}</span>` : ''}
-          ${runner.age    ? `<span class="tag">Age ${esc(runner.age)}</span>`    : ''}
-          ${runner.weight ? `<span class="tag">${esc(runner.weight)}</span>`     : ''}
-          ${runner.draw   ? `<span class="tag">Draw ${esc(runner.draw)}</span>`  : ''}
+          ${runner.age    ? `<span class="tag">Age ${esc(runner.age)}</span>` : ''}
+          ${runner.weight ? `<span class="tag">${esc(runner.weight)}</span>` : ''}
+          ${runner.draw   ? `<span class="tag">Draw ${esc(runner.draw)}</span>` : ''}
         </div>
+        ${rec.reasoning ? `<div class="reasoning">${esc(rec.reasoning)}</div>` : ''}
+        ${scoreBarHTML(comp)}
       </div>
-      <div class="runner-right">
-        <div class="odds-display">${esc(runner.odds_str || 'SP')}</div>
-        ${runner.odds_dec ? `<div class="odds-decimal">${runner.odds_dec.toFixed(2)}</div>` : ''}
+      <div class="rright">
+        <div class="odds-big">${esc(runner.odds_str||'SP')}</div>
+        ${runner.odds_dec ? `<div class="odds-dec">${runner.odds_dec.toFixed(2)} dec</div>` : ''}
         <span class="rec-badge ${cls}">
-          <span class="rec-dot"></span>${esc(label)}
+          <span class="rdot"></span>${esc(rec.label||'Skip')}
         </span>
-        <div class="confidence-bar ${cls}">
-          <div class="confidence-fill" style="width:${conf}%"></div>
+        <div class="conf-bar ${cls}">
+          <div class="conf-fill" style="width:${rec.confidence||0}%"></div>
         </div>
-      </div>
-    `;
+        <div class="total-score">Score <span>${runner.score||0}</span>/100</div>
+      </div>`;
     el.appendChild(card);
   });
 }
 
-function silkImg(url, jockey, idx) {
-  if (url) {
-    return `<img class="silk-img" src="${esc(url)}" alt="${esc(jockey || 'Jockey')} silks"
-      onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-      <div style="display:none">${fallbackSilk(idx)}</div>`;
-  }
-  return fallbackSilk(idx);
-}
-
-// Colour palette for fallback silks
-const SILK_COLOURS = [
-  ['#C62828','#FFEB3B'],['#1565C0','#FFFFFF'],['#2E7D32','#FFD600'],
-  ['#6A1B9A','#FFCA28'],['#00695C','#FFFFFF'],['#BF360C','#FFF9C4'],
-  ['#283593','#FF8F00'],['#4E342E','#FFFFFF'],['#37474F','#FF6D00'],
-  ['#880E4F','#FFFFFF'],
-];
-function fallbackSilk(idx) {
-  const [p, s] = SILK_COLOURS[idx % SILK_COLOURS.length];
-  return `<svg class="silk-fallback" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-    <path d="M11 20L7 31 16 33 16 43 32 43 32 33 41 31 37 20 30 24 24 15 18 24Z" fill="${p}" stroke="rgba(0,0,0,.2)" stroke-width=".8"/>
-    <ellipse cx="24" cy="15" rx="8" ry="5" fill="${s}" stroke="rgba(0,0,0,.2)" stroke-width=".8"/>
-    <path d="M16 20L7 31 16 33 16 24Z" fill="${s}" opacity=".7"/>
-    <path d="M32 20L41 31 32 33 32 24Z" fill="${s}" opacity=".7"/>
-  </svg>`;
+function scoreBarHTML(comp) {
+  if (!comp || !Object.keys(comp).length) return '';
+  const bars = [
+    { label: 'Rec Form',    key: 'recent_form',  color: '#4cc97a' },
+    { label: 'Consistency', key: 'consistency',  color: '#4cb8c9' },
+    { label: 'Odds Value',  key: 'odds_value',   color: '#c9a84c' },
+    { label: 'Jockey',      key: 'jockey',       color: '#a084e8' },
+    { label: 'Weight',      key: 'weight',       color: '#f0a500' },
+  ];
+  const rows = bars.map(b => {
+    const val = comp[b.key] ?? 0;
+    return `<div class="score-bar-row">
+      <span class="score-bar-label">${b.label}</span>
+      <div class="score-bar-track"><div class="score-bar-fill" style="width:${Math.min(100,val)}%;background:${b.color}"></div></div>
+      <span class="score-bar-val">${Math.round(val)}</span>
+    </div>`;
+  }).join('');
+  return `<div class="score-bar-wrap">${rows}</div>`;
 }
 
 function renderLegend() {
   document.getElementById('legend').innerHTML = `
     <h3>Key</h3>
-    <div class="legend-item">
-      <span class="rec-badge win" style="font-size:.63rem;padding:.2rem .5rem">
-        <span class="rec-dot"></span>Win Bet
-      </span>
-      Bet to win — strong implied value
+    <div class="leg-item">
+      <span class="rec-badge win" style="font-size:.61rem;padding:.18rem .48rem"><span class="rdot"></span>Win Bet</span>
+      High composite score — bet to win
     </div>
-    <div class="legend-item">
-      <span class="rec-badge eachway" style="font-size:.63rem;padding:.2rem .5rem">
-        <span class="rec-dot"></span>Each Way
-      </span>
-      Place value — covers 1st, 2nd (& 3rd/4th in larger fields)
+    <div class="leg-item">
+      <span class="rec-badge ew" style="font-size:.61rem;padding:.18rem .48rem"><span class="rdot"></span>Each Way</span>
+      Good place value — covers multiple positions
     </div>
-    <div class="legend-item">
-      <span class="rec-badge skip" style="font-size:.63rem;padding:.2rem .5rem">
-        <span class="rec-dot"></span>Skip
-      </span>
-      No clear value at current odds
+    <div class="leg-item">
+      <span class="rec-badge skip" style="font-size:.61rem;padding:.18rem .48rem"><span class="rdot"></span>Skip</span>
+      Insufficient value at current odds
     </div>
-    <div id="legend-disclaimer">Recommendations are informational only. Not financial advice.</div>
-  `;
+    <div id="leg-disc">Not financial advice. For information only.</div>`;
 }
 
-/* ── UTILS ── */
-function show(html) {
-  document.getElementById('state-message').innerHTML = html;
-  document.getElementById('state-message').style.display = 'block';
-  document.getElementById('race-overview').style.display  = 'none';
-  document.getElementById('runners-container').style.display = 'none';
-  document.getElementById('legend').style.display         = 'none';
+function renderModelInfo() {
+  document.getElementById('model-info').innerHTML = `
+    <strong>How scores are calculated</strong> — 6-factor model:
+    Recent Form (30%) · Consistency (15%) · Odds Value (25%) · Jockey Quality (15%) · Weight Advantage (10%) · Absence Penalty (−5%).
+    Going conditions apply a field-level modifier. DNF rate (falls, pulls-up) penalises horses with poor completion records.`;
+}
+
+/* ── SILK ── */
+const SILK_COLS = [
+  ['#C62828','#FFEB3B'],['#1565C0','#FFFFFF'],['#2E7D32','#FFD600'],
+  ['#6A1B9A','#FFCA28'],['#00695C','#FFFFFF'],['#BF360C','#FFF9C4'],
+  ['#283593','#FF8F00'],['#4E342E','#FFFFFF'],['#37474F','#FF6D00'],
+  ['#880E4F','#FFFFFF'],
+];
+function silkEl(url, jockey, idx) {
+  const [p,s] = SILK_COLS[idx % SILK_COLS.length];
+  const svg = `<svg class="silk-svg" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+    <path d="M11 20L7 31 16 33 16 43 32 43 32 33 41 31 37 20 30 24 24 15 18 24Z" fill="${p}" stroke="rgba(0,0,0,.2)" stroke-width=".8"/>
+    <ellipse cx="24" cy="15" rx="8" ry="5" fill="${s}" stroke="rgba(0,0,0,.2)" stroke-width=".8"/>
+    <path d="M16 20L7 31 16 33 16 24Z" fill="${s}" opacity=".7"/>
+    <path d="M32 20L41 31 32 33 32 24Z" fill="${s}" opacity=".7"/>
+  </svg>`;
+  if (!url) return svg;
+  return `<img class="silk-img" src="${esc(url)}" alt="${esc(jockey||'')} silks"
+    onerror="this.outerHTML=\`${svg.replace(/`/g,"'")}\`">`;
+}
+
+function showState(html) {
+  document.getElementById('state').innerHTML = html;
+  document.getElementById('state').style.display = 'block';
+  ['race-overview','ew-notice','runners','legend','model-info'].forEach(i => {
+    document.getElementById(i).style.display = 'none';
+  });
 }
 
 function esc(s) {
-  return String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  return String(s??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 </script>
 </body>
