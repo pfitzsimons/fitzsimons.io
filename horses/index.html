@@ -544,7 +544,10 @@ function showState(html) {
 /* ════════════════════════════════════════
    ACCURACY DRAWER
 ════════════════════════════════════════ */
-function openDrawer()  { document.body.classList.add('drawer-open'); }
+function openDrawer() {
+  document.body.classList.add('drawer-open');
+  loadAccuracy();
+}
 function closeDrawer() { document.body.classList.remove('drawer-open'); }
 
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
