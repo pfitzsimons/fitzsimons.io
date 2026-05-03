@@ -1,0 +1,66 @@
+name: Fetch Results & Accuracy
+
+on:
+  schedule:
+    # Once a day at 09:00 UTC (10:00am BST / 9:00am GMT)
+    # Runs after the previous day's last races have finished
+    # and Sporting Life has published all results overnight
+    - cron: '0 9 * * *'
+  workflow_dispatch:
+    inputs:
+      results_date:
+        description: 'Date to fetch results for YYYY-MM-DD (leave blank for yesterday)'
+        required: false
+        default: ''
+
+jobs:
+  results:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Archive today's predictions before scraper overwrites them
+        run: |
+          TODAY=$(date -u +%Y-%m-%d)
+          mkdir -p horses/history
+          if [ -f horses/races.json ]; then
+            RACES_DATE=$(python3 -c "import json; d=json.load(open('horses/races.json')); print(d.get('date',''))")
+            ARCHIVE="horses/history/races_${RACES_DATE}.json"
+            if [ ! -f "$ARCHIVE" ]; then
+              cp horses/races.json "$ARCHIVE"
+              echo "Archived predictions for $RACES_DATE"
+            else
+              echo "Archive already exists for $RACES_DATE"
+            fi
+          fi
+
+      - name: Fetch yesterday's results & update accuracy
+        env:
+          RESULTS_DATE: ${{ github.event.inputs.results_date }}
+        run: |
+          DATE_ARG=""
+          if [ -n "$RESULTS_DATE" ]; then
+            DATE_ARG="--results-date $RESULTS_DATE"
+          fi
+          python3 scripts/fetch_results.py $DATE_ARG --out "$GITHUB_WORKSPACE/horses"
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add horses/accuracy.json horses/history/ || true
+          if git diff --staged --quiet; then
+            echo "No changes"
+          else
+            git commit -m "📊 Accuracy update $(date -u +%Y-%m-%d) [skip ci]"
+            git push
+          fi
