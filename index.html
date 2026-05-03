@@ -1,275 +1,664 @@
-<!doctype html>
-<html lang="en" class="no-js">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- Primary Meta -->
-  <title>Patrick Fitzsimons — Engineering Manager</title>
-  <meta name="description" content="Patrick Fitzsimons — Engineering Manager in Belfast, specialising in vulnerability detection and vulnerability management. Background in Java; currently managing three teams (16 people)." />
-  <meta name="author" content="Patrick Fitzsimons" />
-  <meta name="theme-color" content="#0ea5e9" />
-
-  <!-- Open Graph / Twitter -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Patrick Fitzsimons — Engineering Manager" />
-  <meta property="og:description" content="Engineering Manager based in Belfast, focused on vulnerability detection and vulnerability management. Background in Java; managing three teams (16 people)." />
-  <meta property="og:url" content="https://www.fitzsimons.io/" />
-  <meta property="og:image" content="/og-image.jpg" />
-  <meta name="twitter:card" content="summary_large_image" />
-
-  <!-- Fonts -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Race Day — UK & Ireland Horse Racing</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-
-  <!-- Favicon (optional) -->
-  <!-- Place favicons in / and update paths below. -->
-  <link rel="icon" href="/favicon.ico" sizes="any" />
-  <link rel="icon" href="/icon.svg" type="image/svg+xml" />
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,500;0,9..40,700&display=swap" rel="stylesheet" />
   <style>
-    /* ---- CSS Reset (trimmed) ---- */
-    *, *::before, *::after { box-sizing: border-box; }
-    html, body { height: 100%; }
-    body { margin: 0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
-    img, picture, video, canvas, svg { display: block; max-width: 100%; }
-    button, input, textarea, select { font: inherit; }
-    a { color: inherit; }
-
-    /* ---- Theme ---- */
     :root {
-      --bg: #0b1220;               /* slate-950-ish */
-      --panel: #0f172a;            /* slate-900 */
-      --muted: #94a3b8;            /* slate-400 */
-      --text: #e5e7eb;             /* gray-200 */
-      --card: #111827;             /* gray-900 */
-      --border: #1f2937;           /* gray-800 */
-      --brand: #0ea5e9;            /* sky-500 */
-      --brand-2: #22d3ee;          /* cyan-400 */
-      --shadow: 0 10px 30px rgba(2, 6, 23, 0.6);
-      --radius: 16px;
-      --spacing: clamp(16px, 2vw, 24px);
-      --maxw: 1100px;
+      --turf:      #0a1f0d;
+      --card:      #162e1a;
+      --line:      rgba(255,255,255,.07);
+      --gold:      #c9a84c;
+      --gold-lt:   #e8c76a;
+      --cream:     #f5efe0;
+      --dim:       #8a877e;
+      --green:     #4cc97a;
+      --amber:     #f0a500;
+      --red:       #e05a5a;
+      --mono: 'DM Mono', monospace;
+      --sans: 'DM Sans', sans-serif;
+      --display: 'Bebas Neue', sans-serif;
+      --drawer-w: 420px;
     }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--sans); background: var(--turf); color: var(--cream); min-height: 100vh; overflow-x: hidden; }
 
-    @media (prefers-color-scheme: light) {
-      :root { --bg: #ffffff; --panel: #f8fafc; --card:#ffffff; --text:#0f172a; --muted:#475569; --border:#e5e7eb; --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);}  
+    /* ── HEADER ── */
+    #header {
+      position: sticky; top: 0; z-index: 200;
+      background: rgba(10,31,13,.96); backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+      padding: .7rem 1.4rem;
+      display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap;
     }
+    #header h1 { font-family: var(--display); font-size: 1.9rem; letter-spacing: .08em; color: var(--gold); line-height: 1; }
+    #header h1 span { font-family: var(--mono); font-size: .85rem; color: var(--cream); opacity: .55; margin-left: .4rem; vertical-align: middle; }
 
-    html.dark { --bg: #0b1220; --panel:#0f172a; --card:#0f172a; --text:#e5e7eb; --muted:#94a3b8; --border:#1f2937; }
-
-    body { background: radial-gradient(1200px 600px at 80% -10%, rgba(56,189,248,.15), transparent),
-                     radial-gradient(1000px 500px at -10% 10%, rgba(99,102,241,.12), transparent),
-                     var(--bg);
-           color: var(--text);
-           line-height: 1.6; }
-
-    /* ---- Layout ---- */
-    .container { max-width: var(--maxw); margin-inline: auto; padding-inline: var(--spacing); }
-
-    /* Skip link */
-    .skip-link { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
-    .skip-link:focus { position: fixed; left: 16px; top: 16px; width: auto; height: auto; padding: 8px 12px; background: var(--panel); color: var(--text); border-radius: 8px; box-shadow: var(--shadow); }
-
-    /* Header */
-    header { position: sticky; top: 0; z-index: 50; backdrop-filter: saturate(180%) blur(10px); background: color-mix(in oklab, var(--bg) 70%, transparent); border-bottom: 1px solid var(--border); }
-    .nav { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 0; }
-    .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: 0.5px; }
-    .brand .logo { width: 28px; height: 28px; border-radius: 8px; background: linear-gradient(135deg, var(--brand), var(--brand-2)); box-shadow: 0 6px 20px rgba(14,165,233,.35); }
-    .brand a { text-decoration: none; }
-
-    .nav-links { display: flex; align-items: center; gap: 18px; }
-    .nav-links a { text-decoration: none; color: var(--muted); font-weight: 500; padding: 8px 10px; border-radius: 10px; transition: color .2s ease, background .2s ease, transform .04s ease; }
-    .nav-links a:hover { color: var(--text); background: color-mix(in oklab, var(--panel) 85%, transparent); }
-    .nav-links a[aria-current="page"], .nav-links a[aria-current="true"] { color: var(--text); }
-
-    .nav-ctas { display: flex; align-items: center; gap: 12px; }
-    .btn { display: inline-flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 999px; text-decoration: none; font-weight: 600; border: 1px solid var(--border); background: color-mix(in oklab, var(--panel) 85%, transparent); }
-    .btn:hover { transform: translateY(-1px); box-shadow: var(--shadow); }
-    .btn-primary { background: linear-gradient(135deg, var(--brand), var(--brand-2)); color: #062231; border-color: transparent; }
-
-    .theme-toggle { border: 1px solid var(--border); background: none; border-radius: 999px; padding: 10px 12px; cursor: pointer; color: var(--muted); }
-
-    /* Hero */
-    .hero { padding: clamp(56px, 8vw, 120px) 0 clamp(40px, 6vw, 80px); }
-    .hero-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: clamp(20px, 5vw, 56px); align-items: center; }
-    .eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 6px 10px; border-radius: 999px; border: 1px solid var(--border); color: var(--muted); background: color-mix(in oklab, var(--panel) 85%, transparent); }
-    .title { margin: 14px 0 10px; font-size: clamp(28px, 5vw, 52px); line-height: 1.1; letter-spacing: -0.02em; font-weight: 800; }
-    .subtitle { color: var(--muted); font-size: clamp(16px, 2.2vw, 19px); max-width: 60ch; }
-    .hero-cta { display: flex; gap: 12px; margin-top: 22px; flex-wrap: wrap; }
-
-    .hero-card { background: linear-gradient(180deg, color-mix(in oklab, var(--panel) 92%, transparent), color-mix(in oklab, var(--panel) 85%, transparent)); border: 1px solid var(--border); border-radius: var(--radius); padding: clamp(16px, 3vw, 24px); box-shadow: var(--shadow); }
-    .hero-list { margin: 0; padding-left: 18px; color: var(--muted); }
-
-    /* Sections */
-    section { padding: clamp(40px, 6vw, 80px) 0; }
-    .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 22px; }
-    .section-head h2 { font-size: clamp(22px, 3vw, 28px); margin: 0; letter-spacing: -0.01em; }
-    .section-head p { color: var(--muted); margin: 0; }
-
-    /* Cards grid */
-    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: clamp(14px, 2vw, 20px); }
-    .card { grid-column: span 12; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: clamp(16px, 3vw, 22px); transition: transform .12s ease, box-shadow .2s ease, border-color .2s ease; }
-    .card:hover { transform: translateY(-2px); box-shadow: var(--shadow); border-color: color-mix(in oklab, var(--brand) 35%, var(--border)); }
-    .card h3 { margin: 0 0 8px; font-size: 20px; }
-    .card p { margin: 0; color: var(--muted); }
-    .card .meta { margin-top: 10px; display: flex; gap: 10px; flex-wrap: wrap; }
-    .tag { font-size: 12px; padding: 6px 10px; background: color-mix(in oklab, var(--panel) 85%, transparent); border: 1px solid var(--border); border-radius: 999px; color: var(--muted); }
-
-    .span-4 { grid-column: span 4; }
-    .span-6 { grid-column: span 6; }
-
-    @media (max-width: 900px) {
-      .hero-grid { grid-template-columns: 1fr; }
-      .span-4, .span-6 { grid-column: span 12; }
+    #race-selector-wrap { display: flex; align-items: center; gap: .5rem; }
+    #race-selector-wrap label { font-family: var(--mono); font-size: .65rem; color: var(--dim); letter-spacing: .1em; text-transform: uppercase; white-space: nowrap; }
+    #race-select {
+      background: var(--card); border: 1px solid var(--gold); color: var(--cream);
+      font-family: var(--mono); font-size: .8rem; padding: .42rem .8rem;
+      border-radius: 6px; cursor: pointer; min-width: 310px; max-width: 500px;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23c9a84c' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right .7rem center; padding-right: 2.1rem;
     }
+    #race-select:focus { outline: none; border-color: var(--gold-lt); box-shadow: 0 0 0 3px rgba(201,168,76,.15); }
+    #race-select option, #race-select optgroup { background: #122818; }
 
-    /* List styles */
-    .linkish { color: var(--text); text-decoration: none; border-bottom: 1px dashed color-mix(in oklab, var(--brand) 60%, var(--border)); }
-    .linkish:hover { border-bottom-style: solid; }
+    #header-meta { margin-left: auto; display: flex; align-items: center; gap: .9rem; font-family: var(--mono); font-size: .7rem; color: var(--dim); }
+    #date-disp { color: var(--gold-lt); }
+    #refresh-btn { background: none; border: 1px solid var(--line); color: var(--dim); padding: .28rem .65rem; border-radius: 4px; cursor: pointer; font-family: var(--mono); font-size: .68rem; transition: all .2s; }
+    #refresh-btn:hover { border-color: var(--gold); color: var(--gold); }
 
-    /* Footer */
-    footer { padding: 34px 0 60px; color: var(--muted); border-top: 1px solid var(--border); margin-top: 40px; }
-    .footer-grid { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 16px; }
+    /* Accuracy drawer trigger button */
+    #acc-trigger {
+      display: flex; align-items: center; gap: .45rem;
+      background: rgba(201,168,76,.1); border: 1px solid rgba(201,168,76,.3);
+      color: var(--gold); padding: .28rem .75rem; border-radius: 4px;
+      cursor: pointer; font-family: var(--mono); font-size: .68rem;
+      transition: all .2s; white-space: nowrap;
+    }
+    #acc-trigger:hover { background: rgba(201,168,76,.18); border-color: var(--gold); }
+    #acc-trigger .acc-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+    #acc-trigger.has-data .acc-dot { animation: pulse 2s ease infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
 
-    /* Mobile nav */
-    .menu-btn { display: none; }
-    @media (max-width: 740px) {
-      .nav { gap: 8px; }
-      .nav-links { display: none; }
-      .menu-btn { display: inline-flex; border: 1px solid var(--border); background: none; border-radius: 10px; padding: 10px 12px; color: var(--muted); }
-      .mobile-menu { display: none; position: absolute; inset: auto 0 0 0; top: 56px; background: var(--panel); border-top: 1px solid var(--border); box-shadow: var(--shadow); }
-      .mobile-menu a { display: block; padding: 14px var(--spacing); border-bottom: 1px solid var(--border); color: var(--muted); text-decoration: none; }
-      .mobile-menu a:hover { color: var(--text); }
-      .mobile-menu.open { display: block; }
+    /* ── MAIN ── */
+    #main { max-width: 1380px; margin: 0 auto; padding: 1.4rem 1.4rem 4rem; transition: padding-right .35s ease; }
+    body.drawer-open #main { padding-right: calc(var(--drawer-w) + 1.4rem); }
+
+    /* ── RACE OVERVIEW ── */
+    #race-overview {
+      background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+      padding: 1.2rem 1.4rem; margin-bottom: 1.2rem;
+      display: grid; grid-template-columns: 1fr auto; gap: .4rem 2rem; align-items: start;
+    }
+    #race-badge { display: inline-block; background: var(--gold); color: var(--turf); font-family: var(--mono); font-size: .66rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; padding: .17rem .55rem; border-radius: 3px; margin-bottom: .35rem; }
+    #race-title { font-family: var(--display); font-size: 1.9rem; letter-spacing: .05em; line-height: 1.1; }
+    #race-pills { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .45rem; }
+    .pill { border: 1px solid var(--line); border-radius: 20px; padding: .16rem .65rem; font-family: var(--mono); font-size: .68rem; color: var(--dim); }
+    .pill strong { color: var(--cream); font-weight: 500; }
+    #race-time { font-family: var(--display); font-size: 3rem; letter-spacing: .04em; color: var(--gold); text-align: right; line-height: 1; text-shadow: 0 0 40px rgba(201,168,76,.3); }
+    #race-time-lbl { font-family: var(--mono); font-size: .64rem; color: var(--dim); text-align: right; margin-top: .18rem; letter-spacing: .1em; text-transform: uppercase; }
+
+    /* EW NOTICE */
+    #ew-notice { font-family: var(--mono); font-size: .72rem; color: var(--gold); background: rgba(201,168,76,.08); border: 1px solid rgba(201,168,76,.2); border-radius: 6px; padding: .4rem .9rem; margin-bottom: 1rem; display: inline-block; }
+
+    /* ── RUNNERS ── */
+    #runners { display: flex; flex-direction: column; gap: .5rem; }
+    .rcard {
+      background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+      padding: .85rem 1.15rem; display: grid;
+      grid-template-columns: 60px 1fr auto; gap: .7rem 1rem; align-items: start;
+      position: relative; overflow: hidden; transition: border-color .2s;
+    }
+    .rcard::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; border-radius: 10px 0 0 10px; }
+    .rcard:hover { border-color: rgba(201,168,76,.25); }
+    .rcard.win  { border-color: rgba(76,201,122,.22); } .rcard.win::before  { background: var(--green); }
+    .rcard.ew   { border-color: rgba(240,165,0,.22);  } .rcard.ew::before   { background: var(--amber); }
+    .rcard.skip::before { background: rgba(255,255,255,.1); }
+    .silk-col { text-align: center; padding-top: .1rem; }
+    .silk-img { width: 48px; height: 48px; object-fit: contain; border-radius: 6px; background: rgba(255,255,255,.04); display: block; margin: 0 auto; }
+    .silk-svg { width: 48px; height: 48px; border-radius: 6px; display: block; margin: 0 auto; }
+    .rnum { font-family: var(--mono); font-size: .62rem; color: var(--dim); text-align: center; margin-top: .18rem; }
+    .hname { font-family: var(--display); font-size: 1.25rem; letter-spacing: .05em; line-height: 1; display: flex; align-items: center; gap: .45rem; flex-wrap: wrap; }
+    .badge-fav  { font-family: var(--mono); font-size: .56rem; background: rgba(201,168,76,.12); border: 1px solid rgba(201,168,76,.3); color: var(--gold); padding: .08rem .35rem; border-radius: 3px; letter-spacing: .08em; }
+    .badge-ctry { font-family: var(--mono); font-size: .56rem; background: rgba(255,255,255,.06); border: 1px solid var(--line); color: var(--dim); padding: .08rem .35rem; border-radius: 3px; }
+    .people { display: flex; flex-wrap: wrap; gap: .18rem .65rem; margin-top: .28rem; font-family: var(--mono); font-size: .68rem; color: var(--dim); }
+    .people strong { color: #c8bfa8; font-weight: 500; }
+    .tags { display: flex; gap: .28rem; margin-top: .3rem; flex-wrap: wrap; }
+    .tag { font-family: var(--mono); font-size: .61rem; padding: .08rem .35rem; border-radius: 3px; border: 1px solid var(--line); color: var(--dim); }
+    .reasoning { margin-top: .38rem; font-family: var(--sans); font-size: .75rem; color: var(--dim); font-style: italic; line-height: 1.4; }
+    .score-bar-wrap { margin-top: .42rem; }
+    .score-bar-row { display: flex; align-items: center; gap: .4rem; margin-bottom: .18rem; }
+    .score-bar-label { font-family: var(--mono); font-size: .58rem; color: var(--dim); width: 68px; flex-shrink: 0; text-transform: uppercase; letter-spacing: .05em; }
+    .score-bar-track { flex: 1; height: 4px; background: rgba(255,255,255,.07); border-radius: 2px; overflow: hidden; max-width: 160px; }
+    .score-bar-fill { height: 100%; border-radius: 2px; transition: width .5s ease; }
+    .score-bar-val { font-family: var(--mono); font-size: .58rem; color: var(--dim); width: 24px; text-align: right; flex-shrink: 0; }
+    .rright { display: flex; flex-direction: column; align-items: flex-end; gap: .32rem; min-width: 115px; }
+    .odds-big { font-family: var(--display); font-size: 1.7rem; letter-spacing: .04em; color: var(--gold); line-height: 1; }
+    .odds-dec { font-family: var(--mono); font-size: .61rem; color: var(--dim); }
+    .rec-badge { display: inline-flex; align-items: center; gap: .26rem; padding: .26rem .62rem; border-radius: 20px; font-family: var(--mono); font-size: .64rem; font-weight: 500; letter-spacing: .05em; text-transform: uppercase; white-space: nowrap; }
+    .rec-badge.win  { background: rgba(76,201,122,.1);  color: var(--green); border: 1px solid rgba(76,201,122,.28); }
+    .rec-badge.ew   { background: rgba(240,165,0,.1);   color: var(--amber); border: 1px solid rgba(240,165,0,.28); }
+    .rec-badge.skip { background: rgba(255,255,255,.04); color: var(--dim);  border: 1px solid var(--line); }
+    .rdot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+    .win .rdot  { background: var(--green); }
+    .ew  .rdot  { background: var(--amber); }
+    .skip .rdot { background: var(--dim); }
+    .conf-bar { width: 88px; height: 3px; background: var(--line); border-radius: 2px; overflow: hidden; }
+    .conf-fill { height: 100%; border-radius: 2px; }
+    .win  .conf-fill { background: var(--green); }
+    .ew   .conf-fill { background: var(--amber); }
+    .skip .conf-fill { background: var(--dim); opacity: .45; }
+    .total-score { font-family: var(--mono); font-size: .62rem; color: var(--dim); }
+    .total-score span { color: var(--cream); font-weight: 500; }
+
+    /* ── LEGEND / MODEL ── */
+    #legend { margin-top: 1.6rem; background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: .85rem 1.15rem; display: flex; flex-wrap: wrap; gap: .7rem 1.8rem; align-items: center; }
+    #legend h3 { font-family: var(--mono); font-size: .64rem; color: var(--dim); letter-spacing: .12em; text-transform: uppercase; flex: 0 0 100%; }
+    .leg-item { display: flex; align-items: center; gap: .45rem; font-size: .77rem; color: var(--dim); }
+    #leg-disc { margin-left: auto; font-family: var(--mono); font-size: .6rem; color: var(--dim); opacity: .55; }
+    #model-info { margin-top: .8rem; background: rgba(201,168,76,.05); border: 1px solid rgba(201,168,76,.12); border-radius: 8px; padding: .7rem 1rem; font-family: var(--mono); font-size: .66rem; color: var(--dim); line-height: 1.7; }
+    #model-info strong { color: var(--gold-lt); }
+
+    /* ── STATE ── */
+    #state { text-align: center; padding: 4rem 2rem; font-family: var(--mono); color: var(--dim); font-size: .86rem; line-height: 1.7; }
+    .spinner { display: inline-block; width: 20px; height: 20px; border: 2px solid var(--line); border-top-color: var(--gold); border-radius: 50%; animation: spin .7s linear infinite; vertical-align: middle; margin-right: .5rem; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .fade { animation: fadeIn .3s ease both; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+    .s1{animation-delay:.03s}.s2{animation-delay:.06s}.s3{animation-delay:.09s}
+    .s4{animation-delay:.12s}.s5{animation-delay:.15s}.s6{animation-delay:.18s}
+    .s7{animation-delay:.21s}.s8{animation-delay:.24s}
+
+    /* ── ACCURACY DRAWER ── */
+    #acc-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,.45);
+      z-index: 299; opacity: 0; pointer-events: none;
+      transition: opacity .3s ease;
+    }
+    body.drawer-open #acc-overlay { opacity: 1; pointer-events: all; }
+
+    #acc-drawer {
+      position: fixed; top: 0; right: 0; bottom: 0;
+      width: var(--drawer-w); max-width: 100vw;
+      background: #0f2613;
+      border-left: 1px solid var(--line);
+      z-index: 300;
+      display: flex; flex-direction: column;
+      transform: translateX(100%);
+      transition: transform .35s cubic-bezier(.4,0,.2,1);
+      overflow: hidden;
+    }
+    body.drawer-open #acc-drawer { transform: translateX(0); }
+
+    #acc-drawer-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 1.2rem .8rem;
+      border-bottom: 1px solid var(--line);
+      flex-shrink: 0;
+    }
+    #acc-drawer-header h2 { font-family: var(--display); font-size: 1.5rem; letter-spacing: .07em; color: var(--gold); line-height: 1; }
+    #acc-close {
+      background: none; border: 1px solid var(--line); color: var(--dim);
+      width: 30px; height: 30px; border-radius: 6px; cursor: pointer;
+      font-size: 1rem; display: flex; align-items: center; justify-content: center;
+      transition: all .2s; flex-shrink: 0;
+    }
+    #acc-close:hover { border-color: var(--gold); color: var(--gold); }
+
+    #acc-drawer-body { flex: 1; overflow-y: auto; padding: 1rem 1.2rem 2rem; }
+    #acc-drawer-body::-webkit-scrollbar { width: 4px; }
+    #acc-drawer-body::-webkit-scrollbar-track { background: transparent; }
+    #acc-drawer-body::-webkit-scrollbar-thumb { background: var(--line); border-radius: 2px; }
+
+    /* Summary stats strip */
+    .acc-summary { display: grid; grid-template-columns: repeat(4,1fr); gap: .5rem; margin-bottom: 1.1rem; }
+    .acc-stat { background: rgba(255,255,255,.04); border: 1px solid var(--line); border-radius: 8px; padding: .6rem .5rem; text-align: center; }
+    .acc-stat-val { font-family: var(--display); font-size: 1.7rem; letter-spacing: .04em; line-height: 1; }
+    .acc-stat-val.good { color: var(--green); }
+    .acc-stat-val.mid  { color: var(--amber); }
+    .acc-stat-val.poor { color: var(--red); }
+    .acc-stat-val.neutral { color: var(--cream); }
+    .acc-stat-lbl { font-family: var(--mono); font-size: .58rem; color: var(--dim); margin-top: .2rem; letter-spacing: .06em; text-transform: uppercase; }
+    .acc-stat-sub { font-family: var(--mono); font-size: .56rem; color: var(--dim); opacity: .7; margin-top: .1rem; }
+
+    /* Daily history */
+    .acc-section-title { font-family: var(--mono); font-size: .63rem; color: var(--dim); letter-spacing: .1em; text-transform: uppercase; margin-bottom: .55rem; margin-top: .2rem; }
+    .acc-days { display: flex; flex-direction: column; gap: .4rem; }
+
+    .acc-day { background: rgba(255,255,255,.03); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+    .acc-day-hdr {
+      display: flex; align-items: center; gap: .7rem; padding: .6rem .85rem;
+      cursor: pointer; user-select: none; transition: background .15s;
+    }
+    .acc-day-hdr:hover { background: rgba(255,255,255,.04); }
+    .acc-day-date { font-family: var(--mono); font-size: .7rem; color: var(--cream); min-width: 72px; }
+    .acc-bar-wrap { flex: 1; height: 5px; background: var(--line); border-radius: 3px; overflow: hidden; }
+    .acc-bar-fill { height: 100%; border-radius: 3px; transition: width .4s ease; }
+    .acc-day-pct { font-family: var(--display); font-size: 1rem; min-width: 38px; text-align: right; }
+    .acc-day-counts { font-family: var(--mono); font-size: .6rem; color: var(--dim); min-width: 72px; text-align: right; }
+    .acc-chevron { font-family: var(--mono); font-size: .6rem; color: var(--dim); transition: transform .2s; }
+    .acc-day.open .acc-chevron { transform: rotate(90deg); }
+
+    /* Race detail inside a day */
+    .acc-day-body { display: none; border-top: 1px solid var(--line); padding: .6rem .85rem .7rem; }
+    .acc-day.open .acc-day-body { display: block; }
+
+    .acc-race { margin-bottom: .65rem; }
+    .acc-race:last-child { margin-bottom: 0; }
+    .acc-race-hdr { font-family: var(--mono); font-size: .65rem; color: var(--dim); margin-bottom: .3rem; display: flex; gap: .5rem; align-items: baseline; }
+    .acc-race-hdr strong { color: var(--gold-lt); }
+    .acc-race-winner { font-size: .6rem; color: var(--green); }
+
+    .acc-runners { display: flex; flex-direction: column; gap: .2rem; }
+    .acc-runner { display: flex; align-items: center; gap: .45rem; font-family: var(--mono); font-size: .65rem; padding: .18rem .3rem; border-radius: 4px; }
+    .acc-runner.correct { background: rgba(76,201,122,.07); }
+    .acc-runner.incorrect { background: rgba(224,90,90,.06); }
+    .acc-runner.dnf { opacity: .55; }
+    .acc-icon { width: 14px; flex-shrink: 0; text-align: center; }
+    .acc-hname { flex: 1; color: var(--cream); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .acc-rec-tag { font-size: .58rem; padding: .05rem .3rem; border-radius: 3px; flex-shrink: 0; }
+    .acc-rec-tag.win  { background: rgba(76,201,122,.15);  color: var(--green); }
+    .acc-rec-tag.ew   { background: rgba(240,165,0,.15);   color: var(--amber); }
+    .acc-pos { min-width: 28px; text-align: right; flex-shrink: 0; }
+    .acc-pos.p1 { color: var(--green); font-weight: 600; }
+    .acc-pos.placed { color: var(--amber); }
+
+    #acc-empty { font-family: var(--mono); font-size: .75rem; color: var(--dim); text-align: center; padding: 2.5rem 1rem; line-height: 1.8; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 660px) {
+      #header { flex-direction: column; align-items: flex-start; }
+      #race-select { min-width: unset; width: 100%; }
+      #header-meta { margin-left: 0; }
+      .rcard { grid-template-columns: 48px 1fr; }
+      .rright { grid-column: 1/-1; flex-direction: row; align-items: center; justify-content: space-between; }
+      #race-overview { grid-template-columns: 1fr; }
+      #race-time, #race-time-lbl { text-align: left; }
+      --drawer-w: 100vw;
+      body.drawer-open #main { padding-right: 1.4rem; }
+      .acc-summary { grid-template-columns: repeat(2,1fr); }
     }
   </style>
 </head>
-
 <body>
-  <header style="text-align:center; padding:40px 0 20px;">
-    <h1 style="margin:0; font-size:clamp(32px, 6vw, 60px); font-weight:800;">Patrick Fitzsimons</h1>
-  </header>
-  <a class="skip-link" href="#main">Skip to content</a>
 
+<!-- ── HEADER ── -->
+<header id="header">
+  <h1>RACE DAY <span>UK & IRE</span></h1>
+  <div id="race-selector-wrap">
+    <label for="race-select">RACE</label>
+    <select id="race-select"><option>Loading…</option></select>
+  </div>
+  <div id="header-meta">
+    <span id="date-disp">—</span>
+    <span id="upd-disp"></span>
+    <button id="refresh-btn" onclick="loadData()">↺ Refresh</button>
+    <button id="acc-trigger" onclick="openDrawer()" title="View prediction accuracy">
+      <span class="acc-dot"></span> Accuracy
+    </button>
+  </div>
+</header>
 
-  <main id="main">
-    <!-- Hero -->
-    <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <span class="eyebrow">👋 Hello — I’m Patrick Fitzsimons.</span>
-          <h1 class="title">Engineering leader focused on secure, resilient software.</h1>
-          <p class="subtitle">Based in Belfast, Northern Ireland. I specialise in vulnerability detection and vulnerability management, with a Java background. I currently manage three teams (16 people).</p>
-          <div class="hero-cta">
-            <a class="btn btn-primary" href="#contact">Get in touch</a>
-          </div>
-        </div>
-        <aside class="hero-card" aria-label="At a glance">
-          <h3 style="margin:0 0 8px; font-size:18px">At a glance</h3>
-          <ul class="hero-list">
-            <li>Location: Belfast, Northern Ireland</li>
-            <li>Focus: Vulnerability detection &amp; Vulnerability management</li>
-            <li>Background: Java • Security tooling • Team leadership</li>
-            <li>Currently: Managing 3 teams (16 people)</li>
-          </ul>
-        </aside>
-      </div>
-    </section>
-
-
-
-    <!-- About -->
-    <section id="about">
-      <div class="container">
-        <div class="section-head">
-          <h2>About</h2>
-          <p>A quick bio and what I do.</p>
-        </div>
-
-        <div class="grid">
-          <article class="card span-6">
-            <p>I’m an Engineering Manager based in Belfast with a background in Java development. I’ve specialised in vulnerability detection and vulnerability management—building teams and tooling that make secure-by-default the easy path. Today I manage three teams, totalling 16 people, focusing on delivery, developer experience, and measurable risk reduction. I care about clear communication, pragmatic process, and creating an environment where engineers do their best work.</p>
-          </article>
-          <aside class="card span-6">
-            <h3 style="margin-top:0">Links</h3>
-            <ul>
-              <li><a class="linkish" href="mailto:patrick@fitzsimons.io">Email</a></li>
-              <li><a class="linkish" href="https://www.linkedin.com/in/patrick-fitzsimons-221917107/" target="_blank" rel="noopener">LinkedIn</a></li>
-            </ul>
-          </aside>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact">
-      <div class="container">
-        <div class="section-head">
-          <h2>Contact</h2>
-          <p>Best ways to reach me.</p>
-        </div>
-        <div class="card">
-          <p>Prefer email? <a class="linkish" href="mailto:patrick@fitzsimons.io">Drop me a note</a>. For quick chats, <a class="linkish" href="https://www.linkedin.com/in/patrick-fitzsimons-221917107/" target="_blank" rel="noopener">find me on LinkedIn</a>.</p>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container footer-grid">
-      <p>© <span id="year"></span> Patrick Fitzsimons. All rights reserved.</p>
-      <p><a class="linkish" href="#top">Back to top ↑</a></p>
+<!-- ── ACCURACY DRAWER ── -->
+<div id="acc-overlay" onclick="closeDrawer()"></div>
+<aside id="acc-drawer">
+  <div id="acc-drawer-header">
+    <h2>ACCURACY</h2>
+    <button id="acc-close" onclick="closeDrawer()">✕</button>
+  </div>
+  <div id="acc-drawer-body">
+    <div id="acc-empty">No accuracy data yet.<br>Check back tomorrow after the<br>first automated run.</div>
+    <div id="acc-content" style="display:none">
+      <div class="acc-summary" id="acc-summary"></div>
+      <div class="acc-section-title">Daily History</div>
+      <div class="acc-days" id="acc-days"></div>
     </div>
-  </footer>
+  </div>
+</aside>
 
-  <!-- Structured data (SEO) -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Patrick Fitzsimons",
-      "url": "https://www.fitzsimons.io/",
-      "sameAs": [
-        "https://www.linkedin.com/in/patrick-fitzsimons-221917107/<!-- TODO: your LinkedIn slug -->"
-      ]
+<!-- ── MAIN ── -->
+<main id="main">
+  <div id="state"><span class="spinner"></span> Loading today's races…</div>
+  <div id="race-overview" style="display:none"></div>
+  <div id="ew-notice"     style="display:none"></div>
+  <div id="runners"       style="display:none"></div>
+  <div id="legend"        style="display:none"></div>
+  <div id="model-info"    style="display:none"></div>
+</main>
+
+<script>
+/* ════════════════════════════════════════
+   RACES
+════════════════════════════════════════ */
+let allRaces = [];
+loadData();
+
+async function loadData() {
+  showState('<span class="spinner"></span> Loading today\'s races…');
+  try {
+    const r = await fetch('races.json?t=' + Date.now());
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    const data = await r.json();
+    allRaces = data.races || [];
+    if (!allRaces.length) { showState('🏇 No races today. Check back later.'); return; }
+    buildSelector(allRaces);
+    setMeta(data.date, data.generated_at);
+    const nowM = new Date().getHours()*60 + new Date().getMinutes();
+    let pick = allRaces[0].id;
+    for (const r of allRaces) {
+      const [h,m] = r.time.split(':').map(Number);
+      if (h*60+m >= nowM) { pick = r.id; break; }
     }
-  </script>
+    selectRace(pick);
+  } catch(e) {
+    showState('⚠ Could not load race data.<br><small>' + esc(e.message) + '</small>');
+  }
+}
 
-  <script>
-    // Basic enhancements
-    document.documentElement.classList.remove('no-js');
+function buildSelector(races) {
+  const sel = document.getElementById('race-select');
+  sel.innerHTML = '';
+  const byCourse = {};
+  for (const r of races) (byCourse[r.course] = byCourse[r.course]||[]).push(r);
+  for (const [course, list] of Object.entries(byCourse)) {
+    const g = document.createElement('optgroup');
+    g.label = course;
+    for (const r of list) {
+      const o = document.createElement('option');
+      o.value = r.id;
+      const horses = r.runners.slice(0,3).map(h=>h.horse).join(', ');
+      const more = r.runners.length > 3 ? ' +' + (r.runners.length-3) : '';
+      o.textContent = r.time + '  —  ' + horses + more;
+      g.appendChild(o);
+    }
+    sel.appendChild(g);
+  }
+  sel.onchange = () => selectRace(sel.value);
+}
 
-    // Theme toggle with localStorage
-    const root = document.documentElement;
-    const themeToggle = document.getElementById('themeToggle');
-    const stored = localStorage.getItem('theme');
-    if (stored === 'dark') root.classList.add('dark');
-    if (stored === 'light') root.classList.remove('dark');
+function setMeta(dateStr, genAt) {
+  const d = new Date(dateStr+'T12:00:00');
+  document.getElementById('date-disp').textContent =
+    d.toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'long',year:'numeric'});
+  if (genAt) {
+    const g = new Date(genAt);
+    document.getElementById('upd-disp').textContent =
+      'Updated ' + g.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'});
+  }
+}
 
-    themeToggle?.addEventListener('click', () => {
-      const isDark = root.classList.toggle('dark');
-      localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    });
+function selectRace(id) {
+  document.getElementById('race-select').value = id;
+  const race = allRaces.find(r=>r.id===id);
+  if (!race) return;
+  renderOverview(race);
+  renderEWNotice(race);
+  renderRunners(race);
+  renderLegend();
+  renderModelInfo();
+  ['race-overview','ew-notice','runners','legend','model-info'].forEach(i =>
+    document.getElementById(i).style.display = '');
+  document.getElementById('state').style.display = 'none';
+}
 
-    // Mobile menu
-    const menuBtn = document.getElementById('menuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    function closeMenu(){ mobileMenu?.classList.remove('open'); menuBtn?.setAttribute('aria-expanded','false'); }
-    window.closeMenu = closeMenu;
-    menuBtn?.addEventListener('click', () => {
-      const open = mobileMenu.classList.toggle('open');
-      menuBtn.setAttribute('aria-expanded', String(open));
-    });
+function renderOverview(race) {
+  document.getElementById('race-overview').innerHTML = `
+    <div>
+      <span id="race-badge">${esc(race.course)}</span>
+      <div id="race-title">${esc(race.title)}</div>
+      <div id="race-pills">
+        ${pill('Dist',race.distance)}${pill('Going',race.going)}
+        ${pill('Class',race.race_class)}${pill('Prize',race.prize)}
+        ${pill('Runners',race.num_runners)}
+      </div>
+    </div>
+    <div>
+      <div id="race-time">${esc(race.time)}</div>
+      <div id="race-time-lbl">Post time</div>
+    </div>`;
+}
 
-    // Year
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+function pill(label, val) {
+  if (!val) return '';
+  return `<span class="pill"><strong>${esc(label)}</strong> ${esc(String(val))}</span>`;
+}
 
-  <!-- Optional: lightweight analytics (e.g., Umami, Plausible) -->
-  <!-- <script defer data-domain="fitzsimons.io" src="https://plausible.io/js/plausible.js"></script> -->
+function renderEWNotice(race) {
+  const el = document.getElementById('ew-notice');
+  const p = race.ew_places || 0;
+  el.textContent = p <= 1
+    ? '⚠ Small field — win only (no each way terms)'
+    : `Each Way: pays ${p} places (1/${p<=2?'4':'5'} odds for a place)`;
+}
+
+function renderRunners(race) {
+  const el = document.getElementById('runners');
+  el.innerHTML = '';
+  race.runners.forEach((runner, idx) => {
+    const rec  = runner.recommendation || {};
+    const type = (rec.type||'Skip').toLowerCase();
+    const cls  = type === 'eachway' ? 'ew' : type;
+    const comp = runner.components || {};
+    const isFav = idx === 0 && runner.score >= 45;
+    const card = document.createElement('div');
+    card.className = `rcard ${cls} fade s${Math.min(idx+1,8)}`;
+    card.innerHTML = `
+      <div class="silk-col">
+        ${silkEl(runner.silk_url, runner.jockey, idx)}
+        <div class="rnum">#${idx+1}</div>
+      </div>
+      <div>
+        <div class="hname">
+          ${esc(runner.horse)}
+          ${isFav ? '<span class="badge-fav">TOP PICK</span>' : ''}
+          ${runner.country && runner.country!=='GB' ? `<span class="badge-ctry">${esc(runner.country)}</span>` : ''}
+        </div>
+        <div class="people">
+          ${runner.jockey  ? `<span>🏇 <strong>${esc(runner.jockey)}</strong></span>` : ''}
+          ${runner.trainer ? `<span>🎩 <strong>${esc(runner.trainer)}</strong></span>` : ''}
+        </div>
+        <div class="tags">
+          ${runner.form   ? `<span class="tag">Form: ${esc(runner.form)}</span>` : ''}
+          ${runner.age    ? `<span class="tag">Age ${esc(runner.age)}</span>` : ''}
+          ${runner.weight ? `<span class="tag">${esc(runner.weight)}</span>` : ''}
+          ${runner.draw   ? `<span class="tag">Draw ${esc(runner.draw)}</span>` : ''}
+        </div>
+        ${rec.reasoning ? `<div class="reasoning">${esc(rec.reasoning)}</div>` : ''}
+        ${scoreBarHTML(comp)}
+      </div>
+      <div class="rright">
+        <div class="odds-big">${esc(runner.odds_str||'SP')}</div>
+        ${runner.odds_dec ? `<div class="odds-dec">${runner.odds_dec.toFixed(2)} dec</div>` : ''}
+        <span class="rec-badge ${cls}"><span class="rdot"></span>${esc(rec.label||'Skip')}</span>
+        <div class="conf-bar ${cls}"><div class="conf-fill" style="width:${rec.confidence||0}%"></div></div>
+        <div class="total-score">Score <span>${runner.score||0}</span>/100</div>
+      </div>`;
+    el.appendChild(card);
+  });
+}
+
+function scoreBarHTML(comp) {
+  if (!comp || !Object.keys(comp).length) return '';
+  const bars = [
+    {label:'Rec Form',   key:'recent_form', color:'#4cc97a'},
+    {label:'Consistency',key:'consistency', color:'#4cb8c9'},
+    {label:'Odds Value', key:'odds_value',  color:'#c9a84c'},
+    {label:'Jockey',     key:'jockey',      color:'#a084e8'},
+    {label:'Weight',     key:'weight',      color:'#f0a500'},
+  ];
+  return '<div class="score-bar-wrap">' + bars.map(b => {
+    const val = comp[b.key] ?? 0;
+    return `<div class="score-bar-row">
+      <span class="score-bar-label">${b.label}</span>
+      <div class="score-bar-track"><div class="score-bar-fill" style="width:${Math.min(100,val)}%;background:${b.color}"></div></div>
+      <span class="score-bar-val">${Math.round(val)}</span>
+    </div>`;
+  }).join('') + '</div>';
+}
+
+function renderLegend() {
+  document.getElementById('legend').innerHTML = `
+    <h3>Key</h3>
+    <div class="leg-item"><span class="rec-badge win" style="font-size:.61rem;padding:.18rem .48rem"><span class="rdot"></span>Win Bet</span> High composite score — bet to win</div>
+    <div class="leg-item"><span class="rec-badge ew"  style="font-size:.61rem;padding:.18rem .48rem"><span class="rdot"></span>Each Way</span> Good place value — covers multiple positions</div>
+    <div class="leg-item"><span class="rec-badge skip"style="font-size:.61rem;padding:.18rem .48rem"><span class="rdot"></span>Skip</span> Insufficient value at current odds</div>
+    <div id="leg-disc">Not financial advice. For information only.</div>`;
+}
+
+function renderModelInfo() {
+  document.getElementById('model-info').innerHTML =
+    `<strong>How scores are calculated</strong> — 6-factor model:
+    Recent Form (30%) · Consistency (15%) · Odds Value (25%) · Jockey Quality (15%) · Weight Advantage (10%) · Absence Penalty (−5%).
+    Going conditions apply a field-level modifier. DNF rate penalises horses with poor completion records.`;
+}
+
+/* ── SILK ── */
+const SILK_COLS = [
+  ['#C62828','#FFEB3B'],['#1565C0','#FFFFFF'],['#2E7D32','#FFD600'],
+  ['#6A1B9A','#FFCA28'],['#00695C','#FFFFFF'],['#BF360C','#FFF9C4'],
+  ['#283593','#FF8F00'],['#4E342E','#FFFFFF'],['#37474F','#FF6D00'],['#880E4F','#FFFFFF'],
+];
+function silkEl(url, jockey, idx) {
+  const [p,s] = SILK_COLS[idx % SILK_COLS.length];
+  const svg = `<svg class="silk-svg" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+    <path d="M11 20L7 31 16 33 16 43 32 43 32 33 41 31 37 20 30 24 24 15 18 24Z" fill="${p}" stroke="rgba(0,0,0,.2)" stroke-width=".8"/>
+    <ellipse cx="24" cy="15" rx="8" ry="5" fill="${s}" stroke="rgba(0,0,0,.2)" stroke-width=".8"/>
+    <path d="M16 20L7 31 16 33 16 24Z" fill="${s}" opacity=".7"/>
+    <path d="M32 20L41 31 32 33 32 24Z" fill="${s}" opacity=".7"/>
+  </svg>`;
+  if (!url) return svg;
+  return `<img class="silk-img" src="${esc(url)}" alt="${esc(jockey||'')} silks"
+    onerror="this.outerHTML=\`${svg.replace(/`/g,"'")}\`">`;
+}
+
+function showState(html) {
+  document.getElementById('state').innerHTML = html;
+  document.getElementById('state').style.display = 'block';
+  ['race-overview','ew-notice','runners','legend','model-info'].forEach(i =>
+    document.getElementById(i).style.display = 'none');
+}
+
+/* ════════════════════════════════════════
+   ACCURACY DRAWER
+════════════════════════════════════════ */
+function openDrawer()  { document.body.classList.add('drawer-open'); }
+function closeDrawer() { document.body.classList.remove('drawer-open'); }
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
+
+async function loadAccuracy() {
+  try {
+    const r = await fetch('accuracy.json?t=' + Date.now());
+    if (!r.ok) return;
+    const log = await r.json();
+    if (!log || !log.length) return;
+    renderAccuracy(log);
+    document.getElementById('acc-trigger').classList.add('has-data');
+  } catch(e) { /* file doesn't exist yet — silent */ }
+}
+
+function renderAccuracy(log) {
+  document.getElementById('acc-empty').style.display = 'none';
+  document.getElementById('acc-content').style.display = 'block';
+
+  // Aggregate totals
+  let totWin=0, totWinC=0, totEW=0, totEWC=0;
+  for (const d of log) {
+    const s = d.summary;
+    totWin  += s.win_total   || 0;
+    totWinC += s.win_correct || 0;
+    totEW   += s.ew_total    || 0;
+    totEWC  += s.ew_correct  || 0;
+  }
+  const all  = totWin + totEW;
+  const allC = totWinC + totEWC;
+  const overallPct = all  ? Math.round(allC/all*100)    : null;
+  const winPct     = totWin ? Math.round(totWinC/totWin*100) : null;
+  const ewPct      = totEW  ? Math.round(totEWC/totEW*100)  : null;
+
+  document.getElementById('acc-summary').innerHTML = `
+    ${stat('Overall', overallPct, `${allC}/${all}`)}
+    ${stat('Win',     winPct,     `${totWinC}/${totWin}`)}
+    ${stat('Each Way',ewPct,      `${totEWC}/${totEW}`)}
+    ${stat('Days', log.length, 'tracked', true)}`;
+
+  // Daily rows — newest first
+  const daysEl = document.getElementById('acc-days');
+  daysEl.innerHTML = '';
+  [...log].reverse().forEach(day => {
+    const s   = day.summary;
+    const pct = s.overall_pct ?? 0;
+    const col = pct >= 60 ? 'var(--green)' : pct >= 40 ? 'var(--amber)' : 'var(--red)';
+    const pcl = pct >= 60 ? 'good' : pct >= 40 ? 'mid' : 'poor';
+
+    const d    = new Date(day.date + 'T12:00:00');
+    const dateStr = d.toLocaleDateString('en-GB', {weekday:'short', day:'numeric', month:'short'});
+    const counts  = `${s.win_correct}/${s.win_total}W · ${s.ew_correct}/${s.ew_total}EW`;
+
+    const el = document.createElement('div');
+    el.className = 'acc-day';
+    el.innerHTML = `
+      <div class="acc-day-hdr" onclick="toggleDay(this)">
+        <span class="acc-day-date">${dateStr}</span>
+        <div class="acc-bar-wrap"><div class="acc-bar-fill" style="width:${pct}%;background:${col}"></div></div>
+        <span class="acc-day-pct ${pcl}">${pct != null ? pct+'%' : '—'}</span>
+        <span class="acc-day-counts">${counts}</span>
+        <span class="acc-chevron">▸</span>
+      </div>
+      <div class="acc-day-body">${buildDayRaces(day.races)}</div>`;
+    daysEl.appendChild(el);
+  });
+}
+
+function stat(label, val, sub, neutral=false) {
+  const display = val != null ? val + (neutral ? '' : '%') : '—';
+  const cls = neutral ? 'neutral' : val == null ? '' : val >= 60 ? 'good' : val >= 40 ? 'mid' : 'poor';
+  return `<div class="acc-stat">
+    <div class="acc-stat-val ${cls}">${display}</div>
+    <div class="acc-stat-lbl">${label}</div>
+    <div class="acc-stat-sub">${sub}</div>
+  </div>`;
+}
+
+function toggleDay(hdr) {
+  const day = hdr.closest('.acc-day');
+  day.classList.toggle('open');
+}
+
+function buildDayRaces(races) {
+  if (!races || !races.length) return '<div style="font-family:var(--mono);font-size:.63rem;color:var(--dim);padding:.3rem 0">No detail available</div>';
+  return races.map(race => {
+    const runners = race.runners.map(r => {
+      let icon, iconCol, rowCls;
+      if (r.outcome === 'correct')    { icon = '✓'; iconCol = 'var(--green)'; rowCls = 'correct'; }
+      else if (r.outcome === 'incorrect') { icon = '✗'; iconCol = 'var(--red)';   rowCls = 'incorrect'; }
+      else if (r.outcome === 'non_runner'){ icon = 'NR'; iconCol = 'var(--dim)';  rowCls = 'dnf'; }
+      else if (r.outcome === 'no_result') { icon = '—';  iconCol = 'var(--dim)';  rowCls = 'dnf'; }
+      else                                { icon = '—';  iconCol = 'var(--dim)';  rowCls = 'dnf'; }
+      const posStr  = r.actual_pos ? ordinal(r.actual_pos)
+                    : r.outcome === 'non_runner' ? 'NR'
+                    : r.outcome === 'no_result'  ? 'void'
+                    : '—';
+      const posCls  = r.actual_pos === 1 ? 'p1' : r.actual_pos <= 3 ? 'placed' : '';
+      const recCls  = r.rec === 'Win' ? 'win' : 'ew';
+      return `<div class="acc-runner ${rowCls}">
+        <span class="acc-icon" style="color:${iconCol};font-size:${r.outcome==='non_runner'?'.5rem':'.75rem'}">${icon}</span>
+        <span class="acc-hname">${esc(r.horse)}</span>
+        <span class="acc-rec-tag ${recCls}">${r.rec === 'EachWay' ? 'EW' : 'WIN'}</span>
+        <span class="acc-pos ${posCls}">${posStr}</span>
+      </div>`;
+    }).join('');
+    return `<div class="acc-race">
+      <div class="acc-race-hdr">
+        <strong>${esc(race.time)} ${esc(race.course)}</strong>
+        ${race.winner ? `<span class="acc-race-winner">🏆 ${esc(race.winner)}</span>` : ''}
+      </div>
+      <div class="acc-runners">${runners}</div>
+    </div>`;
+  }).join('');
+}
+
+function ordinal(n) {
+  const s = ['th','st','nd','rd'];
+  const v = n % 100;
+  return n + (s[(v-20)%10] || s[v] || s[0]);
+}
+
+/* ── UTILS ── */
+function esc(s) {
+  return String(s??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+loadAccuracy();
+</script>
 </body>
 </html>

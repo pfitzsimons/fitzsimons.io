@@ -1,4 +1,3 @@
-from __future__ import annotations
 #!/usr/bin/env python3
 """
 Results fetcher — UK & Ireland Horse Racing
@@ -163,11 +162,24 @@ def evaluate_prediction(runner: dict, result: dict, ew_places: int) -> dict:
     """
     Compare a single runner's prediction to the actual result.
     Returns an outcome dict.
-    """
-    pred_name  = normalise_name(runner.get('horse', ''))
-    rec_type   = runner.get('recommendation', {}).get('type', 'Skip')
 
-    # Find this horse in the results
+    Outcomes:
+      correct     — prediction was right
+      incorrect   — prediction was wrong
+      non_runner  — horse was a non-runner (void, excluded from accuracy)
+      dnf         — horse fell/pulled up/unseated (excluded from accuracy)
+      no_result   — meeting cancelled or result unavailable (excluded)
+    """
+    pred_name = normalise_name(runner.get('horse', ''))
+    rec_type  = runner.get('recommendation', {}).get('type', 'Skip')
+
+    # Result runners are the placed horses SL returns (top 3-4)
+    # If the result has runners but this horse isn't in them, it either
+    # finished out of the places, was a non-runner, or DNF'd.
+    result_names = [normalise_name(r.get('name', '')) for r in result.get('runners', [])]
+    total_result_runners = len(result_names)
+
+    # Try to find this horse in the placed runners
     actual_pos = None
     for res_runner in result.get('runners', []):
         res_name = normalise_name(res_runner.get('name', ''))
@@ -175,16 +187,27 @@ def evaluate_prediction(runner: dict, result: dict, ew_places: int) -> dict:
             actual_pos = res_runner.get('position')
             break
 
-    # Determine outcome
-    if rec_type == 'Skip':
-        # A skip is "correct" if the horse didn't win
-        outcome = 'correct' if actual_pos != 1 else 'incorrect'
-        return {'rec': rec_type, 'actual_pos': actual_pos, 'outcome': outcome}
+    # Detect non-runner: SL flags these — if result has 0 runners the race
+    # was likely abandoned/void. If result has runners but declared field was
+    # much larger, missing horses are either non-runners or DNFs.
+    # We use a simple heuristic: if the result looks complete (has a winner)
+    # but this horse isn't found at all, treat as non-runner/DNF — excluded.
+    has_winner = any(r.get('position') == 1 for r in result.get('runners', []))
+
+    if not has_winner:
+        # Race has no winner — abandoned or void
+        return {'rec': rec_type, 'actual_pos': None, 'outcome': 'no_result'}
 
     if actual_pos is None:
-        # Horse not in results — likely DNF/non-runner
-        outcome = 'dnf'
-        return {'rec': rec_type, 'actual_pos': None, 'outcome': outcome}
+        # Horse missing from results — non-runner or DNF
+        # We can't distinguish reliably without extra data, so label as
+        # non_runner which the UI shows neutrally and excludes from totals
+        return {'rec': rec_type, 'actual_pos': None, 'outcome': 'non_runner'}
+
+    if rec_type == 'Skip':
+        # Skip predictions not counted in accuracy
+        outcome = 'correct' if actual_pos != 1 else 'incorrect'
+        return {'rec': rec_type, 'actual_pos': actual_pos, 'outcome': outcome}
 
     if rec_type == 'Win':
         outcome = 'correct' if actual_pos == 1 else 'incorrect'
@@ -218,9 +241,9 @@ def compare_predictions_to_results(predictions: dict, results: list) -> dict:
     Returns a structured accuracy report.
     """
     race_outcomes = []
-    totals = {'win': {'correct': 0, 'incorrect': 0, 'dnf': 0},
-              'ew':  {'correct': 0, 'incorrect': 0, 'dnf': 0},
-              'skip':{'correct': 0, 'incorrect': 0}}
+    # non_runner and no_result outcomes are excluded from totals entirely
+    totals = {'win': {'correct': 0, 'incorrect': 0},
+              'ew':  {'correct': 0, 'incorrect': 0}}
 
     for pred_race in predictions.get('races', []):
         result = match_race(pred_race, results)
@@ -252,9 +275,11 @@ def compare_predictions_to_results(predictions: dict, results: list) -> dict:
 
             race_result['runners'].append(outcome)
 
-            # Tally
-            key = 'win' if rec_type == 'Win' else 'ew' if rec_type == 'EachWay' else 'skip'
-            if outcome['outcome'] in totals[key]:
+            # Tally — exclude non_runner and no_result from accuracy counts
+            if outcome['outcome'] in ('non_runner', 'no_result'):
+                continue
+            key = 'win' if rec_type == 'Win' else 'ew'
+            if outcome['outcome'] in totals.get(key, {}):
                 totals[key][outcome['outcome']] += 1
 
         if race_result['runners']:
