@@ -247,9 +247,6 @@ def compare_predictions_to_results(predictions: dict, results: list) -> dict:
 
     for pred_race in predictions.get('races', []):
         result = match_race(pred_race, results)
-        if not result:
-            log(f'  No result found for {pred_race["course"]} {pred_race["time"]}')
-            continue
 
         ew_places = pred_race.get('ew_places', 3)
         race_result = {
@@ -257,21 +254,30 @@ def compare_predictions_to_results(predictions: dict, results: list) -> dict:
             'time':      pred_race['time'],
             'race_name': pred_race.get('title', ''),
             'date':      pred_race.get('date', ''),
-            'winner':    result['runners'][0]['name'] if result['runners'] else '',
+            'winner':    result['runners'][0]['name'] if (result and result['runners']) else '',
             'runners':   [],
+            'abandoned': result is None,
         }
 
         for runner in pred_race.get('runners', []):
             rec_type = runner.get('recommendation', {}).get('type', 'Skip')
-            # Only evaluate non-Skip recommendations (and top Skip picks)
             if rec_type == 'Skip':
                 continue
 
-            outcome = evaluate_prediction(runner, result, ew_places)
-            outcome['horse']   = runner.get('horse', '')
-            outcome['score']   = runner.get('score', 0)
-            outcome['odds']    = runner.get('odds_str', '')
-            outcome['label']   = runner.get('recommendation', {}).get('label', '')
+            if result is None:
+                # No matching result found — race was abandoned or not run
+                outcome = {
+                    'rec':        rec_type,
+                    'actual_pos': None,
+                    'outcome':    'no_result',
+                }
+            else:
+                outcome = evaluate_prediction(runner, result, ew_places)
+
+            outcome['horse'] = runner.get('horse', '')
+            outcome['score'] = runner.get('score', 0)
+            outcome['odds']  = runner.get('odds_str', '')
+            outcome['label'] = runner.get('recommendation', {}).get('label', '')
 
             race_result['runners'].append(outcome)
 

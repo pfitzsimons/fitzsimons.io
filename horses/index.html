@@ -618,13 +618,20 @@ function buildDayRaces(races) {
   if (!races || !races.length) return '<div style="font-family:var(--mono);font-size:.63rem;color:var(--dim);padding:.3rem 0">No detail available</div>';
   return races.map(race => {
     const runners = race.runners.map(r => {
-      const icon    = r.outcome === 'correct' ? '✓' : r.outcome === 'dnf' ? '—' : '✗';
-      const iconCol = r.outcome === 'correct' ? 'var(--green)' : r.outcome === 'dnf' ? 'var(--dim)' : 'var(--red)';
-      const posStr  = r.actual_pos ? ordinal(r.actual_pos) : r.outcome === 'dnf' ? 'DNF' : '—';
+      let icon, iconCol, rowCls;
+      if (r.outcome === 'correct')    { icon = '✓'; iconCol = 'var(--green)'; rowCls = 'correct'; }
+      else if (r.outcome === 'incorrect') { icon = '✗'; iconCol = 'var(--red)';   rowCls = 'incorrect'; }
+      else if (r.outcome === 'non_runner'){ icon = 'NR'; iconCol = 'var(--dim)';  rowCls = 'dnf'; }
+      else if (r.outcome === 'no_result') { icon = '—';  iconCol = 'var(--dim)';  rowCls = 'dnf'; }
+      else                                { icon = '—';  iconCol = 'var(--dim)';  rowCls = 'dnf'; }
+      const posStr  = r.actual_pos ? ordinal(r.actual_pos)
+                    : r.outcome === 'non_runner' ? 'NR'
+                    : r.outcome === 'no_result'  ? 'void'
+                    : '—';
       const posCls  = r.actual_pos === 1 ? 'p1' : r.actual_pos <= 3 ? 'placed' : '';
       const recCls  = r.rec === 'Win' ? 'win' : 'ew';
-      return `<div class="acc-runner ${r.outcome}">
-        <span class="acc-icon" style="color:${iconCol}">${icon}</span>
+      return `<div class="acc-runner ${rowCls}">
+        <span class="acc-icon" style="color:${iconCol};font-size:${r.outcome==='non_runner'?'.5rem':'.75rem'}">${icon}</span>
         <span class="acc-hname">${esc(r.horse)}</span>
         <span class="acc-rec-tag ${recCls}">${r.rec === 'EachWay' ? 'EW' : 'WIN'}</span>
         <span class="acc-pos ${posCls}">${posStr}</span>
@@ -633,7 +640,8 @@ function buildDayRaces(races) {
     return `<div class="acc-race">
       <div class="acc-race-hdr">
         <strong>${esc(race.time)} ${esc(race.course)}</strong>
-        ${race.winner ? `<span class="acc-race-winner">🏆 ${esc(race.winner)}</span>` : ''}
+        ${race.abandoned ? `<span style="color:var(--red);font-size:.6rem">ABANDONED</span>`
+          : race.winner  ? `<span class="acc-race-winner">🏆 ${esc(race.winner)}</span>` : ''}
       </div>
       <div class="acc-runners">${runners}</div>
     </div>`;
