@@ -55,6 +55,17 @@
     #date-disp { color: var(--gold-lt); }
     #refresh-btn { background: none; border: 1px solid var(--line); color: var(--dim); padding: .28rem .65rem; border-radius: 4px; cursor: pointer; font-family: var(--mono); font-size: .68rem; transition: all .2s; }
     #refresh-btn:hover { border-color: var(--gold); color: var(--gold); }
+    #live-pill {
+      display: flex; align-items: center; gap: .35rem;
+      font-family: var(--mono); font-size: .64rem;
+      color: var(--dim); transition: color .3s;
+    }
+    #live-pill .ldot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--dim); flex-shrink: 0; transition: background .3s;
+    }
+    #live-pill.active { color: var(--green); }
+    #live-pill.active .ldot { background: var(--green); animation: pulse 2s ease infinite; }
 
     /* Accuracy drawer trigger button */
     #acc-trigger {
@@ -282,6 +293,9 @@
     <span id="date-disp">—</span>
     <span id="upd-disp"></span>
     <button id="refresh-btn" onclick="loadData()">↺ Refresh</button>
+    <span id="live-pill" title="Auto-refreshes every 5 mins during racing hours">
+      <span class="ldot"></span><span id="live-label">LIVE</span>
+    </span>
     <button id="acc-trigger" onclick="openDrawer()" title="View prediction accuracy">
       <span class="acc-dot"></span> Accuracy
     </button>
@@ -659,7 +673,56 @@ function esc(s) {
   return String(s??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
-loadAccuracy();
+/* ── AUTO REFRESH ── */
+// Only poll during UK & Ireland racing hours (10:00–21:30 BST / 09:00–20:30 UTC)
+// Checks every 5 minutes — matches the ~30 min Action cadence
+const REFRESH_INTERVAL_MS = 4 * 60 * 1000; // 4 mins — syncs well with 15 min scraper
+
+function isRacingHours() {
+  const now = new Date();
+  const utcH = now.getUTCHours();
+  const utcM = now.getUTCMinutes();
+  const utcMins = utcH * 60 + utcM;
+  // 09:00–20:30 UTC
+  return utcMins >= 9 * 60 && utcMins <= 20 * 60 + 30;
+}
+
+function scheduleRefresh() {
+  setTimeout(async () => {
+    if (isRacingHours()) {
+      console.log('Auto-refreshing race data…');
+      await loadData();
+      updateRefreshIndicator();
+    }
+    updateLivePill();
+    scheduleRefresh();
+  }, REFRESH_INTERVAL_MS);
+}
+
+function updateLivePill() {
+  const pill = document.getElementById('live-pill');
+  const label = document.getElementById('live-label');
+  if (!pill) return;
+  if (isRacingHours()) {
+    pill.classList.add('active');
+    pill.title = 'Auto-refreshing every 5 mins';
+    if (label) label.textContent = 'LIVE';
+  } else {
+    pill.classList.remove('active');
+    pill.title = 'Outside racing hours (10am–9:30pm BST)';
+    if (label) label.textContent = 'OFF HOURS';
+  }
+}
+
+function updateRefreshIndicator() {
+  const el = document.getElementById('upd-disp');
+  if (!el) return;
+  const now = new Date();
+  el.textContent = 'Updated ' + now.toLocaleTimeString('en-GB', {hour:'2-digit', minute:'2-digit'});
+}
+
+updateLivePill();
+scheduleRefresh();
 </script>
 </body>
 </html>

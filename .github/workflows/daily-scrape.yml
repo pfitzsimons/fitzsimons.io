@@ -2,9 +2,14 @@ name: Daily Race Scraper & Deploy
 
 on:
   schedule:
-    - cron: '0 8 * * *'
-    - cron: '0 7 * * *'
+    # Every 15 mins, 09:00–20:45 UTC (covers 10am–9:45pm BST / 9am–8:45pm GMT)
+    - cron: '*/15 9-20 * * *'
   workflow_dispatch:
+    inputs:
+      date_override:
+        description: 'Date override YYYY-MM-DD (leave blank for today)'
+        required: false
+        default: ''
 
 jobs:
   scrape-and-deploy:
@@ -21,14 +26,41 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Run scraper
-        run: python3 scripts/scrape_races.py --out "$GITHUB_WORKSPACE/horses"
+      - name: Fetch yesterday's results & update accuracy
+        # Only run once in the morning window (09:00–10:00 UTC) to avoid
+        # hammering Sporting Life 20+ times a day unnecessarily
+        run: |
+          HOUR=$(date -u +%H)
+          if [ "$HOUR" = "09" ]; then
+            python3 scripts/fetch_results.py --out "$GITHUB_WORKSPACE/horses"
+          else
+            echo "Skipping results fetch (hour=$HOUR, only runs at 09:xx UTC)"
+          fi
+
+      - name: Scrape today's races
+        env:
+          DATE_OVERRIDE: ${{ github.event.inputs.date_override }}
+        run: |
+          DATE_ARG=""
+          if [ -n "$DATE_OVERRIDE" ]; then
+            DATE_ARG="--date $DATE_OVERRIDE"
+          fi
+          python3 scripts/scrape_races.py $DATE_ARG --out "$GITHUB_WORKSPACE/horses"
+
+      - name: Verify output
+        run: |
+          if [ ! -f horses/races.json ]; then
+            echo "ERROR: horses/races.json not found"
+            exit 1
+          fi
+          RACE_COUNT=$(python3 -c "import json; d=json.load(open('horses/races.json')); print(len(d.get('races',[])))")
+          echo "Scraped $RACE_COUNT races"
 
       - name: Commit and push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add horses/races.json
+          git add horses/races.json horses/accuracy.json horses/history/ || true
           if git diff --staged --quiet; then
             echo "No changes"
           else
