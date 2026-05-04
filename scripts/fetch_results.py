@@ -239,9 +239,15 @@ def compare_predictions_to_results(predictions: dict, results: list) -> dict:
     """
     Compare all predicted races to actual results.
     Returns a structured accuracy report.
+
+    Only the HIGHEST-SCORED runner per recommendation type per race
+    counts toward accuracy. Additional recommendations are shown in the
+    UI as context but marked secondary=True and excluded from totals.
+    This prevents inflating accuracy by recommending multiple horses
+    in the same race.
     """
     race_outcomes = []
-    # non_runner and no_result outcomes are excluded from totals entirely
+    # non_runner, no_result, and secondary outcomes excluded from totals
     totals = {'win': {'correct': 0, 'incorrect': 0},
               'ew':  {'correct': 0, 'incorrect': 0}}
 
@@ -259,13 +265,16 @@ def compare_predictions_to_results(predictions: dict, results: list) -> dict:
             'abandoned': result is None,
         }
 
+        # Runners are already sorted by score descending from scraper.
+        # Track whether we've already used the primary pick for each rec type.
+        primary_used = {'Win': False, 'EachWay': False}
+
         for runner in pred_race.get('runners', []):
             rec_type = runner.get('recommendation', {}).get('type', 'Skip')
             if rec_type == 'Skip':
                 continue
 
             if result is None:
-                # No matching result found — race was abandoned or not run
                 outcome = {
                     'rec':        rec_type,
                     'actual_pos': None,
@@ -274,14 +283,22 @@ def compare_predictions_to_results(predictions: dict, results: list) -> dict:
             else:
                 outcome = evaluate_prediction(runner, result, ew_places)
 
-            outcome['horse'] = runner.get('horse', '')
-            outcome['score'] = runner.get('score', 0)
-            outcome['odds']  = runner.get('odds_str', '')
-            outcome['label'] = runner.get('recommendation', {}).get('label', '')
+            outcome['horse']     = runner.get('horse', '')
+            outcome['score']     = runner.get('score', 0)
+            outcome['odds']      = runner.get('odds_str', '')
+            outcome['label']     = runner.get('recommendation', {}).get('label', '')
+
+            # Mark as primary or secondary
+            is_primary = not primary_used.get(rec_type, False)
+            outcome['primary'] = is_primary
+            if is_primary:
+                primary_used[rec_type] = True
 
             race_result['runners'].append(outcome)
 
-            # Tally — exclude non_runner and no_result from accuracy counts
+            # Only tally primary picks that actually ran
+            if not is_primary:
+                continue
             if outcome['outcome'] in ('non_runner', 'no_result'):
                 continue
             key = 'win' if rec_type == 'Win' else 'ew'
