@@ -23,6 +23,26 @@
       --sans: 'DM Sans', sans-serif;
       --display: 'Bebas Neue', sans-serif;
       --drawer-w: 420px;
+      --header-bg:      rgba(10,31,13,.96);
+      --drawer-bg:      #0f2613;
+      --select-opt-bg:  #122818;
+      --people-strong:  #c8bfa8;
+    }
+    html[data-theme="light"] {
+      --turf:           #f0f5f1;
+      --card:           #ffffff;
+      --line:           rgba(0,0,0,.12);
+      --gold:           #9a6f20;
+      --gold-lt:        #c9a84c;
+      --cream:          #1a2c1c;
+      --dim:            #5a6e5c;
+      --green:          #1f8a47;
+      --amber:          #b07000;
+      --red:            #c03535;
+      --header-bg:      rgba(240,245,241,.96);
+      --drawer-bg:      #e8f0e9;
+      --select-opt-bg:  #f0f5f1;
+      --people-strong:  #2d3d2f;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: var(--sans); background: var(--turf); color: var(--cream); min-height: 100vh; overflow-x: hidden; }
@@ -30,7 +50,7 @@
     /* ── HEADER ── */
     #header {
       position: sticky; top: 0; z-index: 200;
-      background: rgba(10,31,13,.96); backdrop-filter: blur(14px);
+      background: var(--header-bg); backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--line);
       padding: .7rem 1.4rem;
       display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap;
@@ -49,12 +69,14 @@
       background-repeat: no-repeat; background-position: right .7rem center; padding-right: 2.1rem;
     }
     #race-select:focus { outline: none; border-color: var(--gold-lt); box-shadow: 0 0 0 3px rgba(201,168,76,.15); }
-    #race-select option, #race-select optgroup { background: #122818; }
+    #race-select option, #race-select optgroup { background: var(--select-opt-bg); }
 
     #header-meta { margin-left: auto; display: flex; align-items: center; gap: .9rem; font-family: var(--mono); font-size: .7rem; color: var(--dim); }
     #date-disp { color: var(--gold-lt); }
     #refresh-btn { background: none; border: 1px solid var(--line); color: var(--dim); padding: .28rem .65rem; border-radius: 4px; cursor: pointer; font-family: var(--mono); font-size: .68rem; transition: all .2s; }
     #refresh-btn:hover { border-color: var(--gold); color: var(--gold); }
+    #theme-btn { background: none; border: 1px solid var(--line); color: var(--dim); padding: .28rem .55rem; border-radius: 4px; cursor: pointer; font-size: .82rem; line-height: 1; transition: all .2s; }
+    #theme-btn:hover { border-color: var(--gold); color: var(--gold); }
     #live-pill {
       display: flex; align-items: center; gap: .35rem;
       font-family: var(--mono); font-size: .64rem;
@@ -122,14 +144,14 @@
     .badge-fav  { font-family: var(--mono); font-size: .56rem; background: rgba(201,168,76,.12); border: 1px solid rgba(201,168,76,.3); color: var(--gold); padding: .08rem .35rem; border-radius: 3px; letter-spacing: .08em; }
     .badge-ctry { font-family: var(--mono); font-size: .56rem; background: rgba(255,255,255,.06); border: 1px solid var(--line); color: var(--dim); padding: .08rem .35rem; border-radius: 3px; }
     .people { display: flex; flex-wrap: wrap; gap: .18rem .65rem; margin-top: .28rem; font-family: var(--mono); font-size: .68rem; color: var(--dim); }
-    .people strong { color: #c8bfa8; font-weight: 500; }
+    .people strong { color: var(--people-strong); font-weight: 500; }
     .tags { display: flex; gap: .28rem; margin-top: .3rem; flex-wrap: wrap; }
     .tag { font-family: var(--mono); font-size: .61rem; padding: .08rem .35rem; border-radius: 3px; border: 1px solid var(--line); color: var(--dim); }
     .reasoning { margin-top: .38rem; font-family: var(--sans); font-size: .75rem; color: var(--dim); font-style: italic; line-height: 1.4; }
     .score-bar-wrap { margin-top: .42rem; }
     .score-bar-row { display: flex; align-items: center; gap: .4rem; margin-bottom: .18rem; }
     .score-bar-label { font-family: var(--mono); font-size: .58rem; color: var(--dim); width: 68px; flex-shrink: 0; text-transform: uppercase; letter-spacing: .05em; }
-    .score-bar-track { flex: 1; height: 4px; background: rgba(255,255,255,.07); border-radius: 2px; overflow: hidden; max-width: 160px; }
+    .score-bar-track { flex: 1; height: 4px; background: var(--line); border-radius: 2px; overflow: hidden; max-width: 160px; }
     .score-bar-fill { height: 100%; border-radius: 2px; transition: width .5s ease; }
     .score-bar-val { font-family: var(--mono); font-size: .58rem; color: var(--dim); width: 24px; text-align: right; flex-shrink: 0; }
     .rright { display: flex; flex-direction: column; align-items: flex-end; gap: .32rem; min-width: 115px; }
@@ -180,7 +202,7 @@
     #acc-drawer {
       position: fixed; top: 0; right: 0; bottom: 0;
       width: var(--drawer-w); max-width: 100vw;
-      background: #0f2613;
+      background: var(--drawer-bg);
       border-left: 1px solid var(--line);
       z-index: 300;
       display: flex; flex-direction: column;
@@ -279,6 +301,7 @@
       .acc-summary { grid-template-columns: repeat(2,1fr); }
     }
   </style>
+  <script>if(localStorage.getItem('theme')==='light')document.documentElement.dataset.theme='light';</script>
 </head>
 <body>
 
@@ -293,6 +316,7 @@
     <span id="date-disp">—</span>
     <span id="upd-disp"></span>
     <button id="refresh-btn" onclick="loadData()">↺ Refresh</button>
+    <button id="theme-btn" onclick="toggleTheme()" title="Toggle light/dark theme">◑</button>
     <span id="live-pill" title="Auto-refreshes every 5 mins during racing hours">
       <span class="ldot"></span><span id="live-label">LIVE</span>
     </span>
@@ -330,6 +354,12 @@
 </main>
 
 <script>
+function toggleTheme() {
+  const isLight = document.documentElement.dataset.theme === 'light';
+  document.documentElement.dataset.theme = isLight ? '' : 'light';
+  localStorage.setItem('theme', isLight ? 'dark' : 'light');
+}
+
 /* ════════════════════════════════════════
    RACES
 ════════════════════════════════════════ */
