@@ -1,6 +1,6 @@
 {
   "date": "2026-05-12",
-  "generated_at": "2026-05-12T11:23:11.010336Z",
+  "generated_at": "2026-05-12T13:22:06.385352Z",
   "races": [
     {
       "id": "bath-1420",
@@ -16,35 +16,6 @@
       "date": "2026-05-12",
       "runners": [
         {
-          "horse": "JOLLY GOOD FELLOWS",
-          "country": "IRE",
-          "jockey": "Jack Doughty",
-          "trainer": "Dr Richard Newland & Jamie Insole",
-          "form": "331",
-          "age": "2",
-          "weight": "9-6",
-          "draw": "",
-          "odds_str": "15/8",
-          "odds_dec": 2.88,
-          "silk_url": "https://images.timeform.com/silks/opt/00885152.png",
-          "score": 73.4,
-          "components": {
-            "odds_value": 78.9,
-            "recent_form": 94.9,
-            "consistency": 100.0,
-            "jockey": 60.0,
-            "weight": 12.5,
-            "absence_pen": 0.0,
-            "going_factor": 1.0
-          },
-          "recommendation": {
-            "type": "Win",
-            "confidence": 73,
-            "label": "Strong Win Bet",
-            "reasoning": "strong recent form; won last time out; consistent placer (100% placed); short price reflects market confidence"
-          }
-        },
-        {
           "horse": "SEED YA LATER",
           "country": "IRE",
           "jockey": "Edward Greatrex",
@@ -53,13 +24,42 @@
           "age": "2",
           "weight": "9-6",
           "draw": "",
-          "odds_str": "9/4",
-          "odds_dec": 3.25,
+          "odds_str": "2/1",
+          "odds_dec": 3.0,
           "silk_url": "https://images.timeform.com/silks/opt/00893146.png",
-          "score": 72.4,
+          "score": 74.1,
           "components": {
-            "odds_value": 68.7,
+            "odds_value": 75.3,
             "recent_form": 100,
+            "consistency": 100.0,
+            "jockey": 60.0,
+            "weight": 12.5,
+            "absence_pen": 0.0,
+            "going_factor": 1.0
+          },
+          "recommendation": {
+            "type": "Win",
+            "confidence": 74,
+            "label": "Strong Win Bet",
+            "reasoning": "strong recent form; won last time out; consistent placer (100% placed); short price reflects market confidence"
+          }
+        },
+        {
+          "horse": "JOLLY GOOD FELLOWS",
+          "country": "IRE",
+          "jockey": "Jack Doughty",
+          "trainer": "Dr Richard Newland & Jamie Insole",
+          "form": "331",
+          "age": "2",
+          "weight": "9-6",
+          "draw": "",
+          "odds_str": "2/1",
+          "odds_dec": 3.0,
+          "silk_url": "https://images.timeform.com/silks/opt/00885152.png",
+          "score": 72.5,
+          "components": {
+            "odds_value": 75.3,
+            "recent_form": 94.9,
             "consistency": 100.0,
             "jockey": 60.0,
             "weight": 12.5,
@@ -70,7 +70,7 @@
             "type": "Win",
             "confidence": 72,
             "label": "Strong Win Bet",
-            "reasoning": "strong recent form; won last time out; consistent placer (100% placed); each way option also viable"
+            "reasoning": "strong recent form; won last time out; consistent placer (100% placed); short price reflects market confidence"
           }
         },
         {
@@ -82,12 +82,12 @@
           "age": "2",
           "weight": "9-7",
           "draw": "",
-          "odds_str": "3/1",
-          "odds_dec": 4.0,
+          "odds_str": "7/2",
+          "odds_dec": 4.5,
           "silk_url": "https://images.timeform.com/silks/opt/00892127.png",
-          "score": 56.9,
+          "score": 55.1,
           "components": {
-            "odds_value": 53.7,
+            "odds_value": 46.5,
             "recent_form": 65.0,
             "consistency": 100.0,
             "jockey": 60.0,
@@ -97,7 +97,7 @@
           },
           "recommendation": {
             "type": "EachWay",
-            "confidence": 56,
+            "confidence": 55,
             "label": "Each Way (Speculative)",
             "reasoning": "solid recent form; consistent placer (100% placed)"
           }
@@ -111,16 +111,45 @@
           "age": "2",
           "weight": "9-2",
           "draw": "",
-          "odds_str": "14/1",
-          "odds_dec": 15.0,
+          "odds_str": "16/1",
+          "odds_dec": 17.0,
           "silk_url": "https://images.timeform.com/silks/opt/00883429.png",
-          "score": 29.8,
+          "score": 29.3,
           "components": {
-            "odds_value": 6.2,
+            "odds_value": 4.1,
             "recent_form": 43.3,
             "consistency": 0,
             "jockey": 60.0,
             "weight": 62.5,
+            "absence_pen": 0.0,
+            "going_factor": 1.0
+          },
+          "recommendation": {
+            "type": "Skip",
+            "confidence": 11,
+            "label": "Skip",
+            "reasoning": "moderate form"
+          }
+        },
+        {
+          "horse": "SUPER TUSCAN",
+          "country": "IRE",
+          "jockey": "Charles Bishop",
+          "trainer": "Eve Johnson Houghton",
+          "form": "5",
+          "age": "2",
+          "weight": "9-7",
+          "draw": "",
+          "odds_str": "5/1",
+          "odds_dec": 6.0,
+          "silk_url": "https://images.timeform.com/silks/opt/00892939.png",
+          "score": 29.0,
+          "components": {
+            "odds_value": 32.1,
+            "recent_form": 40.0,
+            "consistency": 0,
+            "jockey": 60.0,
+            "weight": 0.0,
             "absence_pen": 0.0,
             "going_factor": 1.0
           },
@@ -140,8 +169,8 @@
           "age": "2",
           "weight": "9-4",
           "draw": "",
-          "odds_str": "50/1",
-          "odds_dec": 51.0,
+          "odds_str": "70/1",
+          "odds_dec": 71.0,
           "silk_url": "https://images.timeform.com/silks/opt/00889451.png",
           "score": 27.0,
           "components": {
@@ -161,35 +190,6 @@
           }
         },
         {
-          "horse": "SUPER TUSCAN",
-          "country": "IRE",
-          "jockey": "Charles Bishop",
-          "trainer": "Eve Johnson Houghton",
-          "form": "5",
-          "age": "2",
-          "weight": "9-7",
-          "draw": "",
-          "odds_str": "15/2",
-          "odds_dec": 8.5,
-          "silk_url": "https://images.timeform.com/silks/opt/00892939.png",
-          "score": 25.8,
-          "components": {
-            "odds_value": 19.4,
-            "recent_form": 40.0,
-            "consistency": 0,
-            "jockey": 60.0,
-            "weight": 0.0,
-            "absence_pen": 0.0,
-            "going_factor": 1.0
-          },
-          "recommendation": {
-            "type": "Skip",
-            "confidence": 10,
-            "label": "Skip",
-            "reasoning": "moderate form"
-          }
-        },
-        {
           "horse": "DEVON ANGEL",
           "country": "GB",
           "jockey": "John Egan",
@@ -198,8 +198,8 @@
           "age": "2",
           "weight": "8-13",
           "draw": "",
-          "odds_str": "66/1",
-          "odds_dec": 101.0,
+          "odds_str": "SP",
+          "odds_dec": 151.0,
           "silk_url": "https://images.timeform.com/silks/opt/00848677B.png",
           "score": 23.5,
           "components": {
@@ -242,8 +242,8 @@
           "age": "3",
           "weight": "9-2",
           "draw": "",
-          "odds_str": "2/9",
-          "odds_dec": 1.22,
+          "odds_str": "1/5",
+          "odds_dec": 1.2,
           "silk_url": "https://images.timeform.com/silks/opt/00066387B.png",
           "score": 66.5,
           "components": {
@@ -300,12 +300,12 @@
           "age": "3",
           "weight": "9-2",
           "draw": "",
-          "odds_str": "5/1",
-          "odds_dec": 6.0,
+          "odds_str": "13/2",
+          "odds_dec": 7.5,
           "silk_url": "https://images.timeform.com/silks/opt/00883742.png",
-          "score": 34.8,
+          "score": 32.9,
           "components": {
-            "odds_value": 25.9,
+            "odds_value": 18.5,
             "recent_form": 25.0,
             "consistency": 0,
             "jockey": 72.0,
@@ -329,8 +329,8 @@
           "age": "3",
           "weight": "9-2",
           "draw": "",
-          "odds_str": "33/1",
-          "odds_dec": 34.0,
+          "odds_str": "40/1",
+          "odds_dec": 41.0,
           "silk_url": "https://images.timeform.com/silks/opt/00053870.png",
           "score": 26.5,
           "components": {
@@ -358,12 +358,12 @@
           "age": "3",
           "weight": "9-2",
           "draw": "",
-          "odds_str": "14/1",
-          "odds_dec": 15.0,
+          "odds_str": "10/1",
+          "odds_dec": 11.0,
           "silk_url": "https://images.timeform.com/silks/opt/00892561.png",
-          "score": 24.4,
+          "score": 25.8,
           "components": {
-            "odds_value": 3.7,
+            "odds_value": 9.1,
             "recent_form": 15.0,
             "consistency": 0,
             "jockey": 60.0,
@@ -373,7 +373,7 @@
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 9,
+            "confidence": 10,
             "label": "Skip",
             "reasoning": "poor recent form"
           }
@@ -387,8 +387,8 @@
           "age": "4",
           "weight": "10-0",
           "draw": "",
-          "odds_str": "25/1",
-          "odds_dec": 26.0,
+          "odds_str": "28/1",
+          "odds_dec": 29.0,
           "silk_url": "https://images.timeform.com/silks/opt/00883072.png",
           "score": 16.0,
           "components": {
@@ -423,35 +423,6 @@
       "date": "2026-05-12",
       "runners": [
         {
-          "horse": "COURT IN A STORM",
-          "country": "IRE",
-          "jockey": "Tom Bellamy",
-          "trainer": "Kim Bailey & Mat Nicholls",
-          "form": "11/1F743-",
-          "age": "7",
-          "weight": "10-12",
-          "draw": "",
-          "odds_str": "9/10",
-          "odds_dec": 1.91,
-          "silk_url": "https://images.timeform.com/silks/opt/00860491.png",
-          "score": 29.1,
-          "components": {
-            "odds_value": 27.7,
-            "recent_form": 46.7,
-            "consistency": 28.0,
-            "jockey": 60.0,
-            "weight": 100.0,
-            "absence_pen": 15.0,
-            "going_factor": 1.0
-          },
-          "recommendation": {
-            "type": "Skip",
-            "confidence": 11,
-            "label": "Skip",
-            "reasoning": "moderate form; returning from long absence"
-          }
-        },
-        {
           "horse": "QUEENSBURY BOY",
           "country": "IRE",
           "jockey": "James Bowen",
@@ -460,16 +431,45 @@
           "age": "7",
           "weight": "11-10",
           "draw": "",
-          "odds_str": "5/6",
-          "odds_dec": 1.83,
+          "odds_str": "SP",
+          "odds_dec": 0.0,
           "silk_url": "https://images.timeform.com/silks/opt/00891374.png",
-          "score": 20.7,
+          "score": 23.4,
           "components": {
-            "odds_value": 29.4,
+            "odds_value": 40.0,
             "recent_form": 46.3,
             "consistency": 16.7,
             "jockey": 80.0,
             "weight": 0.0,
+            "absence_pen": 15.0,
+            "going_factor": 1.0
+          },
+          "recommendation": {
+            "type": "Skip",
+            "confidence": 9,
+            "label": "Skip",
+            "reasoning": "moderate form; returning from long absence"
+          }
+        },
+        {
+          "horse": "COURT IN A STORM",
+          "country": "IRE",
+          "jockey": "Tom Bellamy",
+          "trainer": "Kim Bailey & Mat Nicholls",
+          "form": "11/1F743-",
+          "age": "7",
+          "weight": "10-12",
+          "draw": "",
+          "odds_str": "10/11",
+          "odds_dec": 999.0,
+          "silk_url": "https://images.timeform.com/silks/opt/00860491.png",
+          "score": 22.2,
+          "components": {
+            "odds_value": 0,
+            "recent_form": 46.7,
+            "consistency": 28.0,
+            "jockey": 60.0,
+            "weight": 100.0,
             "absence_pen": 15.0,
             "going_factor": 1.0
           },
@@ -504,12 +504,12 @@
           "age": "7",
           "weight": "9-1",
           "draw": "",
-          "odds_str": "9/4",
-          "odds_dec": 3.25,
+          "odds_str": "5/2",
+          "odds_dec": 3.5,
           "silk_url": "https://images.timeform.com/silks/opt/00879329.png",
-          "score": 63.6,
+          "score": 62.0,
           "components": {
-            "odds_value": 80.1,
+            "odds_value": 73.5,
             "recent_form": 68.3,
             "consistency": 62.5,
             "jockey": 60.0,
@@ -519,7 +519,7 @@
           },
           "recommendation": {
             "type": "Win",
-            "confidence": 63,
+            "confidence": 61,
             "label": "Win Bet",
             "reasoning": "solid recent form; consistent placer (62% placed); each way option also viable"
           }
@@ -533,12 +533,12 @@
           "age": "10",
           "weight": "8-6",
           "draw": "",
-          "odds_str": "17/2",
-          "odds_dec": 9.5,
+          "odds_str": "9/1",
+          "odds_dec": 10.0,
           "silk_url": "https://images.timeform.com/silks/opt/00847251.png",
-          "score": 41.8,
+          "score": 41.4,
           "components": {
-            "odds_value": 20.1,
+            "odds_value": 18.5,
             "recent_form": 46.7,
             "consistency": 25.0,
             "jockey": 60.0,
@@ -562,12 +562,12 @@
           "age": "4",
           "weight": "9-9",
           "draw": "",
-          "odds_str": "15/8",
-          "odds_dec": 2.88,
+          "odds_str": "7/4",
+          "odds_dec": 2.75,
           "silk_url": "https://images.timeform.com/silks/opt/00887508.png",
-          "score": 39.8,
+          "score": 41.0,
           "components": {
-            "odds_value": 91.8,
+            "odds_value": 96.6,
             "recent_form": 20.0,
             "consistency": 12.5,
             "jockey": 60.0,
@@ -577,7 +577,7 @@
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 15,
+            "confidence": 16,
             "label": "Skip",
             "reasoning": "poor recent form"
           }
@@ -591,12 +591,12 @@
           "age": "9",
           "weight": "8-9",
           "draw": "",
-          "odds_str": "12/1",
-          "odds_dec": 13.0,
+          "odds_str": "11/1",
+          "odds_dec": 12.0,
           "silk_url": "https://images.timeform.com/silks/opt/00887842.png",
-          "score": 39.7,
+          "score": 40.1,
           "components": {
-            "odds_value": 11.7,
+            "odds_value": 13.6,
             "recent_form": 40.0,
             "consistency": 50.0,
             "jockey": 60.0,
@@ -606,7 +606,7 @@
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 15,
+            "confidence": 16,
             "label": "Skip",
             "reasoning": "moderate form; consistent placer (50% placed)"
           }
@@ -940,12 +940,12 @@
           "age": "6",
           "weight": "11-12",
           "draw": "",
-          "odds_str": "5/6",
-          "odds_dec": 1.83,
+          "odds_str": "4/9",
+          "odds_dec": 1.44,
           "silk_url": "https://images.timeform.com/silks/opt/00880421.png",
-          "score": 38.9,
+          "score": 43.0,
           "components": {
-            "odds_value": 49.6,
+            "odds_value": 66.0,
             "recent_form": 64.3,
             "consistency": 49.7,
             "jockey": 92.0,
@@ -955,7 +955,7 @@
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 15,
+            "confidence": 17,
             "label": "Skip",
             "reasoning": "solid recent form; consistent placer (66% placed); returning from long absence"
           }
@@ -969,12 +969,12 @@
           "age": "5",
           "weight": "10-6",
           "draw": "",
-          "odds_str": "7/2",
-          "odds_dec": 4.5,
+          "odds_str": "9/1",
+          "odds_dec": 999.0,
           "silk_url": "https://images.timeform.com/silks/opt/00008528.png",
-          "score": 28.5,
+          "score": 25.1,
           "components": {
-            "odds_value": 13.6,
+            "odds_value": 0,
             "recent_form": 20.5,
             "consistency": 0,
             "jockey": 60.0,
@@ -984,7 +984,7 @@
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 11,
+            "confidence": 10,
             "label": "Skip",
             "reasoning": "poor recent form"
           }
@@ -998,12 +998,12 @@
           "age": "9",
           "weight": "12-0",
           "draw": "",
-          "odds_str": "9/4",
-          "odds_dec": 3.25,
+          "odds_str": "6/4",
+          "odds_dec": 2.5,
           "silk_url": "https://images.timeform.com/silks/opt/00875867.png",
-          "score": 1.4,
+          "score": 4.0,
           "components": {
-            "odds_value": 23.1,
+            "odds_value": 33.3,
             "recent_form": 5.6,
             "consistency": 0,
             "jockey": 60.0,
@@ -1042,12 +1042,12 @@
           "age": "3",
           "weight": "9-6",
           "draw": "",
-          "odds_str": "5/4",
-          "odds_dec": 2.25,
+          "odds_str": "5/6",
+          "odds_dec": 1.91,
           "silk_url": "https://images.timeform.com/silks/opt/00032921.png",
-          "score": 61.6,
+          "score": 65.2,
           "components": {
-            "odds_value": 71.2,
+            "odds_value": 85.8,
             "recent_form": 60.3,
             "consistency": 66.7,
             "jockey": 60.0,
@@ -1057,7 +1057,7 @@
           },
           "recommendation": {
             "type": "Win",
-            "confidence": 61,
+            "confidence": 65,
             "label": "Win Bet",
             "reasoning": "solid recent form; consistent placer (66% placed); short price reflects market confidence"
           }
@@ -1071,12 +1071,12 @@
           "age": "3",
           "weight": "9-1",
           "draw": "",
-          "odds_str": "7/4",
-          "odds_dec": 2.75,
+          "odds_str": "2/1",
+          "odds_dec": 3.0,
           "silk_url": "https://images.timeform.com/silks/opt/00861956A.png",
-          "score": 60.2,
+          "score": 58.8,
           "components": {
-            "odds_value": 56.2,
+            "odds_value": 50.6,
             "recent_form": 53.0,
             "consistency": 57.1,
             "jockey": 78.0,
@@ -1085,10 +1085,10 @@
             "going_factor": 1.0
           },
           "recommendation": {
-            "type": "Win",
-            "confidence": 60,
-            "label": "Win Bet",
-            "reasoning": "moderate form; placed last time out; consistent placer (57% placed); short price reflects market confidence"
+            "type": "EachWay",
+            "confidence": 58,
+            "label": "Each Way",
+            "reasoning": "moderate form; placed last time out; consistent placer (57% placed)"
           }
         },
         {
@@ -1100,12 +1100,12 @@
           "age": "4",
           "weight": "10-2",
           "draw": "",
-          "odds_str": "7/2",
-          "odds_dec": 4.5,
+          "odds_str": "4/1",
+          "odds_dec": 5.0,
           "silk_url": "https://images.timeform.com/silks/opt/00005635.png",
-          "score": 37.8,
+          "score": 36.8,
           "components": {
-            "odds_value": 30.0,
+            "odds_value": 25.9,
             "recent_form": 71.0,
             "consistency": 100.0,
             "jockey": 60.0,
@@ -1115,7 +1115,7 @@
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 15,
+            "confidence": 14,
             "label": "Skip",
             "reasoning": "solid recent form; consistent placer (100% placed); returning from long absence"
           }
@@ -1129,8 +1129,8 @@
           "age": "3",
           "weight": "9-6",
           "draw": "",
-          "odds_str": "33/1",
-          "odds_dec": 34.0,
+          "odds_str": "66/1",
+          "odds_dec": 67.0,
           "silk_url": "https://images.timeform.com/silks/opt/00002192.png",
           "score": 27.7,
           "components": {
@@ -1158,8 +1158,8 @@
           "age": "3",
           "weight": "9-1",
           "draw": "",
-          "odds_str": "33/1",
-          "odds_dec": 34.0,
+          "odds_str": "50/1",
+          "odds_dec": 51.0,
           "silk_url": "https://images.timeform.com/silks/opt/00872039.png",
           "score": 22.0,
           "components": {
@@ -1202,12 +1202,12 @@
           "age": "3",
           "weight": "9-12",
           "draw": "",
-          "odds_str": "11/4",
-          "odds_dec": 3.75,
+          "odds_str": "3/1",
+          "odds_dec": 4.0,
           "silk_url": "https://images.timeform.com/silks/opt/00877321.png",
-          "score": 48.4,
+          "score": 47.6,
           "components": {
-            "odds_value": 38.3,
+            "odds_value": 35.2,
             "recent_form": 58.0,
             "consistency": 60.0,
             "jockey": 83.0,
@@ -1231,12 +1231,12 @@
           "age": "3",
           "weight": "9-7",
           "draw": "",
-          "odds_str": "9/4",
-          "odds_dec": 3.25,
+          "odds_str": "15/8",
+          "odds_dec": 2.88,
           "silk_url": "https://images.timeform.com/silks/opt/00887329A.png",
-          "score": 44.6,
+          "score": 46.4,
           "components": {
-            "odds_value": 45.9,
+            "odds_value": 53.2,
             "recent_form": 47.0,
             "consistency": 25.0,
             "jockey": 60.0,
@@ -1246,7 +1246,7 @@
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 17,
+            "confidence": 18,
             "label": "Skip",
             "reasoning": "moderate form"
           }
@@ -1318,8 +1318,8 @@
           "age": "3",
           "weight": "9-4",
           "draw": "",
-          "odds_str": "16/1",
-          "odds_dec": 17.0,
+          "odds_str": "18/1",
+          "odds_dec": 19.0,
           "silk_url": "https://images.timeform.com/silks/opt/00885606B.png",
           "score": 24.8,
           "components": {
@@ -1478,8 +1478,8 @@
           "age": "6",
           "weight": "11-0",
           "draw": "",
-          "odds_str": "28/1",
-          "odds_dec": 29.0,
+          "odds_str": "25/1",
+          "odds_dec": 26.0,
           "silk_url": "https://images.timeform.com/silks/opt/00014998.png",
           "score": 25.0,
           "components": {
@@ -1580,12 +1580,12 @@
           "age": "4",
           "weight": "9-9",
           "draw": "",
-          "odds_str": "7/4",
-          "odds_dec": 2.75,
+          "odds_str": "15/8",
+          "odds_dec": 2.88,
           "silk_url": "https://images.timeform.com/silks/opt/00082160.png",
-          "score": 52.1,
+          "score": 51.5,
           "components": {
-            "odds_value": 42.8,
+            "odds_value": 40.3,
             "recent_form": 73.9,
             "consistency": 50.0,
             "jockey": 78.0,
@@ -2045,12 +2045,12 @@
           "age": "6",
           "weight": "10-11",
           "draw": "",
-          "odds_str": "7/2",
-          "odds_dec": 4.5,
+          "odds_str": "9/2",
+          "odds_dec": 5.5,
           "silk_url": "https://images.timeform.com/silks/opt/00061496.png",
-          "score": 32.2,
+          "score": 30.3,
           "components": {
-            "odds_value": 30.0,
+            "odds_value": 22.6,
             "recent_form": 54.7,
             "consistency": 28.6,
             "jockey": 60.0,
@@ -2061,6 +2061,35 @@
           "recommendation": {
             "type": "Skip",
             "confidence": 12,
+            "label": "Skip",
+            "reasoning": "moderate form; returning from long absence"
+          }
+        },
+        {
+          "horse": "CAMPAIGN TRAIL",
+          "country": "IRE",
+          "jockey": "Tom Bellamy",
+          "trainer": "Kim Bailey & Mat Nicholls",
+          "form": "1303/843-",
+          "age": "6",
+          "weight": "12-1",
+          "draw": "",
+          "odds_str": "5/2",
+          "odds_dec": 3.5,
+          "silk_url": "https://images.timeform.com/silks/opt/00867040A.png",
+          "score": 24.7,
+          "components": {
+            "odds_value": 41.8,
+            "recent_form": 50.8,
+            "consistency": 33.3,
+            "jockey": 60.0,
+            "weight": 0.0,
+            "absence_pen": 15.0,
+            "going_factor": 1.0
+          },
+          "recommendation": {
+            "type": "Skip",
+            "confidence": 9,
             "label": "Skip",
             "reasoning": "moderate form; returning from long absence"
           }
@@ -2095,35 +2124,6 @@
           }
         },
         {
-          "horse": "CAMPAIGN TRAIL",
-          "country": "IRE",
-          "jockey": "Tom Bellamy",
-          "trainer": "Kim Bailey & Mat Nicholls",
-          "form": "1303/843-",
-          "age": "6",
-          "weight": "12-1",
-          "draw": "",
-          "odds_str": "3/1",
-          "odds_dec": 4.0,
-          "silk_url": "https://images.timeform.com/silks/opt/00867040A.png",
-          "score": 23.0,
-          "components": {
-            "odds_value": 35.2,
-            "recent_form": 50.8,
-            "consistency": 33.3,
-            "jockey": 60.0,
-            "weight": 0.0,
-            "absence_pen": 15.0,
-            "going_factor": 1.0
-          },
-          "recommendation": {
-            "type": "Skip",
-            "confidence": 9,
-            "label": "Skip",
-            "reasoning": "moderate form; returning from long absence"
-          }
-        },
-        {
           "horse": "HEARD THAT",
           "country": "IRE",
           "jockey": "Sean Bowen",
@@ -2132,12 +2132,12 @@
           "age": "7",
           "weight": "11-12",
           "draw": "",
-          "odds_str": "13/2",
-          "odds_dec": 7.5,
+          "odds_str": "6/1",
+          "odds_dec": 7.0,
           "silk_url": "https://images.timeform.com/silks/opt/00863419.png",
-          "score": 19.4,
+          "score": 19.8,
           "components": {
-            "odds_value": 13.6,
+            "odds_value": 15.3,
             "recent_form": 43.3,
             "consistency": 16.8,
             "jockey": 92.0,
@@ -2365,12 +2365,12 @@
           "age": "4",
           "weight": "9-9",
           "draw": "",
-          "odds_str": "5/1",
-          "odds_dec": 6.0,
+          "odds_str": "9/2",
+          "odds_dec": 5.5,
           "silk_url": "https://images.timeform.com/silks/opt/00831773.png",
-          "score": 60.9,
+          "score": 62.8,
           "components": {
-            "odds_value": 69.1,
+            "odds_value": 76.4,
             "recent_form": 68.0,
             "consistency": 75.0,
             "jockey": 80.0,
@@ -2380,7 +2380,7 @@
           },
           "recommendation": {
             "type": "Win",
-            "confidence": 60,
+            "confidence": 62,
             "label": "Win Bet",
             "reasoning": "solid recent form; placed last time out; consistent placer (75% placed); each way option also viable"
           }
@@ -2510,12 +2510,12 @@
           "age": "4",
           "weight": "9-7",
           "draw": "",
-          "odds_str": "40/1",
-          "odds_dec": 41.0,
+          "odds_str": "50/1",
+          "odds_dec": 51.0,
           "silk_url": "https://images.timeform.com/silks/opt/00056788.png",
-          "score": 41.9,
+          "score": 41.8,
           "components": {
-            "odds_value": 0.6,
+            "odds_value": 0,
             "recent_form": 67.5,
             "consistency": 66.7,
             "jockey": 60.0,
@@ -2597,12 +2597,12 @@
           "age": "5",
           "weight": "9-2",
           "draw": "",
-          "odds_str": "25/1",
-          "odds_dec": 26.0,
+          "odds_str": "28/1",
+          "odds_dec": 29.0,
           "silk_url": "https://images.timeform.com/silks/opt/00878095.png",
-          "score": 35.7,
+          "score": 35.3,
           "components": {
-            "odds_value": 7.4,
+            "odds_value": 5.5,
             "recent_form": 41.3,
             "consistency": 25.0,
             "jockey": 60.0,
@@ -2728,8 +2728,8 @@
           "age": "4",
           "weight": "10-13",
           "draw": "",
-          "odds_str": "1/1",
-          "odds_dec": 2.1,
+          "odds_str": "6/5",
+          "odds_dec": 2.2,
           "silk_url": "https://images.timeform.com/silks/opt/00890298.png",
           "score": 61.2,
           "components": {
@@ -2746,35 +2746,6 @@
             "confidence": 61,
             "label": "Win Bet",
             "reasoning": "moderate form; placed last time out; short price reflects market confidence"
-          }
-        },
-        {
-          "horse": "MIDNIGHT PASS",
-          "country": "GB",
-          "jockey": "James Bowen",
-          "trainer": "Emma Lavelle",
-          "form": "269334-",
-          "age": "5",
-          "weight": "11-10",
-          "draw": "",
-          "odds_str": "13/2",
-          "odds_dec": 7.5,
-          "silk_url": "https://images.timeform.com/silks/opt/00834625.png",
-          "score": 44.4,
-          "components": {
-            "odds_value": 33.3,
-            "recent_form": 50.0,
-            "consistency": 50.0,
-            "jockey": 80.0,
-            "weight": 15.4,
-            "absence_pen": 0.0,
-            "going_factor": 1.0
-          },
-          "recommendation": {
-            "type": "Skip",
-            "confidence": 17,
-            "label": "Skip",
-            "reasoning": "moderate form; consistent placer (50% placed)"
           }
         },
         {
@@ -2807,6 +2778,35 @@
           }
         },
         {
+          "horse": "MIDNIGHT PASS",
+          "country": "GB",
+          "jockey": "James Bowen",
+          "trainer": "Emma Lavelle",
+          "form": "269334-",
+          "age": "5",
+          "weight": "11-10",
+          "draw": "",
+          "odds_str": "15/2",
+          "odds_dec": 8.5,
+          "silk_url": "https://images.timeform.com/silks/opt/00834625.png",
+          "score": 43.1,
+          "components": {
+            "odds_value": 28.1,
+            "recent_form": 50.0,
+            "consistency": 50.0,
+            "jockey": 80.0,
+            "weight": 15.4,
+            "absence_pen": 0.0,
+            "going_factor": 1.0
+          },
+          "recommendation": {
+            "type": "Skip",
+            "confidence": 17,
+            "label": "Skip",
+            "reasoning": "moderate form; consistent placer (50% placed)"
+          }
+        },
+        {
           "horse": "JACK HOOLA",
           "country": "GB",
           "jockey": "Stan Sheppard",
@@ -2815,12 +2815,12 @@
           "age": "6",
           "weight": "11-12",
           "draw": "",
-          "odds_str": "7/2",
-          "odds_dec": 4.5,
+          "odds_str": "11/4",
+          "odds_dec": 3.75,
           "silk_url": "https://images.timeform.com/silks/opt/00886004.png",
-          "score": 34.2,
+          "score": 37.9,
           "components": {
-            "odds_value": 63.0,
+            "odds_value": 77.8,
             "recent_form": 45.7,
             "consistency": 66.7,
             "jockey": 60.0,
@@ -2830,7 +2830,7 @@
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 13,
+            "confidence": 15,
             "label": "Skip",
             "reasoning": "moderate form; consistent placer (66% placed); returning from long absence"
           }
@@ -2844,8 +2844,8 @@
           "age": "5",
           "weight": "11-1",
           "draw": "",
-          "odds_str": "33/1",
-          "odds_dec": 34.0,
+          "odds_str": "40/1",
+          "odds_dec": 41.0,
           "silk_url": "https://images.timeform.com/silks/opt/00874585.png",
           "score": 24.6,
           "components": {
@@ -2902,8 +2902,8 @@
           "age": "4",
           "weight": "10-2 (9-13)",
           "draw": "",
-          "odds_str": "66/1",
-          "odds_dec": 67.0,
+          "odds_str": "70/1",
+          "odds_dec": 71.0,
           "silk_url": "https://images.timeform.com/silks/opt/00890930.png",
           "score": 23.0,
           "components": {
@@ -2960,12 +2960,12 @@
           "age": "7",
           "weight": "11-3",
           "draw": "",
-          "odds_str": "14/1",
-          "odds_dec": 15.0,
+          "odds_str": "16/1",
+          "odds_dec": 17.0,
           "silk_url": "https://images.timeform.com/silks/opt/00862645.png",
-          "score": 10.6,
+          "score": 9.9,
           "components": {
-            "odds_value": 11.1,
+            "odds_value": 8.5,
             "recent_form": 19.7,
             "consistency": 24.2,
             "jockey": 60.0,
@@ -3149,12 +3149,12 @@
           "age": "6",
           "weight": "9-2",
           "draw": "",
-          "odds_str": "16/1",
-          "odds_dec": 17.0,
+          "odds_str": "14/1",
+          "odds_dec": 15.0,
           "silk_url": "https://images.timeform.com/silks/opt/00891179.png",
-          "score": 32.6,
+          "score": 33.4,
           "components": {
-            "odds_value": 10.7,
+            "odds_value": 13.6,
             "recent_form": 40.7,
             "consistency": 25.0,
             "jockey": 60.0,
@@ -3170,35 +3170,6 @@
           }
         },
         {
-          "horse": "PURPLE SKY",
-          "country": "IRE",
-          "jockey": "Charles Bishop",
-          "trainer": "Joe Ponting",
-          "form": "890-87777",
-          "age": "5",
-          "weight": "8-13",
-          "draw": "",
-          "odds_str": "16/1",
-          "odds_dec": 17.0,
-          "silk_url": "https://images.timeform.com/silks/opt/00870099.png",
-          "score": 26.0,
-          "components": {
-            "odds_value": 10.7,
-            "recent_form": 24.0,
-            "consistency": 0,
-            "jockey": 60.0,
-            "weight": 71.4,
-            "absence_pen": 0.0,
-            "going_factor": 1.0
-          },
-          "recommendation": {
-            "type": "Skip",
-            "confidence": 10,
-            "label": "Skip",
-            "reasoning": "poor recent form"
-          }
-        },
-        {
           "horse": "VECCHIO",
           "country": "IRE",
           "jockey": "Kieran O'Neill",
@@ -3207,8 +3178,8 @@
           "age": "6",
           "weight": "8-9 (8-8)",
           "draw": "",
-          "odds_str": "66/1",
-          "odds_dec": 67.0,
+          "odds_str": "80/1",
+          "odds_dec": 81.0,
           "silk_url": "https://images.timeform.com/silks/opt/00887802.png",
           "score": 25.9,
           "components": {
@@ -3246,6 +3217,35 @@
             "consistency": 37.5,
             "jockey": 60.0,
             "weight": 7.1,
+            "absence_pen": 0.0,
+            "going_factor": 1.0
+          },
+          "recommendation": {
+            "type": "Skip",
+            "confidence": 10,
+            "label": "Skip",
+            "reasoning": "poor recent form"
+          }
+        },
+        {
+          "horse": "PURPLE SKY",
+          "country": "IRE",
+          "jockey": "Charles Bishop",
+          "trainer": "Joe Ponting",
+          "form": "890-87777",
+          "age": "5",
+          "weight": "8-13",
+          "draw": "",
+          "odds_str": "18/1",
+          "odds_dec": 19.0,
+          "silk_url": "https://images.timeform.com/silks/opt/00870099.png",
+          "score": 25.4,
+          "components": {
+            "odds_value": 8.4,
+            "recent_form": 24.0,
+            "consistency": 0,
+            "jockey": 60.0,
+            "weight": 71.4,
             "absence_pen": 0.0,
             "going_factor": 1.0
           },
@@ -3309,8 +3309,8 @@
           "age": "3",
           "weight": "9-8",
           "draw": "",
-          "odds_str": "4/7",
-          "odds_dec": 1.57,
+          "odds_str": "8/15",
+          "odds_dec": 1.53,
           "silk_url": "https://images.timeform.com/silks/opt/00859142.png",
           "score": 73.0,
           "components": {
@@ -3338,12 +3338,12 @@
           "age": "3",
           "weight": "9-8",
           "draw": "",
-          "odds_str": "15/2",
-          "odds_dec": 8.5,
+          "odds_str": "7/1",
+          "odds_dec": 8.0,
           "silk_url": "https://images.timeform.com/silks/opt/00866688A.png",
-          "score": 61.6,
+          "score": 62.4,
           "components": {
-            "odds_value": 41.2,
+            "odds_value": 44.4,
             "recent_form": 80.0,
             "consistency": 100.0,
             "jockey": 82.0,
@@ -3353,7 +3353,7 @@
           },
           "recommendation": {
             "type": "Win",
-            "confidence": 61,
+            "confidence": 62,
             "label": "Win Bet",
             "reasoning": "strong recent form; placed last time out; consistent placer (100% placed)"
           }
@@ -3672,12 +3672,12 @@
           "age": "3",
           "weight": "9-0",
           "draw": "",
-          "odds_str": "9/4",
-          "odds_dec": 3.25,
+          "odds_str": "15/8",
+          "odds_dec": 2.88,
           "silk_url": "https://images.timeform.com/silks/opt/00065579.png",
-          "score": 55.2,
+          "score": 57.3,
           "components": {
-            "odds_value": 91.5,
+            "odds_value": 100,
             "recent_form": 41.7,
             "consistency": 0,
             "jockey": 72.0,
@@ -3687,7 +3687,7 @@
           },
           "recommendation": {
             "type": "EachWay",
-            "confidence": 55,
+            "confidence": 57,
             "label": "Each Way (Speculative)",
             "reasoning": "moderate form"
           }
@@ -3722,35 +3722,6 @@
           }
         },
         {
-          "horse": "FAREENAR",
-          "country": "IRE",
-          "jockey": "David Allan",
-          "trainer": "Tim Easterby",
-          "form": "543-7",
-          "age": "3",
-          "weight": "9-7",
-          "draw": "",
-          "odds_str": "8/1",
-          "odds_dec": 9.0,
-          "silk_url": "https://images.timeform.com/silks/opt/00862848A.png",
-          "score": 34.3,
-          "components": {
-            "odds_value": 25.9,
-            "recent_form": 43.5,
-            "consistency": 25.0,
-            "jockey": 60.0,
-            "weight": 20.0,
-            "absence_pen": 0.0,
-            "going_factor": 1.0
-          },
-          "recommendation": {
-            "type": "Skip",
-            "confidence": 13,
-            "label": "Skip",
-            "reasoning": "moderate form"
-          }
-        },
-        {
           "horse": "CONTEMPLATION",
           "country": "GB",
           "jockey": "Cam Hardie",
@@ -3769,6 +3740,35 @@
             "consistency": 0,
             "jockey": 60.0,
             "weight": 100.0,
+            "absence_pen": 0.0,
+            "going_factor": 1.0
+          },
+          "recommendation": {
+            "type": "Skip",
+            "confidence": 13,
+            "label": "Skip",
+            "reasoning": "moderate form"
+          }
+        },
+        {
+          "horse": "FAREENAR",
+          "country": "IRE",
+          "jockey": "David Allan",
+          "trainer": "Tim Easterby",
+          "form": "543-7",
+          "age": "3",
+          "weight": "9-7",
+          "draw": "",
+          "odds_str": "9/1",
+          "odds_dec": 10.0,
+          "silk_url": "https://images.timeform.com/silks/opt/00862848A.png",
+          "score": 33.4,
+          "components": {
+            "odds_value": 22.2,
+            "recent_form": 43.5,
+            "consistency": 25.0,
+            "jockey": 60.0,
+            "weight": 20.0,
             "absence_pen": 0.0,
             "going_factor": 1.0
           },
@@ -3904,12 +3904,12 @@
           "age": "3",
           "weight": "9-7",
           "draw": "",
-          "odds_str": "9/1",
-          "odds_dec": 10.0,
+          "odds_str": "10/1",
+          "odds_dec": 11.0,
           "silk_url": "https://images.timeform.com/silks/opt/00891830.png",
-          "score": 24.7,
+          "score": 24.0,
           "components": {
-            "odds_value": 22.2,
+            "odds_value": 19.2,
             "recent_form": 21.0,
             "consistency": 12.5,
             "jockey": 60.0,
@@ -3948,8 +3948,8 @@
           "age": "5",
           "weight": "10-0",
           "draw": "",
-          "odds_str": "4/6",
-          "odds_dec": 1.67,
+          "odds_str": "8/13",
+          "odds_dec": 1.62,
           "silk_url": "https://images.timeform.com/silks/opt/00892198.png",
           "score": 75.2,
           "components": {
@@ -4006,12 +4006,12 @@
           "age": "6",
           "weight": "9-12",
           "draw": "",
-          "odds_str": "5/1",
-          "odds_dec": 6.0,
+          "odds_str": "9/2",
+          "odds_dec": 5.5,
           "silk_url": "https://images.timeform.com/silks/opt/00877248.png",
-          "score": 46.8,
+          "score": 47.6,
           "components": {
-            "odds_value": 25.9,
+            "odds_value": 29.3,
             "recent_form": 79.0,
             "consistency": 37.5,
             "jockey": 60.0,
@@ -4021,7 +4021,7 @@
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 18,
+            "confidence": 19,
             "label": "Skip",
             "reasoning": "solid recent form; won last time out"
           }
@@ -4035,8 +4035,8 @@
           "age": "9",
           "weight": "9-4",
           "draw": "",
-          "odds_str": "50/1",
-          "odds_dec": 51.0,
+          "odds_str": "66/1",
+          "odds_dec": 67.0,
           "silk_url": "https://images.timeform.com/silks/opt/00846878.png",
           "score": 32.4,
           "components": {
@@ -4064,8 +4064,8 @@
           "age": "6",
           "weight": "9-10",
           "draw": "",
-          "odds_str": "40/1",
-          "odds_dec": 41.0,
+          "odds_str": "50/1",
+          "odds_dec": 51.0,
           "silk_url": "https://images.timeform.com/silks/opt/00892562.png",
           "score": 24.5,
           "components": {
@@ -4093,12 +4093,12 @@
           "age": "8",
           "weight": "10-0",
           "draw": "",
-          "odds_str": "12/1",
-          "odds_dec": 13.0,
+          "odds_str": "14/1",
+          "odds_dec": 15.0,
           "silk_url": "https://images.timeform.com/silks/opt/00000485.png",
-          "score": 11.0,
+          "score": 10.4,
           "components": {
-            "odds_value": 6.0,
+            "odds_value": 3.7,
             "recent_form": 35.0,
             "consistency": 33.3,
             "jockey": 60.0,
@@ -4297,12 +4297,12 @@
           "age": "6",
           "weight": "10-11",
           "draw": "",
-          "odds_str": "7/1",
-          "odds_dec": 8.0,
+          "odds_str": "11/2",
+          "odds_dec": 6.5,
           "silk_url": "https://images.timeform.com/silks/opt/00074408A.png",
-          "score": 58.3,
+          "score": 62.6,
           "components": {
-            "odds_value": 63.0,
+            "odds_value": 80.1,
             "recent_form": 53.5,
             "consistency": 50.0,
             "jockey": 60.0,
@@ -4311,9 +4311,9 @@
             "going_factor": 1.0
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 58,
-            "label": "Each Way",
+            "type": "Win",
+            "confidence": 62,
+            "label": "Win Bet",
             "reasoning": "moderate form; consistent placer (50% placed)"
           }
         },
@@ -4326,8 +4326,8 @@
           "age": "5",
           "weight": "11-4",
           "draw": "",
-          "odds_str": "2/1",
-          "odds_dec": 3.0,
+          "odds_str": "9/4",
+          "odds_dec": 3.25,
           "silk_url": "https://images.timeform.com/silks/opt/00032184.png",
           "score": 52.3,
           "components": {
@@ -4355,12 +4355,12 @@
           "age": "4",
           "weight": "10-12",
           "draw": "",
-          "odds_str": "6/1",
-          "odds_dec": 7.0,
+          "odds_str": "5/1",
+          "odds_dec": 6.0,
           "silk_url": "https://images.timeform.com/silks/opt/00888106.png",
-          "score": 48.7,
+          "score": 52.2,
           "components": {
-            "odds_value": 73.5,
+            "odds_value": 87.7,
             "recent_form": 40.0,
             "consistency": 0,
             "jockey": 60.0,
@@ -4369,38 +4369,9 @@
             "going_factor": 1.0
           },
           "recommendation": {
-            "type": "Skip",
-            "confidence": 19,
-            "label": "Skip",
-            "reasoning": "moderate form"
-          }
-        },
-        {
-          "horse": "CASUAL WATER",
-          "country": "IRE",
-          "jockey": "A. McGuinness",
-          "trainer": "W. P. Mullins, Ireland",
-          "form": "5-",
-          "age": "5",
-          "weight": "11-4",
-          "draw": "",
-          "odds_str": "8/1",
-          "odds_dec": 9.0,
-          "silk_url": "https://images.timeform.com/silks/opt/00892773.png",
-          "score": 40.0,
-          "components": {
-            "odds_value": 54.7,
-            "recent_form": 40.0,
-            "consistency": 0,
-            "jockey": 60.0,
-            "weight": 53.3,
-            "absence_pen": 0.0,
-            "going_factor": 1.0
-          },
-          "recommendation": {
-            "type": "Skip",
-            "confidence": 16,
-            "label": "Skip",
+            "type": "EachWay",
+            "confidence": 52,
+            "label": "Each Way (Speculative)",
             "reasoning": "moderate form"
           }
         },
@@ -4413,8 +4384,8 @@
           "age": "5",
           "weight": "11-4",
           "draw": "",
-          "odds_str": "4/1",
-          "odds_dec": 5.0,
+          "odds_str": "15/4",
+          "odds_dec": 4.75,
           "silk_url": "https://images.timeform.com/silks/opt/00893198.png",
           "score": 39.3,
           "components": {
@@ -4434,6 +4405,35 @@
           }
         },
         {
+          "horse": "CASUAL WATER",
+          "country": "IRE",
+          "jockey": "A. McGuinness",
+          "trainer": "W. P. Mullins, Ireland",
+          "form": "5-",
+          "age": "5",
+          "weight": "11-4",
+          "draw": "",
+          "odds_str": "17/2",
+          "odds_dec": 9.5,
+          "silk_url": "https://images.timeform.com/silks/opt/00892773.png",
+          "score": 39.2,
+          "components": {
+            "odds_value": 51.3,
+            "recent_form": 40.0,
+            "consistency": 0,
+            "jockey": 60.0,
+            "weight": 53.3,
+            "absence_pen": 0.0,
+            "going_factor": 1.0
+          },
+          "recommendation": {
+            "type": "Skip",
+            "confidence": 15,
+            "label": "Skip",
+            "reasoning": "moderate form"
+          }
+        },
+        {
           "horse": "TAWNY LEA",
           "country": "IRE",
           "jockey": "E. Finegan",
@@ -4442,12 +4442,12 @@
           "age": "6",
           "weight": "10-11",
           "draw": "",
-          "odds_str": "28/1",
-          "odds_dec": 29.0,
+          "odds_str": "33/1",
+          "odds_dec": 34.0,
           "silk_url": "https://images.timeform.com/silks/opt/00891337.png",
-          "score": 33.3,
+          "score": 32.6,
           "components": {
-            "odds_value": 9.3,
+            "odds_value": 6.3,
             "recent_form": 40.0,
             "consistency": 0,
             "jockey": 60.0,
@@ -4500,12 +4500,12 @@
           "age": "6",
           "weight": "11-4",
           "draw": "",
-          "odds_str": "40/1",
-          "odds_dec": 41.0,
+          "odds_str": "66/1",
+          "odds_dec": 67.0,
           "silk_url": "https://images.timeform.com/silks/opt/00033102.png",
-          "score": 27.9,
+          "score": 27.1,
           "components": {
-            "odds_value": 3.3,
+            "odds_value": 0,
             "recent_form": 40.0,
             "consistency": 0,
             "jockey": 65.0,
@@ -4515,7 +4515,7 @@
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 11,
+            "confidence": 10,
             "label": "Skip",
             "reasoning": "moderate form"
           }
@@ -4529,12 +4529,12 @@
           "age": "5",
           "weight": "11-4",
           "draw": "",
-          "odds_str": "22/1",
-          "odds_dec": 23.0,
+          "odds_str": "28/1",
+          "odds_dec": 29.0,
           "silk_url": "https://images.timeform.com/silks/opt/00890910.png",
-          "score": 25.7,
+          "score": 24.4,
           "components": {
-            "odds_value": 14.7,
+            "odds_value": 9.3,
             "recent_form": 25.8,
             "consistency": 0,
             "jockey": 60.0,
@@ -4544,7 +4544,7 @@
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 10,
+            "confidence": 9,
             "label": "Skip",
             "reasoning": "poor recent form"
           }
@@ -4558,12 +4558,12 @@
           "age": "5",
           "weight": "11-12",
           "draw": "",
-          "odds_str": "14/1",
-          "odds_dec": 15.0,
+          "odds_str": "16/1",
+          "odds_dec": 17.0,
           "silk_url": "https://images.timeform.com/silks/opt/00891153A.png",
-          "score": 25.4,
+          "score": 24.2,
           "components": {
-            "odds_value": 28.4,
+            "odds_value": 23.7,
             "recent_form": 31.0,
             "consistency": 0,
             "jockey": 60.0,
@@ -4573,7 +4573,7 @@
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 10,
+            "confidence": 9,
             "label": "Skip",
             "reasoning": "poor recent form"
           }
@@ -4597,35 +4597,6 @@
             "consistency": 0,
             "jockey": 65.0,
             "weight": 93.3,
-            "absence_pen": 0.0,
-            "going_factor": 1.0
-          },
-          "recommendation": {
-            "type": "Skip",
-            "confidence": 8,
-            "label": "Skip",
-            "reasoning": "poor recent form"
-          }
-        },
-        {
-          "horse": "DENHAM ROCK",
-          "country": "IRE",
-          "jockey": "T. Joseph Kelly",
-          "trainer": "Charles Byrnes, Ireland",
-          "form": "0",
-          "age": "5",
-          "weight": "11-4",
-          "draw": "",
-          "odds_str": "22/1",
-          "odds_dec": 23.0,
-          "silk_url": "https://images.timeform.com/silks/opt/00015134.png",
-          "score": 21.0,
-          "components": {
-            "odds_value": 14.7,
-            "recent_form": 10.0,
-            "consistency": 0,
-            "jockey": 60.0,
-            "weight": 53.3,
             "absence_pen": 0.0,
             "going_factor": 1.0
           },
@@ -4666,6 +4637,35 @@
           }
         },
         {
+          "horse": "DENHAM ROCK",
+          "country": "IRE",
+          "jockey": "T. Joseph Kelly",
+          "trainer": "Charles Byrnes, Ireland",
+          "form": "0",
+          "age": "5",
+          "weight": "11-4",
+          "draw": "",
+          "odds_str": "28/1",
+          "odds_dec": 29.0,
+          "silk_url": "https://images.timeform.com/silks/opt/00015134.png",
+          "score": 19.7,
+          "components": {
+            "odds_value": 9.3,
+            "recent_form": 10.0,
+            "consistency": 0,
+            "jockey": 60.0,
+            "weight": 53.3,
+            "absence_pen": 0.0,
+            "going_factor": 1.0
+          },
+          "recommendation": {
+            "type": "Skip",
+            "confidence": 7,
+            "label": "Skip",
+            "reasoning": "poor recent form"
+          }
+        },
+        {
           "horse": "ANTOINE DE PARIS",
           "country": "IRE",
           "jockey": "C. P. Millar",
@@ -4674,12 +4674,12 @@
           "age": "4",
           "weight": "11-6",
           "draw": "",
-          "odds_str": "40/1",
-          "odds_dec": 41.0,
+          "odds_str": "50/1",
+          "odds_dec": 51.0,
           "silk_url": "https://images.timeform.com/silks/opt/00880951.png",
-          "score": 16.3,
+          "score": 15.6,
           "components": {
-            "odds_value": 3.3,
+            "odds_value": 0.5,
             "recent_form": 8.3,
             "consistency": 0,
             "jockey": 60.0,
@@ -4834,12 +4834,12 @@
           "age": "3",
           "weight": "9-6",
           "draw": "",
-          "odds_str": "7/1",
-          "odds_dec": 8.0,
+          "odds_str": "15/2",
+          "odds_dec": 8.5,
           "silk_url": "https://images.timeform.com/silks/opt/00041749.png",
-          "score": 59.4,
+          "score": 59.0,
           "components": {
-            "odds_value": 16.7,
+            "odds_value": 15.0,
             "recent_form": 100,
             "consistency": 100.0,
             "jockey": 68.0,
@@ -4849,7 +4849,7 @@
           },
           "recommendation": {
             "type": "EachWay",
-            "confidence": 59,
+            "confidence": 58,
             "label": "Each Way",
             "reasoning": "strong recent form; won last time out; consistent placer (100% placed)"
           }
@@ -4863,12 +4863,12 @@
           "age": "3",
           "weight": "9-2",
           "draw": "",
-          "odds_str": "9/2",
-          "odds_dec": 5.5,
+          "odds_str": "5/1",
+          "odds_dec": 6.0,
           "silk_url": "https://images.timeform.com/silks/opt/00852555A.png",
-          "score": 54.8,
+          "score": 54.0,
           "components": {
-            "odds_value": 29.3,
+            "odds_value": 25.9,
             "recent_form": 61.7,
             "consistency": 66.7,
             "jockey": 60.0,
@@ -4878,7 +4878,7 @@
           },
           "recommendation": {
             "type": "EachWay",
-            "confidence": 54,
+            "confidence": 53,
             "label": "Each Way (Speculative)",
             "reasoning": "solid recent form; placed last time out; consistent placer (66% placed)"
           }
@@ -4921,12 +4921,12 @@
           "age": "3",
           "weight": "9-2",
           "draw": "",
-          "odds_str": "18/1",
-          "odds_dec": 19.0,
+          "odds_str": "16/1",
+          "odds_dec": 17.0,
           "silk_url": "https://images.timeform.com/silks/opt/00857383.png",
-          "score": 29.9,
+          "score": 30.3,
           "components": {
-            "odds_value": 0.6,
+            "odds_value": 2.0,
             "recent_form": 25.0,
             "consistency": 0,
             "jockey": 82.0,
@@ -4936,7 +4936,7 @@
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 11,
+            "confidence": 12,
             "label": "Skip",
             "reasoning": "poor recent form"
           }
@@ -4965,8 +4965,8 @@
           "age": "3",
           "weight": "9-5",
           "draw": "",
-          "odds_str": "8/13",
-          "odds_dec": 1.62,
+          "odds_str": "1/2",
+          "odds_dec": 1.5,
           "silk_url": "https://images.timeform.com/silks/opt/00058105.png",
           "score": 90.4,
           "components": {
@@ -4994,12 +4994,12 @@
           "age": "3",
           "weight": "9-3",
           "draw": "",
-          "odds_str": "7/2",
-          "odds_dec": 4.5,
+          "odds_str": "4/1",
+          "odds_dec": 5.0,
           "silk_url": "https://images.timeform.com/silks/opt/00862478.png",
-          "score": 80.9,
+          "score": 78.4,
           "components": {
-            "odds_value": 87.7,
+            "odds_value": 77.8,
             "recent_form": 80.0,
             "consistency": 100.0,
             "jockey": 85.0,
@@ -5009,7 +5009,7 @@
           },
           "recommendation": {
             "type": "Win",
-            "confidence": 80,
+            "confidence": 78,
             "label": "Strong Win Bet",
             "reasoning": "strong recent form; placed last time out; consistent placer (100% placed); each way option also viable"
           }
@@ -5023,12 +5023,12 @@
           "age": "3",
           "weight": "9-3",
           "draw": "",
-          "odds_str": "9/1",
-          "odds_dec": 10.0,
+          "odds_str": "10/1",
+          "odds_dec": 11.0,
           "silk_url": "https://images.timeform.com/silks/opt/00881045.png",
-          "score": 48.6,
+          "score": 47.5,
           "components": {
-            "odds_value": 33.3,
+            "odds_value": 29.3,
             "recent_form": 55.0,
             "consistency": 50.0,
             "jockey": 60.0,
@@ -5052,12 +5052,12 @@
           "age": "3",
           "weight": "8-12",
           "draw": "",
-          "odds_str": "15/2",
-          "odds_dec": 8.5,
+          "odds_str": "8/1",
+          "odds_dec": 9.0,
           "silk_url": "https://images.timeform.com/silks/opt/00873939.png",
-          "score": 45.8,
+          "score": 45.1,
           "components": {
-            "odds_value": 41.2,
+            "odds_value": 38.3,
             "recent_form": 40.0,
             "consistency": 0,
             "jockey": 90.0,
@@ -5081,12 +5081,12 @@
           "age": "3",
           "weight": "9-3",
           "draw": "",
-          "odds_str": "10/1",
-          "odds_dec": 11.0,
+          "odds_str": "11/1",
+          "odds_dec": 12.0,
           "silk_url": "https://images.timeform.com/silks/opt/00866766.png",
-          "score": 35.5,
+          "score": 34.7,
           "components": {
-            "odds_value": 29.3,
+            "odds_value": 25.9,
             "recent_form": 40.0,
             "consistency": 0,
             "jockey": 60.0,
@@ -5096,7 +5096,7 @@
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 14,
+            "confidence": 13,
             "label": "Skip",
             "reasoning": "moderate form"
           }
@@ -5110,12 +5110,12 @@
           "age": "3",
           "weight": "8-12",
           "draw": "",
-          "odds_str": "25/1",
-          "odds_dec": 26.0,
+          "odds_str": "28/1",
+          "odds_dec": 29.0,
           "silk_url": "https://images.timeform.com/silks/opt/00877195.png",
-          "score": 32.5,
+          "score": 32.1,
           "components": {
-            "odds_value": 6.0,
+            "odds_value": 4.2,
             "recent_form": 40.0,
             "consistency": 0,
             "jockey": 60.0,
@@ -5197,8 +5197,8 @@
           "age": "3",
           "weight": "9-3",
           "draw": "",
-          "odds_str": "66/1",
-          "odds_dec": 67.0,
+          "odds_str": "80/1",
+          "odds_dec": 81.0,
           "silk_url": "https://images.timeform.com/silks/opt/00878853.png",
           "score": 28.2,
           "components": {
@@ -5255,8 +5255,8 @@
           "age": "3",
           "weight": "9-3",
           "draw": "",
-          "odds_str": "80/1",
-          "odds_dec": 126.0,
+          "odds_str": "SP",
+          "odds_dec": 201.0,
           "silk_url": "https://images.timeform.com/silks/opt/00886877.png",
           "score": 21.0,
           "components": {
@@ -5328,8 +5328,8 @@
           "age": "5",
           "weight": "11-7",
           "draw": "",
-          "odds_str": "2/1",
-          "odds_dec": 3.0,
+          "odds_str": "9/4",
+          "odds_dec": 3.25,
           "silk_url": "https://images.timeform.com/silks/opt/00889232.png",
           "score": 69.5,
           "components": {
@@ -5345,7 +5345,7 @@
             "type": "Win",
             "confidence": 69,
             "label": "Win Bet",
-            "reasoning": "strong recent form; placed last time out; consistent placer (80% placed); short price reflects market confidence"
+            "reasoning": "strong recent form; placed last time out; consistent placer (80% placed); each way option also viable"
           }
         },
         {
@@ -5407,6 +5407,35 @@
           }
         },
         {
+          "horse": "ORIOLE",
+          "country": "GB",
+          "jockey": "T. E. O'Connor",
+          "trainer": "Mark Fahey, Ireland",
+          "form": "",
+          "age": "7",
+          "weight": "11-7",
+          "draw": "",
+          "odds_str": "17/2",
+          "odds_dec": 9.5,
+          "silk_url": "https://images.timeform.com/silks/opt/00868972A.png",
+          "score": 34.8,
+          "components": {
+            "odds_value": 55.2,
+            "recent_form": 40.0,
+            "consistency": 0,
+            "jockey": 60.0,
+            "weight": 0.0,
+            "absence_pen": 0.0,
+            "going_factor": 1.0
+          },
+          "recommendation": {
+            "type": "Skip",
+            "confidence": 13,
+            "label": "Skip",
+            "reasoning": "moderate form"
+          }
+        },
+        {
           "horse": "DONT BREAK MY WORD",
           "country": "IRE",
           "jockey": "Eoin Walsh",
@@ -5436,22 +5465,22 @@
           }
         },
         {
-          "horse": "ORIOLE",
-          "country": "GB",
-          "jockey": "T. E. O'Connor",
-          "trainer": "Mark Fahey, Ireland",
-          "form": "",
-          "age": "7",
+          "horse": "BROSNA QUEEN",
+          "country": "IRE",
+          "jockey": "B. Hayes",
+          "trainer": "S. G. Carey, Ireland",
+          "form": "5175P6-",
+          "age": "6",
           "weight": "11-7",
           "draw": "",
-          "odds_str": "10/1",
-          "odds_dec": 11.0,
-          "silk_url": "https://images.timeform.com/silks/opt/00868972A.png",
+          "odds_str": "17/2",
+          "odds_dec": 9.5,
+          "silk_url": "https://images.timeform.com/silks/opt/00050053A.png",
           "score": 32.5,
           "components": {
-            "odds_value": 46.1,
-            "recent_form": 40.0,
-            "consistency": 0,
+            "odds_value": 55.2,
+            "recent_form": 26.3,
+            "consistency": 12.4,
             "jockey": 60.0,
             "weight": 0.0,
             "absence_pen": 0.0,
@@ -5461,7 +5490,7 @@
             "type": "Skip",
             "confidence": 13,
             "label": "Skip",
-            "reasoning": "moderate form"
+            "reasoning": "poor recent form"
           }
         },
         {
@@ -5473,8 +5502,8 @@
           "age": "5",
           "weight": "11-7",
           "draw": "",
-          "odds_str": "9/2",
-          "odds_dec": 5.5,
+          "odds_str": "4/1",
+          "odds_dec": 5.0,
           "silk_url": "https://images.timeform.com/silks/opt/00034822.png",
           "score": 31.6,
           "components": {
@@ -5523,35 +5552,6 @@
           }
         },
         {
-          "horse": "BROSNA QUEEN",
-          "country": "IRE",
-          "jockey": "B. Hayes",
-          "trainer": "S. G. Carey, Ireland",
-          "form": "5175P6-",
-          "age": "6",
-          "weight": "11-7",
-          "draw": "",
-          "odds_str": "10/1",
-          "odds_dec": 11.0,
-          "silk_url": "https://images.timeform.com/silks/opt/00050053A.png",
-          "score": 30.3,
-          "components": {
-            "odds_value": 46.1,
-            "recent_form": 26.3,
-            "consistency": 12.4,
-            "jockey": 60.0,
-            "weight": 0.0,
-            "absence_pen": 0.0,
-            "going_factor": 1.0
-          },
-          "recommendation": {
-            "type": "Skip",
-            "confidence": 12,
-            "label": "Skip",
-            "reasoning": "poor recent form"
-          }
-        },
-        {
           "horse": "KEILAH",
           "country": "IRE",
           "jockey": "Phillip Enright",
@@ -5560,12 +5560,12 @@
           "age": "6",
           "weight": "11-7",
           "draw": "",
-          "odds_str": "12/1",
-          "odds_dec": 13.0,
+          "odds_str": "11/1",
+          "odds_dec": 12.0,
           "silk_url": "https://images.timeform.com/silks/opt/00845853.png",
-          "score": 28.8,
+          "score": 29.8,
           "components": {
-            "odds_value": 37.3,
+            "odds_value": 41.4,
             "recent_form": 60.0,
             "consistency": 50.0,
             "jockey": 60.0,
@@ -5726,35 +5726,6 @@
           }
         },
         {
-          "horse": "CRYSTABEL",
-          "country": "IRE",
-          "jockey": "D. King",
-          "trainer": "John Patrick Ryan, Ireland",
-          "form": "27/6F7-",
-          "age": "5",
-          "weight": "10-13",
-          "draw": "",
-          "odds_str": "22/1",
-          "odds_dec": 23.0,
-          "silk_url": "https://images.timeform.com/silks/opt/00870003.png",
-          "score": 8.8,
-          "components": {
-            "odds_value": 16.3,
-            "recent_form": 16.7,
-            "consistency": 0,
-            "jockey": 60.0,
-            "weight": 57.1,
-            "absence_pen": 15.0,
-            "going_factor": 1.0
-          },
-          "recommendation": {
-            "type": "Skip",
-            "confidence": 5,
-            "label": "Skip",
-            "reasoning": "poor recent form; returning from long absence; notable non-completion rate (33%)"
-          }
-        },
-        {
           "horse": "COLA BLAZE",
           "country": "IRE",
           "jockey": "P. Cleary",
@@ -5781,6 +5752,35 @@
             "confidence": 5,
             "label": "Skip",
             "reasoning": "poor recent form; returning from long absence"
+          }
+        },
+        {
+          "horse": "CRYSTABEL",
+          "country": "IRE",
+          "jockey": "D. King",
+          "trainer": "John Patrick Ryan, Ireland",
+          "form": "27/6F7-",
+          "age": "5",
+          "weight": "10-13",
+          "draw": "",
+          "odds_str": "25/1",
+          "odds_dec": 26.0,
+          "silk_url": "https://images.timeform.com/silks/opt/00870003.png",
+          "score": 8.0,
+          "components": {
+            "odds_value": 13.1,
+            "recent_form": 16.7,
+            "consistency": 0,
+            "jockey": 60.0,
+            "weight": 57.1,
+            "absence_pen": 15.0,
+            "going_factor": 1.0
+          },
+          "recommendation": {
+            "type": "Skip",
+            "confidence": 5,
+            "label": "Skip",
+            "reasoning": "poor recent form; returning from long absence; notable non-completion rate (33%)"
           }
         },
         {
@@ -5857,35 +5857,6 @@
           }
         },
         {
-          "horse": "MYSTIC BELLA",
-          "country": "IRE",
-          "jockey": "Shane Foley",
-          "trainer": "Henry de Bromhead, Ireland",
-          "form": "300-4",
-          "age": "4",
-          "weight": "9-4",
-          "draw": "",
-          "odds_str": "9/1",
-          "odds_dec": 10.0,
-          "silk_url": "https://images.timeform.com/silks/opt/00076870.png",
-          "score": 45.2,
-          "components": {
-            "odds_value": 37.0,
-            "recent_form": 31.5,
-            "consistency": 25.0,
-            "jockey": 85.0,
-            "weight": 100.0,
-            "absence_pen": 0.0,
-            "going_factor": 1.0
-          },
-          "recommendation": {
-            "type": "Skip",
-            "confidence": 18,
-            "label": "Skip",
-            "reasoning": "poor recent form"
-          }
-        },
-        {
           "horse": "DAZZLING ANGEL",
           "country": "GB",
           "jockey": "G. F. Carroll",
@@ -5894,12 +5865,12 @@
           "age": "4",
           "weight": "9-4",
           "draw": "",
-          "odds_str": "7/1",
-          "odds_dec": 8.0,
+          "odds_str": "13/2",
+          "odds_dec": 7.5,
           "silk_url": "https://images.timeform.com/silks/opt/00883763.png",
-          "score": 44.8,
+          "score": 45.8,
           "components": {
-            "odds_value": 49.1,
+            "odds_value": 53.1,
             "recent_form": 40.0,
             "consistency": 0,
             "jockey": 70.0,
@@ -5909,9 +5880,38 @@
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 17,
+            "confidence": 18,
             "label": "Skip",
             "reasoning": "moderate form"
+          }
+        },
+        {
+          "horse": "MYSTIC BELLA",
+          "country": "IRE",
+          "jockey": "Shane Foley",
+          "trainer": "Henry de Bromhead, Ireland",
+          "form": "300-4",
+          "age": "4",
+          "weight": "9-4",
+          "draw": "",
+          "odds_str": "10/1",
+          "odds_dec": 11.0,
+          "silk_url": "https://images.timeform.com/silks/opt/00076870.png",
+          "score": 44.1,
+          "components": {
+            "odds_value": 32.7,
+            "recent_form": 31.5,
+            "consistency": 25.0,
+            "jockey": 85.0,
+            "weight": 100.0,
+            "absence_pen": 0.0,
+            "going_factor": 1.0
+          },
+          "recommendation": {
+            "type": "Skip",
+            "confidence": 17,
+            "label": "Skip",
+            "reasoning": "poor recent form"
           }
         },
         {
@@ -5952,12 +5952,12 @@
           "age": "4",
           "weight": "9-9",
           "draw": "",
-          "odds_str": "17/2",
-          "odds_dec": 9.5,
+          "odds_str": "9/1",
+          "odds_dec": 10.0,
           "silk_url": "https://images.timeform.com/silks/opt/00890695.png",
-          "score": 33.6,
+          "score": 33.0,
           "components": {
-            "odds_value": 39.6,
+            "odds_value": 37.0,
             "recent_form": 40.0,
             "consistency": 0,
             "jockey": 78.0,
@@ -5981,12 +5981,12 @@
           "age": "4",
           "weight": "9-4",
           "draw": "",
-          "odds_str": "11/1",
-          "odds_dec": 12.0,
+          "odds_str": "10/1",
+          "odds_dec": 11.0,
           "silk_url": "https://images.timeform.com/silks/opt/00075636.png",
-          "score": 30.8,
+          "score": 31.7,
           "components": {
-            "odds_value": 29.0,
+            "odds_value": 32.7,
             "recent_form": 10.0,
             "consistency": 0,
             "jockey": 70.0,
@@ -6031,35 +6031,6 @@
           }
         },
         {
-          "horse": "RADIENT MAN",
-          "country": "IRE",
-          "jockey": "L. T. McAteer",
-          "trainer": "John Joseph Murphy, Ireland",
-          "form": "05-",
-          "age": "4",
-          "weight": "9-9",
-          "draw": "",
-          "odds_str": "22/1",
-          "odds_dec": 23.0,
-          "silk_url": "https://images.timeform.com/silks/opt/00863345.png",
-          "score": 21.2,
-          "components": {
-            "odds_value": 9.8,
-            "recent_form": 30.0,
-            "consistency": 0,
-            "jockey": 65.0,
-            "weight": 0.0,
-            "absence_pen": 0.0,
-            "going_factor": 1.0
-          },
-          "recommendation": {
-            "type": "Skip",
-            "confidence": 8,
-            "label": "Skip",
-            "reasoning": "poor recent form"
-          }
-        },
-        {
           "horse": "TIJUANA",
           "country": "GB",
           "jockey": "K. J. Leonard",
@@ -6068,8 +6039,8 @@
           "age": "8",
           "weight": "9-9",
           "draw": "",
-          "odds_str": "90/1",
-          "odds_dec": 101.0,
+          "odds_str": "SP",
+          "odds_dec": 201.0,
           "silk_url": "https://images.timeform.com/silks/opt/00036013.png",
           "score": 21.0,
           "components": {
@@ -6086,6 +6057,35 @@
             "confidence": 8,
             "label": "Skip",
             "reasoning": "moderate form"
+          }
+        },
+        {
+          "horse": "COUL DREAMER",
+          "country": "IRE",
+          "jockey": "D. W. O'Connor",
+          "trainer": "W. McCreery, Ireland",
+          "form": "34438/20-0",
+          "age": "5",
+          "weight": "9-9",
+          "draw": "",
+          "odds_str": "6/1",
+          "odds_dec": 7.0,
+          "silk_url": "https://images.timeform.com/silks/opt/00884740.png",
+          "score": 20.7,
+          "components": {
+            "odds_value": 57.7,
+            "recent_form": 21.7,
+            "consistency": 33.3,
+            "jockey": 65.0,
+            "weight": 0.0,
+            "absence_pen": 15.0,
+            "going_factor": 1.0
+          },
+          "recommendation": {
+            "type": "Skip",
+            "confidence": 8,
+            "label": "Skip",
+            "reasoning": "poor recent form; returning from long absence"
           }
         },
         {
@@ -6118,49 +6118,49 @@
           }
         },
         {
-          "horse": "COUL DREAMER",
+          "horse": "RADIENT MAN",
           "country": "IRE",
-          "jockey": "D. W. O'Connor",
-          "trainer": "W. McCreery, Ireland",
-          "form": "34438/20-0",
-          "age": "5",
+          "jockey": "L. T. McAteer",
+          "trainer": "John Joseph Murphy, Ireland",
+          "form": "05-",
+          "age": "4",
           "weight": "9-9",
           "draw": "",
-          "odds_str": "13/2",
-          "odds_dec": 7.5,
-          "silk_url": "https://images.timeform.com/silks/opt/00884740.png",
-          "score": 19.5,
+          "odds_str": "28/1",
+          "odds_dec": 29.0,
+          "silk_url": "https://images.timeform.com/silks/opt/00863345.png",
+          "score": 20.1,
           "components": {
-            "odds_value": 53.1,
-            "recent_form": 21.7,
-            "consistency": 33.3,
+            "odds_value": 5.5,
+            "recent_form": 30.0,
+            "consistency": 0,
             "jockey": 65.0,
             "weight": 0.0,
-            "absence_pen": 15.0,
+            "absence_pen": 0.0,
             "going_factor": 1.0
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 7,
+            "confidence": 8,
             "label": "Skip",
-            "reasoning": "poor recent form; returning from long absence"
+            "reasoning": "poor recent form"
           }
         },
         {
-          "horse": "THE ROCK FACTOR",
+          "horse": "PHIDIAS OVATION",
           "country": "IRE",
-          "jockey": "R. P. Whelan",
-          "trainer": "Emmet Mullins, Ireland",
-          "form": "98",
+          "jockey": "R. C. Colgan",
+          "trainer": "P. C. O'Donnell, Ireland",
+          "form": "08-0",
           "age": "4",
           "weight": "9-9",
           "draw": "",
-          "odds_str": "33/1",
-          "odds_dec": 34.0,
-          "silk_url": "https://images.timeform.com/silks/opt/00891523.png",
-          "score": 14.0,
+          "odds_str": "80/1",
+          "odds_dec": 81.0,
+          "silk_url": "https://images.timeform.com/silks/opt/00888788.png",
+          "score": 13.2,
           "components": {
-            "odds_value": 3.1,
+            "odds_value": 0,
             "recent_form": 10.0,
             "consistency": 0,
             "jockey": 68.0,
@@ -6176,17 +6176,17 @@
           }
         },
         {
-          "horse": "PHIDIAS OVATION",
+          "horse": "THE ROCK FACTOR",
           "country": "IRE",
-          "jockey": "R. C. Colgan",
-          "trainer": "P. C. O'Donnell, Ireland",
-          "form": "08-0",
+          "jockey": "R. P. Whelan",
+          "trainer": "Emmet Mullins, Ireland",
+          "form": "98",
           "age": "4",
           "weight": "9-9",
           "draw": "",
-          "odds_str": "66/1",
-          "odds_dec": 67.0,
-          "silk_url": "https://images.timeform.com/silks/opt/00888788.png",
+          "odds_str": "50/1",
+          "odds_dec": 51.0,
+          "silk_url": "https://images.timeform.com/silks/opt/00891523.png",
           "score": 13.2,
           "components": {
             "odds_value": 0,
@@ -6228,12 +6228,12 @@
           "age": "3",
           "weight": "9-2",
           "draw": "",
-          "odds_str": "11/4",
-          "odds_dec": 3.75,
+          "odds_str": "5/2",
+          "odds_dec": 3.5,
           "silk_url": "https://images.timeform.com/silks/opt/00859386.png",
-          "score": 56.0,
+          "score": 57.5,
           "components": {
-            "odds_value": 77.8,
+            "odds_value": 84.1,
             "recent_form": 66.7,
             "consistency": 50.0,
             "jockey": 60.0,
@@ -6243,7 +6243,7 @@
           },
           "recommendation": {
             "type": "EachWay",
-            "confidence": 55,
+            "confidence": 57,
             "label": "Each Way (Speculative)",
             "reasoning": "solid recent form; placed last time out; consistent placer (50% placed)"
           }
@@ -6286,12 +6286,12 @@
           "age": "3",
           "weight": "9-2",
           "draw": "",
-          "odds_str": "5/2",
-          "odds_dec": 3.5,
+          "odds_str": "3/1",
+          "odds_dec": 4.0,
           "silk_url": "https://images.timeform.com/silks/opt/00000279.png",
-          "score": 45.0,
+          "score": 42.1,
           "components": {
-            "odds_value": 84.1,
+            "odds_value": 72.2,
             "recent_form": 50.0,
             "consistency": 0,
             "jockey": 60.0,
@@ -6301,7 +6301,7 @@
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 18,
+            "confidence": 16,
             "label": "Skip",
             "reasoning": "moderate form"
           }
@@ -6315,12 +6315,12 @@
           "age": "3",
           "weight": "9-2",
           "draw": "",
-          "odds_str": "15/4",
-          "odds_dec": 4.75,
+          "odds_str": "4/1",
+          "odds_dec": 5.0,
           "silk_url": "https://images.timeform.com/silks/opt/00888507.png",
-          "score": 41.9,
+          "score": 41.0,
           "components": {
-            "odds_value": 59.1,
+            "odds_value": 55.6,
             "recent_form": 35.3,
             "consistency": 50.0,
             "jockey": 60.0,
@@ -6525,6 +6525,35 @@
           }
         },
         {
+          "horse": "SIDIRIYA",
+          "country": "IRE",
+          "jockey": "Shane O'Callaghan",
+          "trainer": "P. J. Rothwell, Ireland",
+          "form": "07708306-",
+          "age": "7",
+          "weight": "10-5",
+          "draw": "",
+          "odds_str": "9/2",
+          "odds_dec": 5.5,
+          "silk_url": "https://images.timeform.com/silks/opt/00024605.png",
+          "score": 54.4,
+          "components": {
+            "odds_value": 100,
+            "recent_form": 26.0,
+            "consistency": 12.5,
+            "jockey": 65.0,
+            "weight": 100.0,
+            "absence_pen": 0.0,
+            "going_factor": 1.0
+          },
+          "recommendation": {
+            "type": "EachWay",
+            "confidence": 54,
+            "label": "Each Way (Speculative)",
+            "reasoning": "poor recent form"
+          }
+        },
+        {
           "horse": "BOWGATE STREET",
           "country": "IRE",
           "jockey": "Philip Donovan",
@@ -6554,35 +6583,6 @@
           }
         },
         {
-          "horse": "SIDIRIYA",
-          "country": "IRE",
-          "jockey": "Shane O'Callaghan",
-          "trainer": "P. J. Rothwell, Ireland",
-          "form": "07708306-",
-          "age": "7",
-          "weight": "10-5",
-          "draw": "",
-          "odds_str": "17/2",
-          "odds_dec": 9.5,
-          "silk_url": "https://images.timeform.com/silks/opt/00024605.png",
-          "score": 44.2,
-          "components": {
-            "odds_value": 59.1,
-            "recent_form": 26.0,
-            "consistency": 12.5,
-            "jockey": 65.0,
-            "weight": 100.0,
-            "absence_pen": 0.0,
-            "going_factor": 1.0
-          },
-          "recommendation": {
-            "type": "Skip",
-            "confidence": 17,
-            "label": "Skip",
-            "reasoning": "poor recent form"
-          }
-        },
-        {
           "horse": "JR MAHON",
           "country": "IRE",
           "jockey": "James Smith",
@@ -6591,12 +6591,12 @@
           "age": "4",
           "weight": "11-8",
           "draw": "",
-          "odds_str": "7/1",
-          "odds_dec": 8.0,
+          "odds_str": "15/2",
+          "odds_dec": 8.5,
           "silk_url": "https://images.timeform.com/silks/opt/00868460I.png",
-          "score": 38.6,
+          "score": 37.4,
           "components": {
-            "odds_value": 72.2,
+            "odds_value": 67.3,
             "recent_form": 29.7,
             "consistency": 0,
             "jockey": 65.0,
@@ -6606,7 +6606,7 @@
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 15,
+            "confidence": 14,
             "label": "Skip",
             "reasoning": "poor recent form"
           }
@@ -6620,12 +6620,12 @@
           "age": "4",
           "weight": "11-2",
           "draw": "",
-          "odds_str": "17/2",
-          "odds_dec": 9.5,
+          "odds_str": "11/1",
+          "odds_dec": 12.0,
           "silk_url": "https://images.timeform.com/silks/opt/00874632.png",
-          "score": 33.8,
+          "score": 30.1,
           "components": {
-            "odds_value": 59.1,
+            "odds_value": 44.4,
             "recent_form": 17.5,
             "consistency": 0,
             "jockey": 60.0,
@@ -6635,7 +6635,65 @@
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 13,
+            "confidence": 12,
+            "label": "Skip",
+            "reasoning": "poor recent form"
+          }
+        },
+        {
+          "horse": "GRACE&#39;S LEGACY",
+          "country": "IRE",
+          "jockey": "F. Brickley",
+          "trainer": "Cian Michael Collins, Ireland",
+          "form": "0950-",
+          "age": "4",
+          "weight": "10-7",
+          "draw": "",
+          "odds_str": "20/1",
+          "odds_dec": 21.0,
+          "silk_url": "https://images.timeform.com/silks/opt/00889139.png",
+          "score": 28.9,
+          "components": {
+            "odds_value": 20.6,
+            "recent_form": 19.0,
+            "consistency": 0,
+            "jockey": 60.0,
+            "weight": 90.5,
+            "absence_pen": 0.0,
+            "going_factor": 1.0
+          },
+          "recommendation": {
+            "type": "Skip",
+            "confidence": 11,
+            "label": "Skip",
+            "reasoning": "poor recent form"
+          }
+        },
+        {
+          "horse": "BRAVE JOSEE",
+          "country": "FR",
+          "jockey": "Kevin Healy",
+          "trainer": "Declan Queally, Ireland",
+          "form": "807-",
+          "age": "4",
+          "weight": "10-10",
+          "draw": "",
+          "odds_str": "16/1",
+          "odds_dec": 17.0,
+          "silk_url": "https://images.timeform.com/silks/opt/00892215.png",
+          "score": 28.9,
+          "components": {
+            "odds_value": 28.1,
+            "recent_form": 17.5,
+            "consistency": 0,
+            "jockey": 60.0,
+            "weight": 76.2,
+            "absence_pen": 0.0,
+            "going_factor": 1.0
+          },
+          "recommendation": {
+            "type": "Skip",
+            "confidence": 11,
             "label": "Skip",
             "reasoning": "poor recent form"
           }
@@ -6649,12 +6707,12 @@
           "age": "6",
           "weight": "11-11",
           "draw": "",
-          "odds_str": "13/2",
-          "odds_dec": 7.5,
+          "odds_str": "15/2",
+          "odds_dec": 8.5,
           "silk_url": "https://images.timeform.com/silks/opt/00026867A.png",
-          "score": 31.0,
+          "score": 28.4,
           "components": {
-            "odds_value": 77.8,
+            "odds_value": 67.3,
             "recent_form": 37.0,
             "consistency": 40.0,
             "jockey": 60.0,
@@ -6664,38 +6722,9 @@
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 12,
+            "confidence": 11,
             "label": "Skip",
             "reasoning": "moderate form; returning from long absence"
-          }
-        },
-        {
-          "horse": "BRAVE JOSEE",
-          "country": "FR",
-          "jockey": "Kevin Healy",
-          "trainer": "Declan Queally, Ireland",
-          "form": "807-",
-          "age": "4",
-          "weight": "10-10",
-          "draw": "",
-          "odds_str": "14/1",
-          "odds_dec": 15.0,
-          "silk_url": "https://images.timeform.com/silks/opt/00892215.png",
-          "score": 30.2,
-          "components": {
-            "odds_value": 33.3,
-            "recent_form": 17.5,
-            "consistency": 0,
-            "jockey": 60.0,
-            "weight": 76.2,
-            "absence_pen": 0.0,
-            "going_factor": 1.0
-          },
-          "recommendation": {
-            "type": "Skip",
-            "confidence": 12,
-            "label": "Skip",
-            "reasoning": "poor recent form"
           }
         },
         {
@@ -6707,12 +6736,12 @@
           "age": "6",
           "weight": "10-9",
           "draw": "",
-          "odds_str": "16/1",
-          "odds_dec": 17.0,
+          "odds_str": "18/1",
+          "odds_dec": 19.0,
           "silk_url": "https://images.timeform.com/silks/opt/00854213.png",
-          "score": 26.9,
+          "score": 25.8,
           "components": {
-            "odds_value": 28.1,
+            "odds_value": 24.0,
             "recent_form": 6.6,
             "consistency": 0,
             "jockey": 65.0,
@@ -6728,35 +6757,6 @@
           }
         },
         {
-          "horse": "GRACE&#39;S LEGACY",
-          "country": "IRE",
-          "jockey": "F. Brickley",
-          "trainer": "Cian Michael Collins, Ireland",
-          "form": "0950-",
-          "age": "4",
-          "weight": "10-7",
-          "draw": "",
-          "odds_str": "33/1",
-          "odds_dec": 34.0,
-          "silk_url": "https://images.timeform.com/silks/opt/00889139.png",
-          "score": 25.9,
-          "components": {
-            "odds_value": 8.5,
-            "recent_form": 19.0,
-            "consistency": 0,
-            "jockey": 60.0,
-            "weight": 90.5,
-            "absence_pen": 0.0,
-            "going_factor": 1.0
-          },
-          "recommendation": {
-            "type": "Skip",
-            "confidence": 10,
-            "label": "Skip",
-            "reasoning": "poor recent form"
-          }
-        },
-        {
           "horse": "BRUNO FROM MARS",
           "country": "IRE",
           "jockey": "R. A. Doyle",
@@ -6765,12 +6765,12 @@
           "age": "7",
           "weight": "10-11",
           "draw": "",
-          "odds_str": "10/1",
-          "odds_dec": 11.0,
+          "odds_str": "14/1",
+          "odds_dec": 15.0,
           "silk_url": "https://images.timeform.com/silks/opt/00883817A.png",
-          "score": 24.8,
+          "score": 20.8,
           "components": {
-            "odds_value": 49.5,
+            "odds_value": 33.3,
             "recent_form": 30.7,
             "consistency": 14.0,
             "jockey": 60.0,
@@ -6780,7 +6780,7 @@
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 9,
+            "confidence": 8,
             "label": "Skip",
             "reasoning": "poor recent form; returning from long absence"
           }
@@ -6794,12 +6794,12 @@
           "age": "5",
           "weight": "10-11",
           "draw": "",
-          "odds_str": "33/1",
-          "odds_dec": 34.0,
+          "odds_str": "40/1",
+          "odds_dec": 41.0,
           "silk_url": "https://images.timeform.com/silks/opt/00037696.png",
-          "score": 21.3,
+          "score": 20.4,
           "components": {
-            "odds_value": 8.5,
+            "odds_value": 5.1,
             "recent_form": 10.0,
             "consistency": 0,
             "jockey": 60.0,
@@ -6823,12 +6823,12 @@
           "age": "8",
           "weight": "11-12",
           "draw": "",
-          "odds_str": "12/1",
-          "odds_dec": 13.0,
+          "odds_str": "10/1",
+          "odds_dec": 11.0,
           "silk_url": "https://images.timeform.com/silks/opt/00059367.png",
-          "score": 15.5,
+          "score": 17.8,
           "components": {
-            "odds_value": 40.2,
+            "odds_value": 49.5,
             "recent_form": 19.6,
             "consistency": 37.2,
             "jockey": 60.0,
@@ -6838,7 +6838,7 @@
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 6,
+            "confidence": 7,
             "label": "Skip",
             "reasoning": "poor recent form; did not finish last time; consistent placer (50% placed); returning from long absence"
           }
@@ -6881,12 +6881,12 @@
           "age": "5",
           "weight": "11-9",
           "draw": "",
-          "odds_str": "11/1",
-          "odds_dec": 12.0,
+          "odds_str": "14/1",
+          "odds_dec": 15.0,
           "silk_url": "https://images.timeform.com/silks/opt/00861809C.png",
-          "score": 13.3,
+          "score": 10.5,
           "components": {
-            "odds_value": 44.4,
+            "odds_value": 33.3,
             "recent_form": 22.5,
             "consistency": 0,
             "jockey": 60.0,
@@ -6899,35 +6899,6 @@
             "confidence": 5,
             "label": "Skip",
             "reasoning": "poor recent form; returning from long absence"
-          }
-        },
-        {
-          "horse": "GO AVEL",
-          "country": "IRE",
-          "jockey": "A. Balfe",
-          "trainer": "Francis Casey, Ireland",
-          "form": "700400/P-",
-          "age": "7",
-          "weight": "10-11",
-          "draw": "",
-          "odds_str": "22/1",
-          "odds_dec": 23.0,
-          "silk_url": "https://images.timeform.com/silks/opt/00862183.png",
-          "score": 5.6,
-          "components": {
-            "odds_value": 17.9,
-            "recent_form": 0.0,
-            "consistency": 0,
-            "jockey": 60.0,
-            "weight": 71.4,
-            "absence_pen": 15.0,
-            "going_factor": 1.0
-          },
-          "recommendation": {
-            "type": "Skip",
-            "confidence": 5,
-            "label": "Skip",
-            "reasoning": "poor recent form; did not finish last time; returning from long absence; notable non-completion rate (100%)"
           }
         },
         {
@@ -6957,6 +6928,35 @@
             "confidence": 5,
             "label": "Skip",
             "reasoning": "poor recent form; returning from long absence"
+          }
+        },
+        {
+          "horse": "GO AVEL",
+          "country": "IRE",
+          "jockey": "A. Balfe",
+          "trainer": "Francis Casey, Ireland",
+          "form": "700400/P-",
+          "age": "7",
+          "weight": "10-11",
+          "draw": "",
+          "odds_str": "25/1",
+          "odds_dec": 26.0,
+          "silk_url": "https://images.timeform.com/silks/opt/00862183.png",
+          "score": 4.8,
+          "components": {
+            "odds_value": 14.5,
+            "recent_form": 0.0,
+            "consistency": 0,
+            "jockey": 60.0,
+            "weight": 71.4,
+            "absence_pen": 15.0,
+            "going_factor": 1.0
+          },
+          "recommendation": {
+            "type": "Skip",
+            "confidence": 5,
+            "label": "Skip",
+            "reasoning": "poor recent form; did not finish last time; returning from long absence; notable non-completion rate (100%)"
           }
         },
         {
@@ -7041,8 +7041,8 @@
           "age": "4",
           "weight": "10-4",
           "draw": "",
-          "odds_str": "5/2",
-          "odds_dec": 3.5,
+          "odds_str": "11/4",
+          "odds_dec": 3.75,
           "silk_url": "https://images.timeform.com/silks/opt/00860963.png",
           "score": 67.8,
           "components": {
@@ -7070,8 +7070,8 @@
           "age": "4",
           "weight": "10-0",
           "draw": "",
-          "odds_str": "11/4",
-          "odds_dec": 3.75,
+          "odds_str": "5/2",
+          "odds_dec": 3.5,
           "silk_url": "https://images.timeform.com/silks/opt/00033643.png",
           "score": 52.3,
           "components": {
@@ -7099,12 +7099,12 @@
           "age": "4",
           "weight": "9-8",
           "draw": "",
-          "odds_str": "7/1",
-          "odds_dec": 8.0,
+          "odds_str": "6/1",
+          "odds_dec": 7.0,
           "silk_url": "https://images.timeform.com/silks/opt/00844915B.png",
-          "score": 48.4,
+          "score": 51.4,
           "components": {
-            "odds_value": 72.2,
+            "odds_value": 84.1,
             "recent_form": 38.7,
             "consistency": 12.5,
             "jockey": 82.0,
@@ -7113,9 +7113,9 @@
             "going_factor": 1.0
           },
           "recommendation": {
-            "type": "Skip",
-            "confidence": 19,
-            "label": "Skip",
+            "type": "EachWay",
+            "confidence": 51,
+            "label": "Each Way (Speculative)",
             "reasoning": "moderate form; placed last time out"
           }
         },
@@ -7128,12 +7128,12 @@
           "age": "4",
           "weight": "10-1",
           "draw": "",
-          "odds_str": "17/2",
-          "odds_dec": 9.5,
+          "odds_str": "15/2",
+          "odds_dec": 8.5,
           "silk_url": "https://images.timeform.com/silks/opt/00886396.png",
-          "score": 43.7,
+          "score": 45.8,
           "components": {
-            "odds_value": 59.1,
+            "odds_value": 67.3,
             "recent_form": 40.7,
             "consistency": 37.5,
             "jockey": 65.0,
@@ -7143,7 +7143,7 @@
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 17,
+            "confidence": 18,
             "label": "Skip",
             "reasoning": "moderate form"
           }
@@ -7178,35 +7178,6 @@
           }
         },
         {
-          "horse": "LORR&#39;S GIRL",
-          "country": "IRE",
-          "jockey": "J. M. Sheridan",
-          "trainer": "Rodger Sweeney, Ireland",
-          "form": "U5249408-",
-          "age": "5",
-          "weight": "9-0",
-          "draw": "",
-          "odds_str": "12/1",
-          "odds_dec": 13.0,
-          "silk_url": "https://images.timeform.com/silks/opt/00868754.png",
-          "score": 35.7,
-          "components": {
-            "odds_value": 40.2,
-            "recent_form": 20.7,
-            "consistency": 10.2,
-            "jockey": 65.0,
-            "weight": 81.8,
-            "absence_pen": 0.0,
-            "going_factor": 1.0
-          },
-          "recommendation": {
-            "type": "Skip",
-            "confidence": 14,
-            "label": "Skip",
-            "reasoning": "poor recent form"
-          }
-        },
-        {
           "horse": "NIBRAS RAINBOW",
           "country": "IRE",
           "jockey": "L. F. Roche",
@@ -7236,6 +7207,35 @@
           }
         },
         {
+          "horse": "LORR&#39;S GIRL",
+          "country": "IRE",
+          "jockey": "J. M. Sheridan",
+          "trainer": "Rodger Sweeney, Ireland",
+          "form": "U5249408-",
+          "age": "5",
+          "weight": "9-0",
+          "draw": "",
+          "odds_str": "16/1",
+          "odds_dec": 17.0,
+          "silk_url": "https://images.timeform.com/silks/opt/00868754.png",
+          "score": 32.7,
+          "components": {
+            "odds_value": 28.1,
+            "recent_form": 20.7,
+            "consistency": 10.2,
+            "jockey": 65.0,
+            "weight": 81.8,
+            "absence_pen": 0.0,
+            "going_factor": 1.0
+          },
+          "recommendation": {
+            "type": "Skip",
+            "confidence": 13,
+            "label": "Skip",
+            "reasoning": "poor recent form"
+          }
+        },
+        {
           "horse": "HALE BOPP",
           "country": "IRE",
           "jockey": "P. McGettigan",
@@ -7244,12 +7244,12 @@
           "age": "8",
           "weight": "8-10",
           "draw": "",
-          "odds_str": "33/1",
-          "odds_dec": 34.0,
+          "odds_str": "22/1",
+          "odds_dec": 23.0,
           "silk_url": "https://images.timeform.com/silks/opt/00057220.png",
-          "score": 29.5,
+          "score": 31.9,
           "components": {
-            "odds_value": 8.5,
+            "odds_value": 17.9,
             "recent_form": 21.7,
             "consistency": 12.5,
             "jockey": 60.0,
@@ -7259,7 +7259,7 @@
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 11,
+            "confidence": 12,
             "label": "Skip",
             "reasoning": "poor recent form"
           }
@@ -7273,8 +7273,8 @@
           "age": "12",
           "weight": "8-10",
           "draw": "",
-          "odds_str": "66/1",
-          "odds_dec": 67.0,
+          "odds_str": "90/1",
+          "odds_dec": 101.0,
           "silk_url": "https://images.timeform.com/silks/opt/00855542.png",
           "score": 29.3,
           "components": {
@@ -7360,8 +7360,8 @@
           "age": "9",
           "weight": "9-8",
           "draw": "",
-          "odds_str": "66/1",
-          "odds_dec": 67.0,
+          "odds_str": "80/1",
+          "odds_dec": 81.0,
           "silk_url": "https://images.timeform.com/silks/opt/00847719.png",
           "score": 20.9,
           "components": {
@@ -7447,12 +7447,12 @@
           "age": "5",
           "weight": "9-13",
           "draw": "",
-          "odds_str": "50/1",
-          "odds_dec": 51.0,
+          "odds_str": "40/1",
+          "odds_dec": 41.0,
           "silk_url": "https://images.timeform.com/silks/opt/00864126.png",
-          "score": 17.1,
+          "score": 17.9,
           "components": {
-            "odds_value": 2.0,
+            "odds_value": 5.1,
             "recent_form": 12.7,
             "consistency": 0,
             "jockey": 70.0,
@@ -7462,7 +7462,7 @@
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 6,
+            "confidence": 7,
             "label": "Skip",
             "reasoning": "poor recent form"
           }
@@ -7505,8 +7505,8 @@
           "age": "4",
           "weight": "10-1",
           "draw": "",
-          "odds_str": "66/1",
-          "odds_dec": 67.0,
+          "odds_str": "SP",
+          "odds_dec": 111.0,
           "silk_url": "https://images.timeform.com/silks/opt/00014299.png",
           "score": 13.4,
           "components": {
@@ -7665,12 +7665,12 @@
           "age": "3",
           "weight": "9-8",
           "draw": "",
-          "odds_str": "4/1",
-          "odds_dec": 5.0,
+          "odds_str": "15/4",
+          "odds_dec": 4.75,
           "silk_url": "https://images.timeform.com/silks/opt/00890269.png",
-          "score": 35.3,
+          "score": 36.1,
           "components": {
-            "odds_value": 48.1,
+            "odds_value": 51.3,
             "recent_form": 37.0,
             "consistency": 16.7,
             "jockey": 60.0,
@@ -7694,12 +7694,12 @@
           "age": "3",
           "weight": "9-5",
           "draw": "",
-          "odds_str": "6/1",
-          "odds_dec": 7.0,
+          "odds_str": "13/2",
+          "odds_dec": 7.5,
           "silk_url": "https://images.timeform.com/silks/opt/00847553.png",
-          "score": 33.0,
+          "score": 32.3,
           "components": {
-            "odds_value": 31.2,
+            "odds_value": 28.4,
             "recent_form": 45.0,
             "consistency": 0,
             "jockey": 60.0,
@@ -7709,7 +7709,7 @@
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 13,
+            "confidence": 12,
             "label": "Skip",
             "reasoning": "moderate form"
           }
@@ -7723,12 +7723,12 @@
           "age": "3",
           "weight": "9-9",
           "draw": "",
-          "odds_str": "12/1",
-          "odds_dec": 13.0,
+          "odds_str": "16/1",
+          "odds_dec": 17.0,
           "silk_url": "https://images.timeform.com/silks/opt/00064531.png",
-          "score": 31.3,
+          "score": 29.9,
           "components": {
-            "odds_value": 11.7,
+            "odds_value": 6.3,
             "recent_form": 52.0,
             "consistency": 25.0,
             "jockey": 60.0,
@@ -7738,7 +7738,7 @@
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 12,
+            "confidence": 11,
             "label": "Skip",
             "reasoning": "moderate form"
           }
@@ -7781,8 +7781,8 @@
           "age": "3",
           "weight": "8-10",
           "draw": "",
-          "odds_str": "80/1",
-          "odds_dec": 81.0,
+          "odds_str": "33/1",
+          "odds_dec": 34.0,
           "silk_url": "https://images.timeform.com/silks/opt/00008501.png",
           "score": 21.6,
           "components": {
@@ -8130,12 +8130,12 @@
           "age": "3",
           "weight": "10-1",
           "draw": "",
-          "odds_str": "3/1",
-          "odds_dec": 4.0,
+          "odds_str": "10/3",
+          "odds_dec": 4.33,
           "silk_url": "https://images.timeform.com/silks/opt/00889128.png",
-          "score": 53.5,
+          "score": 51.4,
           "components": {
-            "odds_value": 100,
+            "odds_value": 91.5,
             "recent_form": 40.0,
             "consistency": 20.0,
             "jockey": 90.0,
@@ -8145,7 +8145,7 @@
           },
           "recommendation": {
             "type": "EachWay",
-            "confidence": 53,
+            "confidence": 51,
             "label": "Each Way (Speculative)",
             "reasoning": "moderate form"
           }
@@ -8304,12 +8304,12 @@
           "age": "3",
           "weight": "9-4",
           "draw": "",
-          "odds_str": "20/1",
-          "odds_dec": 21.0,
+          "odds_str": "18/1",
+          "odds_dec": 19.0,
           "silk_url": "https://images.timeform.com/silks/opt/00837666.png",
-          "score": 29.9,
+          "score": 30.4,
           "components": {
-            "odds_value": 10.1,
+            "odds_value": 12.3,
             "recent_form": 28.3,
             "consistency": 20.0,
             "jockey": 60.0,
@@ -8319,36 +8319,7 @@
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 11,
-            "label": "Skip",
-            "reasoning": "poor recent form"
-          }
-        },
-        {
-          "horse": "BLISSFUL BONITA",
-          "country": "IRE",
-          "jockey": "G. F. Carroll",
-          "trainer": "Gavin Patrick Cromwell, Ireland",
-          "form": "568-",
-          "age": "3",
-          "weight": "9-9",
-          "draw": "",
-          "odds_str": "17/2",
-          "odds_dec": 9.5,
-          "silk_url": "https://images.timeform.com/silks/opt/00879260.png",
-          "score": 29.2,
-          "components": {
-            "odds_value": 35.7,
-            "recent_form": 20.0,
-            "consistency": 0,
-            "jockey": 70.0,
-            "weight": 37.5,
-            "absence_pen": 0.0,
-            "going_factor": 1.0
-          },
-          "recommendation": {
-            "type": "Skip",
-            "confidence": 11,
+            "confidence": 12,
             "label": "Skip",
             "reasoning": "poor recent form"
           }
@@ -8362,12 +8333,12 @@
           "age": "3",
           "weight": "9-3",
           "draw": "",
-          "odds_str": "14/1",
-          "odds_dec": 15.0,
+          "odds_str": "12/1",
+          "odds_dec": 13.0,
           "silk_url": "https://images.timeform.com/silks/opt/00013815.png",
-          "score": 28.9,
+          "score": 30.1,
           "components": {
-            "odds_value": 18.5,
+            "odds_value": 23.1,
             "recent_form": 26.0,
             "consistency": 0,
             "jockey": 60.0,
@@ -8377,7 +8348,7 @@
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 11,
+            "confidence": 12,
             "label": "Skip",
             "reasoning": "poor recent form"
           }
@@ -8412,6 +8383,35 @@
           }
         },
         {
+          "horse": "BLISSFUL BONITA",
+          "country": "IRE",
+          "jockey": "G. F. Carroll",
+          "trainer": "Gavin Patrick Cromwell, Ireland",
+          "form": "568-",
+          "age": "3",
+          "weight": "9-9",
+          "draw": "",
+          "odds_str": "9/1",
+          "odds_dec": 10.0,
+          "silk_url": "https://images.timeform.com/silks/opt/00879260.png",
+          "score": 28.6,
+          "components": {
+            "odds_value": 33.3,
+            "recent_form": 20.0,
+            "consistency": 0,
+            "jockey": 70.0,
+            "weight": 37.5,
+            "absence_pen": 0.0,
+            "going_factor": 1.0
+          },
+          "recommendation": {
+            "type": "Skip",
+            "confidence": 11,
+            "label": "Skip",
+            "reasoning": "poor recent form"
+          }
+        },
+        {
           "horse": "MOUNT EDEN",
           "country": "IRE",
           "jockey": "P. A. Harnett",
@@ -8420,12 +8420,12 @@
           "age": "3",
           "weight": "9-8",
           "draw": "",
-          "odds_str": "40/1",
-          "odds_dec": 41.0,
+          "odds_str": "33/1",
+          "odds_dec": 34.0,
           "silk_url": "https://images.timeform.com/silks/opt/00058105.png",
-          "score": 20.1,
+          "score": 20.6,
           "components": {
-            "odds_value": 0,
+            "odds_value": 2.0,
             "recent_form": 20.0,
             "consistency": 0,
             "jockey": 65.0,
@@ -8522,12 +8522,12 @@
           "age": "6",
           "weight": "8-10",
           "draw": "",
-          "odds_str": "11/2",
-          "odds_dec": 6.5,
+          "odds_str": "13/2",
+          "odds_dec": 7.5,
           "silk_url": "https://images.timeform.com/silks/opt/00879589.png",
-          "score": 53.9,
+          "score": 52.0,
           "components": {
-            "odds_value": 45.9,
+            "odds_value": 38.3,
             "recent_form": 59.5,
             "consistency": 37.5,
             "jockey": 60.0,
@@ -8537,7 +8537,7 @@
           },
           "recommendation": {
             "type": "EachWay",
-            "confidence": 53,
+            "confidence": 52,
             "label": "Each Way (Speculative)",
             "reasoning": "moderate form; won last time out"
           }
@@ -8580,12 +8580,12 @@
           "age": "4",
           "weight": "9-7",
           "draw": "",
-          "odds_str": "11/1",
-          "odds_dec": 12.0,
+          "odds_str": "10/1",
+          "odds_dec": 11.0,
           "silk_url": "https://images.timeform.com/silks/opt/00069642.png",
-          "score": 47.7,
+          "score": 48.4,
           "components": {
-            "odds_value": 19.8,
+            "odds_value": 22.6,
             "recent_form": 70.0,
             "consistency": 75.0,
             "jockey": 60.0,
@@ -8609,8 +8609,8 @@
           "age": "4",
           "weight": "9-7",
           "draw": "",
-          "odds_str": "11/8",
-          "odds_dec": 2.38,
+          "odds_str": "5/4",
+          "odds_dec": 2.25,
           "silk_url": "https://images.timeform.com/silks/opt/00892337.png",
           "score": 46.0,
           "components": {
@@ -8696,12 +8696,12 @@
           "age": "5",
           "weight": "9-8",
           "draw": "",
-          "odds_str": "18/1",
-          "odds_dec": 19.0,
+          "odds_str": "22/1",
+          "odds_dec": 23.0,
           "silk_url": "https://images.timeform.com/silks/opt/00890287.png",
-          "score": 30.1,
+          "score": 29.3,
           "components": {
-            "odds_value": 8.4,
+            "odds_value": 5.0,
             "recent_form": 48.3,
             "consistency": 25.0,
             "jockey": 60.0,
@@ -8711,7 +8711,7 @@
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 12,
+            "confidence": 11,
             "label": "Skip",
             "reasoning": "moderate form"
           }
@@ -8798,12 +8798,12 @@
           "age": "9",
           "weight": "11-10",
           "draw": "",
-          "odds_str": "11/2",
-          "odds_dec": 6.5,
+          "odds_str": "5/1",
+          "odds_dec": 6.0,
           "silk_url": "https://images.timeform.com/silks/opt/00889250.png",
-          "score": 61.1,
+          "score": 61.8,
           "components": {
-            "odds_value": 97.2,
+            "odds_value": 100,
             "recent_form": 52.3,
             "consistency": 62.5,
             "jockey": 65.0,
@@ -8815,7 +8815,7 @@
             "type": "Win",
             "confidence": 61,
             "label": "Win Bet",
-            "reasoning": "moderate form; consistent placer (62% placed)"
+            "reasoning": "moderate form; consistent placer (62% placed); each way option also viable"
           }
         },
         {
@@ -8827,12 +8827,12 @@
           "age": "6",
           "weight": "11-1",
           "draw": "",
-          "odds_str": "13/2",
-          "odds_dec": 7.5,
+          "odds_str": "7/1",
+          "odds_dec": 8.0,
           "silk_url": "https://images.timeform.com/silks/opt/00884515.png",
-          "score": 51.6,
+          "score": 50.2,
           "components": {
-            "odds_value": 82.7,
+            "odds_value": 76.9,
             "recent_form": 36.3,
             "consistency": 20.5,
             "jockey": 70.0,
@@ -8842,7 +8842,7 @@
           },
           "recommendation": {
             "type": "EachWay",
-            "confidence": 51,
+            "confidence": 50,
             "label": "Each Way (Speculative)",
             "reasoning": "moderate form"
           }
@@ -8914,12 +8914,12 @@
           "age": "7",
           "weight": "11-5",
           "draw": "",
-          "odds_str": "10/1",
-          "odds_dec": 11.0,
+          "odds_str": "9/1",
+          "odds_dec": 10.0,
           "silk_url": "https://images.timeform.com/silks/opt/00075997.png",
-          "score": 38.0,
+          "score": 39.6,
           "components": {
-            "odds_value": 52.9,
+            "odds_value": 59.3,
             "recent_form": 25.0,
             "consistency": 25.0,
             "jockey": 60.0,
@@ -8943,12 +8943,12 @@
           "age": "6",
           "weight": "10-10",
           "draw": "",
-          "odds_str": "22/1",
-          "odds_dec": 23.0,
+          "odds_str": "28/1",
+          "odds_dec": 29.0,
           "silk_url": "https://images.timeform.com/silks/opt/00883497.png",
-          "score": 34.9,
+          "score": 33.3,
           "components": {
-            "odds_value": 19.5,
+            "odds_value": 13.2,
             "recent_form": 40.0,
             "consistency": 0,
             "jockey": 60.0,
@@ -8972,12 +8972,12 @@
           "age": "6",
           "weight": "11-13",
           "draw": "",
-          "odds_str": "7/1",
-          "odds_dec": 8.0,
+          "odds_str": "15/2",
+          "odds_dec": 8.5,
           "silk_url": "https://images.timeform.com/silks/opt/00049058A.png",
-          "score": 30.7,
+          "score": 29.4,
           "components": {
-            "odds_value": 76.9,
+            "odds_value": 71.7,
             "recent_form": 36.7,
             "consistency": 40.0,
             "jockey": 60.0,
@@ -8987,9 +8987,38 @@
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 12,
+            "confidence": 11,
             "label": "Skip",
             "reasoning": "moderate form; returning from long absence"
+          }
+        },
+        {
+          "horse": "ISLAND MCCOO",
+          "country": "IRE",
+          "jockey": "Niall Moore",
+          "trainer": "Donncha Duggan, Ireland",
+          "form": "16/F79P88-",
+          "age": "9",
+          "weight": "10-13",
+          "draw": "",
+          "odds_str": "6/1",
+          "odds_dec": 7.0,
+          "silk_url": "https://images.timeform.com/silks/opt/00077935.png",
+          "score": 26.6,
+          "components": {
+            "odds_value": 89.4,
+            "recent_form": 9.0,
+            "consistency": 0,
+            "jockey": 60.0,
+            "weight": 75.0,
+            "absence_pen": 15.0,
+            "going_factor": 1.0
+          },
+          "recommendation": {
+            "type": "Skip",
+            "confidence": 10,
+            "label": "Skip",
+            "reasoning": "poor recent form; returning from long absence; notable non-completion rate (33%)"
           }
         },
         {
@@ -9022,35 +9051,6 @@
           }
         },
         {
-          "horse": "ISLAND MCCOO",
-          "country": "IRE",
-          "jockey": "Niall Moore",
-          "trainer": "Donncha Duggan, Ireland",
-          "form": "16/F79P88-",
-          "age": "9",
-          "weight": "10-13",
-          "draw": "",
-          "odds_str": "7/1",
-          "odds_dec": 8.0,
-          "silk_url": "https://images.timeform.com/silks/opt/00077935.png",
-          "score": 23.4,
-          "components": {
-            "odds_value": 76.9,
-            "recent_form": 9.0,
-            "consistency": 0,
-            "jockey": 60.0,
-            "weight": 75.0,
-            "absence_pen": 15.0,
-            "going_factor": 1.0
-          },
-          "recommendation": {
-            "type": "Skip",
-            "confidence": 9,
-            "label": "Skip",
-            "reasoning": "poor recent form; returning from long absence; notable non-completion rate (33%)"
-          }
-        },
-        {
           "horse": "TOMAS O MAILLE",
           "country": "IRE",
           "jockey": "Jack Gilligan",
@@ -9080,35 +9080,6 @@
           }
         },
         {
-          "horse": "THE EGGLER",
-          "country": "IRE",
-          "jockey": "James Smith",
-          "trainer": "Brian M. McMahon, Ireland",
-          "form": "90/0F58P-",
-          "age": "5",
-          "weight": "11-0",
-          "draw": "",
-          "odds_str": "15/2",
-          "odds_dec": 8.5,
-          "silk_url": "https://images.timeform.com/silks/opt/00889902.png",
-          "score": 22.0,
-          "components": {
-            "odds_value": 71.7,
-            "recent_form": 7.9,
-            "consistency": 0,
-            "jockey": 65.0,
-            "weight": 70.0,
-            "absence_pen": 15.0,
-            "going_factor": 1.0
-          },
-          "recommendation": {
-            "type": "Skip",
-            "confidence": 8,
-            "label": "Skip",
-            "reasoning": "poor recent form; did not finish last time; returning from long absence; notable non-completion rate (40%)"
-          }
-        },
-        {
           "horse": "SUNRISE STRIDER",
           "country": "IRE",
           "jockey": "C. M. Quirke",
@@ -9135,6 +9106,35 @@
             "confidence": 8,
             "label": "Skip",
             "reasoning": "poor recent form"
+          }
+        },
+        {
+          "horse": "THE EGGLER",
+          "country": "IRE",
+          "jockey": "James Smith",
+          "trainer": "Brian M. McMahon, Ireland",
+          "form": "90/0F58P-",
+          "age": "5",
+          "weight": "11-0",
+          "draw": "",
+          "odds_str": "17/2",
+          "odds_dec": 9.5,
+          "silk_url": "https://images.timeform.com/silks/opt/00889902.png",
+          "score": 19.9,
+          "components": {
+            "odds_value": 63.0,
+            "recent_form": 7.9,
+            "consistency": 0,
+            "jockey": 65.0,
+            "weight": 70.0,
+            "absence_pen": 15.0,
+            "going_factor": 1.0
+          },
+          "recommendation": {
+            "type": "Skip",
+            "confidence": 7,
+            "label": "Skip",
+            "reasoning": "poor recent form; did not finish last time; returning from long absence; notable non-completion rate (40%)"
           }
         },
         {
@@ -9175,12 +9175,12 @@
           "age": "10",
           "weight": "10-10",
           "draw": "",
-          "odds_str": "16/1",
-          "odds_dec": 17.0,
+          "odds_str": "14/1",
+          "odds_dec": 15.0,
           "silk_url": "https://images.timeform.com/silks/opt/00079461.png",
-          "score": 13.4,
+          "score": 14.8,
           "components": {
-            "odds_value": 30.3,
+            "odds_value": 35.8,
             "recent_form": 7.0,
             "consistency": 0,
             "jockey": 65.0,
@@ -9204,12 +9204,12 @@
           "age": "6",
           "weight": "10-8",
           "draw": "",
-          "odds_str": "35/1",
-          "odds_dec": 36.0,
+          "odds_str": "40/1",
+          "odds_dec": 41.0,
           "silk_url": "https://images.timeform.com/silks/opt/00018610.png",
-          "score": 11.1,
+          "score": 10.5,
           "components": {
-            "odds_value": 8.4,
+            "odds_value": 6.1,
             "recent_form": 14.0,
             "consistency": 0,
             "jockey": 65.0,
@@ -9233,12 +9233,12 @@
           "age": "10",
           "weight": "10-10",
           "draw": "",
-          "odds_str": "28/1",
-          "odds_dec": 29.0,
+          "odds_str": "40/1",
+          "odds_dec": 41.0,
           "silk_url": "https://images.timeform.com/silks/opt/00044492.png",
-          "score": 10.8,
+          "score": 9.0,
           "components": {
-            "odds_value": 13.2,
+            "odds_value": 6.1,
             "recent_form": 15.0,
             "consistency": 0,
             "jockey": 60.0,
@@ -9291,12 +9291,12 @@
           "age": "5",
           "weight": "11-7",
           "draw": "",
-          "odds_str": "33/1",
-          "odds_dec": 34.0,
+          "odds_str": "40/1",
+          "odds_dec": 41.0,
           "silk_url": "https://images.timeform.com/silks/opt/00059367.png",
-          "score": 6.9,
+          "score": 6.0,
           "components": {
-            "odds_value": 9.6,
+            "odds_value": 6.1,
             "recent_form": 23.3,
             "consistency": 0,
             "jockey": 60.0,
@@ -9364,8 +9364,8 @@
           "age": "7",
           "weight": "12-3",
           "draw": "",
-          "odds_str": "13/8",
-          "odds_dec": 2.63,
+          "odds_str": "6/4",
+          "odds_dec": 2.5,
           "silk_url": "https://images.timeform.com/silks/opt/00025727.png",
           "score": 72.5,
           "components": {
@@ -9451,12 +9451,12 @@
           "age": "9",
           "weight": "11-7",
           "draw": "",
-          "odds_str": "16/1",
-          "odds_dec": 17.0,
+          "odds_str": "18/1",
+          "odds_dec": 19.0,
           "silk_url": "https://images.timeform.com/silks/opt/00037003.png",
-          "score": 36.8,
+          "score": 36.3,
           "components": {
-            "odds_value": 10.7,
+            "odds_value": 8.4,
             "recent_form": 70.0,
             "consistency": 100.0,
             "jockey": 60.0,
@@ -9669,12 +9669,12 @@
           "age": "3",
           "weight": "9-3",
           "draw": "",
-          "odds_str": "6/1",
-          "odds_dec": 7.0,
+          "odds_str": "11/2",
+          "odds_dec": 6.5,
           "silk_url": "https://images.timeform.com/silks/opt/00890857.png",
-          "score": 66.9,
+          "score": 68.1,
           "components": {
-            "odds_value": 52.4,
+            "odds_value": 57.3,
             "recent_form": 83.3,
             "consistency": 100.0,
             "jockey": 60.0,
@@ -9684,7 +9684,7 @@
           },
           "recommendation": {
             "type": "Win",
-            "confidence": 66,
+            "confidence": 68,
             "label": "Win Bet",
             "reasoning": "strong recent form; placed last time out; consistent placer (100% placed)"
           }
@@ -9698,12 +9698,12 @@
           "age": "3",
           "weight": "9-2",
           "draw": "",
-          "odds_str": "9/2",
-          "odds_dec": 5.5,
+          "odds_str": "5/1",
+          "odds_dec": 6.0,
           "silk_url": "https://images.timeform.com/silks/opt/00081990B.png",
-          "score": 58.7,
+          "score": 57.0,
           "components": {
-            "odds_value": 69.7,
+            "odds_value": 63.0,
             "recent_form": 59.3,
             "consistency": 50.0,
             "jockey": 72.0,
@@ -9713,8 +9713,8 @@
           },
           "recommendation": {
             "type": "EachWay",
-            "confidence": 58,
-            "label": "Each Way",
+            "confidence": 57,
+            "label": "Each Way (Speculative)",
             "reasoning": "solid recent form; placed last time out; consistent placer (50% placed)"
           }
         },
@@ -9785,12 +9785,12 @@
           "age": "3",
           "weight": "8-11",
           "draw": "",
-          "odds_str": "6/1",
-          "odds_dec": 7.0,
+          "odds_str": "5/1",
+          "odds_dec": 6.0,
           "silk_url": "https://images.timeform.com/silks/opt/00842045.png",
-          "score": 45.9,
+          "score": 48.6,
           "components": {
-            "odds_value": 52.4,
+            "odds_value": 63.0,
             "recent_form": 36.0,
             "consistency": 40.0,
             "jockey": 60.0,
@@ -9800,7 +9800,7 @@
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 18,
+            "confidence": 19,
             "label": "Skip",
             "reasoning": "moderate form"
           }
@@ -9814,12 +9814,12 @@
           "age": "5",
           "weight": "9-1",
           "draw": "",
-          "odds_str": "11/1",
-          "odds_dec": 12.0,
+          "odds_str": "12/1",
+          "odds_dec": 13.0,
           "silk_url": "https://images.timeform.com/silks/opt/00887802.png",
-          "score": 45.9,
+          "score": 45.1,
           "components": {
-            "odds_value": 25.9,
+            "odds_value": 23.1,
             "recent_form": 64.0,
             "consistency": 37.5,
             "jockey": 60.0,
@@ -9843,12 +9843,12 @@
           "age": "3",
           "weight": "8-9",
           "draw": "",
-          "odds_str": "28/1",
-          "odds_dec": 29.0,
+          "odds_str": "50/1",
+          "odds_dec": 51.0,
           "silk_url": "https://images.timeform.com/silks/opt/00859386.png",
-          "score": 45.2,
+          "score": 44.2,
           "components": {
-            "odds_value": 4.2,
+            "odds_value": 0,
             "recent_form": 62.7,
             "consistency": 57.1,
             "jockey": 60.0,
@@ -9858,7 +9858,7 @@
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 18,
+            "confidence": 17,
             "label": "Skip",
             "reasoning": "solid recent form; consistent placer (57% placed)"
           }
@@ -10032,12 +10032,12 @@
           "age": "5",
           "weight": "10-9",
           "draw": "",
-          "odds_str": "11/2",
-          "odds_dec": 6.5,
+          "odds_str": "6/1",
+          "odds_dec": 7.0,
           "silk_url": "https://images.timeform.com/silks/opt/00888454.png",
-          "score": 58.1,
+          "score": 56.8,
           "components": {
-            "odds_value": 57.3,
+            "odds_value": 52.4,
             "recent_form": 60.3,
             "consistency": 37.5,
             "jockey": 90.0,
@@ -10047,8 +10047,8 @@
           },
           "recommendation": {
             "type": "EachWay",
-            "confidence": 58,
-            "label": "Each Way",
+            "confidence": 56,
+            "label": "Each Way (Speculative)",
             "reasoning": "solid recent form; placed last time out"
           }
         },
@@ -10090,8 +10090,8 @@
           "age": "8",
           "weight": "11-9",
           "draw": "",
-          "odds_str": "3/1",
-          "odds_dec": 4.0,
+          "odds_str": "11/4",
+          "odds_dec": 3.75,
           "silk_url": "https://images.timeform.com/silks/opt/00891705.png",
           "score": 49.5,
           "components": {
@@ -10396,7 +10396,7 @@
           "weight": "9-12",
           "draw": "",
           "odds_str": "1/1",
-          "odds_dec": 2.0,
+          "odds_dec": 2.1,
           "silk_url": "https://images.timeform.com/silks/opt/00046531.png",
           "score": 76.5,
           "components": {
@@ -10424,12 +10424,12 @@
           "age": "5",
           "weight": "9-4",
           "draw": "",
-          "odds_str": "10/3",
-          "odds_dec": 4.33,
+          "odds_str": "7/2",
+          "odds_dec": 4.5,
           "silk_url": "https://images.timeform.com/silks/opt/00889140.png",
-          "score": 71.4,
+          "score": 70.8,
           "components": {
-            "odds_value": 48.8,
+            "odds_value": 46.5,
             "recent_form": 80.0,
             "consistency": 100.0,
             "jockey": 68.0,
@@ -10439,7 +10439,7 @@
           },
           "recommendation": {
             "type": "Win",
-            "confidence": 71,
+            "confidence": 70,
             "label": "Win Bet",
             "reasoning": "strong recent form; placed last time out; consistent placer (100% placed); each way option also viable"
           }
@@ -10453,12 +10453,12 @@
           "age": "4",
           "weight": "9-7",
           "draw": "",
-          "odds_str": "11/1",
-          "odds_dec": 12.0,
+          "odds_str": "9/1",
+          "odds_dec": 10.0,
           "silk_url": "https://images.timeform.com/silks/opt/00885988.png",
-          "score": 66.6,
+          "score": 67.7,
           "components": {
-            "odds_value": 10.5,
+            "odds_value": 14.8,
             "recent_form": 100,
             "consistency": 100.0,
             "jockey": 85.0,
@@ -10467,9 +10467,9 @@
             "going_factor": 1.0
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 66,
-            "label": "Each Way",
+            "type": "Win",
+            "confidence": 67,
+            "label": "Win Bet",
             "reasoning": "strong recent form; won last time out; consistent placer (100% placed)"
           }
         },
@@ -10482,12 +10482,12 @@
           "age": "5",
           "weight": "9-12",
           "draw": "",
-          "odds_str": "7/1",
-          "odds_dec": 8.0,
+          "odds_str": "13/2",
+          "odds_dec": 7.5,
           "silk_url": "https://images.timeform.com/silks/opt/00025727.png",
-          "score": 60.5,
+          "score": 61.1,
           "components": {
-            "odds_value": 21.3,
+            "odds_value": 23.5,
             "recent_form": 100,
             "consistency": 100.0,
             "jockey": 68.0,
@@ -10497,7 +10497,7 @@
           },
           "recommendation": {
             "type": "Win",
-            "confidence": 60,
+            "confidence": 61,
             "label": "Win Bet",
             "reasoning": "strong recent form; won last time out; consistent placer (100% placed)"
           }
@@ -10511,12 +10511,12 @@
           "age": "4",
           "weight": "9-12",
           "draw": "",
-          "odds_str": "12/1",
-          "odds_dec": 13.0,
+          "odds_str": "11/1",
+          "odds_dec": 12.0,
           "silk_url": "https://images.timeform.com/silks/opt/00873592.png",
-          "score": 39.4,
+          "score": 39.8,
           "components": {
-            "odds_value": 8.8,
+            "odds_value": 10.5,
             "recent_form": 56.5,
             "consistency": 75.0,
             "jockey": 60.0,
@@ -10569,12 +10569,12 @@
           "age": "4",
           "weight": "9-12",
           "draw": "",
-          "odds_str": "7/1",
-          "odds_dec": 8.0,
+          "odds_str": "15/2",
+          "odds_dec": 8.5,
           "silk_url": "https://images.timeform.com/silks/opt/00892685.png",
-          "score": 32.4,
+          "score": 31.9,
           "components": {
-            "odds_value": 21.3,
+            "odds_value": 19.4,
             "recent_form": 37.7,
             "consistency": 40.0,
             "jockey": 65.0,
@@ -10613,12 +10613,12 @@
           "age": "4",
           "weight": "9-5",
           "draw": "",
-          "odds_str": "7/2",
-          "odds_dec": 4.5,
+          "odds_str": "10/3",
+          "odds_dec": 4.33,
           "silk_url": "https://images.timeform.com/silks/opt/00062399.png",
-          "score": 66.8,
+          "score": 67.5,
           "components": {
-            "odds_value": 54.7,
+            "odds_value": 57.3,
             "recent_form": 96.6,
             "consistency": 62.5,
             "jockey": 72.0,
@@ -10628,7 +10628,7 @@
           },
           "recommendation": {
             "type": "Win",
-            "confidence": 66,
+            "confidence": 67,
             "label": "Win Bet",
             "reasoning": "strong recent form; won last time out; consistent placer (62% placed); each way option also viable"
           }
@@ -10729,12 +10729,12 @@
           "age": "4",
           "weight": "9-6",
           "draw": "",
-          "odds_str": "9/2",
-          "odds_dec": 5.5,
+          "odds_str": "5/1",
+          "odds_dec": 6.0,
           "silk_url": "https://images.timeform.com/silks/opt/00887660.png",
-          "score": 42.9,
+          "score": 41.8,
           "components": {
-            "odds_value": 42.8,
+            "odds_value": 38.3,
             "recent_form": 58.0,
             "consistency": 16.7,
             "jockey": 60.0,
@@ -10744,7 +10744,7 @@
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 17,
+            "confidence": 16,
             "label": "Skip",
             "reasoning": "solid recent form"
           }
@@ -10787,12 +10787,12 @@
           "age": "6",
           "weight": "9-11",
           "draw": "",
-          "odds_str": "12/1",
-          "odds_dec": 13.0,
+          "odds_str": "10/1",
+          "odds_dec": 11.0,
           "silk_url": "https://images.timeform.com/silks/opt/00075257.png",
-          "score": 26.9,
+          "score": 28.0,
           "components": {
-            "odds_value": 11.7,
+            "odds_value": 15.8,
             "recent_form": 31.3,
             "consistency": 37.5,
             "jockey": 60.0,
@@ -10802,7 +10802,7 @@
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 10,
+            "confidence": 11,
             "label": "Skip",
             "reasoning": "poor recent form"
           }
@@ -10860,8 +10860,8 @@
           "age": "5",
           "weight": "12-0",
           "draw": "",
-          "odds_str": "11/4",
-          "odds_dec": 3.75,
+          "odds_str": "5/2",
+          "odds_dec": 3.5,
           "silk_url": "https://images.timeform.com/silks/opt/00887246.png",
           "score": 59.5,
           "components": {
@@ -10889,12 +10889,12 @@
           "age": "5",
           "weight": "12-0",
           "draw": "",
-          "odds_str": "11/2",
-          "odds_dec": 6.5,
+          "odds_str": "5/1",
+          "odds_dec": 6.0,
           "silk_url": "https://images.timeform.com/silks/opt/00892834.png",
-          "score": 50.6,
+          "score": 52.4,
           "components": {
-            "odds_value": 74.4,
+            "odds_value": 81.5,
             "recent_form": 51.7,
             "consistency": 50.0,
             "jockey": 60.0,
@@ -10904,7 +10904,7 @@
           },
           "recommendation": {
             "type": "EachWay",
-            "confidence": 50,
+            "confidence": 52,
             "label": "Each Way (Speculative)",
             "reasoning": "moderate form; consistent placer (50% placed)"
           }
@@ -10947,12 +10947,12 @@
           "age": "6",
           "weight": "12-0",
           "draw": "",
-          "odds_str": "11/2",
-          "odds_dec": 6.5,
+          "odds_str": "9/2",
+          "odds_dec": 5.5,
           "silk_url": "https://images.timeform.com/silks/opt/00893207.png",
-          "score": 39.6,
+          "score": 43.5,
           "components": {
-            "odds_value": 74.4,
+            "odds_value": 89.9,
             "recent_form": 40.0,
             "consistency": 0,
             "jockey": 60.0,
@@ -10962,7 +10962,7 @@
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 15,
+            "confidence": 17,
             "label": "Skip",
             "reasoning": "moderate form"
           }
@@ -11005,8 +11005,8 @@
           "age": "5",
           "weight": "11-7",
           "draw": "",
-          "odds_str": "50/1",
-          "odds_dec": 51.0,
+          "odds_str": "66/1",
+          "odds_dec": 67.0,
           "silk_url": "https://images.timeform.com/silks/opt/00049008.png",
           "score": 31.0,
           "components": {
@@ -11034,8 +11034,8 @@
           "age": "6",
           "weight": "11-7",
           "draw": "",
-          "odds_str": "66/1",
-          "odds_dec": 67.0,
+          "odds_str": "90/1",
+          "odds_dec": 91.0,
           "silk_url": "https://images.timeform.com/silks/opt/00071577.png",
           "score": 31.0,
           "components": {
@@ -11179,12 +11179,12 @@
           "age": "5",
           "weight": "12-0",
           "draw": "",
-          "odds_str": "40/1",
-          "odds_dec": 41.0,
+          "odds_str": "66/1",
+          "odds_dec": 67.0,
           "silk_url": "https://images.timeform.com/silks/opt/00866938.png",
-          "score": 21.6,
+          "score": 21.0,
           "components": {
-            "odds_value": 2.4,
+            "odds_value": 0,
             "recent_form": 40.0,
             "consistency": 0,
             "jockey": 60.0,
@@ -11237,8 +11237,8 @@
           "age": "7",
           "weight": "12-0",
           "draw": "",
-          "odds_str": "80/1",
-          "odds_dec": 151.0,
+          "odds_str": "SP",
+          "odds_dec": 201.0,
           "silk_url": "https://images.timeform.com/silks/opt/00847651.png",
           "score": 12.0,
           "components": {
@@ -11266,8 +11266,8 @@
           "age": "5",
           "weight": "12-0",
           "draw": "",
-          "odds_str": "66/1",
-          "odds_dec": 67.0,
+          "odds_str": "70/1",
+          "odds_dec": 71.0,
           "silk_url": "https://images.timeform.com/silks/opt/00014238.png",
           "score": 12.0,
           "components": {
