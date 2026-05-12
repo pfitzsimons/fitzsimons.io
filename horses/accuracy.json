@@ -9268,15 +9268,546 @@
   {
     "date": "2026-05-10",
     "summary": {
-      "overall_pct": null,
-      "win_pct": null,
-      "ew_pct": null,
-      "win_correct": 0,
-      "win_total": 0,
-      "ew_correct": 0,
-      "ew_total": 0
+      "overall_pct": 58.8,
+      "win_pct": 22.2,
+      "ew_pct": 100.0,
+      "win_correct": 2,
+      "win_total": 9,
+      "ew_correct": 8,
+      "ew_total": 8
     },
-    "races": []
+    "races": [
+      {
+        "course": "Leopardstown",
+        "time": "13:20",
+        "race_name": "Fitz Agriplant Maiden",
+        "date": "2026-05-10",
+        "winner": "Halon Bay",
+        "runners": [
+          {
+            "rec": "EachWay",
+            "actual_pos": 3,
+            "outcome": "correct",
+            "horse": "GOOMAH",
+            "score": 51.5,
+            "odds": "6/4",
+            "label": "Each Way (Speculative)",
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Cork",
+        "time": "13:30",
+        "race_name": "Tote Guarantee",
+        "date": "2026-05-10",
+        "winner": "Arouet",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "MAESTRO DES PINS",
+            "score": 79.0,
+            "odds": "1/1",
+            "label": "Strong Win Bet",
+            "primary": true
+          },
+          {
+            "rec": "Win",
+            "actual_pos": 1,
+            "outcome": "correct",
+            "horse": "AROUET",
+            "score": 68.5,
+            "odds": "1/1",
+            "label": "Win Bet",
+            "primary": false
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Leopardstown",
+        "time": "13:55",
+        "race_name": "Captain Dara Fitzpatrick Memorial Maiden",
+        "date": "2026-05-10",
+        "winner": "Cannes",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 2,
+            "outcome": "incorrect",
+            "horse": "ALMAZANN",
+            "score": 73.0,
+            "odds": "13/8",
+            "label": "Strong Win Bet",
+            "primary": true
+          },
+          {
+            "rec": "Win",
+            "actual_pos": 1,
+            "outcome": "correct",
+            "horse": "CANNES",
+            "score": 73.0,
+            "odds": "5/6",
+            "label": "Strong Win Bet",
+            "primary": false
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Cork",
+        "time": "14:05",
+        "race_name": "Sean Murphy Plant Hire Ltd Rated Novice Hurdle",
+        "date": "2026-05-10",
+        "winner": "Moon Mission",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "SHIRZAN",
+            "score": 60.6,
+            "odds": "8/1",
+            "label": "Win Bet",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": 3,
+            "outcome": "correct",
+            "horse": "BIG DISPUTE",
+            "score": 51.8,
+            "odds": "4/1",
+            "label": "Each Way (Speculative)",
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Ludlow",
+        "time": "14:17",
+        "race_name": "Radnor Hills Water Mares Novices Hurdle",
+        "date": "2026-05-10",
+        "winner": "Silvereen",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 2,
+            "outcome": "incorrect",
+            "horse": "ENYA",
+            "score": 67.8,
+            "odds": "11/8",
+            "label": "Win Bet",
+            "primary": true
+          },
+          {
+            "rec": "Win",
+            "actual_pos": 1,
+            "outcome": "correct",
+            "horse": "SILVEREEN",
+            "score": 65.0,
+            "odds": "5/6",
+            "label": "Win Bet",
+            "primary": false
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Leopardstown",
+        "time": "14:30",
+        "race_name": "Al Shiraaa Racing Mutamakina Stakes",
+        "date": "2026-05-10",
+        "winner": "City Of Memphis",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 2,
+            "outcome": "incorrect",
+            "horse": "SIGNORA",
+            "score": 75.1,
+            "odds": "7/2",
+            "label": "Strong Win Bet",
+            "primary": true
+          },
+          {
+            "rec": "Win",
+            "actual_pos": 1,
+            "outcome": "correct",
+            "horse": "CITY OF MEMPHIS",
+            "score": 75.1,
+            "odds": "5/4",
+            "label": "Strong Win Bet",
+            "primary": false
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Cork",
+        "time": "14:40",
+        "race_name": "Irish Stallion Farms Ebf Mares Maiden Hurdle",
+        "date": "2026-05-10",
+        "winner": "Local News",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 3,
+            "outcome": "incorrect",
+            "horse": "LA COTE FLEURIE",
+            "score": 79.0,
+            "odds": "10/3",
+            "label": "Strong Win Bet",
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Ludlow",
+        "time": "14:52",
+        "race_name": "Lion Leintwardine Novices Limited Handicap Hurdle",
+        "date": "2026-05-10",
+        "winner": "Son Of Tyran",
+        "runners": [
+          {
+            "rec": "EachWay",
+            "actual_pos": 1,
+            "outcome": "correct",
+            "horse": "SON OF TYRAN",
+            "score": 56.0,
+            "odds": "13/8",
+            "label": "Each Way (Speculative)",
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Leopardstown",
+        "time": "15:05",
+        "race_name": "Porsche In Support Of Breast Cancer Ireland Amethyst Stakes",
+        "date": "2026-05-10",
+        "winner": "Catalina Delcarpio",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 1,
+            "outcome": "correct",
+            "horse": "CATALINA DELCARPIO",
+            "score": 69.8,
+            "odds": "5/2",
+            "label": "Win Bet",
+            "primary": true
+          },
+          {
+            "rec": "Win",
+            "actual_pos": 3,
+            "outcome": "incorrect",
+            "horse": "EXCELLENT BELIEVE",
+            "score": 61.8,
+            "odds": "7/2",
+            "label": "Win Bet",
+            "primary": false
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Cork",
+        "time": "15:15",
+        "race_name": "Farm And Industrial Spares Mallow Handicap Hurdle",
+        "date": "2026-05-10",
+        "winner": "Somersby Roost",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 3,
+            "outcome": "incorrect",
+            "horse": "EASTMORE",
+            "score": 65.9,
+            "odds": "11/2",
+            "label": "Win Bet",
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Ludlow",
+        "time": "15:27",
+        "race_name": "Radnor Hills Splash Handicap Chase",
+        "date": "2026-05-10",
+        "winner": "Zacony Rebel",
+        "runners": [
+          {
+            "rec": "EachWay",
+            "actual_pos": 1,
+            "outcome": "correct",
+            "horse": "ZACONY REBEL",
+            "score": 53.1,
+            "odds": "9/2",
+            "label": "Each Way (Speculative)",
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Leopardstown",
+        "time": "15:40",
+        "race_name": "Cashel Palace Hotel Derby Trial Stakes",
+        "date": "2026-05-10",
+        "winner": "James J Braddock",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 2,
+            "outcome": "incorrect",
+            "horse": "PIERRE BONNARD",
+            "score": 63.5,
+            "odds": "8/11",
+            "label": "Win Bet",
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Cork",
+        "time": "15:50",
+        "race_name": "Farm And Industrial Spares Mallow Handicap Hurdle",
+        "date": "2026-05-10",
+        "winner": "Humble Brag",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "JAADIL",
+            "score": 62.9,
+            "odds": "8/1",
+            "label": "Win Bet",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "JISCO DU BREM",
+            "score": 55.4,
+            "odds": "11/2",
+            "label": "Each Way (Speculative)",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": 3,
+            "outcome": "correct",
+            "horse": "WAY DOWN SOUTH",
+            "score": 55.2,
+            "odds": "11/2",
+            "label": "Each Way (Speculative)",
+            "primary": false
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Ludlow",
+        "time": "16:02",
+        "race_name": "Welsh Guards Association Handicap Hurdle",
+        "date": "2026-05-10",
+        "winner": "Pergamon",
+        "runners": [
+          {
+            "rec": "EachWay",
+            "actual_pos": 1,
+            "outcome": "correct",
+            "horse": "PERGAMON",
+            "score": 58.0,
+            "odds": "15/8",
+            "label": "Each Way (Speculative)",
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Leopardstown",
+        "time": "16:15",
+        "race_name": "Its Family Day At Leopardstown Fillies Maiden",
+        "date": "2026-05-10",
+        "winner": "Johanna Walsh",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 1,
+            "outcome": "correct",
+            "horse": "JOHANNA WALSH",
+            "score": 78.5,
+            "odds": "5/2",
+            "label": "Strong Win Bet",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "WICKEDLY WOOTTON",
+            "score": 52.4,
+            "odds": "7/2",
+            "label": "Each Way (Speculative)",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": 2,
+            "outcome": "correct",
+            "horse": "BELIEVED",
+            "score": 50.9,
+            "odds": "5/1",
+            "label": "Each Way (Speculative)",
+            "primary": false
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Cork",
+        "time": "16:25",
+        "race_name": "Springfort Hall Country House Hotel Maiden Hurdle",
+        "date": "2026-05-10",
+        "winner": "Doctor Du Mesnil",
+        "runners": [
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "ZAMBEZI MOON",
+            "score": 59.6,
+            "odds": "10/1",
+            "label": "Each Way",
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Ludlow",
+        "time": "16:37",
+        "race_name": "Gc Rickards Mares Handicap Chase",
+        "date": "2026-05-10",
+        "winner": "Regal Renaissance",
+        "runners": [
+          {
+            "rec": "EachWay",
+            "actual_pos": 2,
+            "outcome": "correct",
+            "horse": "CLAIM DU BRIZAIS",
+            "score": 54.5,
+            "odds": "7/4",
+            "label": "Each Way (Speculative)",
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Cork",
+        "time": "17:00",
+        "race_name": "Bet With Toteie On Racing  Sports Handicap Hurdle",
+        "date": "2026-05-10",
+        "winner": "Annie Button",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 2,
+            "outcome": "incorrect",
+            "horse": "ONLY FOR OUR MAN",
+            "score": 62.4,
+            "odds": "11/4",
+            "label": "Win Bet",
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Ludlow",
+        "time": "17:10",
+        "race_name": "Heartsease Farm Handicap Hurdle",
+        "date": "2026-05-10",
+        "winner": "Jafimgoso",
+        "runners": [
+          {
+            "rec": "EachWay",
+            "actual_pos": 2,
+            "outcome": "correct",
+            "horse": "SNAPIUS",
+            "score": 50.3,
+            "odds": "11/4",
+            "label": "Each Way (Speculative)",
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Leopardstown",
+        "time": "17:20",
+        "race_name": "Breast Cancer Ireland Handicap",
+        "date": "2026-05-10",
+        "winner": "Darius Dark",
+        "runners": [
+          {
+            "rec": "EachWay",
+            "actual_pos": 1,
+            "outcome": "correct",
+            "horse": "DARIUS DARK",
+            "score": 59.3,
+            "odds": "11/4",
+            "label": "Each Way",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "DREOILIN",
+            "score": 56.8,
+            "odds": "5/1",
+            "label": "Each Way (Speculative)",
+            "primary": false
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": 2,
+            "outcome": "correct",
+            "horse": "BAY OF STARS",
+            "score": 54.7,
+            "odds": "9/2",
+            "label": "Each Way (Speculative)",
+            "primary": false
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": 3,
+            "outcome": "correct",
+            "horse": "KEEPSGETTINGBETTER",
+            "score": 52.5,
+            "odds": "5/1",
+            "label": "Each Way (Speculative)",
+            "primary": false
+          }
+        ],
+        "abandoned": false
+      }
+    ]
   },
   {
     "date": "2026-05-11",
