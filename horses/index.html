@@ -612,11 +612,19 @@ function renderAccuracy(log) {
   const winPct     = totWin ? Math.round(totWinC/totWin*100) : null;
   const ewPct      = totEW  ? Math.round(totEWC/totEW*100)  : null;
 
+  const ewWinTotal    = log.reduce((s,d) => s + (d.summary.ew_win_count||0), 0);
+  const ewPlacedTotal = log.reduce((s,d) => s + (d.summary.ew_placed_count||0), 0);
+
   document.getElementById('acc-summary').innerHTML = `
     ${stat('Overall', overallPct, `${allC}/${all}`)}
     ${stat('Win',     winPct,     `${totWinC}/${totWin}`)}
     ${stat('Each Way',ewPct,      `${totEWC}/${totEW}`)}
-    ${stat('Days', log.length, 'tracked', true)}`;
+    ${stat('Days', log.length, 'tracked', true)}
+    <div class="acc-stat">
+      <div class="acc-stat-val neutral">${ewWinTotal}★ / ${ewPlacedTotal}▸</div>
+      <div class="acc-stat-lbl">EW Split</div>
+      <div class="acc-stat-sub">won / placed</div>
+    </div>`;
 
   // Daily rows — newest first
   const daysEl = document.getElementById('acc-days');
@@ -668,7 +676,9 @@ function buildDayRaces(races) {
       let icon, iconCol, rowCls;
       if (!r.primary) {
         icon = '·'; iconCol = 'var(--dim)'; rowCls = 'dnf';
-      } else if (r.outcome === 'correct')     { icon = '✓'; iconCol = 'var(--green)'; rowCls = 'correct'; }
+      } else if (r.outcome === 'ew_win')      { icon = '★'; iconCol = 'var(--green)';  rowCls = 'correct'; }
+      else if (r.outcome === 'ew_placed')     { icon = '✓'; iconCol = 'var(--amber)';  rowCls = 'correct'; }
+      else if (r.outcome === 'correct')       { icon = '✓'; iconCol = 'var(--green)'; rowCls = 'correct'; }
       else if (r.outcome === 'incorrect')     { icon = '✗'; iconCol = 'var(--red)';   rowCls = 'incorrect'; }
       else if (r.outcome === 'non_runner')    { icon = 'NR'; iconCol = 'var(--dim)';  rowCls = 'dnf'; }
       else if (r.outcome === 'no_result')     { icon = '—';  iconCol = 'var(--dim)';  rowCls = 'dnf'; }

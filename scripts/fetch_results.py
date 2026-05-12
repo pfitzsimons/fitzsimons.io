@@ -212,7 +212,12 @@ def evaluate_prediction(runner: dict, result: dict, ew_places: int) -> dict:
     if rec_type == 'Win':
         outcome = 'correct' if actual_pos == 1 else 'incorrect'
     elif rec_type == 'EachWay':
-        outcome = 'correct' if actual_pos <= ew_places else 'incorrect'
+        if actual_pos == 1:
+            outcome = 'ew_win'
+        elif actual_pos <= ew_places:
+            outcome = 'ew_placed'
+        else:
+            outcome = 'incorrect'
     else:
         outcome = 'skip'
 
@@ -248,8 +253,8 @@ def compare_predictions_to_results(predictions: dict, results: list) -> dict:
     """
     race_outcomes = []
     # non_runner, no_result, and secondary outcomes excluded from totals
-    totals = {'win': {'correct': 0, 'incorrect': 0},
-              'ew':  {'correct': 0, 'incorrect': 0}}
+    totals = {'win':  {'correct': 0, 'incorrect': 0},
+              'ew':   {'correct': 0, 'incorrect': 0, 'ew_win': 0, 'ew_placed': 0}}
 
     for pred_race in predictions.get('races', []):
         result = match_race(pred_race, results)
@@ -302,7 +307,16 @@ def compare_predictions_to_results(predictions: dict, results: list) -> dict:
             if outcome['outcome'] in ('non_runner', 'no_result'):
                 continue
             key = 'win' if rec_type == 'Win' else 'ew'
-            if outcome['outcome'] in totals.get(key, {}):
+            ew_correct_outcomes = {'correct', 'ew_win', 'ew_placed'}
+            # For EW: ew_win and ew_placed both count as correct
+            if key == 'ew':
+                if outcome['outcome'] in ew_correct_outcomes:
+                    totals['ew']['correct'] += 1
+                elif outcome['outcome'] == 'incorrect':
+                    totals['ew']['incorrect'] += 1
+                if outcome['outcome'] in ('ew_win', 'ew_placed'):
+                    totals['ew'][outcome['outcome']] += 1
+            elif outcome['outcome'] in totals.get(key, {}):
                 totals[key][outcome['outcome']] += 1
 
         if race_result['runners']:
@@ -327,8 +341,10 @@ def compare_predictions_to_results(predictions: dict, results: list) -> dict:
             'ew_pct':       ew_pct,
             'win_correct':  totals['win']['correct'],
             'win_total':    win_total,
-            'ew_correct':   totals['ew']['correct'],
-            'ew_total':     ew_total,
+            'ew_correct':      totals['ew']['correct'],
+            'ew_total':        ew_total,
+            'ew_win_count':    totals['ew']['ew_win'],
+            'ew_placed_count': totals['ew']['ew_placed'],
         },
         'races': race_outcomes,
     }
