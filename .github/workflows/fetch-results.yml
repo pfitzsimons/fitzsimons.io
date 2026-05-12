@@ -36,8 +36,13 @@ jobs:
             RACES_DATE=$(python3 -c "import json; d=json.load(open('horses/races.json')); print(d.get('date',''))")
             ARCHIVE="horses/history/races_${RACES_DATE}.json"
             if [ ! -f "$ARCHIVE" ]; then
-              cp horses/races.json "$ARCHIVE"
-              echo "Archived predictions for $RACES_DATE"
+              RACE_COUNT=$(python3 -c "import json; d=json.load(open('horses/races.json')); print(len(d.get('races', [])))")
+              if [ "$RACE_COUNT" -gt 0 ]; then
+                cp horses/races.json "$ARCHIVE"
+                echo "Archived predictions for $RACES_DATE ($RACE_COUNT races)"
+              else
+                echo "Skipping archive for $RACES_DATE — races.json has 0 races (end-of-day scrape overwrote predictions)"
+              fi
             else
               echo "Archive already exists for $RACES_DATE"
             fi

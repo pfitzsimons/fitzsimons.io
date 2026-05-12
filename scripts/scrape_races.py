@@ -790,6 +790,20 @@ def main():
     }
 
     out_path = os.path.join(out_dir, "races.json")
+    if os.path.exists(out_path):
+        try:
+            with open(out_path, encoding="utf-8") as f:
+                existing = json.load(f)
+            if existing.get("date") == today_str and len(existing.get("races", [])) > len(races):
+                print(
+                    f"Keeping existing {len(existing['races'])} races for {today_str} "
+                    f"(new scrape found only {len(races)} — likely end-of-day)",
+                    file=sys.stderr,
+                )
+                return
+        except Exception:
+            pass
+
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(output, f, ensure_ascii=False, indent=2)
 
