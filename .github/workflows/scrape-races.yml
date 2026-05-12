@@ -2,9 +2,8 @@ name: Scrape Races
 
 on:
   schedule:
-    # Every 15 mins, 09:00–20:45 UTC
-    # Covers 10:00am–9:45pm BST (summer) / 9:00am–8:45pm GMT (winter)
-    - cron: '*/15 9-20 * * *'
+    # Once daily at 08:00 UTC (09:00 BST / 08:00 GMT)
+    - cron: '0 8 * * *'
   workflow_dispatch:
     inputs:
       date_override:
