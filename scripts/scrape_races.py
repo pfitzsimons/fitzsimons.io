@@ -171,6 +171,29 @@ JOCKEY_RATINGS = {
 
 DEFAULT_JOCKEY_RATING = 6.0  # unknown jockeys
 
+# ─────────────────────────────────────────────────────────────
+# COURSE ACCURACY COEFFICIENTS
+# Derived from historical prediction accuracy per course.
+# Applied as a multiplier to final runner scores before recommendations.
+# ─────────────────────────────────────────────────────────────
+COURSE_COEFFICIENTS = {
+    # Underperforming — reduce score confidence
+    "Thirsk":       0.88,
+    "Bath":         0.93,
+    "Haydock Park": 0.93,
+    "Warwick":      0.93,
+    "Newmarket":    0.95,
+    # Overperforming — slight boost
+    "Ayr":          1.03,
+    "Doncaster":    1.03,
+    "Redcar":       1.03,
+    "Punchestown":  1.03,
+    "Salisbury":    1.02,
+    "Nottingham":   1.02,
+    "Kelso":        1.02,
+    "Hereford":     1.02,
+}
+
 
 # ─────────────────────────────────────────────────────────────
 # HTTP
@@ -505,14 +528,20 @@ def make_recommendation(score: float, odds_dec: Optional[float],
     # Suppress win bets on horses with high DNF rate (>40%)
     high_dnf = form["dnf_rate"] > 0.40
 
-    if score >= 72 and not high_dnf and odds_dec and odds_dec <= 6.0:
+    # Compress scores above 65 — analysis shows >65 scores have worse Win accuracy
+    effective_score = score if score <= 65 else 65 + (score - 65) * 0.5
+
+    # Market disagrees: long odds despite high score — trust the market on Win bets
+    market_disagrees = bool(odds_dec and score > 62 and odds_dec > 8.0)
+
+    if effective_score >= 72 and not high_dnf and not market_disagrees and odds_dec and odds_dec <= 5.0:
         return {
             "type":       "Win",
             "confidence": min(95, int(score)),
             "label":      "Strong Win Bet",
             "reasoning":  _reasoning(score, odds_dec, form, "win"),
         }
-    elif score >= 60 and not high_dnf and odds_dec and odds_dec <= 10.0:
+    elif effective_score >= 60 and not high_dnf and not market_disagrees and odds_dec and odds_dec <= 10.0:
         return {
             "type":       "Win",
             "confidence": min(85, int(score)),
@@ -579,6 +608,10 @@ def _reasoning(score: float, odds_dec: Optional[float],
             parts.append("short price reflects market confidence")
         elif odds_dec <= 6.0:
             parts.append("each way option also viable")
+
+    # Market caution: model score is high but market has priced long
+    if rec_type == "ew" and odds_dec and odds_dec > 8.0 and score > 62:
+        parts.append("market caution at long odds")
 
     return "; ".join(parts) if parts else "insufficient data"
 
@@ -717,6 +750,12 @@ def scrape_race(meta):
 
     # Normalise weight scores across field
     normalise_weight_scores(runners)
+
+    # Apply per-course accuracy coefficient
+    course_factor = COURSE_COEFFICIENTS.get(meta["venue"], 1.0)
+    if course_factor != 1.0:
+        for runner in runners:
+            runner["_score"] = max(0, min(100, runner["_score"] * course_factor))
 
     # Sort by score descending (best recommendation first)
     runners.sort(key=lambda r: r["_score"], reverse=True)
