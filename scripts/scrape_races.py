@@ -829,6 +829,25 @@ def main():
     }
 
     out_path = os.path.join(out_dir, "races.json")
+
+    # Never overwrite a richer file for the same date with fewer races.
+    # Late-evening re-runs find no upcoming races and would clobber the
+    # morning predictions that are needed for next-day accuracy tracking.
+    if os.path.exists(out_path):
+        try:
+            with open(out_path, encoding="utf-8") as f:
+                existing = json.load(f)
+            if (existing.get("date") == today_str
+                    and len(existing.get("races", [])) > len(races)):
+                print(
+                    f"Keeping existing races.json ({len(existing['races'])} races)"
+                    f" — new scrape has only {len(races)}",
+                    file=sys.stderr,
+                )
+                return
+        except Exception:
+            pass
+
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(output, f, ensure_ascii=False, indent=2)
 
