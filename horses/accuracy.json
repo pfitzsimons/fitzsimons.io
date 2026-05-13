@@ -11212,5 +11212,961 @@
         "abandoned": false
       }
     ]
+  },
+  {
+    "date": "2026-05-12",
+    "summary": {
+      "overall_pct": 76.0,
+      "win_pct": 64.7,
+      "ew_pct": 100.0,
+      "win_correct": 11,
+      "win_total": 17,
+      "ew_correct": 8,
+      "ew_total": 8,
+      "ew_win_count": 3,
+      "ew_placed_count": 5
+    },
+    "races": [
+      {
+        "course": "Bath",
+        "time": "14:20",
+        "race_name": "Rj King  Sons Ebf Restricted Novice Stakes",
+        "date": "2026-05-12",
+        "winner": "Sovereign Glory",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "JOLLY GOOD FELLOWS",
+            "score": 73.4,
+            "odds": "15/8",
+            "label": "Strong Win Bet",
+            "primary": true
+          },
+          {
+            "rec": "Win",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "SEED YA LATER",
+            "score": 72.4,
+            "odds": "9/4",
+            "label": "Strong Win Bet",
+            "primary": false
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": 1,
+            "outcome": "ew_win",
+            "horse": "SOVEREIGN GLORY",
+            "score": 56.9,
+            "odds": "3/1",
+            "label": "Each Way (Speculative)",
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Beverley",
+        "time": "14:30",
+        "race_name": "Clearanswer Call Centres Maiden Fillies Stakes",
+        "date": "2026-05-12",
+        "winner": "Lovers Leap",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 1,
+            "outcome": "correct",
+            "horse": "LOVERS LEAP",
+            "score": 66.5,
+            "odds": "2/9",
+            "label": "Win Bet",
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Bath",
+        "time": "14:50",
+        "race_name": "Bath Mind Charity Confined Handicap",
+        "date": "2026-05-12",
+        "winner": "Thurso",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 2,
+            "outcome": "incorrect",
+            "horse": "CANDY WARHOL",
+            "score": 63.6,
+            "odds": "9/4",
+            "label": "Win Bet",
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Bath",
+        "time": "15:20",
+        "race_name": "Best Cleaning Group Maiden Stakes",
+        "date": "2026-05-12",
+        "winner": "Noble Vow",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 1,
+            "outcome": "correct",
+            "horse": "NOBLE VOW",
+            "score": 61.6,
+            "odds": "5/4",
+            "label": "Win Bet",
+            "primary": true
+          },
+          {
+            "rec": "Win",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "QUEEN SANA",
+            "score": 60.2,
+            "odds": "7/4",
+            "label": "Win Bet",
+            "primary": false
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Hereford",
+        "time": "15:38",
+        "race_name": "Ludford Car Parts Group Mares Novices Hurdle",
+        "date": "2026-05-12",
+        "winner": "Lady Kara",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 1,
+            "outcome": "correct",
+            "horse": "LADY KARA",
+            "score": 74.8,
+            "odds": "1/2",
+            "label": "Strong Win Bet",
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Beverley",
+        "time": "16:00",
+        "race_name": "Annie Oxtoby Memorial Handicap",
+        "date": "2026-05-12",
+        "winner": "Dandy Dinmont",
+        "runners": [
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "GLORY HYDE",
+            "score": 56.4,
+            "odds": "7/2",
+            "label": "Each Way (Speculative)",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "WITHOUT FLAW",
+            "score": 52.6,
+            "odds": "5/1",
+            "label": "Each Way (Speculative)",
+            "primary": false
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Bath",
+        "time": "16:23",
+        "race_name": "Clyde And Co Handicap",
+        "date": "2026-05-12",
+        "winner": "Party Island",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "GALAXY WONDER",
+            "score": 66.7,
+            "odds": "11/4",
+            "label": "Win Bet",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": 1,
+            "outcome": "ew_win",
+            "horse": "PARTY ISLAND",
+            "score": 56.8,
+            "odds": "7/2",
+            "label": "Each Way (Speculative)",
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Beverley",
+        "time": "16:35",
+        "race_name": "Napoleons Casino And Restaurant Hull Handicap",
+        "date": "2026-05-12",
+        "winner": "Coolree",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "TEES GEORGE",
+            "score": 67.9,
+            "odds": "9/2",
+            "label": "Win Bet",
+            "primary": true
+          },
+          {
+            "rec": "Win",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "DONNA NOOK",
+            "score": 60.9,
+            "odds": "5/1",
+            "label": "Win Bet",
+            "primary": false
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": 1,
+            "outcome": "ew_win",
+            "horse": "COOLREE",
+            "score": 59.7,
+            "odds": "5/1",
+            "label": "Each Way",
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Hereford",
+        "time": "16:45",
+        "race_name": "First Past The Post At Copybet Handicap Hurdle",
+        "date": "2026-05-12",
+        "winner": "Ice Jet",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 1,
+            "outcome": "correct",
+            "horse": "ICE JET",
+            "score": 61.2,
+            "odds": "1/1",
+            "label": "Win Bet",
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Bath",
+        "time": "17:00",
+        "race_name": "Download The Fairplay App Now Handicap",
+        "date": "2026-05-12",
+        "winner": "Nammos",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 2,
+            "outcome": "incorrect",
+            "horse": "KONDRATIEV WAVE",
+            "score": 60.7,
+            "odds": "5/1",
+            "label": "Win Bet",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "MY AMBITION",
+            "score": 50.1,
+            "odds": "9/2",
+            "label": "Each Way (Speculative)",
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Killarney",
+        "time": "17:05",
+        "race_name": "Irish Stallion Farms Ebf",
+        "date": "2026-05-12",
+        "winner": "Alphonsus Liguori",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 1,
+            "outcome": "correct",
+            "horse": "ALPHONSUS LIGUORI",
+            "score": 73.0,
+            "odds": "4/7",
+            "label": "Strong Win Bet",
+            "primary": true
+          },
+          {
+            "rec": "Win",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "DARK LEADER",
+            "score": 61.6,
+            "odds": "15/2",
+            "label": "Win Bet",
+            "primary": false
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Beverley",
+        "time": "17:10",
+        "race_name": "Racing Welfare Supporting Mental Health Handicap",
+        "date": "2026-05-12",
+        "winner": "Ciao Capo",
+        "runners": [
+          {
+            "rec": "EachWay",
+            "actual_pos": 3,
+            "outcome": "ew_placed",
+            "horse": "REGULUS BLACK",
+            "score": 55.2,
+            "odds": "9/4",
+            "label": "Each Way (Speculative)",
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Lingfield Park",
+        "time": "17:15",
+        "race_name": "Free Tips Daily On Attheracescom Apprentice Handicap",
+        "date": "2026-05-12",
+        "winner": "Arc Zoosve",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 1,
+            "outcome": "correct",
+            "horse": "ARC ZOOSVE",
+            "score": 75.2,
+            "odds": "4/6",
+            "label": "Strong Win Bet",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "MIO AMICO",
+            "score": 50.8,
+            "odds": "9/2",
+            "label": "Each Way (Speculative)",
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Hereford",
+        "time": "17:20",
+        "race_name": "Hereford Season Finale Open National Hunt Flat",
+        "date": "2026-05-12",
+        "winner": "Lost In The Dream",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 1,
+            "outcome": "correct",
+            "horse": "LOST IN THE DREAM",
+            "score": 75.5,
+            "odds": "11/8",
+            "label": "Strong Win Bet",
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Sligo",
+        "time": "17:27",
+        "race_name": "Adare Manor Opportunity Maiden Hurdle",
+        "date": "2026-05-12",
+        "winner": "Hey Now",
+        "runners": [
+          {
+            "rec": "EachWay",
+            "actual_pos": 2,
+            "outcome": "ew_placed",
+            "horse": "LILAC LADY",
+            "score": 58.3,
+            "odds": "7/1",
+            "label": "Each Way",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": 1,
+            "outcome": "ew_win",
+            "horse": "HEY NOW",
+            "score": 52.3,
+            "odds": "2/1",
+            "label": "Each Way (Speculative)",
+            "primary": false
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Killarney",
+        "time": "17:40",
+        "race_name": "Irish Stallion Farms Ebf Fillies",
+        "date": "2026-05-12",
+        "winner": "Glyfada",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 1,
+            "outcome": "correct",
+            "horse": "GLYFADA",
+            "score": 79.0,
+            "odds": "1/1",
+            "label": "Strong Win Bet",
+            "primary": true
+          },
+          {
+            "rec": "Win",
+            "actual_pos": 2,
+            "outcome": "incorrect",
+            "horse": "WHAT ABOUT US",
+            "score": 62.3,
+            "odds": "9/2",
+            "label": "Win Bet",
+            "primary": false
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "MO MHUIRIN",
+            "score": 59.4,
+            "odds": "7/1",
+            "label": "Each Way",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "FLAWLESS FUSION",
+            "score": 54.8,
+            "odds": "9/2",
+            "label": "Each Way (Speculative)",
+            "primary": false
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Lingfield Park",
+        "time": "17:50",
+        "race_name": "Sky Sports Racing Virgin 512 Novice Stakes",
+        "date": "2026-05-12",
+        "winner": "Savvy Disko",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 2,
+            "outcome": "incorrect",
+            "horse": "ALWAYS HAPPY",
+            "score": 90.4,
+            "odds": "8/13",
+            "label": "Strong Win Bet",
+            "primary": true
+          },
+          {
+            "rec": "Win",
+            "actual_pos": 3,
+            "outcome": "incorrect",
+            "horse": "YORK TOWER",
+            "score": 80.9,
+            "odds": "7/2",
+            "label": "Strong Win Bet",
+            "primary": false
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Sligo",
+        "time": "17:58",
+        "race_name": "Decoclip Construction Company Mares Maiden Hurdle",
+        "date": "2026-05-12",
+        "winner": "Beir Bua",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 1,
+            "outcome": "correct",
+            "horse": "BEIR BUA",
+            "score": 69.5,
+            "odds": "2/1",
+            "label": "Win Bet",
+            "primary": true
+          },
+          {
+            "rec": "Win",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "LOUIE&#39;S FOLLY",
+            "score": 64.7,
+            "odds": "4/1",
+            "label": "Win Bet",
+            "primary": false
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Killarney",
+        "time": "18:10",
+        "race_name": "Fexco Maiden",
+        "date": "2026-05-12",
+        "winner": "Hygge",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 2,
+            "outcome": "incorrect",
+            "horse": "TREASURE ROSE",
+            "score": 78.3,
+            "odds": "11/8",
+            "label": "Strong Win Bet",
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Lingfield Park",
+        "time": "18:20",
+        "race_name": "Download The At The Races App Fillies Novice Stakes",
+        "date": "2026-05-12",
+        "winner": "Bright Summer",
+        "runners": [
+          {
+            "rec": "EachWay",
+            "actual_pos": 2,
+            "outcome": "ew_placed",
+            "horse": "THURSDAY GIRL",
+            "score": 56.0,
+            "odds": "11/4",
+            "label": "Each Way (Speculative)",
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Sligo",
+        "time": "18:28",
+        "race_name": "Rosses Point Caravan Park Handicap Hurdle",
+        "date": "2026-05-12",
+        "winner": "Bowgate Street",
+        "runners": [
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "CENTAQ",
+            "score": 58.7,
+            "odds": "11/2",
+            "label": "Each Way",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": 1,
+            "outcome": "ew_win",
+            "horse": "BOWGATE STREET",
+            "score": 54.2,
+            "odds": "4/1",
+            "label": "Each Way (Speculative)",
+            "primary": false
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Killarney",
+        "time": "18:40",
+        "race_name": "Velo Coffee Roasters Handicap",
+        "date": "2026-05-12",
+        "winner": "Nibras Rainbow",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "TERO D&#39;ROSA",
+            "score": 67.8,
+            "odds": "5/2",
+            "label": "Win Bet",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "CHIPSRDOWN",
+            "score": 52.3,
+            "odds": "11/4",
+            "label": "Each Way (Speculative)",
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Sligo",
+        "time": "18:58",
+        "race_name": "Enda Mcgoldrick Plant  Agri Hire Maiden Hurdle",
+        "date": "2026-05-12",
+        "winner": "Speculateur",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 1,
+            "outcome": "correct",
+            "horse": "SPECULATEUR",
+            "score": 70.8,
+            "odds": "2/13",
+            "label": "Win Bet",
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Killarney",
+        "time": "19:10",
+        "race_name": "Brehon Hotel Handicap",
+        "date": "2026-05-12",
+        "winner": "Femme Beauty",
+        "runners": [
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "HONOURAMONGTHIEVES",
+            "score": 53.5,
+            "odds": "3/1",
+            "label": "Each Way (Speculative)",
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Lingfield Park",
+        "time": "19:20",
+        "race_name": "Follow Attheraces On X Handicap",
+        "date": "2026-05-12",
+        "winner": "Zatsgood",
+        "runners": [
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "STUDIOUS",
+            "score": 58.3,
+            "odds": "10/1",
+            "label": "Each Way",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "BUY THE DIP",
+            "score": 53.9,
+            "odds": "11/2",
+            "label": "Each Way (Speculative)",
+            "primary": false
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": 3,
+            "outcome": "ew_placed",
+            "horse": "SIGNCASTLE CITY",
+            "score": 50.4,
+            "odds": "4/1",
+            "label": "Each Way (Speculative)",
+            "primary": false
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Sligo",
+        "time": "19:28",
+        "race_name": "Johnston Farm Equipment Handicap Hurdle",
+        "date": "2026-05-12",
+        "winner": "The Eggler",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "LADIAM",
+            "score": 61.1,
+            "odds": "11/2",
+            "label": "Win Bet",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "MOTHER SHIP",
+            "score": 51.6,
+            "odds": "13/2",
+            "label": "Each Way (Speculative)",
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Killarney",
+        "time": "19:40",
+        "race_name": "Outlook Publications",
+        "date": "2026-05-12",
+        "winner": "Factual Fact",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 1,
+            "outcome": "correct",
+            "horse": "FACTUAL FACT",
+            "score": 72.5,
+            "odds": "13/8",
+            "label": "Strong Win Bet",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "WINNING SMUT",
+            "score": 51.8,
+            "odds": "9/4",
+            "label": "Each Way (Speculative)",
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Lingfield Park",
+        "time": "19:50",
+        "race_name": "Free Bets On Attheracescom Fillies Handicap",
+        "date": "2026-05-12",
+        "winner": "Handle With Care",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 3,
+            "outcome": "incorrect",
+            "horse": "BAREFOOT BEACH",
+            "score": 66.9,
+            "odds": "6/1",
+            "label": "Win Bet",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": 2,
+            "outcome": "ew_placed",
+            "horse": "BRISK SYMPHONY",
+            "score": 58.7,
+            "odds": "9/2",
+            "label": "Each Way",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "INSIDE STORY",
+            "score": 52.3,
+            "odds": "5/1",
+            "label": "Each Way (Speculative)",
+            "primary": false
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Sligo",
+        "time": "19:58",
+        "race_name": "Solar Generation Handicap Hurdle",
+        "date": "2026-05-12",
+        "winner": "Mr Dibbs",
+        "runners": [
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "GERRYS WISH",
+            "score": 58.1,
+            "odds": "11/2",
+            "label": "Each Way",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "BALLYGLASS BEAUTY",
+            "score": 55.5,
+            "odds": "7/2",
+            "label": "Each Way (Speculative)",
+            "primary": false
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Killarney",
+        "time": "20:10",
+        "race_name": "Killarney Racegoers Club",
+        "date": "2026-05-12",
+        "winner": "Kizlyar",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 2,
+            "outcome": "incorrect",
+            "horse": "SKY CAPTAIN",
+            "score": 76.5,
+            "odds": "1/1",
+            "label": "Strong Win Bet",
+            "primary": true
+          },
+          {
+            "rec": "Win",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "EBONY KING",
+            "score": 71.4,
+            "odds": "10/3",
+            "label": "Win Bet",
+            "primary": false
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "STELLAR QUALITY",
+            "score": 66.6,
+            "odds": "11/1",
+            "label": "Each Way",
+            "primary": true
+          },
+          {
+            "rec": "Win",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "TIM TOE",
+            "score": 60.5,
+            "odds": "7/1",
+            "label": "Win Bet",
+            "primary": false
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Lingfield Park",
+        "time": "20:20",
+        "race_name": "Follow Attheraces On Instagram Handicap",
+        "date": "2026-05-12",
+        "winner": "Yaa Min",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "TWILIGHT MOON",
+            "score": 66.8,
+            "odds": "7/2",
+            "label": "Win Bet",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "VICTORS SPIRIT",
+            "score": 57.3,
+            "odds": "11/4",
+            "label": "Each Way (Speculative)",
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Sligo",
+        "time": "20:28",
+        "race_name": "Lake Isle Of Innisfree Inh Flat",
+        "date": "2026-05-12",
+        "winner": "In A Sonnet",
+        "runners": [
+          {
+            "rec": "EachWay",
+            "actual_pos": 3,
+            "outcome": "ew_placed",
+            "horse": "SEVEN TOWERS",
+            "score": 59.5,
+            "odds": "11/4",
+            "label": "Each Way",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": 2,
+            "outcome": "ew_placed",
+            "horse": "BRAVEWAVE",
+            "score": 50.6,
+            "odds": "11/2",
+            "label": "Each Way (Speculative)",
+            "primary": false
+          }
+        ],
+        "abandoned": false
+      }
+    ]
   }
 ]
