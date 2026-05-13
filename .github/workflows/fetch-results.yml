@@ -30,16 +30,24 @@ jobs:
 
       - name: Archive today's predictions before scraper overwrites them
         run: |
-          TODAY=$(date -u +%Y-%m-%d)
           mkdir -p horses/history
           if [ -f horses/races.json ]; then
             RACES_DATE=$(python3 -c "import json; d=json.load(open('horses/races.json')); print(d.get('date',''))")
+            RACE_COUNT=$(python3 -c "import json; d=json.load(open('horses/races.json')); print(len(d.get('races',[])))")
             ARCHIVE="horses/history/races_${RACES_DATE}.json"
-            if [ ! -f "$ARCHIVE" ]; then
+            if [ "$RACE_COUNT" -eq 0 ]; then
+              echo "Skipping archive for $RACES_DATE — races.json has 0 races (late-evening scrape)"
+            elif [ ! -f "$ARCHIVE" ]; then
               cp horses/races.json "$ARCHIVE"
-              echo "Archived predictions for $RACES_DATE"
+              echo "Archived $RACE_COUNT predictions for $RACES_DATE"
             else
-              echo "Archive already exists for $RACES_DATE"
+              EXISTING_COUNT=$(python3 -c "import json; d=json.load(open('$ARCHIVE')); print(len(d.get('races',[])))")
+              if [ "$EXISTING_COUNT" -ge "$RACE_COUNT" ]; then
+                echo "Keeping existing archive for $RACES_DATE ($EXISTING_COUNT races >= $RACE_COUNT)"
+              else
+                cp horses/races.json "$ARCHIVE"
+                echo "Updated archive for $RACES_DATE ($RACE_COUNT races > $EXISTING_COUNT)"
+              fi
             fi
           fi
 

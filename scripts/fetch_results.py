@@ -27,11 +27,13 @@ HEADERS = {
     'User-Agent': (
         'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) '
         'AppleWebKit/537.36 (KHTML, like Gecko) '
-        'Chrome/122.0.0.0 Safari/537.36'
+        'Chrome/124.0.0.0 Safari/537.36'
     ),
-    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
     'Accept-Language': 'en-GB,en;q=0.9',
     'Accept-Encoding': 'gzip, deflate',
+    'Connection': 'keep-alive',
+    'Upgrade-Insecure-Requests': '1',
 }
 
 
@@ -432,6 +434,12 @@ def main():
         os.makedirs(os.path.dirname(raw_path), exist_ok=True)
         with open(raw_path, 'w', encoding='utf-8') as f:
             json.dump({'date': results_date, 'races': results}, f, indent=2)
+        return
+
+    if not predictions.get('races'):
+        log(f'Saved predictions for {results_date} have 0 races — '
+            f'archive was likely created from a late-evening scrape. '
+            f'Skipping accuracy update to avoid a blank entry.')
         return
 
     # 4. Compare
