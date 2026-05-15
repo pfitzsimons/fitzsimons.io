@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Now You're Talking</title>
+<style>
+  :root {
+    --bg: #0f5c3f;
+    --surface: #ffffff;
+    --ink: #000000;
+    --muted: #4b5563;
+    --line: #e5e5e5;
+    --accent: #10b981;
+    --accent-soft: #d1fae5;
+    --accent-dark: #047857;
+    --accent-light: #ecfdf5;
+    --green: #10b981;
+    --white: #ffffff;
+    --orange: #f97316;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    --radius: 16px;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  header.site {
+    background: var(--surface);
+    border-bottom: 1px solid #ddd;
+    position: sticky; top: 0; z-index: 10;
+  }
+  header.site .wrap {
+    max-width: 1200px; margin: 0 auto; padding: 18px 24px;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  }
+  .brand { display: flex; align-items: center; gap: 12px; cursor: pointer; text-decoration: none; color: inherit; }
+  .brand .logo {
+    width: 36px; height: 36px; border-radius: 10px;
+    background: linear-gradient(135deg, #10b981, #059669);
+    display: grid; place-items: center; color: #fff; font-weight: 700;
+    box-shadow: var(--shadow);
+  }
+  .brand h1 { font-size: 17px; margin: 0; letter-spacing: -0.01em; }
+  .brand .sub { font-size: 12px; color: var(--muted); margin-top: 1px; }
+  .search {
+    display: flex; align-items: center; gap: 8px;
+    background: var(--bg); border: 1px solid var(--line);
+    border-radius: 10px; padding: 8px 12px; min-width: 220px;
+  }
+  .search input {
+    border: none; outline: none; background: transparent;
+    font: inherit; color: inherit; width: 100%;
+  }
+  .search svg { color: var(--muted); flex-shrink: 0; }
+
+  main { max-width: 1200px; margin: 0 auto; padding: 32px 24px 64px; }
+
+  /* ----- Home view ----- */
+  .intro { margin-bottom: 28px; }
+  .intro h2 { font-size: 32px; margin: 0 0 8px; letter-spacing: -0.02em; font-weight: 700; color: #ffffff; }
+  .intro p  { color: #e0e0e0; margin: 0; font-size: 16px; line-height: 1.5; }
+
+  .grid {
+    display: grid; gap: 18px;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    text-decoration: none; color: inherit;
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    box-shadow: 0 1px 3px rgba(16,60,31,.05);
+    display: flex; flex-direction: column;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(16, 60, 31, 0.12);
+    border-color: var(--accent);
+  }
+  .thumb {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    background: linear-gradient(135deg, #10b981 0%, #059669 50%, #047857 100%);
+    color: #fff;
+    display: grid; place-items: center;
+    overflow: hidden;
+  }
+  .thumb.alt-a { background: linear-gradient(135deg, #10b981 0%, #059669 50%, #047857 100%); }
+  .thumb.alt-b { background: linear-gradient(135deg, #10b981 0%, #059669 50%, #047857 100%); }
+  .thumb.alt-c { background: linear-gradient(135deg, #10b981 0%, #059669 50%, #047857 100%); }
+  .thumb.alt-d { background: linear-gradient(135deg, #10b981 0%, #059669 50%, #047857 100%); }
+  .thumb.alt-e { background: linear-gradient(135deg, #10b981 0%, #059669 50%, #047857 100%); }
+  .ep-num {
+    font-size: 44px; font-weight: 700; letter-spacing: -0.03em;
+    text-shadow: 0 2px 14px rgba(0,0,0,.15);
+  }
+  .ep-label {
+    position: absolute; top: 12px; left: 14px;
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    opacity: 0.85;
+  }
+  .play-badge {
+    position: absolute; bottom: 12px; right: 12px;
+    width: 36px; height: 36px; border-radius: 50%;
+    background: rgba(255,255,255,0.95); color: var(--ink);
+    display: grid; place-items: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,.18);
+  }
+  .meta { padding: 14px 16px 16px; }
+  .meta h3 { margin: 0 0 4px; font-size: 15px; letter-spacing: -0.01em; color: #000000; }
+  .meta .row { display: flex; gap: 10px; color: #666; font-size: 12.5px; align-items: center; }
+  .pill {
+    display: inline-flex; align-items: center; gap: 4px;
+    background: #f0f0f0; color: #333;
+    padding: 2px 8px; border-radius: 999px; font-size: 11.5px; font-weight: 500;
+  }
+
+  /* ----- Episode view ----- */
+  .ep-view { display: none; }
+  .ep-view.active { display: block; }
+  .home-view.hidden { display: none; }
+
+  .back {
+    display: inline-flex; align-items: center; gap: 6px;
+    color: #e0e0e0; text-decoration: none; font-size: 14px;
+    margin-bottom: 18px;
+  }
+  .back:hover { color: #ffffff; }
+
+  .ep-header { margin-bottom: 20px; }
+  .ep-header .crumb { color: #10b981; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; }
+  .ep-header h2 { font-size: 32px; margin: 6px 0 0; letter-spacing: -0.02em; color: #ffffff; font-weight: 700; }
+
+  .ep-layout {
+    display: grid; gap: 22px;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  }
+  @media (max-width: 980px) {
+    .ep-layout { grid-template-columns: 1fr; }
+  }
+
+  .panel {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 1px 2px rgba(16,24,40,.03);
+  }
+  .panel-head {
+    display: flex; align-items: center; gap: 4px;
+    padding: 6px; border-bottom: 1px solid #e5e5e5;
+    background: #f9f9f9;
+  }
+  .tab {
+    border: none; background: transparent; cursor: pointer;
+    padding: 8px 14px; border-radius: 8px;
+    font: inherit; color: #666;
+    transition: background .12s, color .12s;
+  }
+  .tab:hover { color: #000; background: #f0f0f0; }
+  .tab.active { background: #e8f5f1; color: #047857; box-shadow: 0 1px 2px rgba(0,0,0,.06); }
+
+  video {
+    width: 100%; display: block; background: #000;
+    aspect-ratio: 16 / 9;
+  }
+
+  .pdf-wrap { position: relative; height: 720px; }
+  .pdf-wrap iframe {
+    width: 100%; height: 100%; border: 0; background: #fff;
+  }
+  @media (max-width: 980px) {
+    .pdf-wrap { height: 540px; }
+  }
+  .pdf-actions {
+    display: flex; gap: 8px; padding: 10px 12px;
+    border-top: 1px solid #e5e5e5; background: #fafafa;
+  }
+  .btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 7px 12px; border-radius: 8px;
+    background: var(--surface); border: 1px solid #ddd;
+    color: #000000; text-decoration: none; font-size: 13px;
+    cursor: pointer; transition: background .12s, border-color .12s;
+  }
+  .btn:hover { background: #f5f5f5; border-color: #ccc; }
+  .btn.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .btn.primary:hover { background: #047857; border-color: #047857; }
+
+  footer.site {
+    color: #e0e0e0; font-size: 12.5px; text-align: center;
+    padding: 28px 24px 40px;
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="#" onclick="goHome(event)">
+      <div class="logo">🇮🇪</div>
+      <div>
+        <h1>Now You're Talking</h1>
+        <div class="sub" id="brand-sub">30 episodes • Gaeilge Uladh 🎬</div>
+      </div>
+    </a>
+    <div class="search" id="search-box">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input id="search" type="text" placeholder="🔍 Search episodes…" autocomplete="off" />
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- Home / grid view -->
+  <section class="home-view" id="home">
+    <div class="intro">
+      <h2>📚 All Episodes</h2>
+      <p>Click an episode to watch the video and read the questions &amp; answers. Foghlaim Gaeilge Uladh! 🇮🇪</p>
+    </div>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <!-- Episode detail view -->
+  <section class="ep-view" id="ep-view">
+    <a class="back" href="#" onclick="goHome(event)">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      All episodes
+    </a>
+    <div class="ep-header">
+      <div class="crumb">Aonad <span id="ep-num"></span> 🎬</div>
+      <h2 id="ep-title"></h2>
+    </div>
+
+    <div class="ep-layout">
+      <div class="panel">
+        <video id="player" controls preload="metadata" playsinline></video>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head">
+          <button class="tab active" data-pane="q" onclick="setPane('q')">❓ Questions</button>
+          <button class="tab" data-pane="a" onclick="setPane('a')">✅ Answers</button>
+        </div>
+        <div class="pdf-wrap">
+          <iframe id="pdf-frame" title="PDF"></iframe>
+        </div>
+        <div class="pdf-actions">
+          <a class="btn" id="pdf-open" target="_blank" rel="noopener">🔗 Open in new tab</a>
+          <a class="btn" id="pdf-download" download>⬇️ Download</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">🎬 Now You're Talking — Local Episode Library | Learning Gaeilge Uladh 🌿</footer>
+
+<script>
+  // Episodes 1–11 use "You're"; episodes 12–30 use "Your" (matches actual filenames).
+  const S3_BASE = "https://nowyouretalking.s3.us-east-1.amazonaws.com/now_youre_talking";
+
+  function videoName(n) {
+    const spelling = (n <= 11) ? "You're" : "Your";
+    return `Now ${spelling} Talking - Episode ${n}.mp4`;
+  }
+  function episodePaths(n) {
+    const folder = `aonad_${n}`;
+    const videoFile = videoName(n);
+    return {
+      n,
+      folder,
+      video: `${S3_BASE}/${folder}/${videoFile}`,
+      q: `${S3_BASE}/${folder}/Q_aonad_${n}.pdf`,
+      a: `${S3_BASE}/${folder}/A_aonad_${n}.pdf`,
+    };
+  }
+  const EPISODES = Array.from({length: 30}, (_, i) => episodePaths(i + 1));
+
+  const GRADIENTS = ['', 'alt-a', 'alt-b', 'alt-c', 'alt-d', 'alt-e'];
+
+  function renderGrid(filter = '') {
+    const grid = document.getElementById('grid');
+    const q = filter.trim().toLowerCase();
+    const items = EPISODES.filter(ep => {
+      if (!q) return true;
+      return String(ep.n).includes(q) || `aonad ${ep.n}`.includes(q) || `episode ${ep.n}`.includes(q);
+    });
+    grid.innerHTML = items.map(ep => `
+      <a class="card" href="#ep=${ep.n}">
+        <div class="thumb ${GRADIENTS[ep.n % GRADIENTS.length]}">
+          <span class="ep-label">Aonad ${ep.n}</span>
+          <span class="ep-num">${ep.n}</span>
+          <span class="play-badge" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>
+          </span>
+        </div>
+        <div class="meta">
+          <h3>Aonad ${ep.n}</h3>
+          <div class="row">
+            <span class="pill">📹 Video</span>
+            <span class="pill">❓ Q &amp; A</span>
+          </div>
+        </div>
+      </a>
+    `).join('');
+    if (items.length === 0) {
+      grid.innerHTML = `<p style="color:var(--muted)">No episodes match "${filter}".</p>`;
+    }
+  }
+
+  let currentEp = null;
+  let currentPane = 'q';
+
+  function setPane(pane) {
+    currentPane = pane;
+    document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.pane === pane));
+    if (!currentEp) return;
+    const ep = EPISODES[currentEp - 1];
+    const url = (pane === 'q') ? ep.q : ep.a;
+    document.getElementById('pdf-frame').src = url;
+    document.getElementById('pdf-open').href = url;
+    document.getElementById('pdf-download').href = url;
+  }
+
+  function openEpisode(n) {
+    const ep = EPISODES[n - 1];
+    if (!ep) { goHome(); return; }
+    currentEp = n;
+    document.getElementById('home').classList.add('hidden');
+    document.getElementById('ep-view').classList.add('active');
+    document.getElementById('ep-num').textContent = n;
+    document.getElementById('ep-title').textContent = `Episode ${n}`;
+    document.getElementById('player').src = ep.video;
+    setPane('q');
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }
+
+  function goHome(e) {
+    if (e) e.preventDefault();
+    if (location.hash) {
+      history.pushState('', document.title, location.pathname + location.search);
+    }
+    currentEp = null;
+    document.getElementById('player').pause();
+    document.getElementById('player').removeAttribute('src');
+    document.getElementById('player').load();
+    document.getElementById('pdf-frame').src = 'about:blank';
+    document.getElementById('ep-view').classList.remove('active');
+    document.getElementById('home').classList.remove('hidden');
+  }
+
+  function route() {
+    const m = location.hash.match(/^#ep=(\d+)$/);
+    if (m) openEpisode(parseInt(m[1], 10));
+    else goHome();
+  }
+
+  document.getElementById('search').addEventListener('input', e => renderGrid(e.target.value));
+  window.addEventListener('hashchange', route);
+
+  renderGrid();
+  route();
+</script>
+
+</body>
+</html>
