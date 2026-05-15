@@ -518,6 +518,40 @@ def normalise_weight_scores(runners: list) -> None:
             r["_components"]["weight"] = round(w_score, 1)
 
 
+def _post_process_win_bets(runners: list, field_size: int) -> None:
+    """Ensure at most one Win recommendation per race — the highest-scoring qualifier.
+
+    Runners must already be sorted by score descending. Extra Win picks are
+    demoted to Each Way (or Skip if the race has too few places).
+    """
+    places = ew_places(field_size)
+    win_given = False
+    for runner in runners:
+        rec = runner["recommendation"]
+        if rec["type"] != "Win":
+            continue
+        if win_given:
+            score    = runner["score"]
+            odds_dec = runner.get("odds_dec")
+            if places >= 2 and odds_dec and odds_dec <= 16.0:
+                label = "Each Way" if score >= 58 else "Each Way (Speculative)"
+                runner["recommendation"] = {
+                    "type":       "EachWay",
+                    "confidence": min(75, int(score)),
+                    "label":      label,
+                    "reasoning":  rec["reasoning"],
+                }
+            else:
+                runner["recommendation"] = {
+                    "type":       "Skip",
+                    "confidence": max(5, int(score * 0.4)),
+                    "label":      "Skip",
+                    "reasoning":  rec["reasoning"],
+                }
+        else:
+            win_given = True
+
+
 def make_recommendation(score: float, odds_dec: Optional[float],
                          field_size: int, form: dict) -> dict:
     """
@@ -772,6 +806,9 @@ def scrape_race(meta):
         runner["recommendation"] = make_recommendation(
             score, runner["odds_dec"], n, form_analysis
         )
+
+    # At most one Win bet per race — demote extras to Each Way
+    _post_process_win_bets(runners, n)
 
     return {
         "id":          f"{meta['venue_slug']}-{meta['time_code']}",
