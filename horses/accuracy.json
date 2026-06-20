@@ -1,1221 +1,5 @@
 [
   {
-    "date": "2026-05-18",
-    "summary": {
-      "overall_pct": 65.4,
-      "win_pct": 43.8,
-      "ew_pct": 100.0,
-      "win_correct": 7,
-      "win_total": 16,
-      "ew_correct": 10,
-      "ew_total": 10,
-      "ew_win_count": 3,
-      "ew_placed_count": 7
-    },
-    "races": [
-      {
-        "course": "Redcar",
-        "time": "13:40",
-        "race_name": "Racingtvcom Ebf Restricted Maiden Stakes",
-        "date": "2026-05-18",
-        "winner": "Kodiak Breeze",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 1,
-            "outcome": "correct",
-            "horse": "KODIAK BREEZE",
-            "score": 75.2,
-            "odds": "SP",
-            "label": "Win Bet",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Lingfield Park",
-        "time": "14:20",
-        "race_name": "Sporting Times Handicap",
-        "date": "2026-05-18",
-        "winner": "King's Hand",
-        "runners": [
-          {
-            "rec": "EachWay",
-            "actual_pos": 2,
-            "outcome": "ew_placed",
-            "horse": "DANCING TIGER",
-            "score": 54.1,
-            "odds": "11/4",
-            "label": "Each Way (Speculative)",
-            "primary": true
-          },
-          {
-            "rec": "EachWay",
-            "actual_pos": null,
-            "outcome": "non_runner",
-            "horse": "KING&#39;S HAND",
-            "score": 52.7,
-            "odds": "9/2",
-            "label": "Each Way (Speculative)",
-            "primary": false
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Carlisle",
-        "time": "14:30",
-        "race_name": "Racing Tv Handicap",
-        "date": "2026-05-18",
-        "winner": "Harb",
-        "runners": [
-          {
-            "rec": "EachWay",
-            "actual_pos": null,
-            "outcome": "non_runner",
-            "horse": "BLUE LAKOTA",
-            "score": 56.7,
-            "odds": "6/1",
-            "label": "Each Way (Speculative)",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Redcar",
-        "time": "14:40",
-        "race_name": "Marske Fabrication  Engineering Straight Mile Handicap",
-        "date": "2026-05-18",
-        "winner": "Kiss Me My Love",
-        "runners": [
-          {
-            "rec": "EachWay",
-            "actual_pos": null,
-            "outcome": "non_runner",
-            "horse": "UP THE JAZZ",
-            "score": 60.0,
-            "odds": "7/2",
-            "label": "Each Way",
-            "primary": true
-          },
-          {
-            "rec": "EachWay",
-            "actual_pos": 1,
-            "outcome": "ew_win",
-            "horse": "KISS ME MY LOVE",
-            "score": 54.7,
-            "odds": "9/2",
-            "label": "Each Way (Speculative)",
-            "primary": false
-          },
-          {
-            "rec": "EachWay",
-            "actual_pos": null,
-            "outcome": "non_runner",
-            "horse": "THE SWEET ESCAPE",
-            "score": 54.1,
-            "odds": "11/2",
-            "label": "Each Way (Speculative)",
-            "primary": false
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Lingfield Park",
-        "time": "14:50",
-        "race_name": "Visit Sri Lanka Handicap",
-        "date": "2026-05-18",
-        "winner": "Rogue Empire",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 2,
-            "outcome": "incorrect",
-            "horse": "BALGOWAN",
-            "score": 69.6,
-            "odds": "2/1",
-            "label": "Win Bet",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Carlisle",
-        "time": "15:00",
-        "race_name": "Watch Racing Tv Live Handicap",
-        "date": "2026-05-18",
-        "winner": "Call Me Betty",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": null,
-            "outcome": "non_runner",
-            "horse": "RAFT UP",
-            "score": 72.2,
-            "odds": "10/3",
-            "label": "Win Bet",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Redcar",
-        "time": "15:10",
-        "race_name": "100Pct Racing Tv Profits Returned To Racing Fillies Handicap",
-        "date": "2026-05-18",
-        "winner": "Ammoony",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 1,
-            "outcome": "correct",
-            "horse": "AMMOONY",
-            "score": 73.6,
-            "odds": "1/1",
-            "label": "Win Bet",
-            "primary": true
-          },
-          {
-            "rec": "EachWay",
-            "actual_pos": 2,
-            "outcome": "ew_placed",
-            "horse": "FANCIULLA DEL WEST",
-            "score": 59.1,
-            "odds": "11/2",
-            "label": "Each Way",
-            "primary": true
-          },
-          {
-            "rec": "EachWay",
-            "actual_pos": null,
-            "outcome": "non_runner",
-            "horse": "MYRRH",
-            "score": 58.9,
-            "odds": "9/1",
-            "label": "Each Way",
-            "primary": false
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Lingfield Park",
-        "time": "15:20",
-        "race_name": "Sporting Times   Sri Lanka Awaits You Ebf Maiden Stakes",
-        "date": "2026-05-18",
-        "winner": "Notable Dream",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 1,
-            "outcome": "correct",
-            "horse": "NOTABLE DREAM",
-            "score": 60.0,
-            "odds": "15/8",
-            "label": "Win Bet",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Carlisle",
-        "time": "15:30",
-        "race_name": "Follow Racing Tv On X Handicap",
-        "date": "2026-05-18",
-        "winner": "Loki",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 2,
-            "outcome": "incorrect",
-            "horse": "CASCADE HALL",
-            "score": 62.9,
-            "odds": "5/2",
-            "label": "Win Bet",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Redcar",
-        "time": "15:40",
-        "race_name": "Watch Racing Tv In Stunning Hd Handicap",
-        "date": "2026-05-18",
-        "winner": "Glory Hyde",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": null,
-            "outcome": "non_runner",
-            "horse": "ONE OF OUR OWN",
-            "score": 61.6,
-            "odds": "9/2",
-            "label": "Win Bet",
-            "primary": true
-          },
-          {
-            "rec": "EachWay",
-            "actual_pos": null,
-            "outcome": "non_runner",
-            "horse": "GET UP EVERYBODY",
-            "score": 54.2,
-            "odds": "11/2",
-            "label": "Each Way (Speculative)",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Lingfield Park",
-        "time": "15:50",
-        "race_name": "Sporting Times   Sri Lanka Novice Stakes",
-        "date": "2026-05-18",
-        "winner": "Behike",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 1,
-            "outcome": "correct",
-            "horse": "BEHIKE",
-            "score": 79.0,
-            "odds": "4/9",
-            "label": "Strong Win Bet",
-            "primary": true
-          },
-          {
-            "rec": "EachWay",
-            "actual_pos": null,
-            "outcome": "non_runner",
-            "horse": "RAILWAYMAN",
-            "score": 64.2,
-            "odds": "4/1",
-            "label": "Each Way",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Carlisle",
-        "time": "16:00",
-        "race_name": "Racingtvcom Novice Stakes",
-        "date": "2026-05-18",
-        "winner": "Freddie Steady Go",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 2,
-            "outcome": "incorrect",
-            "horse": "WEZZEER",
-            "score": 77.2,
-            "odds": "10/3",
-            "label": "Win Bet",
-            "primary": true
-          },
-          {
-            "rec": "EachWay",
-            "actual_pos": null,
-            "outcome": "non_runner",
-            "horse": "LUNAR MELODY",
-            "score": 75.7,
-            "odds": "1/1",
-            "label": "Each Way",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Lingfield Park",
-        "time": "16:22",
-        "race_name": "Sri Lanka Wonder Of Asia Handicap",
-        "date": "2026-05-18",
-        "winner": "Twilight Jet",
-        "runners": [
-          {
-            "rec": "EachWay",
-            "actual_pos": 2,
-            "outcome": "ew_placed",
-            "horse": "TRAVEL AGENT",
-            "score": 59.9,
-            "odds": "9/2",
-            "label": "Each Way",
-            "primary": true
-          },
-          {
-            "rec": "EachWay",
-            "actual_pos": null,
-            "outcome": "non_runner",
-            "horse": "PROFIT STREET",
-            "score": 54.9,
-            "odds": "11/2",
-            "label": "Each Way (Speculative)",
-            "primary": false
-          },
-          {
-            "rec": "EachWay",
-            "actual_pos": null,
-            "outcome": "non_runner",
-            "horse": "SPENDMORE LANE",
-            "score": 51.0,
-            "odds": "9/1",
-            "label": "Each Way (Speculative)",
-            "primary": false
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Roscommon",
-        "time": "16:50",
-        "race_name": "Roscommon Claiming Maiden",
-        "date": "2026-05-18",
-        "winner": "Mo Anam Chara",
-        "runners": [
-          {
-            "rec": "EachWay",
-            "actual_pos": 1,
-            "outcome": "ew_win",
-            "horse": "MO ANAM CHARA",
-            "score": 54.8,
-            "odds": "5/4",
-            "label": "Each Way (Speculative)",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Lingfield Park",
-        "time": "16:57",
-        "race_name": "Sporting Times Sprint Handicap",
-        "date": "2026-05-18",
-        "winner": "Adalida",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 2,
-            "outcome": "incorrect",
-            "horse": "RED SNAPPER",
-            "score": 64.8,
-            "odds": "7/4",
-            "label": "Win Bet",
-            "primary": true
-          },
-          {
-            "rec": "EachWay",
-            "actual_pos": 3,
-            "outcome": "ew_placed",
-            "horse": "LIFE AFTER LOVE",
-            "score": 64.7,
-            "odds": "4/1",
-            "label": "Each Way",
-            "primary": true
-          },
-          {
-            "rec": "EachWay",
-            "actual_pos": 1,
-            "outcome": "ew_win",
-            "horse": "ADALIDA",
-            "score": 53.7,
-            "odds": "7/2",
-            "label": "Each Way (Speculative)",
-            "primary": false
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Windsor",
-        "time": "17:05",
-        "race_name": "Juddmonte Ebf Restricted Maiden Stakes",
-        "date": "2026-05-18",
-        "winner": "Tina Fromtransport",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": null,
-            "outcome": "non_runner",
-            "horse": "CONCERT PITCH",
-            "score": 75.2,
-            "odds": "11/4",
-            "label": "Win Bet",
-            "primary": true
-          },
-          {
-            "rec": "EachWay",
-            "actual_pos": 2,
-            "outcome": "ew_placed",
-            "horse": "FIRE THUNDER",
-            "score": 71.1,
-            "odds": "6/1",
-            "label": "Each Way",
-            "primary": true
-          },
-          {
-            "rec": "EachWay",
-            "actual_pos": 1,
-            "outcome": "ew_win",
-            "horse": "TINA FROMTRANSPORT",
-            "score": 61.8,
-            "odds": "9/1",
-            "label": "Each Way",
-            "primary": false
-          },
-          {
-            "rec": "EachWay",
-            "actual_pos": 3,
-            "outcome": "ew_placed",
-            "horse": "MAY BEE IN PROFIT",
-            "score": 60.5,
-            "odds": "11/2",
-            "label": "Each Way",
-            "primary": false
-          },
-          {
-            "rec": "EachWay",
-            "actual_pos": null,
-            "outcome": "non_runner",
-            "horse": "TOP COTE",
-            "score": 51.5,
-            "odds": "11/1",
-            "label": "Each Way (Speculative)",
-            "primary": false
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Carlisle",
-        "time": "17:10",
-        "race_name": "Every Race Live On Racing Tv Handicap",
-        "date": "2026-05-18",
-        "winner": "They All Know Me",
-        "runners": [
-          {
-            "rec": "EachWay",
-            "actual_pos": null,
-            "outcome": "non_runner",
-            "horse": "BLACK STORM",
-            "score": 53.6,
-            "odds": "9/2",
-            "label": "Each Way (Speculative)",
-            "primary": true
-          },
-          {
-            "rec": "EachWay",
-            "actual_pos": null,
-            "outcome": "non_runner",
-            "horse": "NATIVE INSTINCT",
-            "score": 52.9,
-            "odds": "15/8",
-            "label": "Each Way (Speculative)",
-            "primary": false
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Roscommon",
-        "time": "17:20",
-        "race_name": "Irish Ebf Auction Series Maiden",
-        "date": "2026-05-18",
-        "winner": "Arizona Raider",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 1,
-            "outcome": "correct",
-            "horse": "ARIZONA RAIDER",
-            "score": 62.3,
-            "odds": "2/1",
-            "label": "Win Bet",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Windsor",
-        "time": "17:40",
-        "race_name": "Fitzdares Sprint Series Handicap",
-        "date": "2026-05-18",
-        "winner": "Redorange",
-        "runners": [
-          {
-            "rec": "EachWay",
-            "actual_pos": null,
-            "outcome": "non_runner",
-            "horse": "ALL WAYS GLAMOROUS",
-            "score": 57.7,
-            "odds": "7/1",
-            "label": "Each Way (Speculative)",
-            "primary": true
-          },
-          {
-            "rec": "EachWay",
-            "actual_pos": 1,
-            "outcome": "ew_win",
-            "horse": "REDORANGE",
-            "score": 53.5,
-            "odds": "11/8",
-            "label": "Each Way (Speculative)",
-            "primary": false
-          },
-          {
-            "rec": "EachWay",
-            "actual_pos": 2,
-            "outcome": "ew_placed",
-            "horse": "REGAL ENVOY",
-            "score": 53.2,
-            "odds": "13/2",
-            "label": "Each Way (Speculative)",
-            "primary": false
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Roscommon",
-        "time": "17:50",
-        "race_name": "Knockcroghery Handicap",
-        "date": "2026-05-18",
-        "winner": "Thrifty Of Digby",
-        "runners": [
-          {
-            "rec": "EachWay",
-            "actual_pos": null,
-            "outcome": "non_runner",
-            "horse": "ROYAL IMPACT",
-            "score": 57.5,
-            "odds": "5/2",
-            "label": "Each Way (Speculative)",
-            "primary": true
-          },
-          {
-            "rec": "EachWay",
-            "actual_pos": null,
-            "outcome": "non_runner",
-            "horse": "QUEEN AETHELFLAED",
-            "score": 52.1,
-            "odds": "8/1",
-            "label": "Each Way (Speculative)",
-            "primary": false
-          },
-          {
-            "rec": "EachWay",
-            "actual_pos": null,
-            "outcome": "non_runner",
-            "horse": "BUCANEER&#39;S SPIRIT",
-            "score": 50.7,
-            "odds": "5/1",
-            "label": "Each Way (Speculative)",
-            "primary": false
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Wolverhampton",
-        "time": "18:00",
-        "race_name": "Dine In The Wolverhampton Horizons Restaurant Fillies Handicap",
-        "date": "2026-05-18",
-        "winner": "Midnight Call",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 3,
-            "outcome": "incorrect",
-            "horse": "MAGNA",
-            "score": 72.4,
-            "odds": "3/1",
-            "label": "Win Bet",
-            "primary": true
-          },
-          {
-            "rec": "EachWay",
-            "actual_pos": 1,
-            "outcome": "ew_win",
-            "horse": "MIDNIGHT CALL",
-            "score": 68.8,
-            "odds": "2/1",
-            "label": "Each Way",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Windsor",
-        "time": "18:10",
-        "race_name": "Tattersalls 40",
-        "date": "2026-05-18",
-        "winner": "Cap Santa Lucia",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": null,
-            "outcome": "non_runner",
-            "horse": "CHIMES OF THUNDER",
-            "score": 63.8,
-            "odds": "6/4",
-            "label": "Win Bet",
-            "primary": true
-          },
-          {
-            "rec": "EachWay",
-            "actual_pos": 3,
-            "outcome": "ew_placed",
-            "horse": "WITHTEARSINMYEYES",
-            "score": 63.7,
-            "odds": "4/1",
-            "label": "Each Way",
-            "primary": true
-          },
-          {
-            "rec": "EachWay",
-            "actual_pos": 2,
-            "outcome": "ew_placed",
-            "horse": "TAHALEL",
-            "score": 54.7,
-            "odds": "7/2",
-            "label": "Each Way (Speculative)",
-            "primary": false
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Roscommon",
-        "time": "18:20",
-        "race_name": "Michael Tiger Lyons Memorial Maiden",
-        "date": "2026-05-18",
-        "winner": "Huff'n'puff",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 3,
-            "outcome": "incorrect",
-            "horse": "NOBLE HONOUR",
-            "score": 86.8,
-            "odds": "15/8",
-            "label": "Strong Win Bet",
-            "primary": true
-          },
-          {
-            "rec": "EachWay",
-            "actual_pos": null,
-            "outcome": "non_runner",
-            "horse": "KARRYGRANT",
-            "score": 81.6,
-            "odds": "2/1",
-            "label": "Each Way",
-            "primary": true
-          },
-          {
-            "rec": "EachWay",
-            "actual_pos": 2,
-            "outcome": "ew_placed",
-            "horse": "CHANGING LANES",
-            "score": 74.3,
-            "odds": "5/1",
-            "label": "Each Way",
-            "primary": false
-          },
-          {
-            "rec": "EachWay",
-            "actual_pos": null,
-            "outcome": "non_runner",
-            "horse": "HUFF&#39;N&#39;PUFF",
-            "score": 61.6,
-            "odds": "7/2",
-            "label": "Each Way",
-            "primary": false
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Wolverhampton",
-        "time": "18:30",
-        "race_name": "Cavani Menswear Style Novice Stakes",
-        "date": "2026-05-18",
-        "winner": "Agamemnon",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": null,
-            "outcome": "non_runner",
-            "horse": "AMERICAN PSYCHO",
-            "score": 63.1,
-            "odds": "7/2",
-            "label": "Win Bet",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Windsor",
-        "time": "18:40",
-        "race_name": "Track Radio On Digital  Dab Handicap",
-        "date": "2026-05-18",
-        "winner": "Lequinto",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 1,
-            "outcome": "correct",
-            "horse": "LEQUINTO",
-            "score": 69.1,
-            "odds": "7/2",
-            "label": "Win Bet",
-            "primary": true
-          },
-          {
-            "rec": "EachWay",
-            "actual_pos": null,
-            "outcome": "non_runner",
-            "horse": "SARAFINA MSHAIRI",
-            "score": 61.5,
-            "odds": "17/2",
-            "label": "Each Way",
-            "primary": true
-          },
-          {
-            "rec": "EachWay",
-            "actual_pos": null,
-            "outcome": "non_runner",
-            "horse": "MAHARAJAS EXPRESS",
-            "score": 54.2,
-            "odds": "9/1",
-            "label": "Each Way (Speculative)",
-            "primary": false
-          },
-          {
-            "rec": "EachWay",
-            "actual_pos": null,
-            "outcome": "non_runner",
-            "horse": "SANDSCREENDELIVERD",
-            "score": 53.3,
-            "odds": "5/1",
-            "label": "Each Way (Speculative)",
-            "primary": false
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Roscommon",
-        "time": "18:50",
-        "race_name": "Connollys Red Mills Handicap",
-        "date": "2026-05-18",
-        "winner": "Sir Jeremy",
-        "runners": [
-          {
-            "rec": "EachWay",
-            "actual_pos": null,
-            "outcome": "non_runner",
-            "horse": "QUEEN LIONESS",
-            "score": 61.7,
-            "odds": "10/1",
-            "label": "Each Way",
-            "primary": true
-          },
-          {
-            "rec": "EachWay",
-            "actual_pos": null,
-            "outcome": "non_runner",
-            "horse": "SYZYGY",
-            "score": 56.1,
-            "odds": "5/2",
-            "label": "Each Way (Speculative)",
-            "primary": false
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Wolverhampton",
-        "time": "19:00",
-        "race_name": "Attheracescom Marketmovers Restricted Novice Stakes",
-        "date": "2026-05-18",
-        "winner": "Mountain Cat",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 1,
-            "outcome": "correct",
-            "horse": "MOUNTAIN CAT",
-            "score": 84.8,
-            "odds": "2/9",
-            "label": "Strong Win Bet",
-            "primary": true
-          },
-          {
-            "rec": "EachWay",
-            "actual_pos": null,
-            "outcome": "non_runner",
-            "horse": "ROGUE DEFENCE",
-            "score": 62.4,
-            "odds": "13/2",
-            "label": "Each Way",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Windsor",
-        "time": "19:10",
-        "race_name": "Fitzdares Telephone  Text Betting Handicap",
-        "date": "2026-05-18",
-        "winner": "Morbeh",
-        "runners": [
-          {
-            "rec": "EachWay",
-            "actual_pos": null,
-            "outcome": "non_runner",
-            "horse": "OH YES YOU DO",
-            "score": 58.7,
-            "odds": "4/1",
-            "label": "Each Way",
-            "primary": true
-          },
-          {
-            "rec": "EachWay",
-            "actual_pos": null,
-            "outcome": "non_runner",
-            "horse": "KING OF BERKSHIRE",
-            "score": 56.4,
-            "odds": "3/1",
-            "label": "Each Way (Speculative)",
-            "primary": false
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Roscommon",
-        "time": "19:20",
-        "race_name": "Abbey Hotel Handicap",
-        "date": "2026-05-18",
-        "winner": "Adel",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": null,
-            "outcome": "non_runner",
-            "horse": "FEMME BEAUTY",
-            "score": 60.6,
-            "odds": "5/1",
-            "label": "Win Bet",
-            "primary": true
-          },
-          {
-            "rec": "EachWay",
-            "actual_pos": null,
-            "outcome": "non_runner",
-            "horse": "MUSASHI",
-            "score": 57.7,
-            "odds": "2/1",
-            "label": "Each Way (Speculative)",
-            "primary": true
-          },
-          {
-            "rec": "EachWay",
-            "actual_pos": 3,
-            "outcome": "ew_placed",
-            "horse": "WIPEAWAYYOURTEARS",
-            "score": 52.3,
-            "odds": "11/2",
-            "label": "Each Way (Speculative)",
-            "primary": false
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Wolverhampton",
-        "time": "19:30",
-        "race_name": "Sky Sports Fillies Handicap",
-        "date": "2026-05-18",
-        "winner": "Estissa",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": null,
-            "outcome": "non_runner",
-            "horse": "SYMBOL OF MAJESTY",
-            "score": 78.5,
-            "odds": "11/8",
-            "label": "Win Bet",
-            "primary": true
-          },
-          {
-            "rec": "EachWay",
-            "actual_pos": null,
-            "outcome": "non_runner",
-            "horse": "CITY QUEEN",
-            "score": 73.1,
-            "odds": "13/8",
-            "label": "Each Way",
-            "primary": true
-          },
-          {
-            "rec": "EachWay",
-            "actual_pos": 1,
-            "outcome": "ew_win",
-            "horse": "ESTISSA",
-            "score": 56.1,
-            "odds": "13/2",
-            "label": "Each Way (Speculative)",
-            "primary": false
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Windsor",
-        "time": "19:40",
-        "race_name": "Find Us At Fitzdarescom Handicap",
-        "date": "2026-05-18",
-        "winner": "Wisper",
-        "runners": [
-          {
-            "rec": "EachWay",
-            "actual_pos": null,
-            "outcome": "non_runner",
-            "horse": "SON OF MAN",
-            "score": 55.5,
-            "odds": "4/1",
-            "label": "Each Way (Speculative)",
-            "primary": true
-          },
-          {
-            "rec": "EachWay",
-            "actual_pos": null,
-            "outcome": "non_runner",
-            "horse": "NAVAL COMMAND",
-            "score": 51.1,
-            "odds": "13/8",
-            "label": "Each Way (Speculative)",
-            "primary": false
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Roscommon",
-        "time": "19:50",
-        "race_name": "Racing Again Here On June 8Th Handicap",
-        "date": "2026-05-18",
-        "winner": "Superficial",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 2,
-            "outcome": "incorrect",
-            "horse": "OBSCENITY",
-            "score": 63.8,
-            "odds": "6/4",
-            "label": "Win Bet",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Wolverhampton",
-        "time": "20:00",
-        "race_name": "Country  Western Raceday 28Th June Handicap",
-        "date": "2026-05-18",
-        "winner": "Bizou",
-        "runners": [
-          {
-            "rec": "EachWay",
-            "actual_pos": null,
-            "outcome": "non_runner",
-            "horse": "DINGWALL",
-            "score": 56.8,
-            "odds": "9/2",
-            "label": "Each Way (Speculative)",
-            "primary": true
-          },
-          {
-            "rec": "EachWay",
-            "actual_pos": 2,
-            "outcome": "ew_placed",
-            "horse": "KARAKULA",
-            "score": 55.6,
-            "odds": "4/1",
-            "label": "Each Way (Speculative)",
-            "primary": false
-          },
-          {
-            "rec": "EachWay",
-            "actual_pos": 3,
-            "outcome": "ew_placed",
-            "horse": "SILKIES SIB",
-            "score": 54.1,
-            "odds": "7/1",
-            "label": "Each Way (Speculative)",
-            "primary": false
-          },
-          {
-            "rec": "EachWay",
-            "actual_pos": 1,
-            "outcome": "ew_win",
-            "horse": "BIZOU",
-            "score": 52.3,
-            "odds": "11/4",
-            "label": "Each Way (Speculative)",
-            "primary": false
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Windsor",
-        "time": "20:10",
-        "race_name": "Free Race Replays On Attheracescom Handicap",
-        "date": "2026-05-18",
-        "winner": "Yachtsman",
-        "runners": [
-          {
-            "rec": "EachWay",
-            "actual_pos": null,
-            "outcome": "non_runner",
-            "horse": "CHELIO",
-            "score": 53.6,
-            "odds": "9/2",
-            "label": "Each Way (Speculative)",
-            "primary": true
-          },
-          {
-            "rec": "EachWay",
-            "actual_pos": null,
-            "outcome": "non_runner",
-            "horse": "MARRA DONNA",
-            "score": 53.0,
-            "odds": "5/1",
-            "label": "Each Way (Speculative)",
-            "primary": false
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Roscommon",
-        "time": "20:20",
-        "race_name": "Roscommon Handicap",
-        "date": "2026-05-18",
-        "winner": "Miss Australie",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 2,
-            "outcome": "incorrect",
-            "horse": "DELUCA CHOP",
-            "score": 70.8,
-            "odds": "9/2",
-            "label": "Win Bet",
-            "primary": true
-          },
-          {
-            "rec": "EachWay",
-            "actual_pos": null,
-            "outcome": "non_runner",
-            "horse": "PROM QUEEN",
-            "score": 67.4,
-            "odds": "7/2",
-            "label": "Each Way",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Wolverhampton",
-        "time": "20:30",
-        "race_name": "Cavani Tailored Champion Handicap",
-        "date": "2026-05-18",
-        "winner": "Espona Bay",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 3,
-            "outcome": "incorrect",
-            "horse": "SEEING STARS",
-            "score": 71.8,
-            "odds": "7/2",
-            "label": "Win Bet",
-            "primary": true
-          },
-          {
-            "rec": "EachWay",
-            "actual_pos": 2,
-            "outcome": "ew_placed",
-            "horse": "COURT OF STARS",
-            "score": 67.4,
-            "odds": "11/8",
-            "label": "Each Way",
-            "primary": true
-          },
-          {
-            "rec": "EachWay",
-            "actual_pos": null,
-            "outcome": "non_runner",
-            "horse": "DONTWASTE A MOMENT",
-            "score": 50.9,
-            "odds": "6/1",
-            "label": "Each Way (Speculative)",
-            "primary": false
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Wolverhampton",
-        "time": "21:00",
-        "race_name": "Sky Sports Racing Virgin 512 Fillies Handicap",
-        "date": "2026-05-18",
-        "winner": "Kelly Burn",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": null,
-            "outcome": "non_runner",
-            "horse": "DESERT BELLE",
-            "score": 78.9,
-            "odds": "2/1",
-            "label": "Win Bet",
-            "primary": true
-          },
-          {
-            "rec": "EachWay",
-            "actual_pos": 1,
-            "outcome": "ew_win",
-            "horse": "KELLY BURN",
-            "score": 66.9,
-            "odds": "6/5",
-            "label": "Each Way",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      }
-    ]
-  },
-  {
     "date": "2026-05-19",
     "summary": {
       "overall_pct": 81.2,
@@ -34451,6 +33235,1772 @@
             "horse": "UP THE AGENDA",
             "score": 54.2,
             "odds": "12/1",
+            "label": "Each Way (Speculative)",
+            "primary": false
+          }
+        ],
+        "abandoned": false
+      }
+    ]
+  },
+  {
+    "date": "2026-06-19",
+    "summary": {
+      "overall_pct": 80.5,
+      "win_pct": 69.2,
+      "ew_pct": 100.0,
+      "win_correct": 18,
+      "win_total": 26,
+      "ew_correct": 15,
+      "ew_total": 15,
+      "ew_win_count": 3,
+      "ew_placed_count": 12
+    },
+    "races": [
+      {
+        "course": "Market Rasen",
+        "time": "13:30",
+        "race_name": "Abp Ports Of Grimsby  Immingham Maiden Hurdle",
+        "date": "2026-06-19",
+        "winner": "Kiwi De Cotte",
+        "runners": [
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "ROYAL ROCKET",
+            "score": 53.8,
+            "odds": "11/4",
+            "label": "Each Way (Speculative)",
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Market Rasen",
+        "time": "14:05",
+        "race_name": "Gp Shipping Handicap Hurdle",
+        "date": "2026-06-19",
+        "winner": "Matoury",
+        "runners": [
+          {
+            "rec": "EachWay",
+            "actual_pos": 2,
+            "outcome": "ew_placed",
+            "horse": "MUSKERRY ROCK",
+            "score": 50.5,
+            "odds": "13/8",
+            "label": "Each Way (Speculative)",
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Redcar",
+        "time": "14:15",
+        "race_name": "In Memory Of Peter  Shirley Fryett Handicap",
+        "date": "2026-06-19",
+        "winner": "Travis",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "MAYO COUNTY",
+            "score": 66.6,
+            "odds": "11/4",
+            "label": "Win Bet",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "DANCING WITH DRUMS",
+            "score": 53.3,
+            "odds": "15/2",
+            "label": "Each Way (Speculative)",
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Ascot",
+        "time": "14:30",
+        "race_name": "Albany Stakes",
+        "date": "2026-06-19",
+        "winner": "Libertango",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 2,
+            "outcome": "incorrect",
+            "horse": "SUN GODDESS",
+            "score": 84.2,
+            "odds": "5/6",
+            "label": "Strong Win Bet",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": 3,
+            "outcome": "ew_placed",
+            "horse": "LIGHT OF DAWN",
+            "score": 81.1,
+            "odds": "8/1",
+            "label": "Each Way",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "JOLIVETTE",
+            "score": 75.0,
+            "odds": "11/1",
+            "label": "Each Way",
+            "primary": false
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": 1,
+            "outcome": "ew_win",
+            "horse": "LIBERTANGO",
+            "score": 72.3,
+            "odds": "10/1",
+            "label": "Each Way",
+            "primary": false
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "SILENT BEAUTY",
+            "score": 66.7,
+            "odds": "14/1",
+            "label": "Each Way",
+            "primary": false
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Redcar",
+        "time": "14:50",
+        "race_name": "Free Racing Tv At Racingtvcom Freetrial Handicap",
+        "date": "2026-06-19",
+        "winner": "Only Dream Big",
+        "runners": [
+          {
+            "rec": "EachWay",
+            "actual_pos": 2,
+            "outcome": "ew_placed",
+            "horse": "HEY HAVANA",
+            "score": 57.3,
+            "odds": "6/4",
+            "label": "Each Way (Speculative)",
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Ascot",
+        "time": "15:05",
+        "race_name": "Commonwealth Cup",
+        "date": "2026-06-19",
+        "winner": "Venetian Sun",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 1,
+            "outcome": "correct",
+            "horse": "VENETIAN SUN",
+            "score": 80.7,
+            "odds": "6/4",
+            "label": "Strong Win Bet",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "ALBERT EINSTEIN",
+            "score": 66.8,
+            "odds": "8/1",
+            "label": "Each Way",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "COPPULL",
+            "score": 64.7,
+            "odds": "11/1",
+            "label": "Each Way",
+            "primary": false
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": 3,
+            "outcome": "ew_placed",
+            "horse": "DIVISION",
+            "score": 61.9,
+            "odds": "11/1",
+            "label": "Each Way",
+            "primary": false
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "CHARLES DARWIN",
+            "score": 52.9,
+            "odds": "12/1",
+            "label": "Each Way (Speculative)",
+            "primary": false
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Market Rasen",
+        "time": "15:15",
+        "race_name": "Global Shipping Services Mares Handicap Hurdle",
+        "date": "2026-06-19",
+        "winner": "Beorma",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 1,
+            "outcome": "correct",
+            "horse": "BEORMA",
+            "score": 78.5,
+            "odds": "1/2",
+            "label": "Win Bet",
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Redcar",
+        "time": "15:25",
+        "race_name": "Marske Fabrications  Engineering Handicap",
+        "date": "2026-06-19",
+        "winner": "City Of Poets",
+        "runners": [
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "FIERY DAMSEL",
+            "score": 67.8,
+            "odds": "8/1",
+            "label": "Each Way",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": 1,
+            "outcome": "ew_win",
+            "horse": "CITY OF POETS",
+            "score": 57.3,
+            "odds": "7/2",
+            "label": "Each Way (Speculative)",
+            "primary": false
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "MILTEYE",
+            "score": 55.9,
+            "odds": "9/1",
+            "label": "Each Way (Speculative)",
+            "primary": false
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": 2,
+            "outcome": "ew_placed",
+            "horse": "CLASSIC ENCOUNTER",
+            "score": 54.7,
+            "odds": "7/2",
+            "label": "Each Way (Speculative)",
+            "primary": false
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Ascot",
+        "time": "15:40",
+        "race_name": "Duke Of Edinburgh Stakes",
+        "date": "2026-06-19",
+        "winner": "Opportunity",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 2,
+            "outcome": "incorrect",
+            "horse": "WARRANT HOLDER",
+            "score": 83.5,
+            "odds": "4/1",
+            "label": "Strong Win Bet",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": 4,
+            "outcome": "ew_placed",
+            "horse": "EMIT",
+            "score": 60.9,
+            "odds": "6/1",
+            "label": "Each Way",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "INSANITY",
+            "score": 57.7,
+            "odds": "11/1",
+            "label": "Each Way (Speculative)",
+            "primary": false
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "PLAGE DE HAVRE",
+            "score": 56.4,
+            "odds": "10/1",
+            "label": "Each Way (Speculative)",
+            "primary": false
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "HOPEWELL ROCK",
+            "score": 56.2,
+            "odds": "4/1",
+            "label": "Each Way (Speculative)",
+            "primary": false
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": 1,
+            "outcome": "ew_win",
+            "horse": "OPPORTUNITY",
+            "score": 50.5,
+            "odds": "7/1",
+            "label": "Each Way (Speculative)",
+            "primary": false
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Market Rasen",
+        "time": "15:55",
+        "race_name": "Associated British Ports Summer Plate Trial Handicap Chase",
+        "date": "2026-06-19",
+        "winner": "Mahons Glory",
+        "runners": [
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "SEAVIEW ROCK",
+            "score": 54.4,
+            "odds": "13/2",
+            "label": "Each Way (Speculative)",
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Limerick",
+        "time": "16:10",
+        "race_name": "Twilight Racing Summer Series Maiden",
+        "date": "2026-06-19",
+        "winner": "Motta Alta",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 2,
+            "outcome": "incorrect",
+            "horse": "ELUSIVE PATH",
+            "score": 74.1,
+            "odds": "9/4",
+            "label": "Win Bet",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "FEEL HAPPY",
+            "score": 59.8,
+            "odds": "9/4",
+            "label": "Each Way",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "FINAL BOSS",
+            "score": 59.1,
+            "odds": "4/1",
+            "label": "Each Way",
+            "primary": false
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Ascot",
+        "time": "16:20",
+        "race_name": "Coronation Stakes",
+        "date": "2026-06-19",
+        "winner": "Precise",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 1,
+            "outcome": "correct",
+            "horse": "PRECISE",
+            "score": 79.7,
+            "odds": "4/6",
+            "label": "Strong Win Bet",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": 3,
+            "outcome": "ew_placed",
+            "horse": "TRUE LOVE",
+            "score": 66.0,
+            "odds": "11/4",
+            "label": "Each Way",
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Market Rasen",
+        "time": "16:30",
+        "race_name": "Abp Ports Of Hull  Goole Handicap Hurdle",
+        "date": "2026-06-19",
+        "winner": "Vivid Pink",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 2,
+            "outcome": "incorrect",
+            "horse": "BUNKER BAY",
+            "score": 62.7,
+            "odds": "1/1",
+            "label": "Win Bet",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "MANCERO",
+            "score": 54.8,
+            "odds": "7/1",
+            "label": "Each Way (Speculative)",
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Redcar",
+        "time": "16:40",
+        "race_name": "Start Your Racing Tv Free Trial Handicap",
+        "date": "2026-06-19",
+        "winner": "Room Fourteen",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 1,
+            "outcome": "correct",
+            "horse": "ROOM FOURTEEN",
+            "score": 75.3,
+            "odds": "11/8",
+            "label": "Win Bet",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "GUESSTIMATE",
+            "score": 61.3,
+            "odds": "5/1",
+            "label": "Each Way",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": 2,
+            "outcome": "ew_placed",
+            "horse": "STONEACRE DONNY",
+            "score": 58.5,
+            "odds": "4/1",
+            "label": "Each Way",
+            "primary": false
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "SOGNIAMO",
+            "score": 54.8,
+            "odds": "12/1",
+            "label": "Each Way (Speculative)",
+            "primary": false
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Limerick",
+        "time": "16:47",
+        "race_name": "Twilight Racing Summer Series Maiden",
+        "date": "2026-06-19",
+        "winner": "Expert Dancer",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 1,
+            "outcome": "correct",
+            "horse": "EXPERT DANCER",
+            "score": 69.4,
+            "odds": "15/8",
+            "label": "Win Bet",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "QUINTA GIRL",
+            "score": 58.5,
+            "odds": "7/4",
+            "label": "Each Way",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "GREEN AMORO",
+            "score": 55.1,
+            "odds": "9/2",
+            "label": "Each Way (Speculative)",
+            "primary": false
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Newmarket",
+        "time": "16:51",
+        "race_name": "Zyn In The Moment Fillies Novice Stakes",
+        "date": "2026-06-19",
+        "winner": "Musical Times",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 2,
+            "outcome": "incorrect",
+            "horse": "SCOMMESSA SICURA",
+            "score": 71.1,
+            "odds": "13/8",
+            "label": "Win Bet",
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Ascot",
+        "time": "17:00",
+        "race_name": "Sandringham Stakes",
+        "date": "2026-06-19",
+        "winner": "Green Carrera",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "GLYFADA",
+            "score": 88.8,
+            "odds": "7/2",
+            "label": "Strong Win Bet",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "SEET",
+            "score": 81.9,
+            "odds": "13/2",
+            "label": "Each Way",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": 1,
+            "outcome": "ew_win",
+            "horse": "GREEN CARRERA",
+            "score": 75.9,
+            "odds": "10/1",
+            "label": "Each Way",
+            "primary": false
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "BINTAZIZA",
+            "score": 71.3,
+            "odds": "10/1",
+            "label": "Each Way",
+            "primary": false
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": 3,
+            "outcome": "ew_placed",
+            "horse": "ROSA INGLESA",
+            "score": 70.8,
+            "odds": "14/1",
+            "label": "Each Way",
+            "primary": false
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "QUIET MUTINY",
+            "score": 66.6,
+            "odds": "11/1",
+            "label": "Each Way",
+            "primary": false
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Market Rasen",
+        "time": "17:05",
+        "race_name": "Humber Ports Port Of Choice Open National Hunt Flat",
+        "date": "2026-06-19",
+        "winner": "Scotto",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 1,
+            "outcome": "correct",
+            "horse": "SCOTTO",
+            "score": 69.7,
+            "odds": "2/1",
+            "label": "Win Bet",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "ROYALTY ROW&#39;D",
+            "score": 57.5,
+            "odds": "9/2",
+            "label": "Each Way (Speculative)",
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Down Royal",
+        "time": "17:10",
+        "race_name": "Harvertech Maiden",
+        "date": "2026-06-19",
+        "winner": "Magical Moonlight",
+        "runners": [
+          {
+            "rec": "EachWay",
+            "actual_pos": 2,
+            "outcome": "ew_placed",
+            "horse": "TRADEWINDS",
+            "score": 58.5,
+            "odds": "4/5",
+            "label": "Each Way",
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Redcar",
+        "time": "17:15",
+        "race_name": "Come Racing On Ladies Day Tomorrow Maiden Handicap",
+        "date": "2026-06-19",
+        "winner": "Argy Bhaji",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 1,
+            "outcome": "correct",
+            "horse": "ARGY BHAJI",
+            "score": 78.1,
+            "odds": "6/4",
+            "label": "Win Bet",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "VALOR SPIRIT",
+            "score": 52.2,
+            "odds": "9/2",
+            "label": "Each Way (Speculative)",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "BELIEVEINMENOW",
+            "score": 50.6,
+            "odds": "7/2",
+            "label": "Each Way (Speculative)",
+            "primary": false
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Limerick",
+        "time": "17:20",
+        "race_name": "Conference  Banqueting Facilities At Limerick Handicap",
+        "date": "2026-06-19",
+        "winner": "Zenford",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 1,
+            "outcome": "correct",
+            "horse": "ZENFORD",
+            "score": 73.7,
+            "odds": "5/4",
+            "label": "Win Bet",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "WATCH TOWER",
+            "score": 59.3,
+            "odds": "7/2",
+            "label": "Each Way",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "FORTUITY",
+            "score": 58.6,
+            "odds": "4/1",
+            "label": "Each Way",
+            "primary": false
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Newmarket",
+        "time": "17:25",
+        "race_name": "Zyn Pacesetter British Ebf Novice Stakes",
+        "date": "2026-06-19",
+        "winner": "Superior Choice",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 1,
+            "outcome": "correct",
+            "horse": "SUPERIOR CHOICE",
+            "score": 70.3,
+            "odds": "1/4",
+            "label": "Win Bet",
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Ayr",
+        "time": "17:30",
+        "race_name": "Magners Original Cider Restricted Maiden Stakes",
+        "date": "2026-06-19",
+        "winner": "Thistle Nil",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "TIDE RUNNER",
+            "score": 60.1,
+            "odds": "9/2",
+            "label": "Win Bet",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "STONEACRE JOE",
+            "score": 59.9,
+            "odds": "7/4",
+            "label": "Each Way",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": 2,
+            "outcome": "ew_placed",
+            "horse": "STAR WITH PURPOSE",
+            "score": 50.9,
+            "odds": "10/3",
+            "label": "Each Way (Speculative)",
+            "primary": false
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Ascot",
+        "time": "17:35",
+        "race_name": "King Edward Vii Stakes",
+        "date": "2026-06-19",
+        "winner": "Causeway",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 1,
+            "outcome": "correct",
+            "horse": "CAUSEWAY",
+            "score": 79.9,
+            "odds": "1/1",
+            "label": "Strong Win Bet",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "WATER TO WINE",
+            "score": 74.2,
+            "odds": "2/1",
+            "label": "Each Way",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "GOLDEN STORY",
+            "score": 57.1,
+            "odds": "17/2",
+            "label": "Each Way (Speculative)",
+            "primary": false
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Limerick",
+        "time": "17:50",
+        "race_name": "Ballyduane Stud Fillies Handicap",
+        "date": "2026-06-19",
+        "winner": "Spanish Temptress",
+        "runners": [
+          {
+            "rec": "EachWay",
+            "actual_pos": 1,
+            "outcome": "ew_win",
+            "horse": "SPANISH TEMPTRESS",
+            "score": 58.0,
+            "odds": "13/8",
+            "label": "Each Way",
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Ayr",
+        "time": "18:00",
+        "race_name": "Au Signature Handicap",
+        "date": "2026-06-19",
+        "winner": "Fans Favourite",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 1,
+            "outcome": "correct",
+            "horse": "FANS FAVOURITE",
+            "score": 69.5,
+            "odds": "1/1",
+            "label": "Win Bet",
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Ascot",
+        "time": "18:10",
+        "race_name": "Palace Of Holyroodhouse",
+        "date": "2026-06-19",
+        "winner": "Bacio",
+        "runners": [
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "JAZL",
+            "score": 85.5,
+            "odds": "9/1",
+            "label": "Each Way",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "STARMADE",
+            "score": 84.4,
+            "odds": "10/1",
+            "label": "Each Way",
+            "primary": false
+          },
+          {
+            "rec": "Win",
+            "actual_pos": 1,
+            "outcome": "correct",
+            "horse": "BACIO",
+            "score": 81.5,
+            "odds": "9/2",
+            "label": "Win Bet",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "GOLD DIGGER",
+            "score": 71.5,
+            "odds": "11/1",
+            "label": "Each Way",
+            "primary": false
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "DICKENSIAN",
+            "score": 67.5,
+            "odds": "11/1",
+            "label": "Each Way",
+            "primary": false
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "MOOJEED",
+            "score": 56.8,
+            "odds": "11/1",
+            "label": "Each Way (Speculative)",
+            "primary": false
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Down Royal",
+        "time": "18:15",
+        "race_name": "Willwego Handicap",
+        "date": "2026-06-19",
+        "winner": "The Right One",
+        "runners": [
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "SPIRIT ABOVE",
+            "score": 51.5,
+            "odds": "5/2",
+            "label": "Each Way (Speculative)",
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Goodwood",
+        "time": "18:20",
+        "race_name": "Fitzdares Your Personal Bookmaker Handicap",
+        "date": "2026-06-19",
+        "winner": "Celestarak",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "DARN HOT DAME",
+            "score": 63.6,
+            "odds": "11/4",
+            "label": "Win Bet",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": 3,
+            "outcome": "ew_placed",
+            "horse": "BOILERMAKER",
+            "score": 55.6,
+            "odds": "7/4",
+            "label": "Each Way (Speculative)",
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Limerick",
+        "time": "18:27",
+        "race_name": "Greenmount Suite At Limerick Handicap",
+        "date": "2026-06-19",
+        "winner": "Carvalhal",
+        "runners": [
+          {
+            "rec": "EachWay",
+            "actual_pos": 1,
+            "outcome": "ew_win",
+            "horse": "CARVALHAL",
+            "score": 51.2,
+            "odds": "4/1",
+            "label": "Each Way (Speculative)",
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Newmarket",
+        "time": "18:35",
+        "race_name": "Zyn Pole Position Handicap",
+        "date": "2026-06-19",
+        "winner": "Physique",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "GREAT MATES",
+            "score": 70.3,
+            "odds": "2/1",
+            "label": "Win Bet",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": 1,
+            "outcome": "ew_win",
+            "horse": "PHYSIQUE",
+            "score": 50.3,
+            "odds": "11/4",
+            "label": "Each Way (Speculative)",
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Ayr",
+        "time": "18:40",
+        "race_name": "Millar Callaghan Engineering Handicap",
+        "date": "2026-06-19",
+        "winner": "The Gay Blade",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 1,
+            "outcome": "correct",
+            "horse": "THE GAY BLADE",
+            "score": 67.7,
+            "odds": "11/2",
+            "label": "Win Bet",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": 2,
+            "outcome": "ew_placed",
+            "horse": "GLORIOUS KITTY",
+            "score": 63.3,
+            "odds": "4/1",
+            "label": "Each Way",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "BLACK STORM",
+            "score": 56.8,
+            "odds": "10/3",
+            "label": "Each Way (Speculative)",
+            "primary": false
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "NOVAK",
+            "score": 55.0,
+            "odds": "15/4",
+            "label": "Each Way (Speculative)",
+            "primary": false
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": 3,
+            "outcome": "ew_placed",
+            "horse": "ASHEN",
+            "score": 53.2,
+            "odds": "4/1",
+            "label": "Each Way (Speculative)",
+            "primary": false
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Down Royal",
+        "time": "18:50",
+        "race_name": "Ampion Electrical Test And Solar Handicap",
+        "date": "2026-06-19",
+        "winner": "Nouvel Espoir",
+        "runners": [
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "JORDAN BREEZE",
+            "score": 56.9,
+            "odds": "9/2",
+            "label": "Each Way (Speculative)",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "COLLECTIVE POWER",
+            "score": 56.8,
+            "odds": "9/4",
+            "label": "Each Way (Speculative)",
+            "primary": false
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Goodwood",
+        "time": "18:55",
+        "race_name": "Goodwood Horseracing Club Young Persons Membership Handicap",
+        "date": "2026-06-19",
+        "winner": "Damascus Steel",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "ANALOGICAL",
+            "score": 72.8,
+            "odds": "7/4",
+            "label": "Win Bet",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "GALAXY WONDER",
+            "score": 64.3,
+            "odds": "9/2",
+            "label": "Each Way",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": 2,
+            "outcome": "ew_placed",
+            "horse": "MASTERINTHEWOODS",
+            "score": 59.0,
+            "odds": "5/2",
+            "label": "Each Way",
+            "primary": false
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Limerick",
+        "time": "19:02",
+        "race_name": "Irish Stallion Farms Ebf Martin Molony Stakes",
+        "date": "2026-06-19",
+        "winner": "Layfayette",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "GOODIE TWO SHOES",
+            "score": 74.9,
+            "odds": "4/1",
+            "label": "Win Bet",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "AROUET",
+            "score": 67.0,
+            "odds": "9/2",
+            "label": "Each Way",
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Newmarket",
+        "time": "19:10",
+        "race_name": "Zyn Frontrunner Handicap",
+        "date": "2026-06-19",
+        "winner": "Hard To Believe",
+        "runners": [
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "OUTFLANK",
+            "score": 59.8,
+            "odds": "2/1",
+            "label": "Each Way",
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Ayr",
+        "time": "19:17",
+        "race_name": "Tennents Lager Handicap",
+        "date": "2026-06-19",
+        "winner": "Star Cast",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 1,
+            "outcome": "correct",
+            "horse": "STAR CAST",
+            "score": 83.1,
+            "odds": "13/8",
+            "label": "Strong Win Bet",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "SANAFI ZABEEL",
+            "score": 78.2,
+            "odds": "7/2",
+            "label": "Each Way",
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Down Royal",
+        "time": "19:25",
+        "race_name": "Boyle Sports Median Auction Maiden",
+        "date": "2026-06-19",
+        "winner": "Noble Agenda",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 3,
+            "outcome": "incorrect",
+            "horse": "JOGA BONITO",
+            "score": 66.9,
+            "odds": "4/5",
+            "label": "Win Bet",
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Goodwood",
+        "time": "19:30",
+        "race_name": "Fitzdares Maiden Stakes",
+        "date": "2026-06-19",
+        "winner": "Treble Nine",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 1,
+            "outcome": "correct",
+            "horse": "TREBLE NINE",
+            "score": 80.5,
+            "odds": "7/4",
+            "label": "Strong Win Bet",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": 2,
+            "outcome": "ew_placed",
+            "horse": "KOALA ROSE",
+            "score": 78.5,
+            "odds": "7/4",
+            "label": "Each Way",
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Limerick",
+        "time": "19:37",
+        "race_name": "Mcmahons Builders Providers Maiden",
+        "date": "2026-06-19",
+        "winner": "Themis",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "TAJ CROWN",
+            "score": 60.8,
+            "odds": "9/4",
+            "label": "Win Bet",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": 2,
+            "outcome": "ew_placed",
+            "horse": "BLISSFUL BONITA",
+            "score": 52.4,
+            "odds": "5/2",
+            "label": "Each Way (Speculative)",
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Newmarket",
+        "time": "19:45",
+        "race_name": "Zyn Frontrunner Finish Handicap",
+        "date": "2026-06-19",
+        "winner": "Spanish Voice",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 2,
+            "outcome": "incorrect",
+            "horse": "FORT ROCK",
+            "score": 76.4,
+            "odds": "10/3",
+            "label": "Win Bet",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "SYNNERS KID",
+            "score": 53.8,
+            "odds": "6/1",
+            "label": "Each Way (Speculative)",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "ELAN D&#39;OR",
+            "score": 52.7,
+            "odds": "14/1",
+            "label": "Each Way (Speculative)",
+            "primary": false
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Ayr",
+        "time": "19:52",
+        "race_name": "Outcider Handicap",
+        "date": "2026-06-19",
+        "winner": "Hunterian",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 1,
+            "outcome": "correct",
+            "horse": "HUNTERIAN",
+            "score": 68.8,
+            "odds": "9/4",
+            "label": "Win Bet",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "APPROACHING DAWN",
+            "score": 52.9,
+            "odds": "7/2",
+            "label": "Each Way (Speculative)",
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Down Royal",
+        "time": "20:00",
+        "race_name": "Proparamedics And Medicall Handicap",
+        "date": "2026-06-19",
+        "winner": "Treasure Rose",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 1,
+            "outcome": "correct",
+            "horse": "TREASURE ROSE",
+            "score": 73.3,
+            "odds": "10/3",
+            "label": "Win Bet",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "SUMMER ISLAND",
+            "score": 69.2,
+            "odds": "5/2",
+            "label": "Each Way",
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Goodwood",
+        "time": "20:05",
+        "race_name": "Casamigos Handicap",
+        "date": "2026-06-19",
+        "winner": "Annastarzy",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "CIARRAI ABU",
+            "score": 78.6,
+            "odds": "5/2",
+            "label": "Win Bet",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": 2,
+            "outcome": "ew_placed",
+            "horse": "GET OUTTA HERE",
+            "score": 71.0,
+            "odds": "11/4",
+            "label": "Each Way",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "EUSTON HALL",
+            "score": 59.8,
+            "odds": "13/2",
+            "label": "Each Way",
+            "primary": false
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": 3,
+            "outcome": "ew_placed",
+            "horse": "ABUNDANT",
+            "score": 58.6,
+            "odds": "15/2",
+            "label": "Each Way",
+            "primary": false
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "MR WRITER",
+            "score": 57.5,
+            "odds": "9/1",
+            "label": "Each Way (Speculative)",
+            "primary": false
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "SEE BLUE",
+            "score": 53.3,
+            "odds": "12/1",
+            "label": "Each Way (Speculative)",
+            "primary": false
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Limerick",
+        "time": "20:10",
+        "race_name": "Racing Again On 2Nd July Handicap",
+        "date": "2026-06-19",
+        "winner": "Satono Chevalier",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "BATTLE OF MALDON",
+            "score": 66.4,
+            "odds": "9/4",
+            "label": "Win Bet",
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Newmarket",
+        "time": "20:15",
+        "race_name": "Zyn Strong Stride Handicap",
+        "date": "2026-06-19",
+        "winner": "Phantom Watch",
+        "runners": [
+          {
+            "rec": "EachWay",
+            "actual_pos": 2,
+            "outcome": "ew_placed",
+            "horse": "SAFE HARBOR",
+            "score": 58.6,
+            "odds": "3/1",
+            "label": "Each Way",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "GUEST HOUSE",
+            "score": 56.3,
+            "odds": "7/2",
+            "label": "Each Way (Speculative)",
+            "primary": false
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Ayr",
+        "time": "20:25",
+        "race_name": "Mills Milk Scotland Handicap",
+        "date": "2026-06-19",
+        "winner": "Gallus Norman",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 1,
+            "outcome": "correct",
+            "horse": "GALLUS NORMAN",
+            "score": 63.3,
+            "odds": "5/2",
+            "label": "Win Bet",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "AIGHEAR",
+            "score": 58.5,
+            "odds": "7/1",
+            "label": "Each Way",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": 2,
+            "outcome": "ew_placed",
+            "horse": "LA TOSCA",
+            "score": 58.0,
+            "odds": "6/1",
+            "label": "Each Way",
+            "primary": false
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "FLEUR DE MER",
+            "score": 50.7,
+            "odds": "7/1",
+            "label": "Each Way (Speculative)",
+            "primary": false
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Down Royal",
+        "time": "20:30",
+        "race_name": "Laura Nicholas Memorial Handicap",
+        "date": "2026-06-19",
+        "winner": "Alex Belardo",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "DERVO ANNIE",
+            "score": 64.8,
+            "odds": "5/2",
+            "label": "Win Bet",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "CONCAIRE",
+            "score": 53.5,
+            "odds": "9/2",
+            "label": "Each Way (Speculative)",
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Goodwood",
+        "time": "20:35",
+        "race_name": "Goodwood Horseracing Club Membership Handicap",
+        "date": "2026-06-19",
+        "winner": "One And Gone",
+        "runners": [
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "RED SNAPPER",
+            "score": 58.9,
+            "odds": "4/1",
+            "label": "Each Way",
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Newmarket",
+        "time": "20:45",
+        "race_name": "Find Your Zyn Moment Handicap",
+        "date": "2026-06-19",
+        "winner": "Ancient State",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 3,
+            "outcome": "incorrect",
+            "horse": "FISCAL POLICY",
+            "score": 66.9,
+            "odds": "5/1",
+            "label": "Win Bet",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "GRAND CITADEL",
+            "score": 66.2,
+            "odds": "6/1",
+            "label": "Each Way",
+            "primary": true
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": null,
+            "outcome": "non_runner",
+            "horse": "ELVETHAM",
+            "score": 58.7,
+            "odds": "9/1",
+            "label": "Each Way",
+            "primary": false
+          },
+          {
+            "rec": "EachWay",
+            "actual_pos": 4,
+            "outcome": "ew_placed",
+            "horse": "NORTHCLIFF",
+            "score": 51.5,
+            "odds": "5/1",
             "label": "Each Way (Speculative)",
             "primary": false
           }
