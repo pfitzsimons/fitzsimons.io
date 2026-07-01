@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-"""Diagnostic-only: find per-race URL pattern on Sporting Life and confirm
-individual race pages expose full runner (rides) data. Delete after use."""
+"""Diagnostic-only: verify race page URLs are slug-agnostic (only the numeric
+id matters), and check course-slug derivation from meeting data. Delete after use."""
 import json
 import re
 import urllib.request
+import urllib.error
 
 HEADERS = {
     "User-Agent": (
@@ -15,62 +16,44 @@ HEADERS = {
     "Accept-Language": "en-GB,en;q=0.9",
 }
 
-url = "https://www.sportinglife.com/racing/racecards"
-req = urllib.request.Request(url, headers=HEADERS)
-with urllib.request.urlopen(req, timeout=20) as resp:
-    body = resp.read().decode("utf-8", errors="replace")
 
-# Find hrefs that look like race links
-hrefs = re.findall(r'href="(/racing/racecards/[^"]+)"', body)
-uniq = list(dict.fromkeys(hrefs))
-print(f"found {len(uniq)} unique racecards hrefs, sample:")
-for h in uniq[:15]:
-    print(" ", h)
+def fetch(url):
+    req = urllib.request.Request(url, headers=HEADERS)
+    try:
+        with urllib.request.urlopen(req, timeout=20) as resp:
+            return resp.status, resp.read().decode("utf-8", errors="replace")
+    except urllib.error.HTTPError as e:
+        return e.code, e.read().decode("utf-8", errors="replace")
 
-if not uniq:
-    print("no hrefs found, dumping a chunk of body around 'Thirsk'")
-    idx = body.find("Thirsk")
-    print(body[max(0, idx-500):idx+500])
-    raise SystemExit
 
-# pick a race link that looks like a specific race (not a meeting index)
-race_links = [h for h in uniq if re.search(r'/racecards/\d{4}-\d{2}-\d{2}/', h)]
-print(f"\nrace-like links: {len(race_links)}")
-target = race_links[0] if race_links else uniq[0]
-full_url = "https://www.sportinglife.com" + target
-print(f"\nFetching individual race page: {full_url}")
+# Known-good race from earlier probe: id 925342, course thirsk, date 2026-07-01
+wrong_slug_url = "https://www.sportinglife.com/racing/racecards/2026-07-01/thirsk/racecard/925342/completely-wrong-slug-xyz"
+status, body = fetch(wrong_slug_url)
+print(f"wrong-slug URL status: {status}, len={len(body)}")
+m = re.search(r'<script id="__NEXT_DATA__" type="application/json">(.*?)</script>', body, re.DOTALL)
+print("has NEXT_DATA:", bool(m))
+if m:
+    data = json.loads(m.group(1))
+    race = data["props"]["pageProps"].get("race", {})
+    print("race name via wrong slug:", race.get("name") if isinstance(race, dict) else "N/A")
+    print("rides count:", len(race.get("rides", [])) if isinstance(race, dict) else "N/A")
 
-req2 = urllib.request.Request(full_url, headers=HEADERS)
-with urllib.request.urlopen(req2, timeout=20) as resp2:
-    body2 = resp2.read().decode("utf-8", errors="replace")
+# Now check: can we omit course slug too, using a dummy course name?
+wrong_course_url = "https://www.sportinglife.com/racing/racecards/2026-07-01/not-a-real-course/racecard/925342/whatever"
+status2, body2 = fetch(wrong_course_url)
+print(f"\nwrong-course URL status: {status2}, len={len(body2)}")
 
-m = re.search(
-    r'<script id="__NEXT_DATA__" type="application/json">(.*?)</script>',
-    body2, re.DOTALL
-)
-if not m:
-    print("no NEXT_DATA on race page")
-    raise SystemExit
-
-data2 = json.loads(m.group(1))
-pp = data2["props"]["pageProps"]
-print("pageProps keys:", list(pp.keys()))
-blob = json.dumps(pp)
-print("len:", len(blob))
-print("has 'rides':", "\"rides\"" in blob)
-print("has 'betting_forecast':", "betting_forecast" in blob)
-
-# try to locate the race object with rides
-def find_rides(obj, path=""):
-    if isinstance(obj, dict):
-        if "rides" in obj:
-            print(f"FOUND rides at {path}, count={len(obj['rides'])}")
-            if obj["rides"]:
-                print("first ride keys:", list(obj["rides"][0].keys()))
-        for k, v in obj.items():
-            find_rides(v, f"{path}.{k}")
-    elif isinstance(obj, list):
-        for i, v in enumerate(obj[:3]):
-            find_rides(v, f"{path}[{i}]")
-
-find_rides(pp, "pageProps")
+# Check meeting_summary course name -> what slug format is expected
+main_url = "https://www.sportinglife.com/racing/racecards"
+_, main_body = fetch(main_url)
+m2 = re.search(r'<script id="__NEXT_DATA__" type="application/json">(.*?)</script>', main_body, re.DOTALL)
+data2 = json.loads(m2.group(1))
+meetings = data2["props"]["pageProps"]["meetings"]
+print(f"\ntotal meetings: {len(meetings)}")
+for mt in meetings[:5]:
+    course = mt["meeting_summary"]["course"]["name"]
+    races = mt.get("races", [])
+    print(f"  course={course!r} races={len(races)}")
+    if races:
+        r0 = races[0]
+        print(f"    race0: id={r0['race_summary_reference']['id']} name={r0['name']!r} time={r0['time']}")
