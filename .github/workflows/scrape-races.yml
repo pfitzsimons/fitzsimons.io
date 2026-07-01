@@ -26,9 +26,6 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: TEMP probe candidate sources
-        run: python3 scripts/probe_sources.py
-
       - name: Scrape today's races
         env:
           DATE_OVERRIDE: ${{ github.event.inputs.date_override }}
