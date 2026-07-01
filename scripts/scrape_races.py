@@ -261,7 +261,7 @@ def parse_odds(raw):
 
 def parse_form(form_str: str) -> dict:
     """
-    Parse Timeform form string into structured signals.
+    Parse a form string into structured signals.
 
     Characters:
       1-9  = finishing position
