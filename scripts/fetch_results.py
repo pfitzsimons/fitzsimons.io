@@ -16,7 +16,30 @@ import re
 import sys
 import urllib.request
 import urllib.error
-from datetime import date, timedelta, datetime
+from datetime import date, timedelta, datetime, time as dt_time, timezone
+from zoneinfo import ZoneInfo
+
+# Sporting Life returns race off-times in UTC; the site displays them
+# unconverted, which is an hour out during British/Irish Summer Time.
+# UK and Ireland share the same clock (both UTC+1 in summer), so a
+# single Europe/London conversion is correct for both. Predictions in
+# races.json are stored in local time (see scrape_races.py), so results
+# must match to stay comparable.
+UK_IRE_TZ = ZoneInfo("Europe/London")
+
+
+def to_local_time(time_str: str, date_str: str) -> str:
+    """Convert an 'HH:MM' UTC off-time to local UK/IRE wall-clock time."""
+    m = re.match(r"^(\d{1,2}):(\d{2})$", (time_str or "").strip())
+    if not m:
+        return time_str
+    try:
+        d = datetime.strptime(date_str, "%Y-%m-%d").date()
+    except ValueError:
+        return time_str
+    utc_dt = datetime.combine(d, dt_time(int(m.group(1)), int(m.group(2))), tzinfo=timezone.utc)
+    local_dt = utc_dt.astimezone(UK_IRE_TZ)
+    return local_dt.strftime("%H:%M")
 
 UK_IRE_COUNTRIES = {
     'england', 'scotland', 'wales', 'ireland', 'eire',
@@ -114,7 +137,7 @@ def fetch_sl_results(date_str: str) -> list:
 
             results.append({
                 'course':    course,
-                'time':      race.get('time', ''),
+                'time':      to_local_time(race.get('time', ''), date_str),
                 'race_name': race.get('name', ''),
                 'date':      date_str,
                 'runners':   [

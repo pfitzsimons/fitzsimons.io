@@ -25,10 +25,31 @@ import re
 import sys
 import time
 import random
-from datetime import date, datetime
+from datetime import date, datetime, time as dt_time, timezone
 from typing import Optional
+from zoneinfo import ZoneInfo
 import urllib.request
 import urllib.error
+
+# Sporting Life returns race off-times in UTC; the site displays them
+# unconverted, which is an hour out during British/Irish Summer Time.
+# UK and Ireland share the same clock (both UTC+1 in summer), so a
+# single Europe/London conversion is correct for both.
+UK_IRE_TZ = ZoneInfo("Europe/London")
+
+
+def to_local_time(time_str: str, date_str: str) -> str:
+    """Convert an 'HH:MM' UTC off-time to local UK/IRE wall-clock time."""
+    m = re.match(r"^(\d{1,2}):(\d{2})$", (time_str or "").strip())
+    if not m:
+        return time_str
+    try:
+        d = datetime.strptime(date_str, "%Y-%m-%d").date()
+    except ValueError:
+        return time_str
+    utc_dt = datetime.combine(d, dt_time(int(m.group(1)), int(m.group(2))), tzinfo=timezone.utc)
+    local_dt = utc_dt.astimezone(UK_IRE_TZ)
+    return local_dt.strftime("%H:%M")
 
 BASE_URL = "https://www.sportinglife.com"
 
@@ -738,7 +759,7 @@ def get_race_links(today):
                 "venue":             course,
                 "venue_slug":        venue_slug,
                 "date":              today,
-                "time":              race.get("time", ""),
+                "time":              to_local_time(race.get("time", ""), today),
                 "name":              name,
                 "distance":          race.get("distance", ""),
                 "race_class":        race.get("race_class", ""),
