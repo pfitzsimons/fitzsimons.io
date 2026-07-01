@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Diagnostic-only: inspect candidate free racecard sources for real
-server-rendered data vs JS-only shells. Not part of the scraper — delete after use."""
+"""Diagnostic-only: inspect Sporting Life's __NEXT_DATA__ structure for
+odds/form/weight fields. Not part of the scraper — delete after use."""
+import json
 import re
 import urllib.request
-import urllib.error
 
 HEADERS = {
     "User-Agent": (
@@ -15,42 +15,35 @@ HEADERS = {
     "Accept-Language": "en-GB,en;q=0.9",
 }
 
-CANDIDATES = [
-    "https://www.sportinglife.com/racing/racecards",
-    "https://www.skysports.com/racing/racecards",
-    "https://www.racingtv.com/racecards",
-]
+url = "https://www.sportinglife.com/racing/racecards"
+req = urllib.request.Request(url, headers=HEADERS)
+with urllib.request.urlopen(req, timeout=20) as resp:
+    body = resp.read().decode("utf-8", errors="replace")
 
-for url in CANDIDATES:
-    print(f"=== {url} ===")
-    req = urllib.request.Request(url, headers=HEADERS)
-    try:
-        with urllib.request.urlopen(req, timeout=20) as resp:
-            body = resp.read().decode("utf-8", errors="replace")
-    except Exception as e:
-        print(f"  ERROR: {type(e).__name__}: {e}")
-        continue
+m = re.search(
+    r'<script id="__NEXT_DATA__" type="application/json">(.*?)</script>',
+    body, re.DOTALL
+)
+if not m:
+    print("NEXT_DATA script tag not found with that exact id, searching loosely...")
+    m = re.search(r'__NEXT_DATA__[^>]*>(.*?)</script>', body, re.DOTALL)
 
-    print(f"  length: {len(body)}")
-    times = re.findall(r'\b([01]\d|2[0-3]):[0-5]\d\b', body)
-    print(f"  time-like tokens found: {len(times)} sample={times[:8]}")
+data = json.loads(m.group(1))
 
-    next_data = re.search(r'__NEXT_DATA__[^>]*>(.*?)</script>', body, re.DOTALL)
-    nuxt_data = re.search(r'__NUXT__', body)
-    apollo = re.search(r'__APOLLO_STATE__', body)
-    print(f"  __NEXT_DATA__ present: {bool(next_data)} (len={len(next_data.group(1)) if next_data else 0})")
-    print(f"  __NUXT__ present: {bool(nuxt_data)}")
-    print(f"  __APOLLO_STATE__ present: {bool(apollo)}")
+def walk_keys(obj, path="", depth=0, max_depth=5):
+    if depth > max_depth:
+        return
+    if isinstance(obj, dict):
+        print("  " * depth + f"{path} keys: {list(obj.keys())[:20]}")
+        for k, v in list(obj.items())[:6]:
+            walk_keys(v, f"{path}.{k}", depth + 1, max_depth)
+    elif isinstance(obj, list) and obj:
+        print("  " * depth + f"{path} [list len={len(obj)}]")
+        walk_keys(obj[0], f"{path}[0]", depth + 1, max_depth)
 
-    for kw in ("jockey", "trainer", "racecard", "meeting", "going"):
-        print(f"  count '{kw}': {body.lower().count(kw)}")
+walk_keys(data, "root", 0, 4)
 
-    # dump a small snippet around first time-like token as sanity check
-    if times:
-        idx = body.find(times[0] + ":")
-        # find full match position instead
-        m = re.search(r'([01]\d|2[0-3]):[0-5]\d', body)
-        if m:
-            s = max(0, m.start() - 100)
-            print(f"  snippet: {body[s:m.start()+150]!r}")
-    print()
+# Try to find anything odds-related anywhere in the JSON
+blob = json.dumps(data)
+for kw in ("odds", "price", "fraction", "decimal", "betting", "\"form\"", "weight", "\"going\""):
+    print(f"count {kw!r}: {blob.lower().count(kw.lower())}")
