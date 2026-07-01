@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Horse Racing Scraper — UK & Ireland
-Source: Timeform
+Source: Sporting Life
 
 Multi-factor scoring model:
   1. Recent form score     — weighted last 5 runs, recency-boosted
@@ -30,7 +30,7 @@ from typing import Optional
 import urllib.request
 import urllib.error
 
-BASE_URL = "https://www.timeform.com"
+BASE_URL = "https://www.sportinglife.com"
 
 HEADERS = {
     "User-Agent": (
@@ -42,7 +42,7 @@ HEADERS = {
     "Accept-Language": "en-GB,en;q=0.9",
     "Accept-Encoding": "gzip, deflate",
     "Connection": "keep-alive",
-    "Referer": "https://www.timeform.com/",
+    "Referer": "https://www.sportinglife.com/",
     "Sec-Fetch-Dest": "document",
     "Sec-Fetch-Mode": "navigate",
     "Sec-Fetch-Site": "same-origin",
@@ -261,7 +261,7 @@ def parse_odds(raw):
 
 def parse_form(form_str: str) -> dict:
     """
-    Parse Timeform form string into structured signals.
+    Parse a form string into structured signals.
 
     Characters:
       1-9  = finishing position
@@ -667,46 +667,84 @@ def _reasoning(score: float, odds_dec: Optional[float],
 
 
 # ─────────────────────────────────────────────────────────────
-# TIMEFORM SCRAPER
+# SPORTING LIFE SCRAPER
 # ─────────────────────────────────────────────────────────────
+#
+# Sporting Life is a Next.js app that embeds the full page data as JSON
+# in a <script id="__NEXT_DATA__"> tag — no HTML-table scraping needed.
+# Race detail URLs only need the numeric race id; the course/name slug
+# segments in the path are ignored by the site, so we don't need to
+# reproduce their exact slugging.
+
+UK_IRE_COUNTRIES = {
+    'england', 'scotland', 'wales', 'ireland', 'eire',
+    'northern ireland', 'republic of ireland',
+}
+
+
+def _next_data(body):
+    m = re.search(
+        r'<script id="__NEXT_DATA__" type="application/json">(.*?)</script>',
+        body, re.DOTALL
+    )
+    if not m:
+        return None
+    try:
+        return json.loads(m.group(1))
+    except json.JSONDecodeError:
+        return None
+
+
+def _slugify(text):
+    return re.sub(r"-+", "-", re.sub(r"[^a-z0-9]+", "-", text.lower())).strip("-") or "x"
+
 
 def get_race_links(today):
-    url = f"{BASE_URL}/horse-racing/racecards"
+    url = f"{BASE_URL}/racing/racecards"
     log(f"Fetching index: {url}")
     body = fetch(url)
     if not body:
         return []
 
-    pattern = re.compile(
-        r'href="(/horse-racing/racecards/(?!meeting-summary)([^/"]+)/('
-        + re.escape(today)
-        + r')/(\d{4})/(\d+)/(\d+)/([^"]+))"'
-    )
+    data = _next_data(body)
+    if not data:
+        log("Could not find race data on Sporting Life racecards page")
+        return []
 
-    seen = set()
+    meetings = data.get("props", {}).get("pageProps", {}).get("meetings", [])
     races = []
-    for m in pattern.finditer(body):
-        path       = m.group(1)
-        venue_slug = m.group(2)
-        time_code  = m.group(4)
-        runners_n  = m.group(6)
-        name_slug  = m.group(7)
+    for mtg in meetings:
+        summary = mtg.get("meeting_summary", {})
+        course_obj = summary.get("course", {})
+        course = course_obj.get("name", "")
+        country = course_obj.get("country", {}).get("long_name", "").lower()
 
-        if path in seen:
+        # UK & Ireland only — matches fetch_results.py's filtering so
+        # predictions and results stay comparable.
+        if not any(c in country for c in UK_IRE_COUNTRIES):
             continue
-        seen.add(path)
 
-        venue = venue_slug.replace("-", " ").title()
-        races.append({
-            "path":              path,
-            "venue":             venue,
-            "venue_slug":        venue_slug,
-            "date":              today,
-            "time_code":         time_code,
-            "time":              f"{time_code[:2]}:{time_code[2:]}",
-            "declared_runners":  int(runners_n),
-            "name_slug":         name_slug,
-        })
+        meeting_going = summary.get("going", "")
+        venue_slug = _slugify(course)
+
+        for race in mtg.get("races", []):
+            race_id = race.get("race_summary_reference", {}).get("id")
+            if not race_id:
+                continue
+            name = race.get("name", "")
+            races.append({
+                "id":                race_id,
+                "path":              f"/racing/racecards/{today}/{venue_slug}/racecard/{race_id}/{_slugify(name)}",
+                "venue":             course,
+                "venue_slug":        venue_slug,
+                "date":              today,
+                "time":              race.get("time", ""),
+                "name":              name,
+                "distance":          race.get("distance", ""),
+                "race_class":        race.get("race_class", ""),
+                "going":             race.get("going", meeting_going),
+                "declared_runners":  race.get("ride_count", 0),
+            })
 
     log(f"Found {len(races)} race links")
     return races
@@ -714,76 +752,46 @@ def get_race_links(today):
 
 def scrape_race(meta):
     url = BASE_URL + meta["path"]
-    log(f"Scraping {meta['time']} {meta['venue']}: {meta['name_slug']}")
+    log(f"Scraping {meta['time']} {meta['venue']}: {meta['name']}")
     body = fetch(url)
     if not body:
         return None
 
-    race_name = meta["name_slug"].replace("-", " ").title()
-    dist_m    = re.search(r"(\d+m\s*(?:\d+f)?|\d+f)", body[40000:80000])
-    going_m   = re.search(r"Going[:\s]+([A-Za-z][\w\s]*?)[\r\n<(]", body[40000:80000])
-    prize_m   = re.search(r"[£€][\d,]+", body[40000:80000])
-    class_m   = re.search(r"\((\d)\)\s*$", race_name)
+    data = _next_data(body)
+    if not data:
+        log("  No race data found — skipping")
+        return None
 
-    distance   = dist_m.group(1).strip()  if dist_m   else ""
-    going      = going_m.group(1).strip() if going_m  else ""
-    prize      = prize_m.group(0)         if prize_m  else ""
-    race_class = class_m.group(1)         if class_m  else ""
-
-    horse_rows = re.findall(
-        r'<tbody[^>]*class="[^"]*rp-horse-row[^"]*"[^>]*>(.*?)</tbody>',
-        body, re.DOTALL
-    )
+    race = data.get("props", {}).get("pageProps", {}).get("race", {})
+    race_name  = race.get("name") or meta["name"]
+    distance   = race.get("distance") or meta["distance"]
+    going      = race.get("going") or meta["going"]
+    race_class = str(race.get("race_class") or meta["race_class"] or "")
+    prizes     = race.get("prizes", {}).get("prize", [])
+    prize      = prizes[0]["prize"] if prizes else ""
 
     runners = []
-    for row in horse_rows:
-        name_m = re.search(r'class="rp-horse"[^>]*>([^<]+)</a>', row)
-        if not name_m:
-            continue
-        horse_raw  = name_m.group(1).strip()
-        horse_name = re.sub(r"\s*\([A-Z]{2,3}\)\s*$", "", horse_raw).strip()
+    for ride in race.get("rides", []):
+        horse = ride.get("horse", {})
+        horse_raw = horse.get("name", "")
         country_m  = re.search(r"\(([A-Z]{2,3})\)\s*$", horse_raw)
         country    = country_m.group(1) if country_m else "GB"
+        horse_name = re.sub(r"\s*\([A-Z]{2,3}\)\s*$", "", horse_raw).strip()
 
-        jockey_m  = re.search(r'rp-td-horse-jockey[^>]*>.*?href="[^"]+"[^>]*>([^<]+)</a>', row, re.DOTALL)
-        trainer_m = re.search(r'rp-td-horse-trainer.*?href="[^"]+"[^>]*>([^<]+)</a>', row, re.DOTALL)
-        form_m    = re.search(r'rp-td-horse-form"[^>]*>([^<]+)<', row)
-        age_m     = re.search(r'rp-td-horse-age[^"]*"[^>]*>([^<]+)<', row)
-        wgt_m     = re.search(r'rp-td-horse-weight"[^>]*>([^<]+)<', row)
-        draw_m    = re.search(r'rp-td-horse-draw[^"]*"[^>]*>([^<]+)<', row)
-        silk_m    = re.search(r'rp-silks"[^>]+src="([^"]+)"', row)
-        frac_m    = re.search(r'price-fractional">([^<]+)</span>', row)
-        dec_m     = re.search(r'data-price="([^"]+)"', row)
-
-        jockey  = clean(jockey_m.group(1))  if jockey_m  else ""
-        trainer = clean(trainer_m.group(1)) if trainer_m else ""
-        form    = clean(form_m.group(1))    if form_m    else ""
-        age     = clean(age_m.group(1))     if age_m     else ""
-        weight  = clean(wgt_m.group(1))     if wgt_m     else ""
-        draw    = clean(draw_m.group(1))    if draw_m    else ""
-        silk_url = silk_m.group(1)          if silk_m    else ""
-        odds_str = clean(frac_m.group(1))   if frac_m    else "SP"
-
-        if dec_m:
-            try:
-                odds_dec = round(float(dec_m.group(1)), 2)
-            except ValueError:
-                odds_dec = parse_odds(odds_str)
-        else:
-            odds_dec = parse_odds(odds_str)
+        odds_str = ride.get("betting", {}).get("current_odds") or "SP"
 
         runners.append({
             "horse":    horse_name,
             "country":  country,
-            "jockey":   jockey,
-            "trainer":  trainer,
-            "form":     form,
-            "age":      age,
-            "weight":   weight,
-            "draw":     draw,
+            "jockey":   ride.get("jockey", {}).get("name", ""),
+            "trainer":  ride.get("trainer", {}).get("name", ""),
+            "form":     horse.get("formsummary", {}).get("display_text", "") or "",
+            "age":      str(horse.get("age", "") or ""),
+            "weight":   ride.get("handicap", "") or "",
+            "draw":     str(ride.get("draw_number", "") or ""),
             "odds_str": odds_str,
-            "odds_dec": odds_dec,
-            "silk_url": silk_url,
+            "odds_dec": parse_odds(odds_str),
+            "silk_url": ride.get("silk_filename", "") or "",
         })
 
     if not runners:
@@ -827,7 +835,7 @@ def scrape_race(meta):
     _post_process_win_bets(runners, n)
 
     return {
-        "id":          f"{meta['venue_slug']}-{meta['time_code']}",
+        "id":          f"{meta['venue_slug']}-{meta['id']}",
         "course":      meta["venue"],
         "time":        meta["time"],
         "title":       race_name,
