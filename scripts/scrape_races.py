@@ -42,6 +42,11 @@ HEADERS = {
     "Accept-Language": "en-GB,en;q=0.9",
     "Accept-Encoding": "gzip, deflate",
     "Connection": "keep-alive",
+    "Referer": "https://www.timeform.com/",
+    "Sec-Fetch-Dest": "document",
+    "Sec-Fetch-Mode": "navigate",
+    "Sec-Fetch-Site": "same-origin",
+    "Upgrade-Insecure-Requests": "1",
 }
 
 # ─────────────────────────────────────────────────────────────
@@ -199,18 +204,29 @@ COURSE_COEFFICIENTS = {
 # HTTP
 # ─────────────────────────────────────────────────────────────
 
-def fetch(url):
+def fetch(url, retries=3):
     req = urllib.request.Request(url, headers=HEADERS)
-    try:
-        with urllib.request.urlopen(req, timeout=30) as resp:
-            raw = resp.read()
-            if resp.headers.get("Content-Encoding", "") == "gzip":
-                raw = gzip.decompress(raw)
-            return raw.decode("utf-8", errors="replace")
-    except urllib.error.HTTPError as e:
-        log(f"HTTP {e.code} -> {url}")
-    except Exception as e:
-        log(f"{type(e).__name__} -> {url}: {e}")
+    for attempt in range(1, retries + 1):
+        try:
+            with urllib.request.urlopen(req, timeout=30) as resp:
+                raw = resp.read()
+                if resp.headers.get("Content-Encoding", "") == "gzip":
+                    raw = gzip.decompress(raw)
+                return raw.decode("utf-8", errors="replace")
+        except urllib.error.HTTPError as e:
+            body = ""
+            try:
+                body = e.read().decode("utf-8", errors="replace")[:300]
+            except Exception:
+                pass
+            log(f"HTTP {e.code} -> {url} (attempt {attempt}/{retries}) {body!r}")
+            if e.code not in (403, 429, 500, 502, 503, 504) or attempt == retries:
+                return None
+        except Exception as e:
+            log(f"{type(e).__name__} -> {url}: {e} (attempt {attempt}/{retries})")
+            if attempt == retries:
+                return None
+        time.sleep(random.uniform(2, 4) * attempt)
     return None
 
 
