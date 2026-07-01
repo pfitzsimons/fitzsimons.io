@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-"""Diagnostic-only: dump full structure of one race + one runner from
-Sporting Life's NEXT_DATA to design the real scraper. Delete after use."""
+"""Diagnostic-only: find per-race URL pattern on Sporting Life and confirm
+individual race pages expose full runner (rides) data. Delete after use."""
 import json
 import re
 import urllib.request
@@ -20,31 +20,57 @@ req = urllib.request.Request(url, headers=HEADERS)
 with urllib.request.urlopen(req, timeout=20) as resp:
     body = resp.read().decode("utf-8", errors="replace")
 
+# Find hrefs that look like race links
+hrefs = re.findall(r'href="(/racing/racecards/[^"]+)"', body)
+uniq = list(dict.fromkeys(hrefs))
+print(f"found {len(uniq)} unique racecards hrefs, sample:")
+for h in uniq[:15]:
+    print(" ", h)
+
+if not uniq:
+    print("no hrefs found, dumping a chunk of body around 'Thirsk'")
+    idx = body.find("Thirsk")
+    print(body[max(0, idx-500):idx+500])
+    raise SystemExit
+
+# pick a race link that looks like a specific race (not a meeting index)
+race_links = [h for h in uniq if re.search(r'/racecards/\d{4}-\d{2}-\d{2}/', h)]
+print(f"\nrace-like links: {len(race_links)}")
+target = race_links[0] if race_links else uniq[0]
+full_url = "https://www.sportinglife.com" + target
+print(f"\nFetching individual race page: {full_url}")
+
+req2 = urllib.request.Request(full_url, headers=HEADERS)
+with urllib.request.urlopen(req2, timeout=20) as resp2:
+    body2 = resp2.read().decode("utf-8", errors="replace")
+
 m = re.search(
     r'<script id="__NEXT_DATA__" type="application/json">(.*?)</script>',
-    body, re.DOTALL
+    body2, re.DOTALL
 )
-data = json.loads(m.group(1))
+if not m:
+    print("no NEXT_DATA on race page")
+    raise SystemExit
 
-props = data["props"]["pageProps"]
-meetings = props.get("meetings", [])
-print(f"num meetings: {len(meetings)}")
+data2 = json.loads(m.group(1))
+pp = data2["props"]["pageProps"]
+print("pageProps keys:", list(pp.keys()))
+blob = json.dumps(pp)
+print("len:", len(blob))
+print("has 'rides':", "\"rides\"" in blob)
+print("has 'betting_forecast':", "betting_forecast" in blob)
 
-meeting0 = meetings[0]
-print("meeting_summary:", json.dumps(meeting0["meeting_summary"], indent=None)[:800])
-print("meeting0 races count:", len(meeting0.get("races", [])))
-if meeting0.get("races"):
-    race0 = meeting0["races"][0]
-    print("race0 keys:", list(race0.keys()))
-    print("race0 (trunc):", json.dumps(race0, indent=None)[:2000])
+# try to locate the race object with rides
+def find_rides(obj, path=""):
+    if isinstance(obj, dict):
+        if "rides" in obj:
+            print(f"FOUND rides at {path}, count={len(obj['rides'])}")
+            if obj["rides"]:
+                print("first ride keys:", list(obj["rides"][0].keys()))
+        for k, v in obj.items():
+            find_rides(v, f"{path}.{k}")
+    elif isinstance(obj, list):
+        for i, v in enumerate(obj[:3]):
+            find_rides(v, f"{path}[{i}]")
 
-print()
-print("=== nextTenRaces[0] full dump (trunc 3000) ===")
-if props.get("nextTenRaces"):
-    r = props["nextTenRaces"][0]
-    print(json.dumps(r, indent=None)[:3000])
-    rides = r.get("rides", [])
-    print(f"\nrides count: {len(rides)}")
-    if rides:
-        print("ride0 keys:", list(rides[0].keys()))
-        print("ride0 full:", json.dumps(rides[0], indent=2)[:2500])
+find_rides(pp, "pageProps")
