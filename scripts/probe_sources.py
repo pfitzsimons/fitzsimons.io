@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
-"""Diagnostic-only: check which free UK/IRE racecard sources are reachable
-without hitting bot protection. Not part of the scraper — delete after use."""
+"""Diagnostic-only: inspect candidate free racecard sources for real
+server-rendered data vs JS-only shells. Not part of the scraper — delete after use."""
+import re
 import urllib.request
 import urllib.error
 
@@ -16,29 +17,40 @@ HEADERS = {
 
 CANDIDATES = [
     "https://www.sportinglife.com/racing/racecards",
-    "https://www.attheraces.com/racecards",
     "https://www.skysports.com/racing/racecards",
-    "https://www.bbc.co.uk/sport/horse-racing/racecards",
-    "https://www.itv.com/racing/racecards",
     "https://www.racingtv.com/racecards",
-    "https://www.racingpost.com/racecards/",
-    "https://www.oddschecker.com/horse-racing",
-    "https://www.timeform.com/horse-racing/racecards",
 ]
 
 for url in CANDIDATES:
+    print(f"=== {url} ===")
     req = urllib.request.Request(url, headers=HEADERS)
     try:
-        with urllib.request.urlopen(req, timeout=15) as resp:
-            body = resp.read(2000).decode("utf-8", errors="replace")
-            marker = "WAF" if "waf" in body.lower() or "challenge" in body.lower() else "OK"
-            print(f"{resp.status} {marker:5s} {url}")
-    except urllib.error.HTTPError as e:
-        body = ""
-        try:
-            body = e.read(300).decode("utf-8", errors="replace")
-        except Exception:
-            pass
-        print(f"{e.code} FAIL  {url}  {body[:150]!r}")
+        with urllib.request.urlopen(req, timeout=20) as resp:
+            body = resp.read().decode("utf-8", errors="replace")
     except Exception as e:
-        print(f"ERR  FAIL  {url}  {type(e).__name__}: {e}")
+        print(f"  ERROR: {type(e).__name__}: {e}")
+        continue
+
+    print(f"  length: {len(body)}")
+    times = re.findall(r'\b([01]\d|2[0-3]):[0-5]\d\b', body)
+    print(f"  time-like tokens found: {len(times)} sample={times[:8]}")
+
+    next_data = re.search(r'__NEXT_DATA__[^>]*>(.*?)</script>', body, re.DOTALL)
+    nuxt_data = re.search(r'__NUXT__', body)
+    apollo = re.search(r'__APOLLO_STATE__', body)
+    print(f"  __NEXT_DATA__ present: {bool(next_data)} (len={len(next_data.group(1)) if next_data else 0})")
+    print(f"  __NUXT__ present: {bool(nuxt_data)}")
+    print(f"  __APOLLO_STATE__ present: {bool(apollo)}")
+
+    for kw in ("jockey", "trainer", "racecard", "meeting", "going"):
+        print(f"  count '{kw}': {body.lower().count(kw)}")
+
+    # dump a small snippet around first time-like token as sanity check
+    if times:
+        idx = body.find(times[0] + ":")
+        # find full match position instead
+        m = re.search(r'([01]\d|2[0-3]):[0-5]\d', body)
+        if m:
+            s = max(0, m.start() - 100)
+            print(f"  snippet: {body[s:m.start()+150]!r}")
+    print()
