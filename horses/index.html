@@ -200,6 +200,9 @@
     .tags { display: flex; gap: .28rem; margin-top: .3rem; flex-wrap: wrap; }
     .tag { font-family: var(--mono); font-size: .61rem; padding: .08rem .35rem; border-radius: 3px; border: 1px solid var(--line); color: var(--dim); }
     .reasoning { margin-top: .38rem; font-family: var(--sans); font-size: .75rem; color: var(--dim); font-style: italic; line-height: 1.4; }
+    .mvm { margin-top: .3rem; font-family: var(--mono); font-size: .62rem; color: var(--dim); letter-spacing: .03em; }
+    .mvm strong { color: var(--cream); font-weight: 500; }
+    .mvm-edge { color: var(--gold); }
     .score-bar-wrap { margin-top: .42rem; }
     .score-bar-row { display: flex; align-items: center; gap: .4rem; margin-bottom: .18rem; }
     .score-bar-label { font-family: var(--mono); font-size: .58rem; color: var(--dim); width: 68px; flex-shrink: 0; text-transform: uppercase; letter-spacing: .05em; }
@@ -678,6 +681,7 @@ function renderRunners(race) {
           ${runner.draw   ? `<span class="tag">Draw ${esc(runner.draw)}</span>` : ''}
         </div>
         ${rec.reasoning ? `<div class="reasoning">${esc(rec.reasoning)}</div>` : ''}
+        ${valueHTML(runner.value)}
         ${scoreBarHTML(comp)}
       </div>
       <div class="rright">
@@ -689,6 +693,21 @@ function renderRunners(race) {
       </div>`;
     el.appendChild(card);
   });
+}
+
+// Informational only: the model's calibrated win probability next to the
+// market's implied probability. A positive edge is NOT a buy signal — the
+// backtest showed the market is the sharper estimate.
+function valueHTML(v) {
+  if (!v || v.model_prob == null || v.market_prob == null) return '';
+  const mp = Math.round(v.model_prob * 100);
+  const mk = Math.round(v.market_prob * 100);
+  const edgePP = v.edge != null ? Math.round(v.edge * 100) : null;
+  const edgeStr = edgePP != null ? `${edgePP > 0 ? '+' : ''}${edgePP}pp` : '';
+  return `<div class="mvm" title="Model's calibrated win probability vs the market's implied probability (overround removed). Informational — not a betting signal.">`
+    + `model <strong>${mp}%</strong> · market <strong>${mk}%</strong>`
+    + (edgeStr ? ` · <span class="mvm-edge">${edgeStr}</span>` : '')
+    + `</div>`;
 }
 
 function scoreBarHTML(comp) {
@@ -780,32 +799,32 @@ function renderAccuracy(log) {
 
   // Aggregate totals
   let totWin=0, totWinC=0, totEW=0, totEWC=0;
+  let stake=0, ret=0;   // flat-stake bankroll for a true multi-day ROI
   for (const d of log) {
     const s = d.summary;
     totWin  += s.win_total   || 0;
     totWinC += s.win_correct || 0;
     totEW   += s.ew_total    || 0;
     totEWC  += s.ew_correct  || 0;
+    const r = s.roi;
+    if (r) {
+      stake += (r.win_stake||0) + (r.ew_stake||0);
+      ret   += (r.win_ret||0)   + (r.ew_ret||0);
+    }
   }
   const all  = totWin + totEW;
   const allC = totWinC + totEWC;
   const overallPct = all  ? Math.round(allC/all*100)    : null;
   const winPct     = totWin ? Math.round(totWinC/totWin*100) : null;
   const ewPct      = totEW  ? Math.round(totEWC/totEW*100)  : null;
-
-  const ewWinTotal    = log.reduce((s,d) => s + (d.summary.ew_win_count||0), 0);
-  const ewPlacedTotal = log.reduce((s,d) => s + (d.summary.ew_placed_count||0), 0);
+  const roiPct     = stake ? Math.round((ret-stake)/stake*1000)/10 : null;
 
   document.getElementById('acc-summary').innerHTML = `
     ${stat('Overall', overallPct, `${allC}/${all}`)}
     ${stat('Win',     winPct,     `${totWinC}/${totWin}`)}
     ${stat('Each Way',ewPct,      `${totEWC}/${totEW}`)}
-    ${stat('Days', log.length, 'tracked', true)}
-    <div class="acc-stat">
-      <div class="acc-stat-val neutral">${ewWinTotal}★ / ${ewPlacedTotal}▸</div>
-      <div class="acc-stat-lbl">EW Split</div>
-      <div class="acc-stat-sub">won / placed</div>
-    </div>`;
+    ${roiStat(roiPct, stake)}
+    ${stat('Days', log.length, 'tracked', true)}`;
 
   // Daily rows — newest first
   const daysEl = document.getElementById('acc-days');
@@ -844,6 +863,17 @@ function stat(label, val, sub, neutral=false) {
     <div class="acc-stat-val ${cls}">${display}</div>
     <div class="acc-stat-lbl">${label}</div>
     <div class="acc-stat-sub">${sub}</div>
+  </div>`;
+}
+
+// ROI on flat £1 stakes across all tracked days. Positive is profit.
+function roiStat(roiPct, stake) {
+  const display = roiPct != null ? (roiPct > 0 ? '+' : '') + roiPct + '%' : '—';
+  const cls = roiPct == null ? '' : roiPct >= 0 ? 'good' : roiPct >= -10 ? 'mid' : 'poor';
+  return `<div class="acc-stat">
+    <div class="acc-stat-val ${cls}">${display}</div>
+    <div class="acc-stat-lbl">ROI</div>
+    <div class="acc-stat-sub">£1 flat · ${Math.round(stake)} bets</div>
   </div>`;
 }
 

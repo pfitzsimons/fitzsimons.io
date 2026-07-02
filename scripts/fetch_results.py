@@ -49,6 +49,10 @@ UK_IRE_COUNTRIES = {
     'northern ireland', 'republic of ireland'
 }
 
+# Each-Way place-part payout as a fraction of the win odds. 1/5 is the most
+# common UK term; used for ROI accounting (not for accuracy classification).
+EW_PLACE_FRACTION = 0.2
+
 BASE_URL = 'https://www.sportinglife.com'
 # Per-race result API — returns the FULL finishing order (every runner,
 # non-runner and casualty), not just the top 3-4 placed horses the
@@ -405,6 +409,31 @@ def load_predictions(out_dir: str, date_str: str) -> dict | None:
     return None
 
 
+def bet_pnl(rec_type: str, outcome: str, odds_dec) -> tuple | None:
+    """
+    Return (stake, ret) for a £1 bet on a primary pick, or None if the bet
+    can't be priced (no odds). Profit is ret - stake.
+
+    Win bet: £1 → odds_dec back if it won, else 0.
+    Each-Way: £1 = £0.50 win + £0.50 place; the place half pays at
+    EW_PLACE_FRACTION of the odds. A DNF simply loses (won/placed are False).
+    """
+    if not odds_dec or odds_dec <= 1:
+        return None
+    if rec_type == 'Win':
+        won = outcome == 'correct'
+        return (1.0, odds_dec if won else 0.0)
+    # Each-Way
+    won    = outcome == 'ew_win'
+    placed = outcome in ('ew_win', 'ew_placed')
+    ret = 0.0
+    if won:
+        ret += 0.5 * odds_dec
+    if placed:
+        ret += 0.5 * (1 + (odds_dec - 1) * EW_PLACE_FRACTION)
+    return (1.0, ret)
+
+
 def compare_predictions_to_results(predictions: dict, results: list) -> dict:
     """
     Compare all predicted races to actual results.
@@ -426,6 +455,8 @@ def compare_predictions_to_results(predictions: dict, results: list) -> dict:
     # DNFs are counted as incorrect (a losing bet) but tallied separately so
     # the UI can show how many "losses" were non-completions.
     dnf_count = 0
+    # Flat £1-stake profit & loss on primary picks, for ROI reporting.
+    pnl = {'win': {'stake': 0.0, 'ret': 0.0}, 'ew': {'stake': 0.0, 'ret': 0.0}}
 
     for pred_race in predictions.get('races', []):
         result = match_race(pred_race, results)
@@ -483,6 +514,13 @@ def compare_predictions_to_results(predictions: dict, results: list) -> dict:
             if outcome.get('dnf'):
                 dnf_count += 1
             key = 'win' if rec_type == 'Win' else 'ew'
+
+            # Flat-stake P&L for ROI (skips picks with no priced odds).
+            pl = bet_pnl(rec_type, outcome['outcome'], runner.get('odds_dec'))
+            if pl:
+                pnl[key]['stake'] += pl[0]
+                pnl[key]['ret']   += pl[1]
+
             ew_correct_outcomes = {'correct', 'ew_win', 'ew_placed'}
             # For EW: ew_win and ew_placed both count as correct
             if key == 'ew':
@@ -509,6 +547,14 @@ def compare_predictions_to_results(predictions: dict, results: list) -> dict:
     all_total   = win_total + ew_total
     overall_pct = round(all_correct / all_total * 100, 1) if all_total > 0 else None
 
+    def roi_pct(bucket):
+        s = bucket['stake']
+        return round((bucket['ret'] - s) / s * 100, 1) if s > 0 else None
+
+    tot_stake = pnl['win']['stake'] + pnl['ew']['stake']
+    tot_ret   = pnl['win']['ret']   + pnl['ew']['ret']
+    overall_roi = round((tot_ret - tot_stake) / tot_stake * 100, 1) if tot_stake > 0 else None
+
     return {
         'date':          predictions.get('date', ''),
         'summary': {
@@ -524,6 +570,17 @@ def compare_predictions_to_results(predictions: dict, results: list) -> dict:
             'excluded':        excluded,
             'excluded_total':  sum(excluded.values()),
             'dnf_count':       dnf_count,
+            # ROI on flat £1 stakes. `roi` carries raw stake/return so the UI
+            # can aggregate a true multi-day ROI (not an average of averages).
+            'overall_roi':  overall_roi,
+            'win_roi':      roi_pct(pnl['win']),
+            'ew_roi':       roi_pct(pnl['ew']),
+            'roi': {
+                'win_stake': round(pnl['win']['stake'], 2),
+                'win_ret':   round(pnl['win']['ret'], 2),
+                'ew_stake':  round(pnl['ew']['stake'], 2),
+                'ew_ret':    round(pnl['ew']['ret'], 2),
+            },
         },
         'races': race_outcomes,
     }
@@ -602,6 +659,16 @@ def main():
         log('No results found — skipping accuracy update')
         return
 
+    # 2b. Persist the full finishing order as a committed dataset. This is the
+    #     clean, growing record calibrate.py / ROI analysis build on, so they
+    #     never need to re-fetch from Sporting Life.
+    hist_dir = os.path.join(out_dir, 'history')
+    os.makedirs(hist_dir, exist_ok=True)
+    full_path = os.path.join(hist_dir, f'results_full_{results_date}.json')
+    with open(full_path, 'w', encoding='utf-8') as f:
+        json.dump({'date': results_date, 'races': results}, f, ensure_ascii=False, indent=2)
+    log(f'Saved full results: {full_path}')
+
     # 3. Load predictions for that date
     predictions = load_predictions(out_dir, results_date)
     if not predictions:
@@ -624,7 +691,8 @@ def main():
     s = report['summary']
     log(f'Results: {s["win_correct"]}/{s["win_total"]} Win, '
         f'{s["ew_correct"]}/{s["ew_total"]} EW, '
-        f'Overall {s["overall_pct"]}%')
+        f'Overall {s["overall_pct"]}% · '
+        f'ROI win {s["win_roi"]}% ew {s["ew_roi"]}% overall {s["overall_roi"]}%')
 
     # 5. Append to running accuracy log
     acc_log = load_accuracy_log(out_dir)
