@@ -241,7 +241,7 @@ COURSE_COEFFICIENTS = {
 # MODEL-VS-MARKET READOUT
 # Turn the raw score into a calibrated win-probability and show it next to
 # the market's implied probability. This is INFORMATIONAL only: a 61-day
-# backtest (scratchpad/backtest_value.py) showed that betting on the model's
+# backtest (scripts/backtest_value.py) showed that betting on the model's
 # "value" disagreements with the market DEGRADES ROI — the market's prices
 # are sharper than the model's probabilities, so the model's edge lies in
 # agreeing with the market on strong favourites, not in beating the price.
@@ -666,7 +666,7 @@ def make_recommendation(score: float, odds_dec: Optional[float],
     Convert final score + context into a recommendation.
 
     NB: recommendations are NOT value-gated. A 61-day backtest
-    (scratchpad/backtest_value.py) showed that betting only where the model's
+    (scripts/backtest_value.py) showed that betting only where the model's
     probability beats the market price *degraded* ROI: the model's edge is in
     AGREEING with the market on strong favourites, and its "value"
     disagreements are mostly the model over-rating a horse. The `ev` argument
