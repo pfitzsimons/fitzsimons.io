@@ -58,19 +58,6 @@
     #header h1 { font-family: var(--display); font-size: 1.9rem; letter-spacing: .08em; color: var(--gold); line-height: 1; }
     #header h1 span { font-family: var(--mono); font-size: .85rem; color: var(--cream); opacity: .55; margin-left: .4rem; vertical-align: middle; }
 
-    #race-selector-wrap { display: flex; align-items: center; gap: .5rem; }
-    #race-selector-wrap label { font-family: var(--mono); font-size: .65rem; color: var(--dim); letter-spacing: .1em; text-transform: uppercase; white-space: nowrap; }
-    #race-select {
-      background: var(--card); border: 1px solid var(--gold); color: var(--cream);
-      font-family: var(--mono); font-size: .8rem; padding: .42rem .8rem;
-      border-radius: 6px; cursor: pointer; min-width: 310px; max-width: 500px;
-      appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23c9a84c' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-      background-repeat: no-repeat; background-position: right .7rem center; padding-right: 2.1rem;
-    }
-    #race-select:focus { outline: none; border-color: var(--gold-lt); box-shadow: 0 0 0 3px rgba(201,168,76,.15); }
-    #race-select option, #race-select optgroup { background: var(--select-opt-bg); }
-
     #header-meta { margin-left: auto; display: flex; align-items: center; gap: .9rem; font-family: var(--mono); font-size: .7rem; color: var(--dim); }
     #date-disp { color: var(--gold-lt); }
     #refresh-btn { background: none; border: 1px solid var(--line); color: var(--dim); padding: .28rem .65rem; border-radius: 4px; cursor: pointer; font-family: var(--mono); font-size: .68rem; transition: all .2s; }
@@ -105,6 +92,62 @@
     /* ── MAIN ── */
     #main { max-width: 1380px; margin: 0 auto; padding: 1.4rem 1.4rem 4rem; transition: padding-right .35s ease; }
     body.drawer-open #main { padding-right: calc(var(--drawer-w) + 1.4rem); }
+
+    /* ── NEXT UP HERO ── */
+    #next-up {
+      background: linear-gradient(135deg, rgba(201,168,76,.14), var(--card) 60%);
+      border: 1px solid rgba(201,168,76,.35); border-radius: 14px;
+      padding: 1.15rem 1.35rem; margin-bottom: 1.4rem;
+      display: grid; grid-template-columns: minmax(220px, 1fr) minmax(300px, 1.35fr);
+      gap: 1rem 2.2rem; align-items: start;
+    }
+    #nu-label { display: inline-flex; align-items: center; gap: .4rem; font-family: var(--mono); font-size: .62rem; letter-spacing: .14em; text-transform: uppercase; color: var(--green); }
+    #nu-label .ldot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); animation: pulse 2s ease infinite; }
+    #nu-time { font-family: var(--display); font-size: 2.7rem; color: var(--gold); line-height: 1; margin-top: .4rem; text-shadow: 0 0 40px rgba(201,168,76,.3); }
+    #nu-countdown { font-family: var(--mono); font-size: .74rem; color: var(--green); margin-top: .2rem; }
+    #nu-course { font-family: var(--display); font-size: 1.45rem; letter-spacing: .05em; margin-top: .55rem; }
+    #nu-title { font-size: .78rem; color: var(--dim); margin-top: .15rem; line-height: 1.4; }
+    #nu-meta { display: flex; flex-wrap: wrap; gap: .35rem; margin-top: .55rem; }
+    #nu-view {
+      margin-top: .85rem; background: var(--gold); color: var(--turf); border: none;
+      font-family: var(--mono); font-weight: 600; font-size: .68rem; letter-spacing: .08em;
+      text-transform: uppercase; padding: .45rem .95rem; border-radius: 6px; cursor: pointer; transition: background .2s;
+    }
+    #nu-view:hover { background: var(--gold-lt); }
+    #nu-bets { display: flex; flex-direction: column; gap: .45rem; min-width: 0; }
+    .nu-bets-title { font-family: var(--mono); font-size: .62rem; color: var(--dim); letter-spacing: .12em; text-transform: uppercase; }
+    .nu-bet {
+      display: flex; align-items: center; gap: .7rem;
+      background: rgba(255,255,255,.04); border: 1px solid var(--line); border-radius: 9px;
+      padding: .5rem .75rem; cursor: pointer; transition: border-color .2s; min-width: 0;
+    }
+    .nu-bet:hover { border-color: rgba(201,168,76,.4); }
+    .nu-rank { font-family: var(--display); font-size: 1.2rem; color: var(--gold); width: 20px; text-align: center; flex-shrink: 0; }
+    .nu-bet-info { flex: 1; min-width: 0; }
+    .nu-bet-horse { font-family: var(--display); font-size: 1.08rem; letter-spacing: .04em; line-height: 1.1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .nu-bet-sub { font-family: var(--mono); font-size: .6rem; color: var(--dim); margin-top: .12rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .nu-bet-odds { font-family: var(--display); font-size: 1.25rem; color: var(--gold); flex-shrink: 0; }
+    .nu-bet-badge { display: contents; }
+
+    /* ── MEETINGS GRID ── */
+    .section-title { font-family: var(--mono); font-size: .63rem; color: var(--dim); letter-spacing: .13em; text-transform: uppercase; margin-bottom: .6rem; }
+    #meetings { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: .8rem; margin-bottom: 1.6rem; }
+    .meet-card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: .85rem 1rem; }
+    .meet-hdr { display: flex; align-items: baseline; justify-content: space-between; gap: .6rem; margin-bottom: .55rem; }
+    .meet-name { font-family: var(--display); font-size: 1.3rem; letter-spacing: .06em; }
+    .meet-sub { font-family: var(--mono); font-size: .6rem; color: var(--dim); white-space: nowrap; }
+    .meet-going { font-family: var(--mono); font-size: .6rem; color: var(--dim); margin: -.35rem 0 .55rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .meet-times { display: flex; flex-wrap: wrap; gap: .35rem; }
+    .time-chip {
+      font-family: var(--mono); font-size: .72rem; padding: .32rem .55rem;
+      border: 1px solid var(--line); border-radius: 6px;
+      background: transparent; color: var(--cream); cursor: pointer; transition: all .15s;
+    }
+    .time-chip:hover { border-color: var(--gold); color: var(--gold); }
+    .time-chip.past { opacity: .35; }
+    .time-chip.past:hover { opacity: .75; }
+    .time-chip.next { border-color: rgba(76,201,122,.55); color: var(--green); }
+    .time-chip.selected { background: var(--gold); border-color: var(--gold); color: var(--turf); font-weight: 500; opacity: 1; }
 
     /* ── RACE OVERVIEW ── */
     #race-overview {
@@ -290,8 +333,10 @@
     /* ── RESPONSIVE ── */
     @media (max-width: 660px) {
       #header { flex-direction: column; align-items: flex-start; }
-      #race-select { min-width: unset; width: 100%; }
-      #header-meta { margin-left: 0; }
+      #header-meta { margin-left: 0; flex-wrap: wrap; }
+      #next-up { grid-template-columns: 1fr; }
+      .nu-bet { flex-wrap: wrap; }
+      .nu-bet-badge { display: block; order: 4; flex-basis: 100%; padding-left: calc(20px + .7rem); }
       .rcard { grid-template-columns: 48px 1fr; }
       .rright { grid-column: 1/-1; flex-direction: row; align-items: center; justify-content: space-between; }
       #race-overview { grid-template-columns: 1fr; }
@@ -308,10 +353,6 @@
 <!-- ── HEADER ── -->
 <header id="header">
   <h1>RACE DAY <span>UK & IRE</span></h1>
-  <div id="race-selector-wrap">
-    <label for="race-select">RACE</label>
-    <select id="race-select"><option>Loading…</option></select>
-  </div>
   <div id="header-meta">
     <span id="date-disp">—</span>
     <span id="upd-disp"></span>
@@ -346,6 +387,10 @@
 <!-- ── MAIN ── -->
 <main id="main">
   <div id="state"><span class="spinner"></span> Loading today's races…</div>
+  <section id="next-up" style="display:none"></section>
+  <div class="section-title" id="meetings-lbl" style="display:none">Today's Meetings</div>
+  <nav id="meetings" style="display:none"></nav>
+  <div class="section-title" id="racecard-lbl" style="display:none">Racecard</div>
   <div id="race-overview" style="display:none"></div>
   <div id="ew-notice"     style="display:none"></div>
   <div id="runners"       style="display:none"></div>
@@ -374,40 +419,146 @@ async function loadData() {
     const data = await r.json();
     allRaces = data.races || [];
     if (!allRaces.length) { showState('🏇 No races today. Check back later.'); return; }
-    buildSelector(allRaces);
     setMeta(data.date, data.generated_at);
-    const nowM = new Date().getHours()*60 + new Date().getMinutes();
-    let pick = allRaces[0].id;
-    for (const r of allRaces) {
-      const [h,m] = r.time.split(':').map(Number);
-      if (h*60+m >= nowM) { pick = r.id; break; }
-    }
-    selectRace(pick);
+    renderMeetings(allRaces);
+    renderNextUp();
+    const next = findNextRace();
+    selectRace(next ? next.id : allRaces[allRaces.length-1].id);
   } catch(e) {
     showState('⚠ Could not load race data.<br><small>' + esc(e.message) + '</small>');
   }
 }
 
-function buildSelector(races) {
-  const sel = document.getElementById('race-select');
-  sel.innerHTML = '';
+/* ── TIME HELPERS ── */
+function raceMins(r) { const [h,m] = r.time.split(':').map(Number); return h*60+m; }
+function nowMins()   { const n = new Date(); return n.getHours()*60 + n.getMinutes(); }
+function findNextRace() {
+  const nm = nowMins();
+  let next = null;
+  for (const r of allRaces) {
+    if (raceMins(r) >= nm && (!next || raceMins(r) < raceMins(next))) next = r;
+  }
+  return next;
+}
+function countdownStr(r) {
+  const diff = raceMins(r) - nowMins();
+  if (diff <= 0) return 'Off now';
+  const h = Math.floor(diff/60), m = diff%60;
+  return 'in ' + (h ? h + 'h ' : '') + m + 'm';
+}
+
+/* ── MEETINGS GRID ── */
+function renderMeetings(races) {
+  const el = document.getElementById('meetings');
+  el.innerHTML = '';
+  const nm = nowMins();
+  const next = findNextRace();
   const byCourse = {};
   for (const r of races) (byCourse[r.course] = byCourse[r.course]||[]).push(r);
-  for (const [course, list] of Object.entries(byCourse)) {
-    const g = document.createElement('optgroup');
-    g.label = course;
-    for (const r of list) {
-      const o = document.createElement('option');
-      o.value = r.id;
-      const horses = r.runners.slice(0,3).map(h=>h.horse).join(', ');
-      const more = r.runners.length > 3 ? ' +' + (r.runners.length-3) : '';
-      o.textContent = r.time + '  —  ' + horses + more;
-      g.appendChild(o);
-    }
-    sel.appendChild(g);
-  }
-  sel.onchange = () => selectRace(sel.value);
+  Object.entries(byCourse).forEach(([course, list], idx) => {
+    list.sort((a,b) => raceMins(a) - raceMins(b));
+    const card = document.createElement('div');
+    card.className = `meet-card fade s${Math.min(idx+1,8)}`;
+    const going = list[0].going ? `<div class="meet-going">Going: ${esc(list[0].going)}</div>` : '';
+    card.innerHTML = `
+      <div class="meet-hdr">
+        <span class="meet-name">${esc(course)}</span>
+        <span class="meet-sub">${list.length} races · ${esc(list[0].time)}–${esc(list[list.length-1].time)}</span>
+      </div>
+      ${going}
+      <div class="meet-times">
+        ${list.map(r => {
+          const cls = ['time-chip'];
+          if (raceMins(r) < nm) cls.push('past');
+          if (next && r.id === next.id) cls.push('next');
+          return `<button class="${cls.join(' ')}" data-rid="${esc(r.id)}" onclick="selectRace('${esc(r.id)}', true)" title="${esc(r.title)}">${esc(r.time)}</button>`;
+        }).join('')}
+      </div>`;
+    el.appendChild(card);
+  });
 }
+
+function updateChipStates() {
+  const nm = nowMins();
+  const next = findNextRace();
+  document.querySelectorAll('.time-chip').forEach(chip => {
+    const race = allRaces.find(r => r.id === chip.dataset.rid);
+    if (!race) return;
+    chip.classList.toggle('past', raceMins(race) < nm);
+    chip.classList.toggle('next', !!next && race.id === next.id);
+  });
+}
+
+/* ── NEXT UP HERO ── */
+let nextUpId = null;
+function renderNextUp() {
+  const el = document.getElementById('next-up');
+  const next = findNextRace();
+  if (!next) {
+    nextUpId = null;
+    el.innerHTML = `
+      <div>
+        <span id="nu-label">Next race</span>
+        <div id="nu-course" style="margin-top:.6rem">That's a wrap 🏁</div>
+        <div id="nu-title">All of today's races have started. Check the Accuracy panel tomorrow to see how the picks did.</div>
+      </div>`;
+    return;
+  }
+  nextUpId = next.id;
+  const bets = topBets(next);
+  el.innerHTML = `
+    <div>
+      <span id="nu-label"><span class="ldot"></span>Next race</span>
+      <div id="nu-time">${esc(next.time)}</div>
+      <div id="nu-countdown">${countdownStr(next)}</div>
+      <div id="nu-course">${esc(next.course)}</div>
+      <div id="nu-title">${esc(next.title)}</div>
+      <div id="nu-meta">
+        ${pill('Dist', next.distance)}${pill('Going', next.going)}${pill('Runners', next.num_runners)}
+      </div>
+      <button id="nu-view" onclick="selectRace('${esc(next.id)}', true)">View full racecard →</button>
+    </div>
+    <div id="nu-bets">
+      <div class="nu-bets-title">Top 3 suggested bets</div>
+      ${bets.map((b, i) => {
+        const rec  = b.runner.recommendation || {};
+        const type = (rec.type||'Skip').toLowerCase();
+        const cls  = type === 'eachway' ? 'ew' : type;
+        return `<div class="nu-bet" onclick="selectRace('${esc(next.id)}', true)">
+          <span class="nu-rank">${i+1}</span>
+          <div class="nu-bet-info">
+            <div class="nu-bet-horse">${esc(b.runner.horse)}</div>
+            <div class="nu-bet-sub">${b.runner.jockey ? '🏇 ' + esc(b.runner.jockey) + ' · ' : ''}Score ${b.runner.score||0}/100</div>
+          </div>
+          <span class="nu-bet-badge"><span class="rec-badge ${cls}" style="font-size:.58rem;padding:.2rem .5rem"><span class="rdot"></span>${esc(rec.label||'Skip')}</span></span>
+          <span class="nu-bet-odds">${esc(b.runner.odds_str||'SP')}</span>
+        </div>`;
+      }).join('')}
+    </div>`;
+}
+
+function topBets(race) {
+  const ranked = [...race.runners].sort((a,b) => (b.score||0) - (a.score||0));
+  const backed = ranked.filter(r => r.recommendation && r.recommendation.type !== 'Skip');
+  const picks = backed.slice(0,3);
+  for (const r of ranked) {
+    if (picks.length >= 3) break;
+    if (!picks.includes(r)) picks.push(r);
+  }
+  return picks.map(runner => ({ runner }));
+}
+
+/* Keep countdown + chip states fresh */
+setInterval(() => {
+  if (!allRaces.length) return;
+  const next = findNextRace();
+  if ((next ? next.id : null) !== nextUpId) { renderNextUp(); }
+  else if (next) {
+    const cd = document.getElementById('nu-countdown');
+    if (cd) cd.textContent = countdownStr(next);
+  }
+  updateChipStates();
+}, 30 * 1000);
 
 function setMeta(dateStr, genAt) {
   const d = new Date(dateStr+'T12:00:00');
@@ -420,18 +571,20 @@ function setMeta(dateStr, genAt) {
   }
 }
 
-function selectRace(id) {
-  document.getElementById('race-select').value = id;
+function selectRace(id, scroll = false) {
   const race = allRaces.find(r=>r.id===id);
   if (!race) return;
+  document.querySelectorAll('.time-chip').forEach(c =>
+    c.classList.toggle('selected', c.dataset.rid === id));
   renderOverview(race);
   renderEWNotice(race);
   renderRunners(race);
   renderLegend();
   renderModelInfo();
-  ['race-overview','ew-notice','runners','legend','model-info'].forEach(i =>
+  ['next-up','meetings-lbl','meetings','racecard-lbl','race-overview','ew-notice','runners','legend','model-info'].forEach(i =>
     document.getElementById(i).style.display = '');
   document.getElementById('state').style.display = 'none';
+  if (scroll) document.getElementById('racecard-lbl').scrollIntoView({behavior:'smooth', block:'start'});
 }
 
 function renderOverview(race) {
@@ -567,7 +720,7 @@ function silkEl(url, jockey, idx) {
 function showState(html) {
   document.getElementById('state').innerHTML = html;
   document.getElementById('state').style.display = 'block';
-  ['race-overview','ew-notice','runners','legend','model-info'].forEach(i =>
+  ['next-up','meetings-lbl','meetings','racecard-lbl','race-overview','ew-notice','runners','legend','model-info'].forEach(i =>
     document.getElementById(i).style.display = 'none');
 }
 
