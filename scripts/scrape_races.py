@@ -197,6 +197,22 @@ JOCKEY_RATINGS = {
 
 DEFAULT_JOCKEY_RATING = 6.0  # unknown jockeys
 
+
+def _norm_jockey(name: str) -> str:
+    """Normalise a jockey name for rating lookup.
+
+    The feed and the rating table disagree on punctuation — e.g. the feed
+    sends "Jonjo O'Neill Jr." (trailing period) while the table has
+    "Jonjo O'Neill Jr". Stripping periods and collapsing whitespace lets
+    initial-style names ("C. T. Keane") match too, so these no longer
+    silently fall through to the default rating.
+    """
+    return re.sub(r"\s+", " ", re.sub(r"\.", "", html.unescape(name or ""))).strip().lower()
+
+
+# Normalised view of the rating table, built once for fast lookup.
+JOCKEY_RATINGS_NORM = {_norm_jockey(k): v for k, v in JOCKEY_RATINGS.items()}
+
 # ─────────────────────────────────────────────────────────────
 # COURSE ACCURACY COEFFICIENTS
 # Derived from historical prediction accuracy per course.
@@ -483,7 +499,7 @@ def score_runner(runner: dict, field_size: int, going: str,
     consistency_score = max(0, consistency_score)
 
     # ── D) Jockey quality (0–100) ────────────────────────────
-    jockey_raw = JOCKEY_RATINGS.get(jockey, DEFAULT_JOCKEY_RATING)
+    jockey_raw = JOCKEY_RATINGS_NORM.get(_norm_jockey(jockey), DEFAULT_JOCKEY_RATING)
     jockey_score = (jockey_raw / 10) * 100
 
     # ── E) Weight score (0–100) ──────────────────────────────
@@ -599,8 +615,12 @@ def make_recommendation(score: float, odds_dec: Optional[float],
     # Suppress win bets on horses with high DNF rate (>40%)
     high_dnf = form["dnf_rate"] > 0.40
 
-    # Compress scores above 65 — analysis shows >65 scores have worse Win accuracy
-    effective_score = score if score <= 65 else 65 + (score - 65) * 0.5
+    # No score compression: 61-day calibration (scripts/calibrate.py) shows
+    # win-rate rises monotonically with score — the 60-69 / 70-79 / 80-89
+    # bands hit 23% / 32% / 40%, the model's BEST picks. An earlier rule
+    # compressed scores above 65 on the opposite (and incorrect) assumption,
+    # which demoted genuine Strong Win Bets.
+    effective_score = score
 
     # Market disagrees: long odds despite high score — trust the market on Win bets
     market_disagrees = bool(odds_dec and score > 62 and odds_dec > 8.0)
@@ -794,7 +814,10 @@ def scrape_race(meta):
     runners = []
     for ride in race.get("rides", []):
         horse = ride.get("horse", {})
-        horse_raw = horse.get("name", "")
+        # Sporting Life's embedded JSON HTML-encodes horse names (e.g.
+        # "D&#39;Alboni"); decode so stored names are clean and match the
+        # results feed next-day. Jockey/trainer names arrive already decoded.
+        horse_raw = html.unescape(horse.get("name", "") or "")
         country_m  = re.search(r"\(([A-Z]{2,3})\)\s*$", horse_raw)
         country    = country_m.group(1) if country_m else "GB"
         horse_name = re.sub(r"\s*\([A-Z]{2,3}\)\s*$", "", horse_raw).strip()

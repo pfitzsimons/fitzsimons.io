@@ -818,7 +818,9 @@ function renderAccuracy(log) {
 
     const d    = new Date(day.date + 'T12:00:00');
     const dateStr = d.toLocaleDateString('en-GB', {weekday:'short', day:'numeric', month:'short'});
-    const counts  = `${s.win_correct}/${s.win_total}W · ${s.ew_correct}/${s.ew_total}EW`;
+    const excl    = s.excluded_total || 0;
+    const exclNote = excl ? ` · ${excl} n/c` : '';
+    const counts  = `${s.win_correct}/${s.win_total}W · ${s.ew_correct}/${s.ew_total}EW${exclNote}`;
 
     const el = document.createElement('div');
     el.className = 'acc-day';
@@ -860,11 +862,14 @@ function buildDayRaces(races) {
       } else if (r.outcome === 'ew_win')      { icon = '★'; iconCol = 'var(--green)';  rowCls = 'correct'; }
       else if (r.outcome === 'ew_placed')     { icon = '✓'; iconCol = 'var(--amber)';  rowCls = 'correct'; }
       else if (r.outcome === 'correct')       { icon = '✓'; iconCol = 'var(--green)'; rowCls = 'correct'; }
+      else if (r.dnf)                         { icon = 'PU'; iconCol = 'var(--red)';   rowCls = 'incorrect'; }
       else if (r.outcome === 'incorrect')     { icon = '✗'; iconCol = 'var(--red)';   rowCls = 'incorrect'; }
       else if (r.outcome === 'non_runner')    { icon = 'NR'; iconCol = 'var(--dim)';  rowCls = 'dnf'; }
+      else if (r.outcome === 'unmatched')     { icon = '?';  iconCol = 'var(--dim)';  rowCls = 'dnf'; }
       else if (r.outcome === 'no_result')     { icon = '—';  iconCol = 'var(--dim)';  rowCls = 'dnf'; }
       else                                    { icon = '—';  iconCol = 'var(--dim)';  rowCls = 'dnf'; }
-      const posStr  = r.actual_pos ? ordinal(r.actual_pos)
+      const posStr  = r.dnf ? (r.casualty || 'DNF')
+                    : r.actual_pos ? ordinal(r.actual_pos)
                     : r.outcome === 'non_runner' ? 'NR'
                     : r.outcome === 'no_result'  ? 'void' : '—';
       const posCls  = r.actual_pos === 1 ? 'p1' : r.actual_pos <= 3 ? 'placed' : '';
@@ -872,7 +877,7 @@ function buildDayRaces(races) {
       const dimStyle = !r.primary ? 'opacity:.4' : '';
       const titleAttr = !r.primary ? 'title="Secondary pick — not counted in accuracy"' : '';
       return `<div class="acc-runner ${rowCls}" style="${dimStyle}" ${titleAttr}>
-        <span class="acc-icon" style="color:${iconCol};font-size:${r.outcome==='non_runner'?'.5rem':'.75rem'}">${icon}</span>
+        <span class="acc-icon" style="color:${iconCol};font-size:${(r.outcome==='non_runner'||r.dnf)?'.5rem':'.75rem'}">${icon}</span>
         <span class="acc-hname">${esc(r.horse)}</span>
         <span class="acc-rec-tag ${recCls}">${r.rec === 'EachWay' ? 'EW' : 'WIN'}</span>
         <span class="acc-pos ${posCls}">${posStr}</span>
