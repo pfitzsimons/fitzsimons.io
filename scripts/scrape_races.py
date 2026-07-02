@@ -197,6 +197,22 @@ JOCKEY_RATINGS = {
 
 DEFAULT_JOCKEY_RATING = 6.0  # unknown jockeys
 
+
+def _norm_jockey(name: str) -> str:
+    """Normalise a jockey name for rating lookup.
+
+    The feed and the rating table disagree on punctuation — e.g. the feed
+    sends "Jonjo O'Neill Jr." (trailing period) while the table has
+    "Jonjo O'Neill Jr". Stripping periods and collapsing whitespace lets
+    initial-style names ("C. T. Keane") match too, so these no longer
+    silently fall through to the default rating.
+    """
+    return re.sub(r"\s+", " ", re.sub(r"\.", "", html.unescape(name or ""))).strip().lower()
+
+
+# Normalised view of the rating table, built once for fast lookup.
+JOCKEY_RATINGS_NORM = {_norm_jockey(k): v for k, v in JOCKEY_RATINGS.items()}
+
 # ─────────────────────────────────────────────────────────────
 # COURSE ACCURACY COEFFICIENTS
 # Derived from historical prediction accuracy per course.
@@ -219,6 +235,61 @@ COURSE_COEFFICIENTS = {
     "Kelso":        1.02,
     "Hereford":     1.02,
 }
+
+
+# ─────────────────────────────────────────────────────────────
+# MODEL-VS-MARKET READOUT
+# Turn the raw score into a calibrated win-probability and show it next to
+# the market's implied probability. This is INFORMATIONAL only: a 61-day
+# backtest (scripts/backtest_value.py) showed that betting on the model's
+# "value" disagreements with the market DEGRADES ROI — the market's prices
+# are sharper than the model's probabilities, so the model's edge lies in
+# agreeing with the market on strong favourites, not in beating the price.
+# The readout is kept so the model's confidence vs the market is visible.
+# ─────────────────────────────────────────────────────────────
+
+# Score→win-probability calibration: band centre → observed win rate,
+# from the 61-day backtest. Linearly interpolated. The 90-99 point is held
+# at the 80-89 value (its own sample was tiny and noisy).
+_CALIB = [
+    (5, 0.037), (15, 0.047), (25, 0.048), (35, 0.082), (45, 0.127),
+    (55, 0.156), (65, 0.231), (75, 0.316), (85, 0.401), (95, 0.401),
+]
+
+
+def score_to_winprob(score: float) -> float:
+    """Map a 0–100 score to a calibrated win probability."""
+    if score <= _CALIB[0][0]:
+        return _CALIB[0][1]
+    if score >= _CALIB[-1][0]:
+        return _CALIB[-1][1]
+    for (x0, y0), (x1, y1) in zip(_CALIB, _CALIB[1:]):
+        if x0 <= score <= x1:
+            return y0 + (y1 - y0) * (score - x0) / (x1 - x0)
+    return _CALIB[-1][1]
+
+
+def compute_value(runners: list) -> None:
+    """
+    Attach model-vs-market metrics to each runner (mutates in place):
+      _model_prob  — calibrated win prob, normalised so the field sums to 1
+      _market_prob — implied prob from odds, overround-removed (sums to 1)
+
+    Runners must already carry a "_score" and an "odds_dec". These feed the
+    informational readout only — recommendations are not gated on them.
+    """
+    raw = [score_to_winprob(r.get("_score", 0)) for r in runners]
+    tot = sum(raw) or 1.0
+
+    mkt = []
+    for r in runners:
+        od = r.get("odds_dec")
+        mkt.append(1.0 / od if od and od > 1 else 0.0)
+    mtot = sum(mkt) or 1.0
+
+    for r, rw, mk in zip(runners, raw, mkt):
+        r["_model_prob"]  = rw / tot
+        r["_market_prob"] = mk / mtot if mtot else 0.0
 
 
 # ─────────────────────────────────────────────────────────────
@@ -483,7 +554,7 @@ def score_runner(runner: dict, field_size: int, going: str,
     consistency_score = max(0, consistency_score)
 
     # ── D) Jockey quality (0–100) ────────────────────────────
-    jockey_raw = JOCKEY_RATINGS.get(jockey, DEFAULT_JOCKEY_RATING)
+    jockey_raw = JOCKEY_RATINGS_NORM.get(_norm_jockey(jockey), DEFAULT_JOCKEY_RATING)
     jockey_score = (jockey_raw / 10) * 100
 
     # ── E) Weight score (0–100) ──────────────────────────────
@@ -570,12 +641,11 @@ def _post_process_win_bets(runners: list, field_size: int) -> None:
         if win_given:
             score    = runner["score"]
             odds_dec = runner.get("odds_dec")
-            if places >= 2 and odds_dec and odds_dec <= 16.0:
-                label = "Each Way" if score >= 58 else "Each Way (Speculative)"
+            if score >= 58 and places >= 2 and odds_dec and odds_dec <= 16.0:
                 runner["recommendation"] = {
                     "type":       "EachWay",
                     "confidence": min(75, int(score)),
-                    "label":      label,
+                    "label":      "Each Way",
                     "reasoning":  rec["reasoning"],
                 }
             else:
@@ -590,19 +660,33 @@ def _post_process_win_bets(runners: list, field_size: int) -> None:
 
 
 def make_recommendation(score: float, odds_dec: Optional[float],
-                         field_size: int, form: dict) -> dict:
+                         field_size: int, form: dict,
+                         ev: Optional[float] = None) -> dict:
     """
     Convert final score + context into a recommendation.
+
+    NB: recommendations are NOT value-gated. A 61-day backtest
+    (scripts/backtest_value.py) showed that betting only where the model's
+    probability beats the market price *degraded* ROI: the model's edge is in
+    AGREEING with the market on strong favourites, and its "value"
+    disagreements are mostly the model over-rating a horse. The `ev` argument
+    is accepted for the informational model-vs-market readout only.
     """
     places = ew_places(field_size)
 
     # Suppress win bets on horses with high DNF rate (>40%)
     high_dnf = form["dnf_rate"] > 0.40
 
-    # Compress scores above 65 — analysis shows >65 scores have worse Win accuracy
-    effective_score = score if score <= 65 else 65 + (score - 65) * 0.5
+    # No score compression: 61-day calibration (scripts/calibrate.py) shows
+    # win-rate rises monotonically with score — the 60-69 / 70-79 / 80-89
+    # bands hit 23% / 32% / 40%, the model's BEST picks. An earlier rule
+    # compressed scores above 65 on the opposite (and incorrect) assumption,
+    # which demoted genuine Strong Win Bets.
+    effective_score = score
 
-    # Market disagrees: long odds despite high score — trust the market on Win bets
+    # Longshot guardrail: a high score at long odds means the model disagrees
+    # with the market — and the backtest shows the market is usually right, so
+    # don't fire a Win bet there.
     market_disagrees = bool(odds_dec and score > 62 and odds_dec > 8.0)
 
     if effective_score >= 72 and not high_dnf and not market_disagrees and odds_dec and odds_dec <= 5.0:
@@ -619,8 +703,11 @@ def make_recommendation(score: float, odds_dec: Optional[float],
             "label":      "Win Bet",
             "reasoning":  _reasoning(score, odds_dec, form, "win"),
         }
-    elif score >= 50 and places >= 2 and odds_dec and odds_dec <= 16.0:
-        label = "Each Way" if score >= 58 else "Each Way (Speculative)"
+    elif score >= 58 and places >= 2 and odds_dec and odds_dec <= 16.0:
+        # Each-Way floor raised from 50 to 58: the old speculative band
+        # (score 50-57) returned -18.6% ROI over 61 days — the worst tier —
+        # so those selections are now Skipped rather than recommended.
+        label = "Each Way"
         return {
             "type":       "EachWay",
             "confidence": min(75, int(score)),
@@ -794,7 +881,10 @@ def scrape_race(meta):
     runners = []
     for ride in race.get("rides", []):
         horse = ride.get("horse", {})
-        horse_raw = horse.get("name", "")
+        # Sporting Life's embedded JSON HTML-encodes horse names (e.g.
+        # "D&#39;Alboni"); decode so stored names are clean and match the
+        # results feed next-day. Jockey/trainer names arrive already decoded.
+        horse_raw = html.unescape(horse.get("name", "") or "")
         country_m  = re.search(r"\(([A-Z]{2,3})\)\s*$", horse_raw)
         country    = country_m.group(1) if country_m else "GB"
         horse_name = re.sub(r"\s*\([A-Z]{2,3}\)\s*$", "", horse_raw).strip()
@@ -836,6 +926,9 @@ def scrape_race(meta):
         for runner in runners:
             runner["_score"] = max(0, min(100, runner["_score"] * course_factor))
 
+    # Value metrics (model prob vs market price) — needs the whole field.
+    compute_value(runners)
+
     # Sort by score descending (best recommendation first)
     runners.sort(key=lambda r: r["_score"], reverse=True)
 
@@ -845,9 +938,17 @@ def scrape_race(meta):
         score         = runner.pop("_score")
         components    = runner.pop("_components")
         weight_lbs    = runner.pop("_weight_lbs", None)
+        model_prob    = runner.pop("_model_prob", None)
+        market_prob   = runner.pop("_market_prob", None)
 
         runner["score"]      = round(score, 1)
         runner["components"] = components
+        runner["value"] = {
+            "model_prob":  round(model_prob, 3) if model_prob is not None else None,
+            "market_prob": round(market_prob, 3) if market_prob is not None else None,
+            "edge":        round((model_prob - market_prob), 3)
+                           if (model_prob is not None and market_prob is not None) else None,
+        }
         runner["recommendation"] = make_recommendation(
             score, runner["odds_dec"], n, form_analysis
         )
