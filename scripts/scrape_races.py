@@ -586,12 +586,11 @@ def _post_process_win_bets(runners: list, field_size: int) -> None:
         if win_given:
             score    = runner["score"]
             odds_dec = runner.get("odds_dec")
-            if places >= 2 and odds_dec and odds_dec <= 16.0:
-                label = "Each Way" if score >= 58 else "Each Way (Speculative)"
+            if score >= 58 and places >= 2 and odds_dec and odds_dec <= 16.0:
                 runner["recommendation"] = {
                     "type":       "EachWay",
                     "confidence": min(75, int(score)),
-                    "label":      label,
+                    "label":      "Each Way",
                     "reasoning":  rec["reasoning"],
                 }
             else:
@@ -639,8 +638,11 @@ def make_recommendation(score: float, odds_dec: Optional[float],
             "label":      "Win Bet",
             "reasoning":  _reasoning(score, odds_dec, form, "win"),
         }
-    elif score >= 50 and places >= 2 and odds_dec and odds_dec <= 16.0:
-        label = "Each Way" if score >= 58 else "Each Way (Speculative)"
+    elif score >= 58 and places >= 2 and odds_dec and odds_dec <= 16.0:
+        # Each-Way floor raised from 50 to 58: the old speculative band
+        # (score 50-57) returned -18.6% ROI over 61 days — the worst tier —
+        # so those selections are now Skipped rather than recommended.
+        label = "Each Way"
         return {
             "type":       "EachWay",
             "confidence": min(75, int(score)),
