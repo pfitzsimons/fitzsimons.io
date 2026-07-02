@@ -128,6 +128,7 @@
     .nu-bet-sub { font-family: var(--mono); font-size: .6rem; color: var(--dim); margin-top: .12rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .nu-bet-odds { font-family: var(--display); font-size: 1.25rem; color: var(--gold); flex-shrink: 0; }
     .nu-bet-badge { display: contents; }
+    .nu-bet-rec { display: none; }
 
     /* ── MEETINGS GRID ── */
     .section-title { font-family: var(--mono); font-size: .63rem; color: var(--dim); letter-spacing: .13em; text-transform: uppercase; margin-bottom: .6rem; }
@@ -343,8 +344,26 @@
       #header { flex-direction: column; align-items: flex-start; }
       #header-meta { margin-left: 0; flex-wrap: wrap; }
       #next-up { grid-template-columns: 1fr; }
-      .nu-bet { flex-wrap: wrap; }
-      .nu-bet-badge { display: block; order: 4; flex-basis: 100%; padding-left: calc(20px + .7rem); }
+
+      /* Compact the Next Up hero: countdown beside the label, time & course share a row, drop the long race name */
+      #next-up > div:first-child {
+        display: grid; grid-template-columns: auto 1fr;
+        column-gap: .55rem; row-gap: .12rem; align-items: baseline;
+      }
+      #nu-label     { grid-row: 1; grid-column: 1; }
+      #nu-countdown { grid-row: 1; grid-column: 2; margin: 0; }
+      #nu-time      { grid-row: 2; grid-column: 1; margin-top: .15rem; }
+      #nu-course    { grid-row: 2; grid-column: 2; margin: 0; }
+      #nu-title     { grid-column: 1 / -1; }
+      #nu-meta      { grid-row: 3; grid-column: 1 / -1; margin-top: .55rem; }
+      #nu-view      { grid-row: 4; grid-column: 1 / -1; justify-self: start; margin-top: .5rem; }
+      .nu-race-name { display: none; }
+      /* Dist & Runners (both short) share a row; the longer Going wraps below */
+      #nu-meta .pill:nth-child(2) { order: 1; }
+      /* Bets: full horse name on top row; recommendation replaces jockey in the sub-line */
+      .nu-bet-people { display: none; }
+      .nu-bet-rec    { display: inline; }
+      .nu-bet-badge  { display: none; }
       .rcard { grid-template-columns: 48px 1fr; }
       .rright { grid-column: 1/-1; flex-direction: row; align-items: center; justify-content: space-between; }
       #race-overview { grid-template-columns: 1fr; }
@@ -521,7 +540,7 @@ function renderNextUp() {
       <div id="nu-time">${esc(next.time)}</div>
       <div id="nu-countdown">${countdownStr(next)}</div>
       <div id="nu-course">${esc(next.course)}</div>
-      <div id="nu-title">${esc(next.title)}</div>
+      <div id="nu-title" class="nu-race-name">${esc(next.title)}</div>
       <div id="nu-meta">
         ${pill('Dist', next.distance)}${pill('Going', next.going)}${pill('Runners', next.num_runners)}
       </div>
@@ -537,7 +556,7 @@ function renderNextUp() {
           <span class="nu-rank">${i+1}</span>
           <div class="nu-bet-info">
             <div class="nu-bet-horse">${esc(b.runner.horse)}</div>
-            <div class="nu-bet-sub">${b.runner.jockey ? '🏇 ' + esc(b.runner.jockey) + ' · ' : ''}Score ${b.runner.score||0}/100</div>
+            <div class="nu-bet-sub"><span class="nu-bet-people">${b.runner.jockey ? '🏇 ' + esc(b.runner.jockey) + ' · ' : ''}</span><span class="nu-bet-rec"><span class="rec-badge ${cls}" style="font-size:.56rem;padding:.16rem .44rem"><span class="rdot"></span>${esc(rec.label||'Skip')}</span> · </span>${b.runner.score||0}%</div>
           </div>
           <span class="nu-bet-badge"><span class="rec-badge ${cls}" style="font-size:.58rem;padding:.2rem .5rem"><span class="rdot"></span>${esc(rec.label||'Skip')}</span></span>
           <span class="nu-bet-odds">${esc(b.runner.odds_str||'SP')}</span>
@@ -666,7 +685,7 @@ function renderRunners(race) {
         ${runner.odds_dec ? `<div class="odds-dec">${runner.odds_dec.toFixed(2)} dec</div>` : ''}
         <span class="rec-badge ${cls}"><span class="rdot"></span>${esc(rec.label||'Skip')}</span>
         <div class="conf-bar ${cls}"><div class="conf-fill" style="width:${rec.confidence||0}%"></div></div>
-        <div class="total-score">Score <span>${runner.score||0}</span>/100</div>
+        <div class="total-score"><span>${runner.score||0}</span>%</div>
       </div>`;
     el.appendChild(card);
   });
