@@ -471,7 +471,7 @@ function renderMeetings(races) {
           const cls = ['time-chip'];
           if (raceMins(r) < nm) cls.push('past');
           if (next && r.id === next.id) cls.push('next');
-          return `<button class="${cls.join(' ')}" data-rid="${esc(r.id)}" onclick="selectRace('${esc(r.id)}', true)" title="${esc(r.title)}">${esc(r.time)}</button>`;
+          return `<button class="${cls.join(' ')}" data-rid="${esc(r.id)}" onclick="selectRace('${esc(r.id)}', false)" title="${esc(r.title)}">${esc(r.time)}</button>`;
         }).join('')}
       </div>`;
     el.appendChild(card);
