@@ -131,23 +131,31 @@
 
     /* ── MEETINGS GRID ── */
     .section-title { font-family: var(--mono); font-size: .63rem; color: var(--dim); letter-spacing: .13em; text-transform: uppercase; margin-bottom: .6rem; }
-    #meetings { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: .8rem; margin-bottom: 1.6rem; }
-    .meet-card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: .85rem 1rem; }
-    .meet-hdr { display: flex; align-items: baseline; justify-content: space-between; gap: .6rem; margin-bottom: .55rem; }
-    .meet-name { font-family: var(--display); font-size: 1.3rem; letter-spacing: .06em; }
-    .meet-sub { font-family: var(--mono); font-size: .6rem; color: var(--dim); white-space: nowrap; }
-    .meet-going { font-family: var(--mono); font-size: .6rem; color: var(--dim); margin: -.35rem 0 .55rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-    .meet-times { display: flex; flex-wrap: wrap; gap: .35rem; }
+    #meetings {
+      display: flex; flex-wrap: nowrap; gap: .45rem; margin-bottom: 1.6rem;
+      overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin; padding-bottom: .5rem;
+      scroll-snap-type: x proximity; overscroll-behavior-x: contain;
+    }
+    #meetings::-webkit-scrollbar { height: 6px; }
+    #meetings::-webkit-scrollbar-thumb { background: var(--line); border-radius: 3px; }
     .time-chip {
-      font-family: var(--mono); font-size: .72rem; padding: .32rem .55rem;
+      display: inline-flex; align-items: baseline; gap: .45rem; flex: 0 0 auto;
+      scroll-snap-align: start;
+      font-family: var(--mono); font-size: .72rem; padding: .34rem .6rem;
       border: 1px solid var(--line); border-radius: 6px;
       background: transparent; color: var(--cream); cursor: pointer; transition: all .15s;
     }
+    .chip-time { font-weight: 500; }
+    .chip-course { font-size: .62rem; color: var(--dim); letter-spacing: .04em; text-transform: uppercase; }
     .time-chip:hover { border-color: var(--gold); color: var(--gold); }
+    .time-chip:hover .chip-course { color: var(--gold); }
     .time-chip.past { opacity: .35; }
     .time-chip.past:hover { opacity: .75; }
     .time-chip.next { border-color: rgba(76,201,122,.55); color: var(--green); }
+    .time-chip.next .chip-course { color: var(--green); }
     .time-chip.selected { background: var(--gold); border-color: var(--gold); color: var(--turf); font-weight: 500; opacity: 1; }
+    .time-chip.selected .chip-course { color: var(--turf); }
 
     /* ── RACE OVERVIEW ── */
     #race-overview {
@@ -453,29 +461,30 @@ function renderMeetings(races) {
   el.innerHTML = '';
   const nm = nowMins();
   const next = findNextRace();
-  const byCourse = {};
-  for (const r of races) (byCourse[r.course] = byCourse[r.course]||[]).push(r);
-  Object.entries(byCourse).forEach(([course, list], idx) => {
-    list.sort((a,b) => raceMins(a) - raceMins(b));
-    const card = document.createElement('div');
-    card.className = `meet-card fade s${Math.min(idx+1,8)}`;
-    const going = list[0].going ? `<div class="meet-going">Going: ${esc(list[0].going)}</div>` : '';
-    card.innerHTML = `
-      <div class="meet-hdr">
-        <span class="meet-name">${esc(course)}</span>
-        <span class="meet-sub">${list.length} races · ${esc(list[0].time)}–${esc(list[list.length-1].time)}</span>
-      </div>
-      ${going}
-      <div class="meet-times">
-        ${list.map(r => {
-          const cls = ['time-chip'];
-          if (raceMins(r) < nm) cls.push('past');
-          if (next && r.id === next.id) cls.push('next');
-          return `<button class="${cls.join(' ')}" data-rid="${esc(r.id)}" onclick="selectRace('${esc(r.id)}', false)" title="${esc(r.title)}">${esc(r.time)}</button>`;
-        }).join('')}
-      </div>`;
-    el.appendChild(card);
-  });
+  const sorted = [...races].sort((a, b) => raceMins(a) - raceMins(b));
+  el.innerHTML = sorted.map(r => {
+    const cls = ['time-chip'];
+    if (raceMins(r) < nm) cls.push('past');
+    if (next && r.id === next.id) cls.push('next');
+    return `<button class="${cls.join(' ')}" data-rid="${esc(r.id)}" onclick="selectRace('${esc(r.id)}', false)" title="${esc(r.title)}">`
+      + `<span class="chip-time">${esc(r.time)}</span>`
+      + `<span class="chip-course">${esc(r.course)}</span>`
+      + `</button>`;
+  }).join('');
+  // Defer until after selectRace() reveals the strip, so it has a measurable width.
+  requestAnimationFrame(scrollMeetingsToActive);
+}
+
+/* Bring the next (or most recent) race into view within the horizontal strip,
+   without scrolling the whole page. */
+function scrollMeetingsToActive(smooth) {
+  const el = document.getElementById('meetings');
+  const chip = el.querySelector('.time-chip.next')
+    || el.querySelector('.time-chip.selected')
+    || [...el.querySelectorAll('.time-chip.past')].pop();
+  if (!chip) return;
+  const left = chip.offsetLeft - (el.clientWidth - chip.offsetWidth) / 2;
+  el.scrollTo({ left: Math.max(0, left), behavior: smooth ? 'smooth' : 'auto' });
 }
 
 function updateChipStates() {
