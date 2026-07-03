@@ -13,7 +13,7 @@ Multi-factor scoring model:
   7. Recency penalty       — long abs gaps (/) penalised
   8. DNF penalty           — P (pulled up), F (fell), U (unseated), B (bolted)
 
-Final score 0–100 → label + confidence + Win/EachWay/Skip
+Final score 0–100 → label + confidence + Win/Skip
 """
 
 import argparse
@@ -649,31 +649,21 @@ def _post_process_win_bets(runners: list, field_size: int) -> None:
     """Ensure at most one Win recommendation per race — the highest-scoring qualifier.
 
     Runners must already be sorted by score descending. Extra Win picks are
-    demoted to Each Way (or Skip if the race has too few places).
+    demoted to Skip (the Each-Way tier was retired — see make_recommendation).
     """
-    places = ew_places(field_size)
     win_given = False
     for runner in runners:
         rec = runner["recommendation"]
         if rec["type"] != "Win":
             continue
         if win_given:
-            score    = runner["score"]
-            odds_dec = runner.get("odds_dec")
-            if score >= 58 and places >= 2 and odds_dec and odds_dec <= 16.0:
-                runner["recommendation"] = {
-                    "type":       "EachWay",
-                    "confidence": min(75, int(score)),
-                    "label":      "Each Way",
-                    "reasoning":  rec["reasoning"],
-                }
-            else:
-                runner["recommendation"] = {
-                    "type":       "Skip",
-                    "confidence": max(5, int(score * 0.4)),
-                    "label":      "Skip",
-                    "reasoning":  rec["reasoning"],
-                }
+            score = runner["score"]
+            runner["recommendation"] = {
+                "type":       "Skip",
+                "confidence": max(5, int(score * 0.4)),
+                "label":      "Skip",
+                "reasoning":  rec["reasoning"],
+            }
         else:
             win_given = True
 
@@ -691,8 +681,6 @@ def make_recommendation(score: float, odds_dec: Optional[float],
     disagreements are mostly the model over-rating a horse. The `ev` argument
     is accepted for the informational model-vs-market readout only.
     """
-    places = ew_places(field_size)
-
     # Suppress win bets on horses with high DNF rate (>40%)
     high_dnf = form["dnf_rate"] > 0.40
 
@@ -722,18 +710,17 @@ def make_recommendation(score: float, odds_dec: Optional[float],
             "label":      "Win Bet",
             "reasoning":  _reasoning(score, odds_dec, form, "win"),
         }
-    elif score >= 58 and places >= 2 and odds_dec and odds_dec <= 16.0:
-        # Each-Way floor raised from 50 to 58: the old speculative band
-        # (score 50-57) returned -18.6% ROI over 61 days — the worst tier —
-        # so those selections are now Skipped rather than recommended.
-        label = "Each Way"
-        return {
-            "type":       "EachWay",
-            "confidence": min(75, int(score)),
-            "label":      label,
-            "reasoning":  _reasoning(score, odds_dec, form, "ew"),
-        }
     else:
+        # Each-Way tier retired entirely. The 60-day walk-forward backtest
+        # (scripts/backtest_value.py --bootstrap) shows the EW tier returned
+        # -9.1% ROI out-of-sample [90% CI -16.5%, -1.0%], profitable in only
+        # ~3% of day-resamples — a reliable money-loser. Every attempt to
+        # rescue a sub-segment failed OOS: no odds band (-5% to -11%), score
+        # band (-4% to -16%), nor the "short odds + high score" combination
+        # (-9.0%) was profitable. Dropping EW and betting Win only lifts
+        # overall staked ROI from -5.8% to -3.8% without regressing any
+        # retained tier (Strong Win Bet remains the only OOS-profitable tier,
+        # +5.6%). These selections are therefore Skipped, not recommended.
         return {
             "type":       "Skip",
             "confidence": max(5, int(score * 0.4)),
@@ -784,11 +771,7 @@ def _reasoning(score: float, odds_dec: Optional[float],
         if odds_dec <= 3.0:
             parts.append("short price reflects market confidence")
         elif odds_dec <= 6.0:
-            parts.append("each way option also viable")
-
-    # Market caution: model score is high but market has priced long
-    if rec_type == "ew" and odds_dec and odds_dec > 8.0 and score > 62:
-        parts.append("market caution at long odds")
+            parts.append("fair price for a win bet")
 
     return "; ".join(parts) if parts else "insufficient data"
 
@@ -972,7 +955,7 @@ def scrape_race(meta):
             score, runner["odds_dec"], n, form_analysis
         )
 
-    # At most one Win bet per race — demote extras to Each Way
+    # At most one Win bet per race — demote extras to Skip
     _post_process_win_bets(runners, n)
 
     return {

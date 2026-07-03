@@ -172,9 +172,6 @@
     #race-time { font-family: var(--display); font-size: 3rem; letter-spacing: .04em; color: var(--gold); text-align: right; line-height: 1; text-shadow: 0 0 40px rgba(201,168,76,.3); }
     #race-time-lbl { font-family: var(--mono); font-size: .64rem; color: var(--dim); text-align: right; margin-top: .18rem; letter-spacing: .1em; text-transform: uppercase; }
 
-    /* EW NOTICE */
-    #ew-notice { font-family: var(--mono); font-size: .72rem; color: var(--gold); background: rgba(201,168,76,.08); border: 1px solid rgba(201,168,76,.2); border-radius: 6px; padding: .4rem .9rem; margin-bottom: 1rem; display: inline-block; }
-
     /* ── RUNNERS ── */
     #runners { display: flex; flex-direction: column; gap: .5rem; }
     .rcard {
@@ -422,7 +419,6 @@
   <nav id="meetings" style="display:none"></nav>
   <div class="section-title" id="racecard-lbl" style="display:none">Racecard</div>
   <div id="race-overview" style="display:none"></div>
-  <div id="ew-notice"     style="display:none"></div>
   <div id="runners"       style="display:none"></div>
   <div id="legend"        style="display:none"></div>
   <div id="model-info"    style="display:none"></div>
@@ -608,11 +604,10 @@ function selectRace(id, scroll = false) {
   document.querySelectorAll('.time-chip').forEach(c =>
     c.classList.toggle('selected', c.dataset.rid === id));
   renderOverview(race);
-  renderEWNotice(race);
   renderRunners(race);
   renderLegend();
   renderModelInfo();
-  ['next-up','meetings-lbl','meetings','racecard-lbl','race-overview','ew-notice','runners','legend','model-info'].forEach(i =>
+  ['next-up','meetings-lbl','meetings','racecard-lbl','race-overview','runners','legend','model-info'].forEach(i =>
     document.getElementById(i).style.display = '');
   document.getElementById('state').style.display = 'none';
   if (scroll) document.getElementById('racecard-lbl').scrollIntoView({behavior:'smooth', block:'start'});
@@ -638,14 +633,6 @@ function renderOverview(race) {
 function pill(label, val) {
   if (!val) return '';
   return `<span class="pill"><strong>${esc(label)}</strong> ${esc(String(val))}</span>`;
-}
-
-function renderEWNotice(race) {
-  const el = document.getElementById('ew-notice');
-  const p = race.ew_places || 0;
-  el.textContent = p <= 1
-    ? '⚠ Small field — win only (no each way terms)'
-    : `Each Way: pays ${p} places (1/${p<=2?'4':'5'} odds for a place)`;
 }
 
 function renderRunners(race) {
@@ -733,7 +720,6 @@ function renderLegend() {
   document.getElementById('legend').innerHTML = `
     <h3>Key</h3>
     <div class="leg-item"><span class="rec-badge win" style="font-size:.61rem;padding:.18rem .48rem"><span class="rdot"></span>Win Bet</span> High composite score — bet to win</div>
-    <div class="leg-item"><span class="rec-badge ew"  style="font-size:.61rem;padding:.18rem .48rem"><span class="rdot"></span>Each Way</span> Good place value — covers multiple positions</div>
     <div class="leg-item"><span class="rec-badge skip"style="font-size:.61rem;padding:.18rem .48rem"><span class="rdot"></span>Skip</span> Insufficient value at current odds</div>
     <div id="leg-disc">Not financial advice. For information only.</div>`;
 }
@@ -767,7 +753,7 @@ function silkEl(url, jockey, idx) {
 function showState(html) {
   document.getElementById('state').innerHTML = html;
   document.getElementById('state').style.display = 'block';
-  ['next-up','meetings-lbl','meetings','racecard-lbl','race-overview','ew-notice','runners','legend','model-info'].forEach(i =>
+  ['next-up','meetings-lbl','meetings','racecard-lbl','race-overview','runners','legend','model-info'].forEach(i =>
     document.getElementById(i).style.display = 'none');
 }
 
