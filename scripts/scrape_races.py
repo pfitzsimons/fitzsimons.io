@@ -223,27 +223,22 @@ def _norm_jockey(name: str) -> str:
 JOCKEY_RATINGS_NORM = {_norm_jockey(k): v for k, v in JOCKEY_RATINGS.items()}
 
 # ─────────────────────────────────────────────────────────────
-# COURSE ACCURACY COEFFICIENTS
-# Derived from historical prediction accuracy per course.
-# Applied as a multiplier to final runner scores before recommendations.
+# COURSE ACCURACY COEFFICIENTS  (per-course score multiplier)
+#
+# Intentionally EMPTY. The previous hand-set table was "derived from historical
+# prediction accuracy per course" on the very 60 days we backtest against, so
+# testing it there is circular. When re-derived HONESTLY — a leak-free
+# walk-forward estimate that only uses each course's prior races — per-course
+# multipliers do not hold up: out-of-sample they drop the profitable Strong Win
+# Bet tier from +11% to around 0-5% ROI. Removing them also improves overall
+# out-of-sample ROI (toggle this dict and re-run scripts/backtest_value.py to
+# reproduce: keeping it empty gives overall -4.9% vs -5.5% with the old values).
+# With ~40 courses and only a handful of strong bets each
+# over 60 days, there is not enough data to justify any course multiplier, so we
+# keep the mechanism but ship no coefficients. Add one here only if it survives
+# walk-forward validation.
 # ─────────────────────────────────────────────────────────────
-COURSE_COEFFICIENTS = {
-    # Underperforming — reduce score confidence
-    "Thirsk":       0.88,
-    "Bath":         0.93,
-    "Haydock Park": 0.93,
-    "Warwick":      0.93,
-    "Newmarket":    0.95,
-    # Overperforming — slight boost
-    "Ayr":          1.03,
-    "Doncaster":    1.03,
-    "Redcar":       1.03,
-    "Punchestown":  1.03,
-    "Salisbury":    1.02,
-    "Nottingham":   1.02,
-    "Kelso":        1.02,
-    "Hereford":     1.02,
-}
+COURSE_COEFFICIENTS = {}
 
 
 # ─────────────────────────────────────────────────────────────
