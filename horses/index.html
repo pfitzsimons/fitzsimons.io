@@ -6,152 +6,299 @@
   <title>Race Day — UK & Ireland Horse Racing</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,500;0,9..40,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Archivo:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
+    /* ══════════════════════════════════════════════════════════
+       DESIGN TOKENS — everything reads from here. Two themes,
+       identical token names, so both "just work".
+       ══════════════════════════════════════════════════════════ */
     :root {
-      --turf:      #0a1f0d;
-      --card:      #162e1a;
-      --line:      rgba(255,255,255,.07);
-      --gold:      #c9a84c;
-      --gold-lt:   #e8c76a;
-      --cream:     #f5efe0;
-      --dim:       #8a877e;
-      --green:     #4cc97a;
-      --amber:     #f0a500;
-      --red:       #e05a5a;
-      --mono: 'DM Mono', monospace;
-      --sans: 'DM Sans', sans-serif;
-      --display: 'Bebas Neue', sans-serif;
+      /* Text roles */
+      --tx:   #f3f8f0;   /* primary */
+      --tx2:  #c9d7c5;   /* secondary body */
+      --mut:  #8ca690;   /* labels */
+      --fnt2: #728a76;   /* dim */
+      --fnt:  #5e7663;   /* dimmer */
+
+      /* Brand */
+      --gold:  #cdac52;  /* base gold */
+      --goldB: #ecc96d;  /* bright gold emphasis */
+      --back:  #4fd07f;  /* positive green */
+      --neg:   #e57a58;  /* warm red (negative edge) */
+
+      /* Surfaces — page gradient + panels */
+      --g1: #1f4530;
+      --g2: #143726;
+      --g3: #0f2a1a;
+      --panel:  #163a27;
+      --panel2: #123120;
+      --hbg:    rgba(16,42,27,.88);
+      --inset:  #0e2718;
+
+      /* Lines / dividers / chips */
+      --line: rgba(255,255,255,.09);
+      --chip: rgba(255,255,255,.05);
+      --ldiv: rgba(255,255,255,.07);
+
+      /* Accent borders + backgrounds */
+      --gold-bd:  rgba(205,172,82,.42);
+      --gold-bg:  rgba(205,172,82,.10);
+      --green-bd: rgba(79,208,127,.42);
+      --green-bg: rgba(79,208,127,.10);
+
+      /* Text sitting on a solid gold fill (always dark) */
+      --onGold: #10261a;
+
+      /* Fonts */
+      --display: 'Oswald', sans-serif;
+      --body:    'Archivo', sans-serif;
+      --mono:    'JetBrains Mono', monospace;
+
       --drawer-w: 420px;
-      --header-bg:      rgba(10,31,13,.96);
-      --drawer-bg:      #0f2613;
-      --select-opt-bg:  #122818;
-      --people-strong:  #c8bfa8;
+
+      /* ── back-compat aliases (drawers / accuracy / picks CSS) ── */
+      --turf:          var(--g3);
+      --card:          var(--panel);
+      --cream:         var(--tx);
+      --dim:           var(--mut);
+      --gold-lt:       var(--goldB);
+      --green:         var(--back);
+      --amber:         #e0a83c;
+      --red:           var(--neg);
+      --sans:          var(--body);
+      --header-bg:     var(--hbg);
+      --drawer-bg:     var(--panel2);
+      --select-opt-bg: var(--inset);
+      --people-strong: var(--tx2);
     }
+
     html[data-theme="light"] {
-      --turf:           #f0f5f1;
-      --card:           #ffffff;
-      --line:           rgba(0,0,0,.12);
-      --gold:           #9a6f20;
-      --gold-lt:        #c9a84c;
-      --cream:          #1a2c1c;
-      --dim:            #5a6e5c;
-      --green:          #1f8a47;
-      --amber:          #b07000;
-      --red:            #c03535;
-      --header-bg:      rgba(240,245,241,.96);
-      --drawer-bg:      #e8f0e9;
-      --select-opt-bg:  #f0f5f1;
-      --people-strong:  #2d3d2f;
+      --tx:   #16281c;
+      --tx2:  #2f4433;
+      --mut:  #566a58;
+      --fnt2: #6c8070;
+      --fnt:  #869a89;
+
+      --gold:  #9a6f20;
+      --goldB: #7d5514;
+      --back:  #1f8a47;
+      --neg:   #c0492f;
+
+      --g1: #f2f5ec;
+      --g2: #e6ecdc;
+      --g3: #dde6d4;
+      --panel:  #ffffff;
+      --panel2: #f6f9f0;
+      --hbg:    rgba(242,245,236,.9);
+      --inset:  #eef3e6;
+
+      --line: rgba(0,0,0,.10);
+      --chip: rgba(0,0,0,.035);
+      --ldiv: rgba(0,0,0,.08);
+
+      --gold-bd:  rgba(154,111,32,.40);
+      --gold-bg:  rgba(154,111,32,.09);
+      --green-bd: rgba(31,138,71,.40);
+      --green-bg: rgba(31,138,71,.09);
+
+      --onGold: #fdf8ec;
+      --amber:  #b07000;
     }
+
+    /* Verdict tokens — 3 states. Each sets local vars a card/chip reads. */
+    .v-strong { --vt: var(--goldB); --vbg: var(--gold-bg);  --vbd: var(--gold-bd);  --vcard: rgba(205,172,82,.055); }
+    .v-value  { --vt: var(--back);  --vbg: var(--green-bg); --vbd: var(--green-bd); --vcard: rgba(79,208,127,.05); }
+    .v-skip   { --vt: var(--mut);   --vbg: var(--chip);     --vbd: var(--line);     --vcard: transparent; }
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: var(--sans); background: var(--turf); color: var(--cream); min-height: 100vh; overflow-x: hidden; }
+    body {
+      font-family: var(--body); color: var(--tx); min-height: 100vh; overflow-x: hidden;
+      background:
+        radial-gradient(1200px 900px at 50% -10%, var(--g1), var(--g2) 45%, var(--g3) 100%),
+        var(--g3);
+      background-attachment: fixed;
+    }
 
     /* ── HEADER ── */
     #header {
       position: sticky; top: 0; z-index: 200;
-      background: var(--header-bg); backdrop-filter: blur(14px);
+      background: var(--hbg); backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--line);
       padding: .7rem 1.4rem;
-      display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap;
+      display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
     }
-    #header h1 { font-family: var(--display); font-size: 1.9rem; letter-spacing: .08em; color: var(--gold); line-height: 1; }
-    #header h1 span { font-family: var(--mono); font-size: .85rem; color: var(--cream); opacity: .55; margin-left: .4rem; vertical-align: middle; }
+    #header h1 { font-family: var(--display); font-weight: 700; font-size: 1.85rem; letter-spacing: .04em; color: var(--goldB); line-height: 1; }
+    #header h1 span { font-family: var(--mono); font-weight: 500; font-size: .8rem; color: var(--tx2); opacity: .6; margin-left: .45rem; vertical-align: middle; }
 
-    #header-meta { margin-left: auto; display: flex; align-items: center; gap: .9rem; font-family: var(--mono); font-size: .7rem; color: var(--dim); }
-    #date-disp { color: var(--gold-lt); }
-    #refresh-btn { background: none; border: 1px solid var(--line); color: var(--dim); padding: .28rem .65rem; border-radius: 4px; cursor: pointer; font-family: var(--mono); font-size: .68rem; transition: all .2s; }
-    #refresh-btn:hover { border-color: var(--gold); color: var(--gold); }
-    #theme-btn { background: none; border: 1px solid var(--line); color: var(--dim); padding: .28rem .55rem; border-radius: 4px; cursor: pointer; font-size: .82rem; line-height: 1; transition: all .2s; }
-    #theme-btn:hover { border-color: var(--gold); color: var(--gold); }
+    /* Utility cluster — always right-aligned, wraps as a unit */
+    #header-meta {
+      margin-left: auto; display: flex; align-items: center; gap: .8rem;
+      font-family: var(--mono); font-size: .7rem; color: var(--mut); flex-wrap: wrap; justify-content: flex-end;
+    }
+    #date-disp { color: var(--goldB); white-space: nowrap; }
+    #clock { color: var(--tx2); white-space: nowrap; font-variant-numeric: tabular-nums; }
+    #upd-disp { color: var(--fnt2); white-space: nowrap; }
+    .hbtn {
+      background: none; border: 1px solid var(--line); color: var(--mut);
+      padding: .3rem .55rem; border-radius: 5px; cursor: pointer;
+      font-family: var(--mono); font-size: .72rem; line-height: 1; transition: all .2s;
+    }
+    .hbtn:hover { border-color: var(--gold); color: var(--gold); }
+    #theme-btn { font-size: .9rem; padding: .3rem .5rem; }
     #live-pill {
-      display: flex; align-items: center; gap: .35rem;
-      font-family: var(--mono); font-size: .64rem;
-      color: var(--dim); transition: color .3s;
+      display: inline-flex; align-items: center; gap: .38rem;
+      font-family: var(--mono); font-size: .64rem; letter-spacing: .05em;
+      color: var(--fnt2); transition: color .3s; white-space: nowrap;
     }
-    #live-pill .ldot {
-      width: 7px; height: 7px; border-radius: 50%;
-      background: var(--dim); flex-shrink: 0; transition: background .3s;
+    #live-pill .ldot { width: 7px; height: 7px; border-radius: 50%; background: var(--fnt2); flex-shrink: 0; transition: background .3s; }
+    #live-pill.active { color: var(--back); }
+    #live-pill.active .ldot { background: var(--back); box-shadow: 0 0 0 0 rgba(79,208,127,.5); animation: livepulse 2s ease-out infinite; }
+    @keyframes livepulse {
+      0%   { box-shadow: 0 0 0 0 rgba(79,208,127,.5); }
+      70%  { box-shadow: 0 0 0 6px rgba(79,208,127,0); }
+      100% { box-shadow: 0 0 0 0 rgba(79,208,127,0); }
     }
-    #live-pill.active { color: var(--green); }
-    #live-pill.active .ldot { background: var(--green); animation: pulse 2s ease infinite; }
 
     /* Hamburger menu */
     #menu-wrap { position: relative; }
     #menu-btn {
       display: flex; align-items: center; gap: .4rem;
-      background: rgba(201,168,76,.1); border: 1px solid rgba(201,168,76,.3);
-      color: var(--gold); padding: .28rem .6rem; border-radius: 4px;
+      background: var(--gold-bg); border: 1px solid var(--gold-bd);
+      color: var(--gold); padding: .3rem .62rem; border-radius: 5px;
       cursor: pointer; font-family: var(--mono); font-size: .72rem; line-height: 1;
       transition: all .2s; white-space: nowrap;
     }
-    #menu-btn:hover { background: rgba(201,168,76,.18); border-color: var(--gold); }
+    #menu-btn:hover { background: var(--gold-bg); border-color: var(--gold); }
     #menu-btn .menu-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); flex-shrink: 0; display: none; }
     #menu-btn.has-data .menu-dot { display: block; animation: pulse 2s ease infinite; }
     #header-menu {
       position: absolute; top: calc(100% + .45rem); right: 0;
-      background: var(--drawer-bg); border: 1px solid var(--line); border-radius: 8px;
+      background: var(--panel2); border: 1px solid var(--line); border-radius: 8px;
       box-shadow: 0 10px 30px rgba(0,0,0,.4); min-width: 168px; padding: .3rem;
       display: none; flex-direction: column; gap: .15rem; z-index: 210;
     }
     #header-menu.open { display: flex; }
     #header-menu button {
       display: flex; align-items: center; gap: .6rem; width: 100%;
-      background: none; border: none; color: var(--cream); text-align: left;
+      background: none; border: none; color: var(--tx); text-align: left;
       font-family: var(--mono); font-size: .74rem; padding: .55rem .65rem;
       border-radius: 5px; cursor: pointer; transition: background .15s;
     }
-    #header-menu button:hover { background: rgba(201,168,76,.12); color: var(--gold); }
+    #header-menu button:hover { background: var(--gold-bg); color: var(--gold); }
     #header-menu button .mi-icon { font-size: .9rem; width: 18px; text-align: center; flex-shrink: 0; }
     #header-menu button .mi-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); margin-left: auto; opacity: 0; }
     #header-menu button.has-data .mi-dot { opacity: 1; animation: pulse 2s ease infinite; }
     @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
 
     /* ── MAIN ── */
-    #main { max-width: 1380px; margin: 0 auto; padding: 1.4rem 1.4rem 4rem; transition: padding-right .35s ease; }
+    #main { max-width: 1380px; margin: 0 auto; padding: 1.6rem 1.4rem 4rem; transition: padding-right .35s ease; }
     body.drawer-open #main { padding-right: calc(var(--drawer-w) + 1.4rem); }
 
-    /* ── NEXT UP HERO ── */
-    #next-up {
-      background: linear-gradient(135deg, rgba(201,168,76,.14), var(--card) 60%);
-      border: 1px solid rgba(201,168,76,.35); border-radius: 14px;
-      padding: 1.15rem 1.35rem; margin-bottom: 1.4rem;
-      display: grid; grid-template-columns: minmax(220px, 1fr) minmax(300px, 1.35fr);
-      gap: 1rem 2.2rem; align-items: start;
+    /* Zone rhythm: generous spacing + mono section labels + fading rule */
+    .zone { margin-bottom: 2.4rem; }
+    .zone-label {
+      display: flex; align-items: center; gap: .8rem;
+      font-family: var(--mono); font-size: .62rem; color: var(--mut);
+      letter-spacing: .16em; text-transform: uppercase; margin-bottom: 1rem;
     }
-    #nu-label { display: inline-flex; align-items: center; gap: .4rem; font-family: var(--mono); font-size: .62rem; letter-spacing: .14em; text-transform: uppercase; color: var(--green); }
-    #nu-label .ldot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); animation: pulse 2s ease infinite; }
-    #nu-time { font-family: var(--display); font-size: 2.7rem; color: var(--gold); line-height: 1; margin-top: .4rem; text-shadow: 0 0 40px rgba(201,168,76,.3); }
-    #nu-countdown { font-family: var(--mono); font-size: .74rem; color: var(--green); margin-top: .2rem; }
-    #nu-course { font-family: var(--display); font-size: 1.45rem; letter-spacing: .05em; margin-top: .55rem; }
-    #nu-title { font-size: .78rem; color: var(--dim); margin-top: .15rem; line-height: 1.4; }
-    #nu-meta { display: flex; flex-wrap: wrap; gap: .35rem; margin-top: .55rem; }
-    #nu-view {
-      margin-top: .85rem; background: var(--gold); color: var(--turf); border: none;
-      font-family: var(--mono); font-weight: 600; font-size: .68rem; letter-spacing: .08em;
-      text-transform: uppercase; padding: .45rem .95rem; border-radius: 6px; cursor: pointer; transition: background .2s;
+    .zone-label::after {
+      content: ''; flex: 1; height: 1px;
+      background: linear-gradient(90deg, var(--ldiv), transparent);
     }
-    #nu-view:hover { background: var(--gold-lt); }
-    #nu-bets { display: flex; flex-direction: column; gap: .45rem; min-width: 0; }
-    .nu-bets-title { font-family: var(--mono); font-size: .62rem; color: var(--dim); letter-spacing: .12em; text-transform: uppercase; }
-    .nu-bet {
-      display: flex; align-items: center; gap: .7rem;
-      background: rgba(255,255,255,.04); border: 1px solid var(--line); border-radius: 9px;
-      padding: .5rem .75rem; cursor: pointer; transition: border-color .2s; min-width: 0;
-    }
-    .nu-bet:hover { border-color: rgba(201,168,76,.4); }
-    .nu-rank { font-family: var(--display); font-size: 1.2rem; color: var(--gold); width: 20px; text-align: center; flex-shrink: 0; }
-    .nu-bet-info { flex: 1; min-width: 0; }
-    .nu-bet-horse { font-family: var(--display); font-size: 1.08rem; letter-spacing: .04em; line-height: 1.1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .nu-bet-sub { font-family: var(--mono); font-size: .6rem; color: var(--dim); margin-top: .12rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .nu-bet-odds { font-family: var(--display); font-size: 1.25rem; color: var(--gold); flex-shrink: 0; }
-    .nu-bet-badge { display: contents; }
-    .nu-bet-rec { display: none; }
 
-    /* ── MEETINGS GRID ── */
-    .section-title { font-family: var(--mono); font-size: .63rem; color: var(--dim); letter-spacing: .13em; text-transform: uppercase; margin-bottom: .6rem; }
+    /* ══ TODAY'S ANGLE — opinionated editorial line ══ */
+    #angle {
+      font-family: var(--body); font-size: 1.12rem; line-height: 1.5; color: var(--tx2);
+      margin-bottom: 1.5rem; max-width: 62ch; letter-spacing: .002em;
+    }
+    #angle .eyebrow {
+      display: block; font-family: var(--mono); font-size: .6rem; color: var(--mut);
+      letter-spacing: .18em; text-transform: uppercase; margin-bottom: .5rem;
+    }
+    #angle b { color: var(--goldB); font-weight: 700; }
+    #angle .plain { color: var(--tx); font-weight: 500; }
+
+    /* ══ HERO: Next race + Top 3 calls ══ */
+    #hero {
+      display: grid; grid-template-columns: minmax(240px, 1fr) minmax(320px, 1.4fr);
+      gap: 1.1rem;
+    }
+    #nu-card {
+      background: linear-gradient(150deg, var(--gold-bg), var(--panel) 55%);
+      border: 1px solid var(--gold-bd); border-radius: 16px;
+      padding: 1.3rem 1.4rem; display: flex; flex-direction: column;
+    }
+    #nu-label { display: inline-flex; align-items: center; gap: .45rem; font-family: var(--mono); font-size: .62rem; letter-spacing: .16em; text-transform: uppercase; color: var(--back); }
+    #nu-label .ldot { width: 7px; height: 7px; border-radius: 50%; background: var(--back); animation: pulse 2s ease infinite; }
+    #nu-time { font-family: var(--display); font-weight: 600; font-size: 3.2rem; color: var(--goldB); line-height: 1; margin-top: .55rem; }
+    #nu-countdown { font-family: var(--mono); font-size: .78rem; color: var(--back); margin-top: .3rem; font-variant-numeric: tabular-nums; }
+    #nu-course { font-family: var(--display); font-weight: 500; font-size: 1.6rem; letter-spacing: .02em; color: var(--tx); margin-top: .7rem; }
+    #nu-title { font-family: var(--body); font-size: .85rem; color: var(--tx2); margin-top: .2rem; line-height: 1.45; }
+    #nu-meta { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .8rem; }
+    #nu-view {
+      margin-top: auto; align-self: flex-start; background: var(--gold); color: var(--onGold); border: none;
+      font-family: var(--mono); font-weight: 600; font-size: .7rem; letter-spacing: .08em;
+      text-transform: uppercase; padding: .6rem 1.1rem; border-radius: 8px; cursor: pointer; transition: background .2s;
+    }
+    #nu-view:hover { background: var(--goldB); }
+
+    /* Top 3 calls */
+    #nu-calls {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 16px;
+      padding: 1.1rem 1.2rem; display: flex; flex-direction: column; gap: .55rem;
+    }
+    .calls-title { font-family: var(--mono); font-size: .62rem; color: var(--mut); letter-spacing: .16em; text-transform: uppercase; }
+    .call {
+      display: grid; grid-template-columns: 22px 1fr minmax(96px,120px) auto;
+      align-items: center; gap: .5rem .8rem;
+      background: var(--vcard, transparent); border: 1px solid var(--vbd); border-radius: 11px;
+      padding: .6rem .75rem; cursor: pointer; transition: border-color .2s, background .2s;
+    }
+    .call:hover { border-color: var(--vt); }
+    .call-rank { font-family: var(--display); font-weight: 600; font-size: 1.15rem; color: var(--vt); text-align: center; }
+    .call-main { min-width: 0; }
+    .call-horse { font-family: var(--display); font-weight: 500; font-size: 1.12rem; letter-spacing: .02em; line-height: 1.05; color: var(--tx); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .call-sub { font-family: var(--mono); font-size: .58rem; color: var(--mut); margin-top: .18rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .call-edge-wrap { display: flex; flex-direction: column; gap: .28rem; min-width: 0; }
+    .call-right { display: flex; flex-direction: column; align-items: flex-end; gap: .3rem; }
+    .call-odds { font-family: var(--display); font-weight: 600; font-size: 1.3rem; color: var(--goldB); line-height: 1; }
+
+    /* Model-vs-market mini bar (shared hero + runner card) */
+    .mvm-bar { position: relative; height: 6px; background: var(--inset); border: 1px solid var(--line); border-radius: 4px; overflow: visible; }
+    .mvm-fill { position: absolute; left: 0; top: 0; bottom: 0; background: var(--vt); border-radius: 4px 0 0 4px; opacity: .85; }
+    .mvm-tick { position: absolute; top: -2px; bottom: -2px; width: 2px; background: var(--tx); border-radius: 2px; transform: translateX(-1px); }
+    .mvm-legend { display: flex; justify-content: space-between; font-family: var(--mono); font-size: .54rem; color: var(--mut); }
+
+    /* Verdict chip */
+    .vchip {
+      display: inline-flex; align-items: center; gap: .4rem;
+      font-family: var(--mono); font-size: .66rem; font-weight: 700; letter-spacing: .05em;
+      color: var(--vt); background: var(--vbg); border: 1px solid var(--vbd);
+      padding: .3rem .6rem; border-radius: 7px; text-transform: uppercase; white-space: nowrap; line-height: 1;
+    }
+    .vchip.sm { font-size: .58rem; padding: .22rem .45rem; gap: .3rem; }
+    .vdot { width: 7px; height: 7px; border-radius: 50%; background: var(--vt); flex-shrink: 0; }
+    .vchip.sm .vdot { width: 6px; height: 6px; }
+
+    /* Edge readout */
+    .edge { font-family: var(--mono); font-size: .64rem; font-weight: 600; }
+    .edge.pos { color: var(--back); }
+    .edge.neg { color: var(--neg); }
+
+    /* Meta pills */
+    .pill { border: 1px solid var(--line); border-radius: 20px; padding: .18rem .65rem; font-family: var(--mono); font-size: .68rem; color: var(--mut); background: var(--chip); }
+    .pill strong { color: var(--tx); font-weight: 600; }
+
+    /* ══ MEETINGS STRIP ══ */
+    #nextoff {
+      font-family: var(--mono); font-size: .68rem; color: var(--back);
+      letter-spacing: .05em; margin-bottom: .7rem; display: flex; align-items: center; gap: .5rem;
+    }
+    #nextoff .no-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--back); animation: pulse 2s ease infinite; }
+    #nextoff b { color: var(--tx); font-weight: 600; }
+    #nextoff .no-cd { color: var(--goldB); font-variant-numeric: tabular-nums; }
     #meetings {
-      display: flex; flex-wrap: nowrap; gap: .45rem; margin-bottom: 1.6rem;
+      display: flex; flex-wrap: nowrap; gap: .5rem;
       overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch;
       scrollbar-width: thin; padding-bottom: .5rem;
       scroll-snap-type: x proximity; overscroll-behavior-x: contain;
@@ -161,98 +308,103 @@
     .time-chip {
       display: inline-flex; align-items: baseline; gap: .45rem; flex: 0 0 auto;
       scroll-snap-align: start;
-      font-family: var(--mono); font-size: .72rem; padding: .34rem .6rem;
-      border: 1px solid var(--line); border-radius: 6px;
-      background: transparent; color: var(--cream); cursor: pointer; transition: all .15s;
+      font-family: var(--mono); font-size: .72rem; padding: .4rem .68rem;
+      border: 1px solid var(--line); border-radius: 8px;
+      background: var(--chip); color: var(--tx); cursor: pointer; transition: all .15s;
     }
-    .chip-time { font-weight: 500; }
-    .chip-course { font-size: .62rem; color: var(--dim); letter-spacing: .04em; text-transform: uppercase; }
+    .chip-time { font-weight: 600; }
+    .chip-course { font-size: .6rem; color: var(--mut); letter-spacing: .04em; text-transform: uppercase; }
     .time-chip:hover { border-color: var(--gold); color: var(--gold); }
     .time-chip:hover .chip-course { color: var(--gold); }
-    .time-chip.past { opacity: .35; }
-    .time-chip.past:hover { opacity: .75; }
-    .time-chip.next { border-color: rgba(76,201,122,.55); color: var(--green); }
-    .time-chip.next .chip-course { color: var(--green); }
-    .time-chip.selected { background: var(--gold); border-color: var(--gold); color: var(--turf); font-weight: 500; opacity: 1; }
-    .time-chip.selected .chip-course { color: var(--turf); }
+    .time-chip.past { opacity: .38; }
+    .time-chip.past:hover { opacity: .8; }
+    .time-chip.next { border-color: var(--green-bd); color: var(--back); background: transparent; }
+    .time-chip.next .chip-course { color: var(--back); }
+    .time-chip.selected { background: var(--gold); border-color: var(--gold); color: var(--onGold); font-weight: 600; opacity: 1; }
+    .time-chip.selected .chip-course { color: var(--onGold); }
 
-    /* ── RACE OVERVIEW ── */
+    /* ══ RACE OVERVIEW ══ */
     #race-overview {
-      background: var(--card); border: 1px solid var(--line); border-radius: 12px;
-      padding: 1.2rem 1.4rem; margin-bottom: 1.2rem;
+      background: var(--panel); border: 1px solid var(--line); border-radius: 14px;
+      padding: 1.25rem 1.4rem; margin-bottom: 1.1rem;
       display: grid; grid-template-columns: 1fr auto; gap: .4rem 2rem; align-items: start;
     }
-    #race-badge { display: inline-block; background: var(--gold); color: var(--turf); font-family: var(--mono); font-size: .66rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; padding: .17rem .55rem; border-radius: 3px; margin-bottom: .35rem; }
-    #race-title { font-family: var(--display); font-size: 1.9rem; letter-spacing: .05em; line-height: 1.1; }
-    #race-pills { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .45rem; }
-    .pill { border: 1px solid var(--line); border-radius: 20px; padding: .16rem .65rem; font-family: var(--mono); font-size: .68rem; color: var(--dim); }
-    .pill strong { color: var(--cream); font-weight: 500; }
-    #race-time { font-family: var(--display); font-size: 3rem; letter-spacing: .04em; color: var(--gold); text-align: right; line-height: 1; text-shadow: 0 0 40px rgba(201,168,76,.3); }
-    #race-time-lbl { font-family: var(--mono); font-size: .64rem; color: var(--dim); text-align: right; margin-top: .18rem; letter-spacing: .1em; text-transform: uppercase; }
+    #race-badge { display: inline-block; background: var(--gold); color: var(--onGold); font-family: var(--mono); font-size: .64rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; padding: .2rem .6rem; border-radius: 4px; margin-bottom: .4rem; }
+    #race-title { font-family: var(--display); font-weight: 600; font-size: 2rem; letter-spacing: .01em; line-height: 1.05; color: var(--tx); }
+    #race-pills { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .55rem; }
+    #race-time { font-family: var(--display); font-weight: 600; font-size: 3.2rem; letter-spacing: .01em; color: var(--goldB); text-align: right; line-height: 1; }
+    #race-time-lbl { font-family: var(--mono); font-size: .62rem; color: var(--mut); text-align: right; margin-top: .2rem; letter-spacing: .1em; text-transform: uppercase; }
 
-    /* ── RUNNERS ── */
-    #runners { display: flex; flex-direction: column; gap: .5rem; }
+    /* ══ RUNNERS — verdict-first cards ══ */
+    #runners { display: flex; flex-direction: column; gap: .7rem; }
     .rcard {
-      background: var(--card); border: 1px solid var(--line); border-radius: 10px;
-      padding: .85rem 1.15rem; display: grid;
-      grid-template-columns: 60px 1fr auto; gap: .7rem 1rem; align-items: start;
-      position: relative; overflow: hidden; transition: border-color .2s;
+      background: linear-gradient(90deg, var(--vcard), var(--panel) 30%), var(--panel);
+      border: 1px solid var(--vbd); border-left: 4px solid var(--vt); border-radius: 12px;
+      padding: 1rem 1.2rem; display: grid;
+      grid-template-columns: 60px 1fr minmax(150px, auto); gap: .5rem 1.2rem; align-items: start;
+      transition: border-color .2s;
     }
-    .rcard::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; border-radius: 10px 0 0 10px; }
-    .rcard:hover { border-color: rgba(201,168,76,.25); }
-    .rcard.win  { border-color: rgba(76,201,122,.22); } .rcard.win::before  { background: var(--green); }
-    .rcard.ew   { border-color: rgba(240,165,0,.22);  } .rcard.ew::before   { background: var(--amber); }
-    .rcard.skip::before { background: rgba(255,255,255,.1); }
-    .silk-col { text-align: center; padding-top: .1rem; }
-    .silk-img { width: 48px; height: 48px; object-fit: contain; border-radius: 6px; background: rgba(255,255,255,.04); display: block; margin: 0 auto; }
-    .silk-svg { width: 48px; height: 48px; border-radius: 6px; display: block; margin: 0 auto; }
-    .rnum { font-family: var(--mono); font-size: .62rem; color: var(--dim); text-align: center; margin-top: .18rem; }
-    .hname { font-family: var(--display); font-size: 1.25rem; letter-spacing: .05em; line-height: 1; display: flex; align-items: center; gap: .45rem; flex-wrap: wrap; }
-    .badge-fav  { font-family: var(--mono); font-size: .56rem; background: rgba(201,168,76,.12); border: 1px solid rgba(201,168,76,.3); color: var(--gold); padding: .08rem .35rem; border-radius: 3px; letter-spacing: .08em; }
-    .badge-ctry { font-family: var(--mono); font-size: .56rem; background: rgba(255,255,255,.06); border: 1px solid var(--line); color: var(--dim); padding: .08rem .35rem; border-radius: 3px; }
-    .people { display: flex; flex-wrap: wrap; gap: .18rem .65rem; margin-top: .28rem; font-family: var(--mono); font-size: .68rem; color: var(--dim); }
-    .people strong { color: var(--people-strong); font-weight: 500; }
-    .tags { display: flex; gap: .28rem; margin-top: .3rem; flex-wrap: wrap; }
-    .tag { font-family: var(--mono); font-size: .61rem; padding: .08rem .35rem; border-radius: 3px; border: 1px solid var(--line); color: var(--dim); }
-    .reasoning { margin-top: .38rem; font-family: var(--sans); font-size: .75rem; color: var(--dim); font-style: italic; line-height: 1.4; }
-    .mvm { margin-top: .3rem; font-family: var(--mono); font-size: .62rem; color: var(--dim); letter-spacing: .03em; }
-    .mvm strong { color: var(--cream); font-weight: 500; }
-    .mvm-edge { color: var(--gold); }
-    .score-bar-wrap { margin-top: .42rem; }
-    .score-bar-row { display: flex; align-items: center; gap: .4rem; margin-bottom: .18rem; }
-    .score-bar-label { font-family: var(--mono); font-size: .58rem; color: var(--dim); width: 68px; flex-shrink: 0; text-transform: uppercase; letter-spacing: .05em; }
-    .score-bar-track { flex: 1; height: 4px; background: var(--line); border-radius: 2px; overflow: hidden; max-width: 160px; }
-    .score-bar-fill { height: 100%; border-radius: 2px; transition: width .5s ease; }
-    .score-bar-val { font-family: var(--mono); font-size: .58rem; color: var(--dim); width: 24px; text-align: right; flex-shrink: 0; }
-    .rright { display: flex; flex-direction: column; align-items: flex-end; gap: .32rem; min-width: 115px; }
-    .odds-big { font-family: var(--display); font-size: 1.7rem; letter-spacing: .04em; color: var(--gold); line-height: 1; }
-    .odds-dec { font-family: var(--mono); font-size: .61rem; color: var(--dim); }
-    .rec-badge { display: inline-flex; align-items: center; gap: .26rem; padding: .26rem .62rem; border-radius: 20px; font-family: var(--mono); font-size: .64rem; font-weight: 500; letter-spacing: .05em; text-transform: uppercase; white-space: nowrap; }
-    .rec-badge.win  { background: rgba(76,201,122,.1);  color: var(--green); border: 1px solid rgba(76,201,122,.28); }
-    .rec-badge.ew   { background: rgba(240,165,0,.1);   color: var(--amber); border: 1px solid rgba(240,165,0,.28); }
-    .rec-badge.skip { background: rgba(255,255,255,.04); color: var(--dim);  border: 1px solid var(--line); }
-    .rdot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
-    .win .rdot  { background: var(--green); }
-    .ew  .rdot  { background: var(--amber); }
-    .skip .rdot { background: var(--dim); }
-    .conf-bar { width: 88px; height: 3px; background: var(--line); border-radius: 2px; overflow: hidden; }
-    .conf-fill { height: 100%; border-radius: 2px; }
-    .win  .conf-fill { background: var(--green); }
-    .ew   .conf-fill { background: var(--amber); }
-    .skip .conf-fill { background: var(--dim); opacity: .45; }
-    .total-score { font-family: var(--mono); font-size: .62rem; color: var(--dim); }
-    .total-score span { color: var(--cream); font-weight: 500; }
+    .rcard:hover { border-color: var(--vt); }
 
-    /* ── LEGEND / MODEL ── */
-    #legend { margin-top: 1.6rem; background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: .85rem 1.15rem; display: flex; flex-wrap: wrap; gap: .7rem 1.8rem; align-items: center; }
-    #legend h3 { font-family: var(--mono); font-size: .64rem; color: var(--dim); letter-spacing: .12em; text-transform: uppercase; flex: 0 0 100%; }
-    .leg-item { display: flex; align-items: center; gap: .45rem; font-size: .77rem; color: var(--dim); }
-    #leg-disc { margin-left: auto; font-family: var(--mono); font-size: .6rem; color: var(--dim); opacity: .55; }
-    #model-info { margin-top: .8rem; background: rgba(201,168,76,.05); border: 1px solid rgba(201,168,76,.12); border-radius: 8px; padding: .7rem 1rem; font-family: var(--mono); font-size: .66rem; color: var(--dim); line-height: 1.7; }
-    #model-info strong { color: var(--gold-lt); }
+    .silk-col { text-align: center; }
+    .silk-img { width: 50px; height: 50px; object-fit: contain; border-radius: 7px; background: var(--chip); display: block; margin: 0 auto; }
+    .silk-svg { width: 50px; height: 50px; border-radius: 7px; display: block; margin: 0 auto; }
+    .rnum { font-family: var(--mono); font-weight: 600; font-size: .62rem; color: var(--vt); text-align: center; margin-top: .3rem; }
+
+    .rmain { min-width: 0; }
+    .rtop { display: flex; align-items: center; gap: .6rem; flex-wrap: wrap; }
+    .hname { font-family: var(--display); font-weight: 500; font-size: 1.4rem; letter-spacing: .02em; line-height: 1; color: var(--tx); }
+    .badge-fav  { font-family: var(--mono); font-size: .54rem; font-weight: 600; background: var(--gold-bg); border: 1px solid var(--gold-bd); color: var(--gold); padding: .1rem .38rem; border-radius: 3px; letter-spacing: .06em; }
+    .badge-ctry { font-family: var(--mono); font-size: .54rem; background: var(--chip); border: 1px solid var(--line); color: var(--mut); padding: .1rem .38rem; border-radius: 3px; }
+    .people { display: flex; flex-wrap: wrap; gap: .18rem .7rem; margin-top: .4rem; font-family: var(--mono); font-size: .68rem; color: var(--mut); }
+    .people strong { color: var(--tx2); font-weight: 500; }
+    .tags { display: flex; gap: .3rem; margin-top: .38rem; flex-wrap: wrap; }
+    .tag { font-family: var(--mono); font-size: .61rem; padding: .1rem .4rem; border-radius: 3px; border: 1px solid var(--line); color: var(--mut); background: var(--chip); }
+
+    /* Plain-English verdict sentence — the tipster voice */
+    .verdict-line { margin-top: .55rem; font-family: var(--body); font-size: .86rem; color: var(--tx2); line-height: 1.45; }
+
+    /* Expandable factor bars */
+    .factors { margin-top: .6rem; }
+    .factors > summary {
+      list-style: none; cursor: pointer; font-family: var(--mono); font-size: .58rem;
+      color: var(--mut); letter-spacing: .1em; text-transform: uppercase;
+      display: inline-flex; align-items: center; gap: .4rem; user-select: none;
+    }
+    .factors > summary::-webkit-details-marker { display: none; }
+    .factors > summary .fx-chev { transition: transform .2s; display: inline-block; }
+    .factors[open] > summary .fx-chev { transform: rotate(90deg); }
+    .factor-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: .3rem 1.4rem; margin-top: .6rem; max-width: 460px;
+    }
+    .fx-row { display: flex; align-items: center; gap: .5rem; }
+    .fx-label { font-family: var(--mono); font-size: .56rem; color: var(--mut); width: 82px; flex-shrink: 0; text-transform: uppercase; letter-spacing: .04em; }
+    .fx-track { flex: 1; height: 5px; background: var(--inset); border: 1px solid var(--line); border-radius: 3px; overflow: hidden; }
+    .fx-fill { height: 100%; border-radius: 3px; transition: width .5s ease; }
+    .fx-val { font-family: var(--mono); font-size: .56rem; color: var(--tx2); width: 22px; text-align: right; flex-shrink: 0; }
+
+    /* Right metrics block */
+    .rright { display: flex; flex-direction: column; align-items: flex-end; gap: .5rem; min-width: 150px; }
+    .odds-block { text-align: right; }
+    .odds-big { font-family: var(--display); font-weight: 600; font-size: 1.9rem; letter-spacing: .01em; color: var(--goldB); line-height: 1; }
+    .odds-dec { font-family: var(--mono); font-size: .6rem; color: var(--mut); margin-top: .12rem; }
+    .rright .mvm-wrap { width: 150px; display: flex; flex-direction: column; gap: .25rem; }
+    .edge-row { display: flex; align-items: baseline; gap: .4rem; }
+    .edge-lbl { font-family: var(--mono); font-size: .54rem; color: var(--mut); text-transform: uppercase; letter-spacing: .05em; }
+    .conf-block { text-align: right; }
+    .conf-num { font-family: var(--display); font-weight: 700; font-size: 1.6rem; color: var(--vt); line-height: 1; }
+    .conf-lbl { font-family: var(--mono); font-size: .52rem; color: var(--mut); text-transform: uppercase; letter-spacing: .08em; margin-top: .1rem; }
+
+    /* ══ LEGEND / MODEL ══ */
+    #legend { margin-top: 1.8rem; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: .9rem 1.2rem; display: flex; flex-wrap: wrap; gap: .7rem 1.8rem; align-items: center; }
+    #legend h3 { font-family: var(--mono); font-size: .62rem; color: var(--mut); letter-spacing: .14em; text-transform: uppercase; flex: 0 0 100%; }
+    .leg-item { display: flex; align-items: center; gap: .5rem; font-size: .8rem; color: var(--tx2); }
+    #leg-disc { margin-left: auto; font-family: var(--mono); font-size: .6rem; color: var(--fnt2); }
+    #model-info { margin-top: .8rem; background: var(--gold-bg); border: 1px solid var(--gold-bd); border-radius: 10px; padding: .8rem 1.1rem; font-family: var(--mono); font-size: .66rem; color: var(--tx2); line-height: 1.75; }
+    #model-info strong { color: var(--goldB); }
 
     /* ── STATE ── */
-    #state { text-align: center; padding: 4rem 2rem; font-family: var(--mono); color: var(--dim); font-size: .86rem; line-height: 1.7; }
+    #state { text-align: center; padding: 4rem 2rem; font-family: var(--mono); color: var(--mut); font-size: .86rem; line-height: 1.7; }
     .spinner { display: inline-block; width: 20px; height: 20px; border: 2px solid var(--line); border-top-color: var(--gold); border-radius: 50%; animation: spin .7s linear infinite; vertical-align: middle; margin-right: .5rem; }
     @keyframes spin { to { transform: rotate(360deg); } }
     .fade { animation: fadeIn .3s ease both; }
@@ -261,51 +413,43 @@
     .s4{animation-delay:.12s}.s5{animation-delay:.15s}.s6{animation-delay:.18s}
     .s7{animation-delay:.21s}.s8{animation-delay:.24s}
 
-    /* ── ACCURACY DRAWER ── */
+    /* ══════════════════════════════════════════════════════════
+       DRAWERS (accuracy / picks / multis) — kept from original,
+       reading token aliases so both themes work.
+       ══════════════════════════════════════════════════════════ */
     #acc-overlay {
       position: fixed; inset: 0; background: rgba(0,0,0,.45);
-      z-index: 299; opacity: 0; pointer-events: none;
-      transition: opacity .3s ease;
+      z-index: 299; opacity: 0; pointer-events: none; transition: opacity .3s ease;
     }
     body.drawer-open #acc-overlay { opacity: 1; pointer-events: all; }
 
     #acc-drawer {
       position: fixed; top: 0; right: 0; bottom: 0;
       width: var(--drawer-w); max-width: 100vw;
-      background: var(--drawer-bg);
-      border-left: 1px solid var(--line);
-      z-index: 300;
-      display: flex; flex-direction: column;
-      transform: translateX(100%);
-      transition: transform .35s cubic-bezier(.4,0,.2,1);
-      overflow: hidden;
+      background: var(--drawer-bg); border-left: 1px solid var(--line);
+      z-index: 300; display: flex; flex-direction: column;
+      transform: translateX(100%); transition: transform .35s cubic-bezier(.4,0,.2,1); overflow: hidden;
     }
     body.drawer-open #acc-drawer { transform: translateX(0); }
-
     #acc-drawer-header {
       display: flex; align-items: center; justify-content: space-between;
-      padding: 1rem 1.2rem .8rem;
-      border-bottom: 1px solid var(--line);
-      flex-shrink: 0;
+      padding: 1rem 1.2rem .8rem; border-bottom: 1px solid var(--line); flex-shrink: 0;
     }
-    #acc-drawer-header h2 { font-family: var(--display); font-size: 1.5rem; letter-spacing: .07em; color: var(--gold); line-height: 1; }
-    #acc-close {
+    #acc-drawer-header h2 { font-family: var(--display); font-weight: 600; font-size: 1.5rem; letter-spacing: .04em; color: var(--gold); line-height: 1; }
+    #acc-close, #picks-close {
       background: none; border: 1px solid var(--line); color: var(--dim);
       width: 30px; height: 30px; border-radius: 6px; cursor: pointer;
       font-size: 1rem; display: flex; align-items: center; justify-content: center;
       transition: all .2s; flex-shrink: 0;
     }
-    #acc-close:hover { border-color: var(--gold); color: var(--gold); }
-
+    #acc-close:hover, #picks-close:hover { border-color: var(--gold); color: var(--gold); }
     #acc-drawer-body { flex: 1; overflow-y: auto; padding: 1rem 1.2rem 2rem; }
-    #acc-drawer-body::-webkit-scrollbar { width: 4px; }
-    #acc-drawer-body::-webkit-scrollbar-track { background: transparent; }
-    #acc-drawer-body::-webkit-scrollbar-thumb { background: var(--line); border-radius: 2px; }
+    #acc-drawer-body::-webkit-scrollbar, #picks-drawer-body::-webkit-scrollbar { width: 4px; }
+    #acc-drawer-body::-webkit-scrollbar-thumb, #picks-drawer-body::-webkit-scrollbar-thumb { background: var(--line); border-radius: 2px; }
 
-    /* Summary stats strip */
     .acc-summary { display: grid; grid-template-columns: repeat(5,1fr); gap: .5rem; margin-bottom: 1.1rem; }
-    .acc-stat { background: rgba(255,255,255,.04); border: 1px solid var(--line); border-radius: 8px; padding: .6rem .5rem; text-align: center; }
-    .acc-stat-val { font-family: var(--display); font-size: 1.7rem; letter-spacing: .04em; line-height: 1; }
+    .acc-stat { background: var(--chip); border: 1px solid var(--line); border-radius: 8px; padding: .6rem .5rem; text-align: center; }
+    .acc-stat-val { font-family: var(--display); font-weight: 600; font-size: 1.7rem; letter-spacing: .02em; line-height: 1; }
     .acc-stat-val.good { color: var(--green); }
     .acc-stat-val.mid  { color: var(--amber); }
     .acc-stat-val.poor { color: var(--red); }
@@ -313,112 +457,80 @@
     .acc-stat-lbl { font-family: var(--mono); font-size: .58rem; color: var(--dim); margin-top: .2rem; letter-spacing: .06em; text-transform: uppercase; }
     .acc-stat-sub { font-family: var(--mono); font-size: .56rem; color: var(--dim); opacity: .7; margin-top: .1rem; }
 
-    /* Daily history */
     .acc-section-title { font-family: var(--mono); font-size: .63rem; color: var(--dim); letter-spacing: .1em; text-transform: uppercase; margin-bottom: .55rem; margin-top: .2rem; }
     .acc-days { display: flex; flex-direction: column; gap: .4rem; }
-
-    .acc-day { background: rgba(255,255,255,.03); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
-    .acc-day-hdr {
-      display: flex; align-items: center; gap: .7rem; padding: .6rem .85rem;
-      cursor: pointer; user-select: none; transition: background .15s;
-    }
-    .acc-day-hdr:hover { background: rgba(255,255,255,.04); }
+    .acc-day { background: var(--chip); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+    .acc-day-hdr { display: flex; align-items: center; gap: .7rem; padding: .6rem .85rem; cursor: pointer; user-select: none; transition: background .15s; }
+    .acc-day-hdr:hover { background: var(--gold-bg); }
     .acc-day-date { font-family: var(--mono); font-size: .7rem; color: var(--cream); min-width: 72px; }
     .acc-bar-wrap { flex: 1; height: 5px; background: var(--line); border-radius: 3px; overflow: hidden; }
     .acc-bar-fill { height: 100%; border-radius: 3px; transition: width .4s ease; }
-    .acc-day-pct { font-family: var(--display); font-size: 1rem; min-width: 38px; text-align: right; }
+    .acc-day-pct { font-family: var(--display); font-weight: 600; font-size: 1rem; min-width: 38px; text-align: right; }
     .acc-day-counts { font-family: var(--mono); font-size: .6rem; color: var(--dim); min-width: 72px; text-align: right; }
     .acc-chevron { font-family: var(--mono); font-size: .6rem; color: var(--dim); transition: transform .2s; }
     .acc-day.open .acc-chevron { transform: rotate(90deg); }
-
-    /* Race detail inside a day */
     .acc-day-body { display: none; border-top: 1px solid var(--line); padding: .6rem .85rem .7rem; }
     .acc-day.open .acc-day-body { display: block; }
-
     .acc-race { margin-bottom: .65rem; }
     .acc-race:last-child { margin-bottom: 0; }
     .acc-race-hdr { font-family: var(--mono); font-size: .65rem; color: var(--dim); margin-bottom: .3rem; display: flex; gap: .5rem; align-items: baseline; }
     .acc-race-hdr strong { color: var(--gold-lt); }
     .acc-race-winner { font-size: .6rem; color: var(--green); }
-
     .acc-runners { display: flex; flex-direction: column; gap: .2rem; }
     .acc-runner { display: flex; align-items: center; gap: .45rem; font-family: var(--mono); font-size: .65rem; padding: .18rem .3rem; border-radius: 4px; }
-    .acc-runner.correct { background: rgba(76,201,122,.07); }
-    .acc-runner.incorrect { background: rgba(224,90,90,.06); }
+    .acc-runner.correct { background: rgba(79,208,127,.07); }
+    .acc-runner.incorrect { background: rgba(229,122,88,.06); }
     .acc-runner.dnf { opacity: .55; }
     .acc-icon { width: 14px; flex-shrink: 0; text-align: center; }
     .acc-hname { flex: 1; color: var(--cream); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
     .acc-rec-tag { font-size: .58rem; padding: .05rem .3rem; border-radius: 3px; flex-shrink: 0; }
-    .acc-rec-tag.win  { background: rgba(76,201,122,.15);  color: var(--green); }
-    .acc-rec-tag.ew   { background: rgba(240,165,0,.15);   color: var(--amber); }
+    .acc-rec-tag.win  { background: rgba(79,208,127,.15);  color: var(--green); }
+    .acc-rec-tag.ew   { background: rgba(224,168,60,.15);   color: var(--amber); }
     .acc-pos { min-width: 28px; text-align: right; flex-shrink: 0; }
     .acc-pos.p1 { color: var(--green); font-weight: 600; }
     .acc-pos.placed { color: var(--amber); }
+    #acc-empty, #picks-empty { font-family: var(--mono); font-size: .75rem; color: var(--dim); text-align: center; padding: 2.5rem 1rem; line-height: 1.8; }
 
-    #acc-empty { font-family: var(--mono); font-size: .75rem; color: var(--dim); text-align: center; padding: 2.5rem 1rem; line-height: 1.8; }
-
-    /* ── TOP PICKS DRAWER ── */
     #picks-drawer {
       position: fixed; top: 0; right: 0; bottom: 0;
       width: var(--drawer-w); max-width: 100vw;
       background: var(--drawer-bg); border-left: 1px solid var(--line);
       z-index: 300; display: flex; flex-direction: column;
-      transform: translateX(100%);
-      transition: transform .35s cubic-bezier(.4,0,.2,1); overflow: hidden;
+      transform: translateX(100%); transition: transform .35s cubic-bezier(.4,0,.2,1); overflow: hidden;
     }
     body.picks-open #picks-drawer { transform: translateX(0); }
     body.picks-open #acc-overlay { opacity: 1; pointer-events: all; }
-
-    #picks-drawer-header {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 1rem 1.2rem .8rem; border-bottom: 1px solid var(--line); flex-shrink: 0;
-    }
-    #picks-drawer-header h2 { font-family: var(--display); font-size: 1.5rem; letter-spacing: .07em; color: var(--gold); line-height: 1; }
+    #picks-drawer-header { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.2rem .8rem; border-bottom: 1px solid var(--line); flex-shrink: 0; }
+    #picks-drawer-header h2 { font-family: var(--display); font-weight: 600; font-size: 1.5rem; letter-spacing: .04em; color: var(--gold); line-height: 1; }
     #picks-sub { font-family: var(--mono); font-size: .6rem; color: var(--dim); margin-top: .25rem; letter-spacing: .04em; }
-    #picks-close {
-      background: none; border: 1px solid var(--line); color: var(--dim);
-      width: 30px; height: 30px; border-radius: 6px; cursor: pointer;
-      font-size: 1rem; display: flex; align-items: center; justify-content: center;
-      transition: all .2s; flex-shrink: 0;
-    }
-    #picks-close:hover { border-color: var(--gold); color: var(--gold); }
-
     #picks-drawer-body { flex: 1; overflow-y: auto; padding: .9rem 1.2rem 2rem; }
-    #picks-drawer-body::-webkit-scrollbar { width: 4px; }
-    #picks-drawer-body::-webkit-scrollbar-thumb { background: var(--line); border-radius: 2px; }
-
     .pick-row {
       display: grid; grid-template-columns: 40px 1fr auto auto; align-items: center;
       gap: .3rem .8rem; padding: .6rem .7rem; margin-bottom: .45rem;
-      background: rgba(255,255,255,.03); border: 1px solid var(--line); border-radius: 10px;
+      background: var(--chip); border: 1px solid var(--line); border-radius: 10px;
       cursor: pointer; transition: border-color .2s, background .2s;
     }
-    .pick-row:hover { border-color: rgba(201,168,76,.4); background: rgba(201,168,76,.06); }
+    .pick-row:hover { border-color: var(--gold-bd); background: var(--gold-bg); }
     .pick-row.past { opacity: .5; }
-    .pick-silk-img { width: 38px; height: 38px; object-fit: contain; border-radius: 6px; background: rgba(255,255,255,.04); }
+    .pick-silk-img { width: 38px; height: 38px; object-fit: contain; border-radius: 6px; background: var(--chip); }
     .pick-silk-svg { width: 38px; height: 38px; border-radius: 6px; }
     .pick-main { min-width: 0; }
-    .pick-horse { font-family: var(--display); font-size: 1.15rem; letter-spacing: .04em; line-height: 1.05; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .pick-horse { font-family: var(--display); font-weight: 500; font-size: 1.15rem; letter-spacing: .02em; line-height: 1.05; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--cream); }
     .pick-meta { font-family: var(--mono); font-size: .58rem; color: var(--dim); margin-top: .15rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .pick-odds { font-family: var(--display); font-size: 1.35rem; color: var(--gold); text-align: right; }
-    .pick-badge {
-      font-family: var(--mono); font-weight: 600; font-size: .68rem; letter-spacing: .04em;
-      padding: .28rem .5rem; border-radius: 6px; text-align: center; min-width: 44px;
-    }
-    .pick-badge.swb { background: rgba(76,201,122,.16); color: var(--green); border: 1px solid rgba(76,201,122,.4); }
-    .pick-badge.wb  { background: rgba(240,165,0,.14);  color: var(--amber); border: 1px solid rgba(240,165,0,.35); }
-    #picks-empty { font-family: var(--mono); font-size: .75rem; color: var(--dim); text-align: center; padding: 2.5rem 1rem; line-height: 1.8; }
+    .pick-odds { font-family: var(--display); font-weight: 600; font-size: 1.35rem; color: var(--gold); text-align: right; }
+    .pick-badge { font-family: var(--mono); font-weight: 600; font-size: .68rem; letter-spacing: .04em; padding: .28rem .5rem; border-radius: 6px; text-align: center; min-width: 44px; }
+    .pick-badge.swb { background: var(--gold-bg); color: var(--gold); border: 1px solid var(--gold-bd); }
+    .pick-badge.wb  { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-bd); }
     .picks-legend { font-family: var(--mono); font-size: .58rem; color: var(--dim); margin-top: .9rem; line-height: 1.7; border-top: 1px solid var(--line); padding-top: .7rem; }
-    .picks-legend b.swb { color: var(--green); }
-    .picks-legend b.wb  { color: var(--amber); }
+    .picks-legend b.swb { color: var(--gold); }
+    .picks-legend b.wb  { color: var(--green); }
 
-    /* ── MULTI BETS ── */
     #multis-section { margin-top: 1.4rem; }
     #multis-section .acc-section-title { margin-top: 0; }
     #multis-sub { font-family: var(--mono); font-size: .58rem; color: var(--dim); margin: -.35rem 0 .7rem; line-height: 1.6; }
-    .multi-card { background: rgba(255,255,255,.03); border: 1px solid var(--line); border-radius: 10px; padding: .7rem .8rem; margin-bottom: .5rem; }
+    .multi-card { background: var(--chip); border: 1px solid var(--line); border-radius: 10px; padding: .7rem .8rem; margin-bottom: .5rem; }
     .multi-hdr { display: flex; align-items: baseline; gap: .5rem; margin-bottom: .55rem; }
-    .multi-name { font-family: var(--display); font-size: 1.25rem; letter-spacing: .05em; color: var(--gold); line-height: 1; }
+    .multi-name { font-family: var(--display); font-weight: 600; font-size: 1.25rem; letter-spacing: .02em; color: var(--gold); line-height: 1; }
     .multi-tag { font-family: var(--mono); font-size: .56rem; color: var(--dim); border: 1px solid var(--line); border-radius: 20px; padding: .1rem .45rem; letter-spacing: .04em; }
     .multi-desc { font-family: var(--mono); font-size: .56rem; color: var(--dim); margin-left: auto; text-align: right; line-height: 1.4; }
     .multi-legs { display: flex; flex-direction: column; gap: .12rem; }
@@ -431,41 +543,46 @@
     .multi-stake { font-family: var(--mono); font-size: .58rem; color: var(--dim); }
     .multi-stake strong { color: var(--cream); font-weight: 500; }
     .multi-return { text-align: right; }
-    .multi-return-val { font-family: var(--display); font-size: 1.5rem; letter-spacing: .03em; color: var(--green); line-height: 1; }
+    .multi-return-val { font-family: var(--display); font-weight: 600; font-size: 1.5rem; letter-spacing: .02em; color: var(--green); line-height: 1; }
     .multi-return-lbl { font-family: var(--mono); font-size: .54rem; color: var(--dim); letter-spacing: .06em; text-transform: uppercase; margin-top: .1rem; }
-    .multi-odds-pill { font-family: var(--mono); font-size: .6rem; color: var(--gold); background: rgba(201,168,76,.1); border: 1px solid rgba(201,168,76,.28); border-radius: 5px; padding: .16rem .42rem; }
+    .multi-odds-pill { font-family: var(--mono); font-size: .6rem; color: var(--gold); background: var(--gold-bg); border: 1px solid var(--gold-bd); border-radius: 5px; padding: .16rem .42rem; }
 
-    /* ── RESPONSIVE ── */
-    @media (max-width: 660px) {
-      #header { flex-direction: column; align-items: flex-start; }
-      #header-meta { margin-left: 0; flex-wrap: wrap; }
-      #next-up { grid-template-columns: 1fr; }
+    /* ══════════════════════════════════════════════════════════
+       RESPONSIVE — single breakpoint
+       ══════════════════════════════════════════════════════════ */
+    @media (max-width: 760px) {
+      #header { padding: .6rem 1rem; }
+      #header h1 { font-size: 1.5rem; }
+      #main { padding: 1.2rem 1rem 3rem; }
 
-      /* Compact the Next Up hero: countdown beside the label, time & course share a row, drop the long race name */
-      #next-up > div:first-child {
-        display: grid; grid-template-columns: auto 1fr;
-        column-gap: .55rem; row-gap: .12rem; align-items: baseline;
+      #hero { grid-template-columns: 1fr; }
+      #nu-time { font-size: 2.7rem; }
+
+      /* Top-3 calls drop the edge bar; keep verdict + odds */
+      .call { grid-template-columns: 20px 1fr auto; }
+      .call-edge-wrap { display: none; }
+
+      /* Runner cards: silks inline beside the name, metrics band below */
+      .rcard { grid-template-columns: 44px 1fr; gap: .4rem .7rem; }
+      .silk-img, .silk-svg { width: 40px; height: 40px; }
+      .rnum { margin-top: .25rem; }
+      .hname { font-size: 1.25rem; }
+      /* metrics fold into a full-width band at the bottom */
+      .rright {
+        grid-column: 1 / -1;
+        flex-direction: row; align-items: center; justify-content: space-between;
+        width: 100%; min-width: 0; gap: 1rem; margin-top: .4rem;
+        padding-top: .7rem; border-top: 1px solid var(--line);
       }
-      #nu-label     { grid-row: 1; grid-column: 1; }
-      #nu-countdown { grid-row: 1; grid-column: 2; margin: 0; }
-      #nu-time      { grid-row: 2; grid-column: 1; margin-top: .15rem; }
-      #nu-course    { grid-row: 2; grid-column: 2; margin: 0; }
-      #nu-title     { grid-column: 1 / -1; }
-      #nu-meta      { grid-row: 3; grid-column: 1 / -1; margin-top: .55rem; }
-      #nu-view      { grid-row: 4; grid-column: 1 / -1; justify-self: start; margin-top: .5rem; }
-      .nu-race-name { display: none; }
-      /* Dist & Runners (both short) share a row; the longer Going wraps below */
-      #nu-meta .pill:nth-child(2) { order: 1; }
-      /* Bets: full horse name on top row; recommendation replaces jockey in the sub-line */
-      .nu-bet-people { display: none; }
-      .nu-bet-rec    { display: inline; }
-      .nu-bet-badge  { display: none; }
-      .rcard { grid-template-columns: 48px 1fr; }
-      .rright { grid-column: 1/-1; flex-direction: row; align-items: center; justify-content: space-between; }
+      .rright .mvm-wrap { width: auto; flex: 1; max-width: 160px; }
+      .conf-block, .odds-block { text-align: center; }
+
       #race-overview { grid-template-columns: 1fr; }
       #race-time, #race-time-lbl { text-align: left; }
+      #race-time { font-size: 2.6rem; }
+
       --drawer-w: 100vw;
-      body.drawer-open #main { padding-right: 1.4rem; }
+      body.drawer-open #main { padding-right: 1rem; }
       .acc-summary { grid-template-columns: repeat(3,1fr); }
     }
   </style>
@@ -478,12 +595,12 @@
   <h1>RACE DAY <span>UK & IRE</span></h1>
   <div id="header-meta">
     <span id="date-disp">—</span>
+    <span id="clock">--:--:--</span>
     <span id="upd-disp"></span>
-    <button id="refresh-btn" onclick="loadData()">↺ Refresh</button>
-    <button id="theme-btn" onclick="toggleTheme()" title="Toggle light/dark theme">◑</button>
-    <span id="live-pill" title="Auto-refreshes every 5 mins during racing hours">
+    <span id="live-pill" title="Auto-refreshes during racing hours">
       <span class="ldot"></span><span id="live-label">LIVE</span>
     </span>
+    <button id="theme-btn" class="hbtn" onclick="toggleTheme()" title="Toggle light/dark theme">☀</button>
     <div id="menu-wrap">
       <button id="menu-btn" onclick="toggleMenu(event)" title="Menu" aria-haspopup="true" aria-expanded="false">
         <span class="menu-dot"></span> ☰ Menu
@@ -536,14 +653,29 @@
 <!-- ── MAIN ── -->
 <main id="main">
   <div id="state"><span class="spinner"></span> Loading today's races…</div>
-  <section id="next-up" style="display:none"></section>
-  <div class="section-title" id="meetings-lbl" style="display:none">Today's Meetings</div>
-  <nav id="meetings" style="display:none"></nav>
-  <div class="section-title" id="racecard-lbl" style="display:none">Racecard</div>
-  <div id="race-overview" style="display:none"></div>
-  <div id="runners"       style="display:none"></div>
-  <div id="legend"        style="display:none"></div>
-  <div id="model-info"    style="display:none"></div>
+
+  <div id="angle" style="display:none"></div>
+
+  <section class="zone" id="hero-zone" style="display:none">
+    <div id="hero">
+      <div id="nu-card"></div>
+      <div id="nu-calls"></div>
+    </div>
+  </section>
+
+  <section class="zone" id="meetings-zone" style="display:none">
+    <div class="zone-label">Today's Meetings</div>
+    <div id="nextoff"></div>
+    <nav id="meetings"></nav>
+  </section>
+
+  <section class="zone" id="racecard-zone" style="display:none">
+    <div class="zone-label">Racecard</div>
+    <div id="race-overview"></div>
+    <div id="runners"></div>
+    <div id="legend"></div>
+    <div id="model-info"></div>
+  </section>
 </main>
 
 <script>
@@ -551,7 +683,14 @@ function toggleTheme() {
   const isLight = document.documentElement.dataset.theme === 'light';
   document.documentElement.dataset.theme = isLight ? '' : 'light';
   localStorage.setItem('theme', isLight ? 'dark' : 'light');
+  syncThemeIcon();
 }
+function syncThemeIcon() {
+  const light = document.documentElement.dataset.theme === 'light';
+  const btn = document.getElementById('theme-btn');
+  if (btn) { btn.textContent = light ? '☾' : '☀'; btn.title = light ? 'Switch to dark' : 'Switch to light'; }
+}
+syncThemeIcon();
 
 /* ════════════════════════════════════════
    RACES
@@ -568,6 +707,7 @@ async function loadData() {
     allRaces = data.races || [];
     if (!allRaces.length) { showState('🏇 No races today. Check back later.'); return; }
     setMeta(data.date, data.generated_at);
+    renderAngle();
     renderMeetings(allRaces);
     renderNextUp();
     const next = findNextRace();
@@ -580,6 +720,7 @@ async function loadData() {
 /* ── TIME HELPERS ── */
 function raceMins(r) { const [h,m] = r.time.split(':').map(Number); return h*60+m; }
 function nowMins()   { const n = new Date(); return n.getHours()*60 + n.getMinutes(); }
+function raceDate(r) { const [h,m] = r.time.split(':').map(Number); const d = new Date(); d.setHours(h,m,0,0); return d; }
 function findNextRace() {
   const nm = nowMins();
   let next = null;
@@ -588,14 +729,61 @@ function findNextRace() {
   }
   return next;
 }
+// Seconds-precision countdown, e.g. "in 4m 12s" / "in 1h 3m" / "Off now"
 function countdownStr(r) {
-  const diff = raceMins(r) - nowMins();
-  if (diff <= 0) return 'Off now';
-  const h = Math.floor(diff/60), m = diff%60;
-  return 'in ' + (h ? h + 'h ' : '') + m + 'm';
+  let s = Math.round((raceDate(r) - new Date()) / 1000);
+  if (s <= 0) return 'Off now';
+  const h = Math.floor(s/3600); s %= 3600;
+  const m = Math.floor(s/60), sec = s % 60;
+  if (h > 0) return `in ${h}h ${m}m`;
+  return `in ${m}m ${sec}s`;
 }
 
-/* ── MEETINGS GRID ── */
+/* ── VERDICT MAPPING — model output → 3 consumer states ── */
+function verdict(rec) {
+  rec = rec || {};
+  if (rec.label === 'Strong Win Bet') return { state: 'strong', cls: 'v-strong', chip: 'STRONG BACK' };
+  if (rec.type === 'Win')             return { state: 'value',  cls: 'v-value',  chip: 'VALUE' };
+  if (rec.type === 'EachWay')         return { state: 'value',  cls: 'v-value',  chip: 'EACH-WAY' };
+  return { state: 'skip', cls: 'v-skip', chip: 'SKIP' };
+}
+
+/* ── TODAY'S ANGLE — opinionated one-liner for the whole card ── */
+function renderAngle() {
+  const el = document.getElementById('angle');
+  let best = null, overbet = null;
+  allRaces.forEach(race => {
+    race.runners.forEach(run => {
+      const rec = run.recommendation || {};
+      const edge = (run.value || {}).edge;
+      if (rec.type === 'Win' && (!best || (rec.confidence||0) > (best.rec.confidence||0)))
+        best = { race, run, rec, edge };
+      if (run.odds_dec && run.odds_dec <= 4 && edge != null && edge < -0.03 &&
+          (!overbet || edge < overbet.edge))
+        overbet = { race, run, rec, edge };
+    });
+  });
+
+  let html = '<span class="eyebrow">Today\'s Angle</span>';
+  if (best) {
+    const pp = best.edge != null ? Math.round(best.edge * 100) : null;
+    html += `<span class="plain">Back <b>${esc(best.run.horse)}</b> at ${esc(best.race.course)}</span> — `
+      + `our model's strongest call on the card`
+      + (pp != null && pp > 0 ? `, ${pp}pp clear of the market` : '') + '.';
+    if (overbet && overbet.run !== best.run) {
+      const opp = Math.abs(Math.round(overbet.edge * 100));
+      html += ` Swerve the <b>${esc(overbet.run.odds_str || 'short-priced')}</b> shot at ${esc(overbet.race.course)}; `
+        + `we make it overbet by ${opp}pp.`;
+    }
+  } else {
+    html += `<span class="plain">No standout win bets on today's card</span> — the market looks efficient across the board. `
+      + `Sit on your hands or take a small each-way interest at best.`;
+  }
+  el.innerHTML = html;
+  el.style.display = '';
+}
+
+/* ── MEETINGS STRIP ── */
 function renderMeetings(races) {
   const el = document.getElementById('meetings');
   el.innerHTML = '';
@@ -611,12 +799,19 @@ function renderMeetings(races) {
       + `<span class="chip-course">${esc(r.course)}</span>`
       + `</button>`;
   }).join('');
-  // Defer until after selectRace() reveals the strip, so it has a measurable width.
+  renderNextOff();
   requestAnimationFrame(scrollMeetingsToActive);
 }
 
-/* Bring the next (or most recent) race into view within the horizontal strip,
-   without scrolling the whole page. */
+function renderNextOff() {
+  const el = document.getElementById('nextoff');
+  if (!el) return;
+  const next = findNextRace();
+  if (!next) { el.innerHTML = ''; return; }
+  el.innerHTML = `<span class="no-dot"></span>Next off · <b>${esc(next.time)} ${esc(next.course)}</b> · `
+    + `<span class="no-cd">${countdownStr(next)}</span>`;
+}
+
 function scrollMeetingsToActive(smooth) {
   const el = document.getElementById('meetings');
   const chip = el.querySelector('.time-chip.next')
@@ -638,52 +833,54 @@ function updateChipStates() {
   });
 }
 
-/* ── NEXT UP HERO ── */
+/* ── HERO: Next race + Top 3 calls ── */
 let nextUpId = null;
 function renderNextUp() {
-  const el = document.getElementById('next-up');
+  const cardEl = document.getElementById('nu-card');
+  const callsEl = document.getElementById('nu-calls');
   const next = findNextRace();
   if (!next) {
     nextUpId = null;
-    el.innerHTML = `
-      <div>
-        <span id="nu-label">Next race</span>
-        <div id="nu-course" style="margin-top:.6rem">That's a wrap 🏁</div>
-        <div id="nu-title">All of today's races have started. Check the Accuracy panel tomorrow to see how the picks did.</div>
-      </div>`;
+    cardEl.innerHTML = `
+      <span id="nu-label">Next race</span>
+      <div id="nu-course" style="margin-top:.6rem">That's a wrap 🏁</div>
+      <div id="nu-title">All of today's races have started. Check the Accuracy panel tomorrow to see how the picks did.</div>`;
+    callsEl.innerHTML = '';
     return;
   }
   nextUpId = next.id;
-  const bets = topBets(next);
-  el.innerHTML = `
-    <div>
-      <span id="nu-label"><span class="ldot"></span>Next race</span>
-      <div id="nu-time">${esc(next.time)}</div>
-      <div id="nu-countdown">${countdownStr(next)}</div>
-      <div id="nu-course">${esc(next.course)}</div>
-      <div id="nu-title" class="nu-race-name">${esc(next.title)}</div>
-      <div id="nu-meta">
-        ${pill('Dist', next.distance)}${pill('Going', next.going)}${pill('Runners', next.num_runners)}
-      </div>
-      <button id="nu-view" onclick="selectRace('${esc(next.id)}', true)">View full racecard →</button>
+  cardEl.innerHTML = `
+    <span id="nu-label"><span class="ldot"></span>Next race</span>
+    <div id="nu-time">${esc(next.time)}</div>
+    <div id="nu-countdown">${countdownStr(next)}</div>
+    <div id="nu-course">${esc(next.course)}</div>
+    <div id="nu-title">${esc(next.title)}</div>
+    <div id="nu-meta">
+      ${pill('Dist', next.distance)}${pill('Going', next.going)}${pill('Runners', next.num_runners)}
     </div>
-    <div id="nu-bets">
-      <div class="nu-bets-title">Top 3 suggested bets</div>
-      ${bets.map((b, i) => {
-        const rec  = b.runner.recommendation || {};
-        const type = (rec.type||'Skip').toLowerCase();
-        const cls  = type === 'eachway' ? 'ew' : type;
-        return `<div class="nu-bet" onclick="selectRace('${esc(next.id)}', true)">
-          <span class="nu-rank">${i+1}</span>
-          <div class="nu-bet-info">
-            <div class="nu-bet-horse">${esc(b.runner.horse)}</div>
-            <div class="nu-bet-sub"><span class="nu-bet-people">${b.runner.jockey ? '🏇 ' + esc(b.runner.jockey) + ' · ' : ''}</span><span class="nu-bet-rec"><span class="rec-badge ${cls}" style="font-size:.56rem;padding:.16rem .44rem"><span class="rdot"></span>${esc(rec.label||'Skip')}</span> · </span>${b.runner.score||0}%</div>
-          </div>
-          <span class="nu-bet-badge"><span class="rec-badge ${cls}" style="font-size:.58rem;padding:.2rem .5rem"><span class="rdot"></span>${esc(rec.label||'Skip')}</span></span>
-          <span class="nu-bet-odds">${esc(b.runner.odds_str||'SP')}</span>
-        </div>`;
-      }).join('')}
-    </div>`;
+    <button id="nu-view" onclick="selectRace('${esc(next.id)}', true)">View full racecard →</button>`;
+
+  const bets = topBets(next);
+  callsEl.innerHTML = `<div class="calls-title">Our Top 3 Calls</div>`
+    + bets.map((b, i) => {
+      const v = verdict(b.runner.recommendation);
+      const val = b.runner.value || {};
+      return `<div class="call ${v.cls}" onclick="selectRace('${esc(next.id)}', true)">
+        <span class="call-rank">${i+1}</span>
+        <div class="call-main">
+          <div class="call-horse">${esc(b.runner.horse)}</div>
+          <div class="call-sub">${b.runner.jockey ? esc(b.runner.jockey) : '—'}</div>
+        </div>
+        <div class="call-edge-wrap">
+          ${mvmBar(val)}
+          <div class="mvm-legend"><span>model ${probPct(val.model_prob)}</span><span>mkt ${probPct(val.market_prob)}</span></div>
+        </div>
+        <div class="call-right">
+          <span class="vchip sm"><span class="vdot"></span>${v.chip}</span>
+          <span class="call-odds">${esc(b.runner.odds_str||'SP')}</span>
+        </div>
+      </div>`;
+    }).join('');
 }
 
 function topBets(race) {
@@ -697,26 +894,50 @@ function topBets(race) {
   return picks.map(runner => ({ runner }));
 }
 
-/* Keep countdown + chip states fresh */
+/* Model-vs-market shared bar: fill = model %, tick = market % */
+function mvmBar(v) {
+  if (!v || v.model_prob == null || v.market_prob == null) return '<div class="mvm-bar"></div>';
+  const mp = Math.min(100, Math.round(v.model_prob * 100));
+  const mk = Math.min(100, Math.round(v.market_prob * 100));
+  return `<div class="mvm-bar" title="model ${mp}% vs market ${mk}%">`
+    + `<div class="mvm-fill" style="width:${mp}%"></div>`
+    + `<div class="mvm-tick" style="left:${mk}%"></div></div>`;
+}
+function probPct(p) { return p == null ? '—' : Math.round(p*100) + '%'; }
+function edgeReadout(v) {
+  if (!v || v.edge == null) return '';
+  const pp = Math.round(v.edge * 100);
+  return `<span class="edge ${pp >= 0 ? 'pos' : 'neg'}">${pp > 0 ? '+' : ''}${pp}pp</span>`;
+}
+
+/* ── 1-second ticker: clock + countdowns ── */
+setInterval(() => {
+  const c = document.getElementById('clock');
+  if (c) c.textContent = new Date().toLocaleTimeString('en-GB', {hour:'2-digit', minute:'2-digit', second:'2-digit'});
+  if (!allRaces.length) return;
+  const next = findNextRace();
+  const cd = document.getElementById('nu-countdown');
+  if (cd && next) cd.textContent = countdownStr(next);
+  const nocd = document.querySelector('#nextoff .no-cd');
+  if (nocd && next) nocd.textContent = countdownStr(next);
+}, 1000);
+
+/* ── 30-second re-render: roll over to the next race when one goes off ── */
 setInterval(() => {
   if (!allRaces.length) return;
   const next = findNextRace();
-  if ((next ? next.id : null) !== nextUpId) { renderNextUp(); }
-  else if (next) {
-    const cd = document.getElementById('nu-countdown');
-    if (cd) cd.textContent = countdownStr(next);
-  }
+  if ((next ? next.id : null) !== nextUpId) { renderNextUp(); renderNextOff(); }
   updateChipStates();
 }, 30 * 1000);
 
 function setMeta(dateStr, genAt) {
   const d = new Date(dateStr+'T12:00:00');
   document.getElementById('date-disp').textContent =
-    d.toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'long',year:'numeric'});
+    d.toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'long'});
   if (genAt) {
     const g = new Date(genAt);
     document.getElementById('upd-disp').textContent =
-      'Updated ' + g.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'});
+      '· upd ' + g.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'});
   }
 }
 
@@ -729,10 +950,10 @@ function selectRace(id, scroll = false) {
   renderRunners(race);
   renderLegend();
   renderModelInfo();
-  ['next-up','meetings-lbl','meetings','racecard-lbl','race-overview','runners','legend','model-info'].forEach(i =>
+  ['angle','hero-zone','meetings-zone','racecard-zone'].forEach(i =>
     document.getElementById(i).style.display = '');
   document.getElementById('state').style.display = 'none';
-  if (scroll) document.getElementById('racecard-lbl').scrollIntoView({behavior:'smooth', block:'start'});
+  if (scroll) document.querySelector('#racecard-zone .zone-label').scrollIntoView({behavior:'smooth', block:'start'});
 }
 
 function renderOverview(race) {
@@ -757,25 +978,43 @@ function pill(label, val) {
   return `<span class="pill"><strong>${esc(label)}</strong> ${esc(String(val))}</span>`;
 }
 
+function cap(s) { s = String(s||''); return s ? s.charAt(0).toUpperCase() + s.slice(1) : ''; }
+
+/* Plain-English tipster verdict sentence for a runner. */
+function verdictLine(runner) {
+  const rec = runner.recommendation || {};
+  const v = runner.value || {};
+  const pp = v.edge != null ? Math.round(v.edge * 100) : null;
+  const reason = rec.reasoning ? cap(rec.reasoning) + '.' : '';
+  if (rec.type !== 'Win' && pp != null && pp <= -5)
+    return `Overbet — ${Math.abs(pp)}pp shorter than we make it. ${reason}`.trim();
+  if (rec.type === 'Win' && pp != null && pp >= 3)
+    return `We make it ${pp}pp bigger than the market. ${reason}`.trim();
+  return reason || 'No strong opinion at the price.';
+}
+
 function renderRunners(race) {
   const el = document.getElementById('runners');
   el.innerHTML = '';
   race.runners.forEach((runner, idx) => {
     const rec  = runner.recommendation || {};
-    const type = (rec.type||'Skip').toLowerCase();
-    const cls  = type === 'eachway' ? 'ew' : type;
+    const v    = verdict(rec);
+    const val  = runner.value || {};
     const comp = runner.components || {};
     const isFav = idx === 0 && runner.score >= 45;
+    const topExpanded = idx === 0;   // expand factors on the top pick only
+
     const card = document.createElement('div');
-    card.className = `rcard ${cls} fade s${Math.min(idx+1,8)}`;
+    card.className = `rcard ${v.cls} fade s${Math.min(idx+1,8)}`;
     card.innerHTML = `
       <div class="silk-col">
         ${silkEl(runner.silk_url, runner.jockey, idx)}
         <div class="rnum">#${idx+1}</div>
       </div>
-      <div>
-        <div class="hname">
-          ${esc(runner.horse)}
+      <div class="rmain">
+        <div class="rtop">
+          <span class="hname">${esc(runner.horse)}</span>
+          <span class="vchip"><span class="vdot"></span>${v.chip}</span>
           ${isFav ? '<span class="badge-fav">TOP PICK</span>' : ''}
           ${runner.country && runner.country!=='GB' ? `<span class="badge-ctry">${esc(runner.country)}</span>` : ''}
         </div>
@@ -789,60 +1028,58 @@ function renderRunners(race) {
           ${runner.weight ? `<span class="tag">${esc(runner.weight)}</span>` : ''}
           ${runner.draw   ? `<span class="tag">Draw ${esc(runner.draw)}</span>` : ''}
         </div>
-        ${rec.reasoning ? `<div class="reasoning">${esc(rec.reasoning)}</div>` : ''}
-        ${valueHTML(runner.value)}
-        ${scoreBarHTML(comp)}
+        <div class="verdict-line">${esc(verdictLine(runner))}</div>
+        ${factorsHTML(comp, topExpanded)}
       </div>
       <div class="rright">
-        <div class="odds-big">${esc(runner.odds_str||'SP')}</div>
-        ${runner.odds_dec ? `<div class="odds-dec">${runner.odds_dec.toFixed(2)} dec</div>` : ''}
-        <span class="rec-badge ${cls}"><span class="rdot"></span>${esc(rec.label||'Skip')}</span>
-        <div class="conf-bar ${cls}"><div class="conf-fill" style="width:${rec.confidence||0}%"></div></div>
-        <div class="total-score"><span>${runner.score||0}</span>%</div>
+        <div class="odds-block">
+          <div class="odds-big">${esc(runner.odds_str||'SP')}</div>
+          ${runner.odds_dec ? `<div class="odds-dec">${runner.odds_dec.toFixed(2)} dec</div>` : ''}
+        </div>
+        <div class="mvm-wrap">
+          ${mvmBar(val)}
+          <div class="edge-row"><span class="edge-lbl">edge</span>${edgeReadout(val) || '<span class="edge-lbl">—</span>'}</div>
+        </div>
+        <div class="conf-block">
+          <div class="conf-num">${rec.confidence != null ? rec.confidence : (runner.score||0)}</div>
+          <div class="conf-lbl">Confidence</div>
+        </div>
       </div>`;
     el.appendChild(card);
   });
 }
 
-// Informational only: the model's calibrated win probability next to the
-// market's implied probability. A positive edge is NOT a buy signal — the
-// backtest showed the market is the sharper estimate.
-function valueHTML(v) {
-  if (!v || v.model_prob == null || v.market_prob == null) return '';
-  const mp = Math.round(v.model_prob * 100);
-  const mk = Math.round(v.market_prob * 100);
-  const edgePP = v.edge != null ? Math.round(v.edge * 100) : null;
-  const edgeStr = edgePP != null ? `${edgePP > 0 ? '+' : ''}${edgePP}pp` : '';
-  return `<div class="mvm" title="Model's calibrated win probability vs the market's implied probability (overround removed). Informational — not a betting signal.">`
-    + `model <strong>${mp}%</strong> · market <strong>${mk}%</strong>`
-    + (edgeStr ? ` · <span class="mvm-edge">${edgeStr}</span>` : '')
-    + `</div>`;
-}
-
-function scoreBarHTML(comp) {
+// Expandable 2-column factor bars. Colour: gold ≥80, green ≥60, else grey.
+function factorColor(v) { return v >= 80 ? 'var(--gold)' : v >= 60 ? 'var(--back)' : 'var(--mut)'; }
+function factorsHTML(comp, expanded) {
   if (!comp || !Object.keys(comp).length) return '';
   const bars = [
-    {label:'Rec Form',   key:'recent_form', color:'#4cc97a'},
-    {label:'Consistency',key:'consistency', color:'#4cb8c9'},
-    {label:'Odds Value', key:'odds_value',  color:'#c9a84c'},
-    {label:'Jockey',     key:'jockey',      color:'#a084e8'},
-    {label:'Weight',     key:'weight',      color:'#f0a500'},
+    {label:'Rec Form',    key:'recent_form'},
+    {label:'Consistency', key:'consistency'},
+    {label:'Odds Value',  key:'odds_value'},
+    {label:'Jockey',      key:'jockey'},
+    {label:'Weight',      key:'weight'},
   ];
-  return '<div class="score-bar-wrap">' + bars.map(b => {
-    const val = comp[b.key] ?? 0;
-    return `<div class="score-bar-row">
-      <span class="score-bar-label">${b.label}</span>
-      <div class="score-bar-track"><div class="score-bar-fill" style="width:${Math.min(100,val)}%;background:${b.color}"></div></div>
-      <span class="score-bar-val">${Math.round(val)}</span>
+  const rows = bars.map(b => {
+    const val = Math.max(0, Math.min(100, comp[b.key] ?? 0));
+    return `<div class="fx-row">
+      <span class="fx-label">${b.label}</span>
+      <div class="fx-track"><div class="fx-fill" style="width:${val}%;background:${factorColor(val)}"></div></div>
+      <span class="fx-val">${Math.round(val)}</span>
     </div>`;
-  }).join('') + '</div>';
+  }).join('');
+  return `<details class="factors" ${expanded ? 'open' : ''}>
+    <summary><span class="fx-chev">▸</span> Factor breakdown</summary>
+    <div class="factor-grid">${rows}</div>
+  </details>`;
 }
 
 function renderLegend() {
   document.getElementById('legend').innerHTML = `
-    <h3>Key</h3>
-    <div class="leg-item"><span class="rec-badge win" style="font-size:.61rem;padding:.18rem .48rem"><span class="rdot"></span>Win Bet</span> High composite score — bet to win</div>
-    <div class="leg-item"><span class="rec-badge skip"style="font-size:.61rem;padding:.18rem .48rem"><span class="rdot"></span>Skip</span> Insufficient value at current odds</div>
+    <h3>Verdict Key</h3>
+    <div class="leg-item v-strong"><span class="vchip sm"><span class="vdot"></span>Strong Back</span> Model's highest-conviction win call</div>
+    <div class="leg-item v-value"><span class="vchip sm"><span class="vdot"></span>Value</span> A win bet at a fair price</div>
+    <div class="leg-item v-skip"><span class="vchip sm"><span class="vdot"></span>Skip</span> Not enough value at the odds</div>
     <div id="leg-disc">Not financial advice. For information only.</div>`;
 }
 
@@ -850,7 +1087,7 @@ function renderModelInfo() {
   document.getElementById('model-info').innerHTML =
     `<strong>How scores are calculated</strong> — 6-factor model:
     Recent Form (30%) · Consistency (15%) · Odds Value (25%) · Jockey Quality (15%) · Weight Advantage (10%) · Absence Penalty (−5%).
-    Going conditions apply a field-level modifier. DNF rate penalises horses with poor completion records.`;
+    The model-vs-market bar shows our calibrated win probability (fill) against the market's implied probability (tick); edge is the gap in percentage points.`;
 }
 
 /* ── SILK ── */
@@ -861,8 +1098,6 @@ const SILK_COLS = [
 ];
 function silkEl(url, jockey, idx) {
   const [p,s] = SILK_COLS[idx % SILK_COLS.length];
-  // Single-quoted attributes so the SVG can live inside the double-quoted
-  // onerror="" attribute without breaking the markup (which left a stray `">).
   const svg = `<svg class='silk-svg' viewBox='0 0 48 48' xmlns='http://www.w3.org/2000/svg'>`
     + `<path d='M11 20L7 31 16 33 16 43 32 43 32 33 41 31 37 20 30 24 24 15 18 24Z' fill='${p}' stroke='rgba(0,0,0,.2)' stroke-width='.8'/>`
     + `<ellipse cx='24' cy='15' rx='8' ry='5' fill='${s}' stroke='rgba(0,0,0,.2)' stroke-width='.8'/>`
@@ -870,7 +1105,6 @@ function silkEl(url, jockey, idx) {
     + `<path d='M32 20L41 31 32 33 32 24Z' fill='${s}' opacity='.7'/>`
     + `</svg>`;
   if (!url) return svg;
-  // Sporting Life stores silks as bare filenames; resolve to the CDN path.
   const src = /^https?:\/\//.test(url) ? url : `https://www.sportinglife.com/images/silks/${url}`;
   return `<img class="silk-img" src="${esc(src)}" alt="${esc(jockey||'')} silks"`
     + ` onerror="this.outerHTML=\`${svg}\`">`;
@@ -879,14 +1113,13 @@ function silkEl(url, jockey, idx) {
 function showState(html) {
   document.getElementById('state').innerHTML = html;
   document.getElementById('state').style.display = 'block';
-  ['next-up','meetings-lbl','meetings','racecard-lbl','race-overview','runners','legend','model-info'].forEach(i =>
+  ['angle','hero-zone','meetings-zone','racecard-zone'].forEach(i =>
     document.getElementById(i).style.display = 'none');
 }
 
 /* ════════════════════════════════════════
-   ACCURACY DRAWER
+   HAMBURGER MENU + DRAWERS
 ════════════════════════════════════════ */
-/* ── HAMBURGER MENU ── */
 function toggleMenu(e) {
   if (e) e.stopPropagation();
   const menu = document.getElementById('header-menu');
@@ -920,15 +1153,12 @@ function openPicks() {
 }
 function closePicks() { document.body.classList.remove('picks-open'); }
 
-// Abbreviate the model's recommendation label for the compact picks view.
 function betAbbr(label) {
   if (label === 'Strong Win Bet') return { text: 'SWB', cls: 'swb' };
   return { text: 'WB', cls: 'wb' };
 }
 
 function renderPicks() {
-  // Flatten every Win recommendation across the whole card into one list,
-  // so you don't have to click through each race's timeline.
   const picks = [];
   allRaces.forEach(race => {
     race.runners.forEach(runner => {
@@ -936,7 +1166,6 @@ function renderPicks() {
       if (rec.type === 'Win') picks.push({ race, runner, rec });
     });
   });
-  // Chronological — bet through the day; strongest first within the same time.
   picks.sort((a, b) =>
     raceMins(a.race) - raceMins(b.race) || (b.runner.score||0) - (a.runner.score||0));
 
@@ -973,21 +1202,17 @@ function renderPicks() {
     `<div class="picks-legend"><b class="swb">SWB</b> Strong Win Bet · <b class="wb">WB</b> Win Bet<br>Not financial advice. For information only.</div>`;
 }
 
-// Open the full racecard for a pick, closing the drawer.
 function fromPicks(id) {
   closePicks();
   selectRace(id, true);
 }
 
-/* ── MULTI BETS ──
-   Combine the strongest win pick from each *upcoming* race into ready-made
-   accumulator-style bets. One leg per race (bookies don't allow two runners
-   from the same race in an acca), best score first, priced from decimal odds. */
+/* ── MULTI BETS ── */
 function multiLegs() {
   const nm = nowMins();
   const legs = [];
   allRaces.forEach(race => {
-    if (raceMins(race) < nm) return;                 // upcoming only — can't back a race that's off
+    if (raceMins(race) < nm) return;
     const wins = race.runners
       .filter(r => (r.recommendation||{}).type === 'Win' && r.odds_dec > 0);
     if (!wins.length) return;
@@ -998,8 +1223,6 @@ function multiLegs() {
   return legs;
 }
 
-// Full return on a Lucky 15 (4 selections, 15 lines) if all four win, at £1/line.
-// Excludes bookmaker consolations/bonuses, which vary by firm.
 function lucky15Return(odds) {
   const [a, b, c, d] = odds;
   return a + b + c + d
@@ -1014,7 +1237,6 @@ function renderMultis() {
   const subEl   = document.getElementById('multis-sub');
   const legs = multiLegs();
 
-  // Need at least two upcoming win picks to form the smallest multi (a Double).
   if (legs.length < 2) {
     section.style.display = 'none';
     listEl.innerHTML = '';
@@ -1028,9 +1250,7 @@ function renderMultis() {
   cards.push(multiCard('Double', 'All 2 must win', legs.slice(0, 2)));
   if (legs.length >= 3) cards.push(multiCard('Treble', 'All 3 must win', legs.slice(0, 3)));
   if (legs.length >= 4) {
-    // Lucky 15 always uses exactly 4 selections (4 singles + 6 doubles + 4 trebles + 1 four-fold).
     cards.push(lucky15Card(legs.slice(0, 4)));
-    // Accumulator: fold in up to 5 of the strongest legs for a bigger-priced single line.
     const accaLegs = legs.slice(0, Math.min(legs.length, 5));
     cards.push(multiCard(`${accaLegs.length}-Fold Acca`, `All ${accaLegs.length} must win`, accaLegs));
   }
@@ -1041,10 +1261,9 @@ function renderMultis() {
     + `Tap any leg to open its racecard. Not financial advice — for information only.</div>`;
 }
 
-// Standard "all legs must win" multi (Double / Treble / Accumulator).
 function multiCard(name, desc, legs) {
   const combined = legs.reduce((p, l) => p * l.runner.odds_dec, 1);
-  const ret = combined; // £1 stake returns the combined decimal odds (stake included)
+  const ret = combined;
   return `<div class="multi-card">
     <div class="multi-hdr">
       <span class="multi-name">${esc(name)}</span>
@@ -1062,7 +1281,6 @@ function multiCard(name, desc, legs) {
   </div>`;
 }
 
-// Lucky 15 — full cover of 4 selections across 15 lines.
 function lucky15Card(legs) {
   const odds = legs.map(l => l.runner.odds_dec);
   const ret  = lucky15Return(odds);
@@ -1090,10 +1308,6 @@ function multiLegRow(l) {
   </div>`;
 }
 
-// Compact silk for the picks list (smaller than the racecard silk).
-// Note: the fallback SVG uses single-quoted attributes so it can live safely
-// inside the double-quoted onerror="" attribute without breaking the markup
-// (which would otherwise collapse the row's grid columns).
 function pickSilk(url, jockey, idx) {
   const [pcol, scol] = SILK_COLS[idx % SILK_COLS.length];
   const svg = `<svg class='pick-silk-svg' viewBox='0 0 48 48' xmlns='http://www.w3.org/2000/svg'>`
@@ -1124,9 +1338,8 @@ function renderAccuracy(log) {
   document.getElementById('acc-empty').style.display = 'none';
   document.getElementById('acc-content').style.display = 'block';
 
-  // Aggregate totals
   let totWin=0, totWinC=0, totEW=0, totEWC=0;
-  let stake=0, ret=0;   // flat-stake bankroll for a true multi-day ROI
+  let stake=0, ret=0;
   for (const d of log) {
     const s = d.summary;
     totWin  += s.win_total   || 0;
@@ -1153,7 +1366,6 @@ function renderAccuracy(log) {
     ${roiStat(roiPct, stake)}
     ${stat('Days', log.length, 'tracked', true)}`;
 
-  // Daily rows — newest first
   const daysEl = document.getElementById('acc-days');
   daysEl.innerHTML = '';
   [...log].reverse().forEach(day => {
@@ -1193,7 +1405,6 @@ function stat(label, val, sub, neutral=false) {
   </div>`;
 }
 
-// ROI on flat £1 stakes across all tracked days. Positive is profit.
 function roiStat(roiPct, stake) {
   const display = roiPct != null ? (roiPct > 0 ? '+' : '') + roiPct + '%' : '—';
   const cls = roiPct == null ? '' : roiPct >= 0 ? 'good' : roiPct >= -10 ? 'mid' : 'poor';
@@ -1263,16 +1474,11 @@ function esc(s) {
 }
 
 /* ── AUTO REFRESH ── */
-// Only poll during UK & Ireland racing hours (10:00–21:30 BST / 09:00–20:30 UTC)
-// Checks every 5 minutes — matches the ~30 min Action cadence
-const REFRESH_INTERVAL_MS = 4 * 60 * 1000; // 4 mins — syncs well with 15 min scraper
+const REFRESH_INTERVAL_MS = 4 * 60 * 1000;
 
 function isRacingHours() {
   const now = new Date();
-  const utcH = now.getUTCHours();
-  const utcM = now.getUTCMinutes();
-  const utcMins = utcH * 60 + utcM;
-  // 09:00–20:30 UTC
+  const utcMins = now.getUTCHours() * 60 + now.getUTCMinutes();
   return utcMins >= 9 * 60 && utcMins <= 20 * 60 + 30;
 }
 
@@ -1294,7 +1500,7 @@ function updateLivePill() {
   if (!pill) return;
   if (isRacingHours()) {
     pill.classList.add('active');
-    pill.title = 'Auto-refreshing every 5 mins';
+    pill.title = 'Auto-refreshing every few minutes';
     if (label) label.textContent = 'LIVE';
   } else {
     pill.classList.remove('active');
@@ -1307,7 +1513,7 @@ function updateRefreshIndicator() {
   const el = document.getElementById('upd-disp');
   if (!el) return;
   const now = new Date();
-  el.textContent = 'Updated ' + now.toLocaleTimeString('en-GB', {hour:'2-digit', minute:'2-digit'});
+  el.textContent = '· upd ' + now.toLocaleTimeString('en-GB', {hour:'2-digit', minute:'2-digit'});
 }
 
 updateLivePill();
