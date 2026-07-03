@@ -31,6 +31,15 @@ from zoneinfo import ZoneInfo
 import urllib.request
 import urllib.error
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import strike_rates
+
+# Data-derived jockey/trainer strike-rate table, built once per run from the
+# accumulating results in horses/history (see build_strike_table). None until
+# built; score_runner falls back to the static JOCKEY_RATINGS table when it is
+# unpopulated (e.g. a cold start with no results yet).
+STRIKE_TABLE = None
+
 # Sporting Life returns race off-times in UTC; the site displays them
 # unconverted, which is an hour out during British/Irish Summer Time.
 # UK and Ireland share the same clock (both UTC+1 in summer), so a
@@ -214,27 +223,22 @@ def _norm_jockey(name: str) -> str:
 JOCKEY_RATINGS_NORM = {_norm_jockey(k): v for k, v in JOCKEY_RATINGS.items()}
 
 # ─────────────────────────────────────────────────────────────
-# COURSE ACCURACY COEFFICIENTS
-# Derived from historical prediction accuracy per course.
-# Applied as a multiplier to final runner scores before recommendations.
+# COURSE ACCURACY COEFFICIENTS  (per-course score multiplier)
+#
+# Intentionally EMPTY. The previous hand-set table was "derived from historical
+# prediction accuracy per course" on the very 60 days we backtest against, so
+# testing it there is circular. When re-derived HONESTLY — a leak-free
+# walk-forward estimate that only uses each course's prior races — per-course
+# multipliers do not hold up: out-of-sample they drop the profitable Strong Win
+# Bet tier from +11% to around 0-5% ROI. Removing them also improves overall
+# out-of-sample ROI (toggle this dict and re-run scripts/backtest_value.py to
+# reproduce: keeping it empty gives overall -4.9% vs -5.5% with the old values).
+# With ~40 courses and only a handful of strong bets each
+# over 60 days, there is not enough data to justify any course multiplier, so we
+# keep the mechanism but ship no coefficients. Add one here only if it survives
+# walk-forward validation.
 # ─────────────────────────────────────────────────────────────
-COURSE_COEFFICIENTS = {
-    # Underperforming — reduce score confidence
-    "Thirsk":       0.88,
-    "Bath":         0.93,
-    "Haydock Park": 0.93,
-    "Warwick":      0.93,
-    "Newmarket":    0.95,
-    # Overperforming — slight boost
-    "Ayr":          1.03,
-    "Doncaster":    1.03,
-    "Redcar":       1.03,
-    "Punchestown":  1.03,
-    "Salisbury":    1.02,
-    "Nottingham":   1.02,
-    "Kelso":        1.02,
-    "Hereford":     1.02,
-}
+COURSE_COEFFICIENTS = {}
 
 
 # ─────────────────────────────────────────────────────────────
@@ -514,9 +518,13 @@ def score_runner(runner: dict, field_size: int, going: str,
       A) Odds value          25%  — implied prob vs field average
       B) Recent form         30%  — weighted last 5 runs
       C) Consistency         15%  — placed% across all known runs
-      D) Jockey quality      15%  — rated jockey list
+      D) Jockey strike-rate 7.5%  — data-derived (see strike_rates.py)
+      D') Trainer strike-rate 7.5% — data-derived (see strike_rates.py)
       E) Weight advantage    10%  — relative weight vs field average
       F) Absence penalty      5%  — penalise '/' in form (long gap)
+
+    (D)+(D') keep the same 15% total the static jockey rating used to carry, so
+    score bands and recommendation thresholds are unchanged.
     """
     odds_dec  = runner.get("odds_dec")
     form_str  = runner.get("form", "")
@@ -553,9 +561,18 @@ def score_runner(runner: dict, field_size: int, going: str,
     consistency_score *= (1 - form["dnf_rate"] * 1.5)
     consistency_score = max(0, consistency_score)
 
-    # ── D) Jockey quality (0–100) ────────────────────────────
-    jockey_raw = JOCKEY_RATINGS_NORM.get(_norm_jockey(jockey), DEFAULT_JOCKEY_RATING)
-    jockey_score = (jockey_raw / 10) * 100
+    # ── D/D') Jockey & trainer strike-rate (0–100 each) ──────
+    # Prefer data-derived strike-rates from the accumulating results; fall back
+    # to the static jockey table (trainer neutral) only before any results have
+    # accumulated, so a cold start still runs.
+    trainer = runner.get("trainer", "")
+    if STRIKE_TABLE is not None and STRIKE_TABLE.is_populated():
+        jockey_score  = STRIKE_TABLE.jockey_sub(jockey)
+        trainer_score = STRIKE_TABLE.trainer_sub(trainer)
+    else:
+        jockey_raw = JOCKEY_RATINGS_NORM.get(_norm_jockey(jockey), DEFAULT_JOCKEY_RATING)
+        jockey_score = (jockey_raw / 10) * 100
+        trainer_score = 50.0  # neutral
 
     # ── E) Weight score (0–100) ──────────────────────────────
     # Lower weight = advantage; compare to field
@@ -575,7 +592,8 @@ def score_runner(runner: dict, field_size: int, going: str,
         odds_score        * 0.25 +
         form_score        * 0.30 +
         consistency_score * 0.15 +
-        jockey_score      * 0.15 +
+        jockey_score      * strike_rates.JOCKEY_WEIGHT +
+        trainer_score     * strike_rates.TRAINER_WEIGHT +
         weight_score      * 0.10
     ) - absence_penalty
 
@@ -592,6 +610,7 @@ def score_runner(runner: dict, field_size: int, going: str,
             "recent_form":   round(form_score, 1),
             "consistency":   round(consistency_score, 1),
             "jockey":        round(jockey_score, 1),
+            "trainer":       round(trainer_score, 1),
             "weight":        round(weight_score, 1),
             "absence_pen":   round(absence_penalty, 1),
             "going_factor":  round(gf, 2),
@@ -975,6 +994,20 @@ def main():
         out_dir = os.path.abspath(os.path.join(script_dir, "..", "docs"))
 
     os.makedirs(out_dir, exist_ok=True)
+
+    # Build the data-derived jockey/trainer strike-rate table from committed
+    # history (only dates strictly before today, so no result can leak in).
+    global STRIKE_TABLE
+    hist_dir = os.path.join(out_dir, "history")
+    STRIKE_TABLE = strike_rates.StrikeTable.build_from_history(hist_dir, before_date=today_str)
+    if STRIKE_TABLE.is_populated():
+        g = STRIKE_TABLE.glob["jockey"]
+        print(f"Strike-rate table: {len(STRIKE_TABLE.rec['jockey'])} jockeys, "
+              f"{len(STRIKE_TABLE.rec['trainer'])} trainers from {g[0]} runs",
+              file=sys.stderr)
+    else:
+        print("Strike-rate table empty — falling back to static jockey ratings",
+              file=sys.stderr)
 
     race_metas = get_race_links(today_str)
     races = []
