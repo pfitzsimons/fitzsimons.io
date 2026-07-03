@@ -746,7 +746,9 @@ function silkEl(url, jockey, idx) {
     <path d="M32 20L41 31 32 33 32 24Z" fill="${s}" opacity=".7"/>
   </svg>`;
   if (!url) return svg;
-  return `<img class="silk-img" src="${esc(url)}" alt="${esc(jockey||'')} silks"
+  // Sporting Life stores silks as bare filenames; resolve to the CDN path.
+  const src = /^https?:\/\//.test(url) ? url : `https://www.sportinglife.com/images/silks/${url}`;
+  return `<img class="silk-img" src="${esc(src)}" alt="${esc(jockey||'')} silks"
     onerror="this.outerHTML=\`${svg.replace(/`/g,"'")}\`">`;
 }
 
