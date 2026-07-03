@@ -41,7 +41,7 @@
             "type": "Win",
             "confidence": 68,
             "label": "Win Bet",
-            "reasoning": "strong recent form; won last time out; consistent placer (66% placed); each way option also viable"
+            "reasoning": "strong recent form; won last time out; consistent placer (66% placed); fair price for a win bet"
           }
         },
         {
@@ -67,10 +67,10 @@
             "going_factor": 1.05
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 65,
-            "label": "Each Way",
-            "reasoning": "strong recent form; placed last time out; consistent placer (100% placed); each way option also viable"
+            "type": "Skip",
+            "confidence": 26,
+            "label": "Skip",
+            "reasoning": "strong recent form; placed last time out; consistent placer (100% placed); fair price for a win bet"
           }
         },
         {
@@ -96,9 +96,9 @@
             "going_factor": 1.05
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 55,
-            "label": "Each Way (Speculative)",
+            "type": "Skip",
+            "confidence": 22,
+            "label": "Skip",
             "reasoning": "solid recent form; placed last time out; consistent placer (50% placed)"
           }
         },
@@ -125,9 +125,9 @@
             "going_factor": 1.05
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 51,
-            "label": "Each Way (Speculative)",
+            "type": "Skip",
+            "confidence": 20,
+            "label": "Skip",
             "reasoning": "solid recent form; won last time out"
           }
         },
@@ -285,9 +285,9 @@
             "going_factor": 0.92
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 56,
-            "label": "Each Way (Speculative)",
+            "type": "Skip",
+            "confidence": 22,
+            "label": "Skip",
             "reasoning": "solid recent form; placed last time out; consistent placer (66% placed)"
           }
         },
@@ -648,9 +648,9 @@
             "going_factor": 1.05
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 51,
-            "label": "Each Way (Speculative)",
+            "type": "Skip",
+            "confidence": 20,
+            "label": "Skip",
             "reasoning": "solid recent form; placed last time out; consistent placer (50% placed)"
           }
         },
@@ -1130,8 +1130,8 @@
           "recommendation": {
             "type": "Win",
             "confidence": 72,
-            "label": "Win Bet",
-            "reasoning": "strong recent form; consistent placer (100% placed); each way option also viable"
+            "label": "Strong Win Bet",
+            "reasoning": "strong recent form; consistent placer (100% placed); fair price for a win bet"
           }
         },
         {
@@ -1157,10 +1157,10 @@
             "going_factor": 1.05
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 63,
-            "label": "Each Way",
-            "reasoning": "solid recent form; consistent placer (66% placed); each way option also viable"
+            "type": "Skip",
+            "confidence": 25,
+            "label": "Skip",
+            "reasoning": "solid recent form; consistent placer (66% placed); fair price for a win bet"
           }
         },
         {
@@ -1186,9 +1186,9 @@
             "going_factor": 1.05
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 54,
-            "label": "Each Way (Speculative)",
+            "type": "Skip",
+            "confidence": 21,
+            "label": "Skip",
             "reasoning": "strong recent form; placed last time out; consistent placer (66% placed)"
           }
         },
@@ -1216,7 +1216,7 @@
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 19,
+            "confidence": 20,
             "label": "Skip",
             "reasoning": "solid recent form; placed last time out"
           }
@@ -1477,9 +1477,9 @@
             "going_factor": 0.92
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 55,
-            "label": "Each Way (Speculative)",
+            "type": "Skip",
+            "confidence": 22,
+            "label": "Skip",
             "reasoning": "strong recent form; won last time out; consistent placer (50% placed)"
           }
         },
@@ -2076,7 +2076,7 @@
             "type": "Win",
             "confidence": 60,
             "label": "Win Bet",
-            "reasoning": "solid recent form; placed last time out; consistent placer (83% placed); each way option also viable"
+            "reasoning": "solid recent form; placed last time out; consistent placer (83% placed); fair price for a win bet"
           }
         },
         {
@@ -2102,9 +2102,9 @@
             "going_factor": 0.92
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 54,
-            "label": "Each Way (Speculative)",
+            "type": "Skip",
+            "confidence": 21,
+            "label": "Skip",
             "reasoning": "moderate form; placed last time out; consistent placer (50% placed)"
           }
         },
@@ -2409,8 +2409,8 @@
           "recommendation": {
             "type": "Win",
             "confidence": 77,
-            "label": "Win Bet",
-            "reasoning": "strong recent form; placed last time out; consistent placer (66% placed); each way option also viable"
+            "label": "Strong Win Bet",
+            "reasoning": "strong recent form; placed last time out; consistent placer (66% placed); fair price for a win bet"
           }
         },
         {
@@ -2436,10 +2436,10 @@
             "going_factor": 1.05
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 65,
-            "label": "Each Way",
-            "reasoning": "strong recent form; won last time out; consistent placer (66% placed); each way option also viable"
+            "type": "Skip",
+            "confidence": 26,
+            "label": "Skip",
+            "reasoning": "strong recent form; won last time out; consistent placer (66% placed); fair price for a win bet"
           }
         },
         {
@@ -2465,9 +2465,9 @@
             "going_factor": 1.05
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 53,
-            "label": "Each Way (Speculative)",
+            "type": "Skip",
+            "confidence": 21,
+            "label": "Skip",
             "reasoning": "moderate form; consistent placer (50% placed)"
           }
         },
@@ -3148,9 +3148,9 @@
             "going_factor": 0.92
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 57,
-            "label": "Each Way (Speculative)",
+            "type": "Skip",
+            "confidence": 22,
+            "label": "Skip",
             "reasoning": "strong recent form; placed last time out; consistent placer (83% placed)"
           }
         },
@@ -3177,9 +3177,9 @@
             "going_factor": 0.92
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 55,
-            "label": "Each Way (Speculative)",
+            "type": "Skip",
+            "confidence": 22,
+            "label": "Skip",
             "reasoning": "strong recent form; won last time out; consistent placer (66% placed); returning from long absence"
           }
         },
@@ -3368,7 +3368,7 @@
           "recommendation": {
             "type": "Win",
             "confidence": 72,
-            "label": "Win Bet",
+            "label": "Strong Win Bet",
             "reasoning": "solid recent form; placed last time out; short price reflects market confidence"
           }
         },
@@ -3395,10 +3395,10 @@
             "going_factor": 1.05
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 70,
-            "label": "Each Way",
-            "reasoning": "strong recent form; placed last time out; consistent placer (50% placed); each way option also viable"
+            "type": "Skip",
+            "confidence": 28,
+            "label": "Skip",
+            "reasoning": "strong recent form; placed last time out; consistent placer (50% placed); fair price for a win bet"
           }
         },
         {
@@ -3645,7 +3645,7 @@
             "type": "Win",
             "confidence": 72,
             "label": "Win Bet",
-            "reasoning": "strong recent form; placed last time out; consistent placer (100% placed); each way option also viable"
+            "reasoning": "strong recent form; placed last time out; consistent placer (100% placed); fair price for a win bet"
           }
         },
         {
@@ -3671,9 +3671,9 @@
             "going_factor": 1.0
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 60,
-            "label": "Each Way",
+            "type": "Skip",
+            "confidence": 24,
+            "label": "Skip",
             "reasoning": "solid recent form; consistent placer (66% placed)"
           }
         },
@@ -4226,7 +4226,7 @@
             "type": "Win",
             "confidence": 61,
             "label": "Win Bet",
-            "reasoning": "solid recent form; consistent placer (50% placed); each way option also viable"
+            "reasoning": "solid recent form; consistent placer (50% placed); fair price for a win bet"
           }
         },
         {
@@ -4252,10 +4252,10 @@
             "going_factor": 1.0
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 60,
-            "label": "Each Way",
-            "reasoning": "solid recent form; consistent placer (50% placed); each way option also viable"
+            "type": "Skip",
+            "confidence": 24,
+            "label": "Skip",
+            "reasoning": "solid recent form; consistent placer (50% placed); fair price for a win bet"
           }
         },
         {
@@ -4281,10 +4281,10 @@
             "going_factor": 1.0
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 60,
-            "label": "Each Way",
-            "reasoning": "solid recent form; placed last time out; consistent placer (50% placed); each way option also viable"
+            "type": "Skip",
+            "confidence": 24,
+            "label": "Skip",
+            "reasoning": "solid recent form; placed last time out; consistent placer (50% placed); fair price for a win bet"
           }
         },
         {
@@ -4310,9 +4310,9 @@
             "going_factor": 1.0
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 57,
-            "label": "Each Way (Speculative)",
+            "type": "Skip",
+            "confidence": 23,
+            "label": "Skip",
             "reasoning": "solid recent form; placed last time out; consistent placer (50% placed)"
           }
         },
@@ -4528,9 +4528,9 @@
             "going_factor": 0.92
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 53,
-            "label": "Each Way (Speculative)",
+            "type": "Skip",
+            "confidence": 21,
+            "label": "Skip",
             "reasoning": "moderate form"
           }
         },
@@ -4557,9 +4557,9 @@
             "going_factor": 0.92
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 53,
-            "label": "Each Way (Speculative)",
+            "type": "Skip",
+            "confidence": 21,
+            "label": "Skip",
             "reasoning": "solid recent form; won last time out; consistent placer (50% placed); returning from long absence"
           }
         },
@@ -4835,7 +4835,7 @@
           "recommendation": {
             "type": "Win",
             "confidence": 78,
-            "label": "Win Bet",
+            "label": "Strong Win Bet",
             "reasoning": "solid recent form; consistent placer (100% placed); short price reflects market confidence"
           }
         },
@@ -4862,9 +4862,9 @@
             "going_factor": 1.0
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 59,
-            "label": "Each Way",
+            "type": "Skip",
+            "confidence": 23,
+            "label": "Skip",
             "reasoning": "moderate form"
           }
         },
@@ -5109,9 +5109,9 @@
             "going_factor": 1.05
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 59,
-            "label": "Each Way",
+            "type": "Skip",
+            "confidence": 23,
+            "label": "Skip",
             "reasoning": "solid recent form; consistent placer (50% placed)"
           }
         },
@@ -5138,9 +5138,9 @@
             "going_factor": 1.05
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 56,
-            "label": "Each Way (Speculative)",
+            "type": "Skip",
+            "confidence": 22,
+            "label": "Skip",
             "reasoning": "solid recent form; consistent placer (50% placed)"
           }
         },
@@ -5167,9 +5167,9 @@
             "going_factor": 1.05
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 55,
-            "label": "Each Way (Speculative)",
+            "type": "Skip",
+            "confidence": 22,
+            "label": "Skip",
             "reasoning": "moderate form"
           }
         },
@@ -5284,7 +5284,7 @@
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 7,
+            "confidence": 8,
             "label": "Skip",
             "reasoning": "poor recent form"
           }
@@ -5356,9 +5356,9 @@
             "going_factor": 1.0
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 56,
-            "label": "Each Way (Speculative)",
+            "type": "Skip",
+            "confidence": 22,
+            "label": "Skip",
             "reasoning": "moderate form; consistent placer (66% placed)"
           }
         },
@@ -5385,9 +5385,9 @@
             "going_factor": 1.0
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 56,
-            "label": "Each Way (Speculative)",
+            "type": "Skip",
+            "confidence": 22,
+            "label": "Skip",
             "reasoning": "solid recent form; won last time out; consistent placer (83% placed)"
           }
         },
@@ -5548,7 +5548,7 @@
             "type": "Win",
             "confidence": 66,
             "label": "Win Bet",
-            "reasoning": "strong recent form; consistent placer (66% placed); each way option also viable"
+            "reasoning": "strong recent form; consistent placer (66% placed); fair price for a win bet"
           }
         },
         {
@@ -5850,10 +5850,10 @@
             "going_factor": 1.0
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 64,
-            "label": "Each Way",
-            "reasoning": "solid recent form; consistent placer (100% placed); each way option also viable"
+            "type": "Skip",
+            "confidence": 25,
+            "label": "Skip",
+            "reasoning": "solid recent form; consistent placer (100% placed); fair price for a win bet"
           }
         },
         {
@@ -5879,9 +5879,9 @@
             "going_factor": 1.0
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 59,
-            "label": "Each Way",
+            "type": "Skip",
+            "confidence": 23,
+            "label": "Skip",
             "reasoning": "strong recent form; placed last time out; consistent placer (100% placed)"
           }
         },
@@ -6097,9 +6097,9 @@
             "going_factor": 1.0
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 57,
-            "label": "Each Way (Speculative)",
+            "type": "Skip",
+            "confidence": 22,
+            "label": "Skip",
             "reasoning": "moderate form"
           }
         },
@@ -6578,8 +6578,8 @@
           "recommendation": {
             "type": "Win",
             "confidence": 73,
-            "label": "Win Bet",
-            "reasoning": "solid recent form; consistent placer (100% placed); each way option also viable"
+            "label": "Strong Win Bet",
+            "reasoning": "solid recent form; consistent placer (100% placed); fair price for a win bet"
           }
         },
         {
@@ -6605,10 +6605,10 @@
             "going_factor": 1.0
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 60,
-            "label": "Each Way",
-            "reasoning": "moderate form; each way option also viable"
+            "type": "Skip",
+            "confidence": 24,
+            "label": "Skip",
+            "reasoning": "moderate form; fair price for a win bet"
           }
         },
         {
@@ -6634,9 +6634,9 @@
             "going_factor": 1.0
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 55,
-            "label": "Each Way (Speculative)",
+            "type": "Skip",
+            "confidence": 22,
+            "label": "Skip",
             "reasoning": "moderate form; placed last time out; consistent placer (66% placed); returning from long absence"
           }
         },
@@ -7229,10 +7229,10 @@
             "going_factor": 1.0
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 65,
-            "label": "Each Way",
-            "reasoning": "solid recent form; won last time out; consistent placer (50% placed); each way option also viable"
+            "type": "Skip",
+            "confidence": 26,
+            "label": "Skip",
+            "reasoning": "solid recent form; won last time out; consistent placer (50% placed); fair price for a win bet"
           }
         },
         {
@@ -7986,8 +7986,8 @@
           "recommendation": {
             "type": "Win",
             "confidence": 76,
-            "label": "Win Bet",
-            "reasoning": "solid recent form; placed last time out; consistent placer (75% placed); each way option also viable"
+            "label": "Strong Win Bet",
+            "reasoning": "solid recent form; placed last time out; consistent placer (75% placed); fair price for a win bet"
           }
         },
         {
@@ -8013,10 +8013,10 @@
             "going_factor": 1.05
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 68,
-            "label": "Each Way",
-            "reasoning": "strong recent form; won last time out; consistent placer (50% placed); each way option also viable"
+            "type": "Skip",
+            "confidence": 27,
+            "label": "Skip",
+            "reasoning": "strong recent form; won last time out; consistent placer (50% placed); fair price for a win bet"
           }
         },
         {
@@ -8042,9 +8042,9 @@
             "going_factor": 1.05
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 58,
-            "label": "Each Way",
+            "type": "Skip",
+            "confidence": 23,
+            "label": "Skip",
             "reasoning": "strong recent form; consistent placer (100% placed)"
           }
         },
@@ -8321,7 +8321,7 @@
             "type": "Win",
             "confidence": 69,
             "label": "Win Bet",
-            "reasoning": "strong recent form; placed last time out; consistent placer (66% placed); each way option also viable"
+            "reasoning": "strong recent form; placed last time out; consistent placer (66% placed); fair price for a win bet"
           }
         },
         {
@@ -8347,10 +8347,10 @@
             "going_factor": 1.0
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 61,
-            "label": "Each Way",
-            "reasoning": "solid recent form; won last time out; each way option also viable"
+            "type": "Skip",
+            "confidence": 24,
+            "label": "Skip",
+            "reasoning": "solid recent form; won last time out; fair price for a win bet"
           }
         },
         {
@@ -8376,9 +8376,9 @@
             "going_factor": 1.0
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 54,
-            "label": "Each Way (Speculative)",
+            "type": "Skip",
+            "confidence": 21,
+            "label": "Skip",
             "reasoning": "moderate form"
           }
         },
@@ -8771,7 +8771,7 @@
             "type": "Win",
             "confidence": 69,
             "label": "Win Bet",
-            "reasoning": "solid recent form; won last time out; consistent placer (66% placed); each way option also viable"
+            "reasoning": "solid recent form; won last time out; consistent placer (66% placed); fair price for a win bet"
           }
         },
         {
@@ -8797,9 +8797,9 @@
             "going_factor": 1.0
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 67,
-            "label": "Each Way",
+            "type": "Skip",
+            "confidence": 27,
+            "label": "Skip",
             "reasoning": "solid recent form; won last time out; consistent placer (50% placed); short price reflects market confidence"
           }
         },
@@ -8826,9 +8826,9 @@
             "going_factor": 1.0
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 51,
-            "label": "Each Way (Speculative)",
+            "type": "Skip",
+            "confidence": 20,
+            "label": "Skip",
             "reasoning": "solid recent form; placed last time out; consistent placer (50% placed)"
           }
         },
@@ -8855,9 +8855,9 @@
             "going_factor": 1.0
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 50,
-            "label": "Each Way (Speculative)",
+            "type": "Skip",
+            "confidence": 20,
+            "label": "Skip",
             "reasoning": "solid recent form; consistent placer (50% placed)"
           }
         },
@@ -9075,7 +9075,7 @@
           "recommendation": {
             "type": "Win",
             "confidence": 73,
-            "label": "Win Bet",
+            "label": "Strong Win Bet",
             "reasoning": "solid recent form; consistent placer (100% placed); short price reflects market confidence"
           }
         },
@@ -9102,9 +9102,9 @@
             "going_factor": 1.0
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 53,
-            "label": "Each Way (Speculative)",
+            "type": "Skip",
+            "confidence": 21,
+            "label": "Skip",
             "reasoning": "moderate form"
           }
         },
@@ -9349,9 +9349,9 @@
             "going_factor": 1.05
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 60,
-            "label": "Each Way",
+            "type": "Skip",
+            "confidence": 24,
+            "label": "Skip",
             "reasoning": "strong recent form; placed last time out; consistent placer (100% placed)"
           }
         },
@@ -9378,9 +9378,9 @@
             "going_factor": 1.05
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 58,
-            "label": "Each Way",
+            "type": "Skip",
+            "confidence": 23,
+            "label": "Skip",
             "reasoning": "poor recent form; consistent placer (50% placed)"
           }
         },
@@ -9773,7 +9773,7 @@
             "type": "Win",
             "confidence": 64,
             "label": "Win Bet",
-            "reasoning": "solid recent form; won last time out; each way option also viable"
+            "reasoning": "solid recent form; won last time out; fair price for a win bet"
           }
         },
         {
@@ -9799,9 +9799,9 @@
             "going_factor": 1.0
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 58,
-            "label": "Each Way",
+            "type": "Skip",
+            "confidence": 23,
+            "label": "Skip",
             "reasoning": "moderate form; won last time out"
           }
         },
@@ -9828,9 +9828,9 @@
             "going_factor": 1.0
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 57,
-            "label": "Each Way (Speculative)",
+            "type": "Skip",
+            "confidence": 22,
+            "label": "Skip",
             "reasoning": "solid recent form; placed last time out"
           }
         },
@@ -9857,9 +9857,9 @@
             "going_factor": 1.0
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 51,
-            "label": "Each Way (Speculative)",
+            "type": "Skip",
+            "confidence": 20,
+            "label": "Skip",
             "reasoning": "poor recent form; placed last time out"
           }
         },
@@ -10336,9 +10336,9 @@
             "going_factor": 1.0
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 59,
-            "label": "Each Way",
+            "type": "Skip",
+            "confidence": 23,
+            "label": "Skip",
             "reasoning": "solid recent form; consistent placer (66% placed)"
           }
         },
@@ -10365,9 +10365,9 @@
             "going_factor": 1.0
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 58,
-            "label": "Each Way",
+            "type": "Skip",
+            "confidence": 23,
+            "label": "Skip",
             "reasoning": "solid recent form; placed last time out; consistent placer (66% placed)"
           }
         },
@@ -10394,9 +10394,9 @@
             "going_factor": 1.0
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 50,
-            "label": "Each Way (Speculative)",
+            "type": "Skip",
+            "confidence": 20,
+            "label": "Skip",
             "reasoning": "solid recent form; consistent placer (66% placed)"
           }
         },
@@ -10511,7 +10511,7 @@
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 13,
+            "confidence": 14,
             "label": "Skip",
             "reasoning": "solid recent form; consistent placer (50% placed); returning from long absence"
           }
@@ -10670,9 +10670,9 @@
             "going_factor": 1.0
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 55,
-            "label": "Each Way (Speculative)",
+            "type": "Skip",
+            "confidence": 22,
+            "label": "Skip",
             "reasoning": "moderate form"
           }
         },
@@ -10833,7 +10833,7 @@
             "type": "Win",
             "confidence": 69,
             "label": "Win Bet",
-            "reasoning": "strong recent form; placed last time out; consistent placer (100% placed); each way option also viable"
+            "reasoning": "strong recent form; placed last time out; consistent placer (100% placed); fair price for a win bet"
           }
         },
         {
@@ -10859,10 +10859,10 @@
             "going_factor": 1.05
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 62,
-            "label": "Each Way",
-            "reasoning": "solid recent form; consistent placer (50% placed); each way option also viable"
+            "type": "Skip",
+            "confidence": 25,
+            "label": "Skip",
+            "reasoning": "solid recent form; consistent placer (50% placed); fair price for a win bet"
           }
         },
         {
@@ -11193,10 +11193,10 @@
             "going_factor": 1.0
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 65,
-            "label": "Each Way",
-            "reasoning": "solid recent form; placed last time out; each way option also viable"
+            "type": "Skip",
+            "confidence": 26,
+            "label": "Skip",
+            "reasoning": "solid recent form; placed last time out; fair price for a win bet"
           }
         },
         {
@@ -11222,9 +11222,9 @@
             "going_factor": 1.0
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 55,
-            "label": "Each Way (Speculative)",
+            "type": "Skip",
+            "confidence": 22,
+            "label": "Skip",
             "reasoning": "moderate form"
           }
         },
@@ -11730,9 +11730,9 @@
             "going_factor": 1.0
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 57,
-            "label": "Each Way (Speculative)",
+            "type": "Skip",
+            "confidence": 22,
+            "label": "Skip",
             "reasoning": "solid recent form; consistent placer (66% placed)"
           }
         },
@@ -11759,9 +11759,9 @@
             "going_factor": 1.0
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 55,
-            "label": "Each Way (Speculative)",
+            "type": "Skip",
+            "confidence": 22,
+            "label": "Skip",
             "reasoning": "solid recent form; placed last time out; consistent placer (66% placed)"
           }
         },
@@ -12314,7 +12314,7 @@
             "type": "Win",
             "confidence": 85,
             "label": "Win Bet",
-            "reasoning": "strong recent form; won last time out; consistent placer (100% placed); each way option also viable"
+            "reasoning": "strong recent form; won last time out; consistent placer (100% placed); fair price for a win bet"
           }
         },
         {
@@ -12340,10 +12340,10 @@
             "going_factor": 1.05
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 70,
-            "label": "Each Way",
-            "reasoning": "solid recent form; won last time out; each way option also viable"
+            "type": "Skip",
+            "confidence": 28,
+            "label": "Skip",
+            "reasoning": "solid recent form; won last time out; fair price for a win bet"
           }
         },
         {
@@ -12369,10 +12369,10 @@
             "going_factor": 1.05
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 69,
-            "label": "Each Way",
-            "reasoning": "solid recent form; won last time out; consistent placer (83% placed); market caution at long odds"
+            "type": "Skip",
+            "confidence": 27,
+            "label": "Skip",
+            "reasoning": "solid recent form; won last time out; consistent placer (83% placed)"
           }
         },
         {
@@ -12398,10 +12398,10 @@
             "going_factor": 1.05
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 61,
-            "label": "Each Way",
-            "reasoning": "solid recent form; placed last time out; each way option also viable"
+            "type": "Skip",
+            "confidence": 24,
+            "label": "Skip",
+            "reasoning": "solid recent form; placed last time out; fair price for a win bet"
           }
         },
         {
@@ -12764,7 +12764,7 @@
             "type": "Win",
             "confidence": 69,
             "label": "Win Bet",
-            "reasoning": "strong recent form; placed last time out; consistent placer (100% placed); each way option also viable"
+            "reasoning": "strong recent form; placed last time out; consistent placer (100% placed); fair price for a win bet"
           }
         },
         {
@@ -12790,9 +12790,9 @@
             "going_factor": 1.0
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 59,
-            "label": "Each Way",
+            "type": "Skip",
+            "confidence": 24,
+            "label": "Skip",
             "reasoning": "solid recent form; consistent placer (100% placed)"
           }
         },
@@ -12819,9 +12819,9 @@
             "going_factor": 1.0
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 57,
-            "label": "Each Way (Speculative)",
+            "type": "Skip",
+            "confidence": 22,
+            "label": "Skip",
             "reasoning": "solid recent form; consistent placer (100% placed)"
           }
         },
@@ -12848,9 +12848,9 @@
             "going_factor": 1.0
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 52,
-            "label": "Each Way (Speculative)",
+            "type": "Skip",
+            "confidence": 21,
+            "label": "Skip",
             "reasoning": "solid recent form; placed last time out; consistent placer (50% placed)"
           }
         },
@@ -13066,10 +13066,10 @@
             "going_factor": 1.0
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 60,
-            "label": "Each Way",
-            "reasoning": "moderate form; won last time out; consistent placer (50% placed); each way option also viable"
+            "type": "Skip",
+            "confidence": 24,
+            "label": "Skip",
+            "reasoning": "moderate form; won last time out; consistent placer (50% placed); fair price for a win bet"
           }
         },
         {
@@ -13095,9 +13095,9 @@
             "going_factor": 1.0
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 56,
-            "label": "Each Way (Speculative)",
+            "type": "Skip",
+            "confidence": 22,
+            "label": "Skip",
             "reasoning": "solid recent form; consistent placer (66% placed)"
           }
         },
@@ -13403,7 +13403,7 @@
             "type": "Win",
             "confidence": 65,
             "label": "Win Bet",
-            "reasoning": "solid recent form; placed last time out; consistent placer (83% placed); each way option also viable"
+            "reasoning": "solid recent form; placed last time out; consistent placer (83% placed); fair price for a win bet"
           }
         },
         {
@@ -13620,7 +13620,7 @@
           "recommendation": {
             "type": "Win",
             "confidence": 73,
-            "label": "Win Bet",
+            "label": "Strong Win Bet",
             "reasoning": "strong recent form; won last time out; consistent placer (83% placed); short price reflects market confidence"
           }
         },
@@ -13647,9 +13647,9 @@
             "going_factor": 1.05
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 51,
-            "label": "Each Way (Speculative)",
+            "type": "Skip",
+            "confidence": 20,
+            "label": "Skip",
             "reasoning": "solid recent form; won last time out"
           }
         },
@@ -13781,7 +13781,7 @@
             "type": "Win",
             "confidence": 71,
             "label": "Win Bet",
-            "reasoning": "solid recent form; consistent placer (83% placed); each way option also viable"
+            "reasoning": "solid recent form; consistent placer (83% placed); fair price for a win bet"
           }
         },
         {
@@ -13924,7 +13924,7 @@
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 15,
+            "confidence": 16,
             "label": "Skip",
             "reasoning": "moderate form"
           }
@@ -14141,9 +14141,9 @@
             "going_factor": 1.05
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 59,
-            "label": "Each Way",
+            "type": "Skip",
+            "confidence": 23,
+            "label": "Skip",
             "reasoning": "moderate form; won last time out"
           }
         },
@@ -14170,9 +14170,9 @@
             "going_factor": 1.05
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 58,
-            "label": "Each Way",
+            "type": "Skip",
+            "confidence": 23,
+            "label": "Skip",
             "reasoning": "solid recent form; won last time out"
           }
         },
@@ -14199,9 +14199,9 @@
             "going_factor": 1.05
           },
           "recommendation": {
-            "type": "EachWay",
-            "confidence": 55,
-            "label": "Each Way (Speculative)",
+            "type": "Skip",
+            "confidence": 22,
+            "label": "Skip",
             "reasoning": "solid recent form; consistent placer (83% placed)"
           }
         },
