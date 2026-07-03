@@ -76,17 +76,35 @@
     #live-pill.active { color: var(--green); }
     #live-pill.active .ldot { background: var(--green); animation: pulse 2s ease infinite; }
 
-    /* Accuracy drawer trigger button */
-    #acc-trigger {
-      display: flex; align-items: center; gap: .45rem;
+    /* Hamburger menu */
+    #menu-wrap { position: relative; }
+    #menu-btn {
+      display: flex; align-items: center; gap: .4rem;
       background: rgba(201,168,76,.1); border: 1px solid rgba(201,168,76,.3);
-      color: var(--gold); padding: .28rem .75rem; border-radius: 4px;
-      cursor: pointer; font-family: var(--mono); font-size: .68rem;
+      color: var(--gold); padding: .28rem .6rem; border-radius: 4px;
+      cursor: pointer; font-family: var(--mono); font-size: .72rem; line-height: 1;
       transition: all .2s; white-space: nowrap;
     }
-    #acc-trigger:hover { background: rgba(201,168,76,.18); border-color: var(--gold); }
-    #acc-trigger .acc-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
-    #acc-trigger.has-data .acc-dot { animation: pulse 2s ease infinite; }
+    #menu-btn:hover { background: rgba(201,168,76,.18); border-color: var(--gold); }
+    #menu-btn .menu-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); flex-shrink: 0; display: none; }
+    #menu-btn.has-data .menu-dot { display: block; animation: pulse 2s ease infinite; }
+    #header-menu {
+      position: absolute; top: calc(100% + .45rem); right: 0;
+      background: var(--drawer-bg); border: 1px solid var(--line); border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.4); min-width: 168px; padding: .3rem;
+      display: none; flex-direction: column; gap: .15rem; z-index: 210;
+    }
+    #header-menu.open { display: flex; }
+    #header-menu button {
+      display: flex; align-items: center; gap: .6rem; width: 100%;
+      background: none; border: none; color: var(--cream); text-align: left;
+      font-family: var(--mono); font-size: .74rem; padding: .55rem .65rem;
+      border-radius: 5px; cursor: pointer; transition: background .15s;
+    }
+    #header-menu button:hover { background: rgba(201,168,76,.12); color: var(--gold); }
+    #header-menu button .mi-icon { font-size: .9rem; width: 18px; text-align: center; flex-shrink: 0; }
+    #header-menu button .mi-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); margin-left: auto; opacity: 0; }
+    #header-menu button.has-data .mi-dot { opacity: 1; animation: pulse 2s ease infinite; }
     @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
 
     /* ── MAIN ── */
@@ -339,6 +357,61 @@
 
     #acc-empty { font-family: var(--mono); font-size: .75rem; color: var(--dim); text-align: center; padding: 2.5rem 1rem; line-height: 1.8; }
 
+    /* ── TOP PICKS DRAWER ── */
+    #picks-drawer {
+      position: fixed; top: 0; right: 0; bottom: 0;
+      width: var(--drawer-w); max-width: 100vw;
+      background: var(--drawer-bg); border-left: 1px solid var(--line);
+      z-index: 300; display: flex; flex-direction: column;
+      transform: translateX(100%);
+      transition: transform .35s cubic-bezier(.4,0,.2,1); overflow: hidden;
+    }
+    body.picks-open #picks-drawer { transform: translateX(0); }
+    body.picks-open #acc-overlay { opacity: 1; pointer-events: all; }
+
+    #picks-drawer-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 1.2rem .8rem; border-bottom: 1px solid var(--line); flex-shrink: 0;
+    }
+    #picks-drawer-header h2 { font-family: var(--display); font-size: 1.5rem; letter-spacing: .07em; color: var(--gold); line-height: 1; }
+    #picks-sub { font-family: var(--mono); font-size: .6rem; color: var(--dim); margin-top: .25rem; letter-spacing: .04em; }
+    #picks-close {
+      background: none; border: 1px solid var(--line); color: var(--dim);
+      width: 30px; height: 30px; border-radius: 6px; cursor: pointer;
+      font-size: 1rem; display: flex; align-items: center; justify-content: center;
+      transition: all .2s; flex-shrink: 0;
+    }
+    #picks-close:hover { border-color: var(--gold); color: var(--gold); }
+
+    #picks-drawer-body { flex: 1; overflow-y: auto; padding: .9rem 1.2rem 2rem; }
+    #picks-drawer-body::-webkit-scrollbar { width: 4px; }
+    #picks-drawer-body::-webkit-scrollbar-thumb { background: var(--line); border-radius: 2px; }
+
+    .pick-row {
+      display: grid; grid-template-columns: 40px 1fr auto auto; align-items: center;
+      gap: .3rem .8rem; padding: .6rem .7rem; margin-bottom: .45rem;
+      background: rgba(255,255,255,.03); border: 1px solid var(--line); border-radius: 10px;
+      cursor: pointer; transition: border-color .2s, background .2s;
+    }
+    .pick-row:hover { border-color: rgba(201,168,76,.4); background: rgba(201,168,76,.06); }
+    .pick-row.past { opacity: .5; }
+    .pick-silk-img { width: 38px; height: 38px; object-fit: contain; border-radius: 6px; background: rgba(255,255,255,.04); }
+    .pick-silk-svg { width: 38px; height: 38px; border-radius: 6px; }
+    .pick-main { min-width: 0; }
+    .pick-horse { font-family: var(--display); font-size: 1.15rem; letter-spacing: .04em; line-height: 1.05; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .pick-meta { font-family: var(--mono); font-size: .58rem; color: var(--dim); margin-top: .15rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .pick-odds { font-family: var(--display); font-size: 1.35rem; color: var(--gold); text-align: right; }
+    .pick-badge {
+      font-family: var(--mono); font-weight: 600; font-size: .68rem; letter-spacing: .04em;
+      padding: .28rem .5rem; border-radius: 6px; text-align: center; min-width: 44px;
+    }
+    .pick-badge.swb { background: rgba(76,201,122,.16); color: var(--green); border: 1px solid rgba(76,201,122,.4); }
+    .pick-badge.wb  { background: rgba(240,165,0,.14);  color: var(--amber); border: 1px solid rgba(240,165,0,.35); }
+    #picks-empty { font-family: var(--mono); font-size: .75rem; color: var(--dim); text-align: center; padding: 2.5rem 1rem; line-height: 1.8; }
+    .picks-legend { font-family: var(--mono); font-size: .58rem; color: var(--dim); margin-top: .9rem; line-height: 1.7; border-top: 1px solid var(--line); padding-top: .7rem; }
+    .picks-legend b.swb { color: var(--green); }
+    .picks-legend b.wb  { color: var(--amber); }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 660px) {
       #header { flex-direction: column; align-items: flex-start; }
@@ -388,9 +461,15 @@
     <span id="live-pill" title="Auto-refreshes every 5 mins during racing hours">
       <span class="ldot"></span><span id="live-label">LIVE</span>
     </span>
-    <button id="acc-trigger" onclick="openDrawer()" title="View prediction accuracy">
-      <span class="acc-dot"></span> Accuracy
-    </button>
+    <div id="menu-wrap">
+      <button id="menu-btn" onclick="toggleMenu(event)" title="Menu" aria-haspopup="true" aria-expanded="false">
+        <span class="menu-dot"></span> ☰ Menu
+      </button>
+      <div id="header-menu" role="menu">
+        <button role="menuitem" onclick="openPicks()"><span class="mi-icon">⭐</span> Top Picks</button>
+        <button id="menu-acc" role="menuitem" onclick="openDrawer()"><span class="mi-icon">📊</span> Accuracy <span class="mi-dot"></span></button>
+      </div>
+    </div>
   </div>
 </header>
 
@@ -408,6 +487,21 @@
       <div class="acc-section-title">Daily History</div>
       <div class="acc-days" id="acc-days"></div>
     </div>
+  </div>
+</aside>
+
+<!-- ── TOP PICKS DRAWER ── -->
+<aside id="picks-drawer">
+  <div id="picks-drawer-header">
+    <div>
+      <h2>TOP PICKS</h2>
+      <div id="picks-sub">Recommended win bets across today's card</div>
+    </div>
+    <button id="picks-close" onclick="closePicks()">✕</button>
+  </div>
+  <div id="picks-drawer-body">
+    <div id="picks-empty">No win bets recommended today.<br>Every runner scored a Skip.</div>
+    <div id="picks-list"></div>
   </div>
 </aside>
 
@@ -739,17 +833,19 @@ const SILK_COLS = [
 ];
 function silkEl(url, jockey, idx) {
   const [p,s] = SILK_COLS[idx % SILK_COLS.length];
-  const svg = `<svg class="silk-svg" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-    <path d="M11 20L7 31 16 33 16 43 32 43 32 33 41 31 37 20 30 24 24 15 18 24Z" fill="${p}" stroke="rgba(0,0,0,.2)" stroke-width=".8"/>
-    <ellipse cx="24" cy="15" rx="8" ry="5" fill="${s}" stroke="rgba(0,0,0,.2)" stroke-width=".8"/>
-    <path d="M16 20L7 31 16 33 16 24Z" fill="${s}" opacity=".7"/>
-    <path d="M32 20L41 31 32 33 32 24Z" fill="${s}" opacity=".7"/>
-  </svg>`;
+  // Single-quoted attributes so the SVG can live inside the double-quoted
+  // onerror="" attribute without breaking the markup (which left a stray `">).
+  const svg = `<svg class='silk-svg' viewBox='0 0 48 48' xmlns='http://www.w3.org/2000/svg'>`
+    + `<path d='M11 20L7 31 16 33 16 43 32 43 32 33 41 31 37 20 30 24 24 15 18 24Z' fill='${p}' stroke='rgba(0,0,0,.2)' stroke-width='.8'/>`
+    + `<ellipse cx='24' cy='15' rx='8' ry='5' fill='${s}' stroke='rgba(0,0,0,.2)' stroke-width='.8'/>`
+    + `<path d='M16 20L7 31 16 33 16 24Z' fill='${s}' opacity='.7'/>`
+    + `<path d='M32 20L41 31 32 33 32 24Z' fill='${s}' opacity='.7'/>`
+    + `</svg>`;
   if (!url) return svg;
   // Sporting Life stores silks as bare filenames; resolve to the CDN path.
   const src = /^https?:\/\//.test(url) ? url : `https://www.sportinglife.com/images/silks/${url}`;
-  return `<img class="silk-img" src="${esc(src)}" alt="${esc(jockey||'')} silks"
-    onerror="this.outerHTML=\`${svg.replace(/`/g,"'")}\`">`;
+  return `<img class="silk-img" src="${esc(src)}" alt="${esc(jockey||'')} silks"`
+    + ` onerror="this.outerHTML=\`${svg}\`">`;
 }
 
 function showState(html) {
@@ -762,13 +858,114 @@ function showState(html) {
 /* ════════════════════════════════════════
    ACCURACY DRAWER
 ════════════════════════════════════════ */
+/* ── HAMBURGER MENU ── */
+function toggleMenu(e) {
+  if (e) e.stopPropagation();
+  const menu = document.getElementById('header-menu');
+  const open = menu.classList.toggle('open');
+  document.getElementById('menu-btn').setAttribute('aria-expanded', String(open));
+}
+function closeMenu() {
+  document.getElementById('header-menu').classList.remove('open');
+  document.getElementById('menu-btn').setAttribute('aria-expanded', 'false');
+}
+document.addEventListener('click', e => {
+  if (!e.target.closest('#menu-wrap')) closeMenu();
+});
+
 function openDrawer() {
+  closeMenu();
   document.body.classList.add('drawer-open');
   loadAccuracy();
 }
 function closeDrawer() { document.body.classList.remove('drawer-open'); }
 
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') { closeDrawer(); closePicks(); closeMenu(); }
+});
+
+/* ── TOP PICKS ── */
+function openPicks() {
+  closeMenu();
+  renderPicks();
+  document.body.classList.add('picks-open');
+}
+function closePicks() { document.body.classList.remove('picks-open'); }
+
+// Abbreviate the model's recommendation label for the compact picks view.
+function betAbbr(label) {
+  if (label === 'Strong Win Bet') return { text: 'SWB', cls: 'swb' };
+  return { text: 'WB', cls: 'wb' };
+}
+
+function renderPicks() {
+  // Flatten every Win recommendation across the whole card into one list,
+  // so you don't have to click through each race's timeline.
+  const picks = [];
+  allRaces.forEach(race => {
+    race.runners.forEach(runner => {
+      const rec = runner.recommendation || {};
+      if (rec.type === 'Win') picks.push({ race, runner, rec });
+    });
+  });
+  // Chronological — bet through the day; strongest first within the same time.
+  picks.sort((a, b) =>
+    raceMins(a.race) - raceMins(b.race) || (b.runner.score||0) - (a.runner.score||0));
+
+  const listEl  = document.getElementById('picks-list');
+  const emptyEl = document.getElementById('picks-empty');
+  if (!picks.length) {
+    listEl.innerHTML = '';
+    emptyEl.style.display = 'block';
+    return;
+  }
+  emptyEl.style.display = 'none';
+
+  const nm = nowMins();
+  const strong = picks.filter(p => p.rec.label === 'Strong Win Bet').length;
+  document.getElementById('picks-sub').textContent =
+    `${picks.length} win bet${picks.length!==1?'s':''} · ${strong} strong`;
+
+  listEl.innerHTML = picks.map((p, i) => {
+    const { race, runner, rec } = p;
+    const ab   = betAbbr(rec.label);
+    const past = raceMins(race) < nm ? ' past' : '';
+    return `<div class="pick-row${past}" onclick="fromPicks('${esc(race.id)}')" title="${esc(rec.label)} — ${esc(runner.horse)}">
+      ${pickSilk(runner.silk_url, runner.jockey, i)}
+      <div class="pick-main">
+        <div class="pick-horse">${esc(runner.horse)}</div>
+        <div class="pick-meta">${esc(race.time)} ${esc(race.course)}${runner.jockey ? ' · ' + esc(runner.jockey) : ''}</div>
+      </div>
+      <div class="pick-odds">${esc(runner.odds_str||'SP')}</div>
+      <div class="pick-badge ${ab.cls}" title="${esc(rec.label)}">${ab.text}</div>
+    </div>`;
+  }).join('') +
+    `<div class="picks-legend"><b class="swb">SWB</b> Strong Win Bet · <b class="wb">WB</b> Win Bet<br>Not financial advice. For information only.</div>`;
+}
+
+// Open the full racecard for a pick, closing the drawer.
+function fromPicks(id) {
+  closePicks();
+  selectRace(id, true);
+}
+
+// Compact silk for the picks list (smaller than the racecard silk).
+// Note: the fallback SVG uses single-quoted attributes so it can live safely
+// inside the double-quoted onerror="" attribute without breaking the markup
+// (which would otherwise collapse the row's grid columns).
+function pickSilk(url, jockey, idx) {
+  const [pcol, scol] = SILK_COLS[idx % SILK_COLS.length];
+  const svg = `<svg class='pick-silk-svg' viewBox='0 0 48 48' xmlns='http://www.w3.org/2000/svg'>`
+    + `<path d='M11 20L7 31 16 33 16 43 32 43 32 33 41 31 37 20 30 24 24 15 18 24Z' fill='${pcol}' stroke='rgba(0,0,0,.2)' stroke-width='.8'/>`
+    + `<ellipse cx='24' cy='15' rx='8' ry='5' fill='${scol}' stroke='rgba(0,0,0,.2)' stroke-width='.8'/>`
+    + `<path d='M16 20L7 31 16 33 16 24Z' fill='${scol}' opacity='.7'/>`
+    + `<path d='M32 20L41 31 32 33 32 24Z' fill='${scol}' opacity='.7'/>`
+    + `</svg>`;
+  if (!url) return svg;
+  const src = /^https?:\/\//.test(url) ? url : `https://www.sportinglife.com/images/silks/${url}`;
+  return `<img class="pick-silk-img" src="${esc(src)}" alt="${esc(jockey||'')} silks"`
+    + ` onerror="this.outerHTML=\`${svg}\`">`;
+}
 
 async function loadAccuracy() {
   try {
@@ -777,7 +974,8 @@ async function loadAccuracy() {
     const log = await r.json();
     if (!log || !log.length) return;
     renderAccuracy(log);
-    document.getElementById('acc-trigger').classList.add('has-data');
+    document.getElementById('menu-btn').classList.add('has-data');
+    document.getElementById('menu-acc').classList.add('has-data');
   } catch(e) { /* file doesn't exist yet — silent */ }
 }
 
