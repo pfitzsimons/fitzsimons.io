@@ -412,6 +412,29 @@
     .picks-legend b.swb { color: var(--green); }
     .picks-legend b.wb  { color: var(--amber); }
 
+    /* ── MULTI BETS ── */
+    #multis-section { margin-top: 1.4rem; }
+    #multis-section .acc-section-title { margin-top: 0; }
+    #multis-sub { font-family: var(--mono); font-size: .58rem; color: var(--dim); margin: -.35rem 0 .7rem; line-height: 1.6; }
+    .multi-card { background: rgba(255,255,255,.03); border: 1px solid var(--line); border-radius: 10px; padding: .7rem .8rem; margin-bottom: .5rem; }
+    .multi-hdr { display: flex; align-items: baseline; gap: .5rem; margin-bottom: .55rem; }
+    .multi-name { font-family: var(--display); font-size: 1.25rem; letter-spacing: .05em; color: var(--gold); line-height: 1; }
+    .multi-tag { font-family: var(--mono); font-size: .56rem; color: var(--dim); border: 1px solid var(--line); border-radius: 20px; padding: .1rem .45rem; letter-spacing: .04em; }
+    .multi-desc { font-family: var(--mono); font-size: .56rem; color: var(--dim); margin-left: auto; text-align: right; line-height: 1.4; }
+    .multi-legs { display: flex; flex-direction: column; gap: .12rem; }
+    .multi-leg { display: grid; grid-template-columns: 1fr auto; gap: .5rem; align-items: baseline; font-family: var(--mono); font-size: .66rem; padding: .18rem 0; border-bottom: 1px dashed var(--line); }
+    .multi-leg:last-child { border-bottom: none; }
+    .multi-leg-horse { color: var(--cream); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .multi-leg-where { color: var(--dim); }
+    .multi-leg-odds { color: var(--gold-lt); font-weight: 500; white-space: nowrap; }
+    .multi-foot { display: flex; align-items: baseline; justify-content: space-between; gap: .6rem; margin-top: .55rem; padding-top: .5rem; border-top: 1px solid var(--line); }
+    .multi-stake { font-family: var(--mono); font-size: .58rem; color: var(--dim); }
+    .multi-stake strong { color: var(--cream); font-weight: 500; }
+    .multi-return { text-align: right; }
+    .multi-return-val { font-family: var(--display); font-size: 1.5rem; letter-spacing: .03em; color: var(--green); line-height: 1; }
+    .multi-return-lbl { font-family: var(--mono); font-size: .54rem; color: var(--dim); letter-spacing: .06em; text-transform: uppercase; margin-top: .1rem; }
+    .multi-odds-pill { font-family: var(--mono); font-size: .6rem; color: var(--gold); background: rgba(201,168,76,.1); border: 1px solid rgba(201,168,76,.28); border-radius: 5px; padding: .16rem .42rem; }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 660px) {
       #header { flex-direction: column; align-items: flex-start; }
@@ -502,6 +525,11 @@
   <div id="picks-drawer-body">
     <div id="picks-empty">No win bets recommended today.<br>Every runner scored a Skip.</div>
     <div id="picks-list"></div>
+    <div id="multis-section" style="display:none">
+      <div class="acc-section-title">Multi Bets</div>
+      <div id="multis-sub"></div>
+      <div id="multis-list"></div>
+    </div>
   </div>
 </aside>
 
@@ -912,6 +940,8 @@ function renderPicks() {
   picks.sort((a, b) =>
     raceMins(a.race) - raceMins(b.race) || (b.runner.score||0) - (a.runner.score||0));
 
+  renderMultis();
+
   const listEl  = document.getElementById('picks-list');
   const emptyEl = document.getElementById('picks-empty');
   if (!picks.length) {
@@ -947,6 +977,117 @@ function renderPicks() {
 function fromPicks(id) {
   closePicks();
   selectRace(id, true);
+}
+
+/* ── MULTI BETS ──
+   Combine the strongest win pick from each *upcoming* race into ready-made
+   accumulator-style bets. One leg per race (bookies don't allow two runners
+   from the same race in an acca), best score first, priced from decimal odds. */
+function multiLegs() {
+  const nm = nowMins();
+  const legs = [];
+  allRaces.forEach(race => {
+    if (raceMins(race) < nm) return;                 // upcoming only — can't back a race that's off
+    const wins = race.runners
+      .filter(r => (r.recommendation||{}).type === 'Win' && r.odds_dec > 0);
+    if (!wins.length) return;
+    wins.sort((a, b) => (b.score||0) - (a.score||0));
+    legs.push({ race, runner: wins[0] });
+  });
+  legs.sort((a, b) => (b.runner.score||0) - (a.runner.score||0));
+  return legs;
+}
+
+// Full return on a Lucky 15 (4 selections, 15 lines) if all four win, at £1/line.
+// Excludes bookmaker consolations/bonuses, which vary by firm.
+function lucky15Return(odds) {
+  const [a, b, c, d] = odds;
+  return a + b + c + d
+    + a*b + a*c + a*d + b*c + b*d + c*d
+    + a*b*c + a*b*d + a*c*d + b*c*d
+    + a*b*c*d;
+}
+
+function renderMultis() {
+  const section = document.getElementById('multis-section');
+  const listEl  = document.getElementById('multis-list');
+  const subEl   = document.getElementById('multis-sub');
+  const legs = multiLegs();
+
+  // Need at least two upcoming win picks to form the smallest multi (a Double).
+  if (legs.length < 2) {
+    section.style.display = 'none';
+    listEl.innerHTML = '';
+    return;
+  }
+  section.style.display = 'block';
+  subEl.textContent = `Built from the top win pick in each of ${legs.length} upcoming `
+    + `race${legs.length !== 1 ? 's' : ''}. Combined odds shown; £1 per line.`;
+
+  const cards = [];
+  cards.push(multiCard('Double', 'All 2 must win', legs.slice(0, 2)));
+  if (legs.length >= 3) cards.push(multiCard('Treble', 'All 3 must win', legs.slice(0, 3)));
+  if (legs.length >= 4) {
+    // Lucky 15 always uses exactly 4 selections (4 singles + 6 doubles + 4 trebles + 1 four-fold).
+    cards.push(lucky15Card(legs.slice(0, 4)));
+    // Accumulator: fold in up to 5 of the strongest legs for a bigger-priced single line.
+    const accaLegs = legs.slice(0, Math.min(legs.length, 5));
+    cards.push(multiCard(`${accaLegs.length}-Fold Acca`, `All ${accaLegs.length} must win`, accaLegs));
+  }
+
+  listEl.innerHTML = cards.join('') +
+    `<div class="picks-legend">Returns use current decimal odds and include your stake. `
+    + `<b>*</b>Lucky 15 max assumes all four win and excludes bookmaker bonuses/consolations.<br>`
+    + `Tap any leg to open its racecard. Not financial advice — for information only.</div>`;
+}
+
+// Standard "all legs must win" multi (Double / Treble / Accumulator).
+function multiCard(name, desc, legs) {
+  const combined = legs.reduce((p, l) => p * l.runner.odds_dec, 1);
+  const ret = combined; // £1 stake returns the combined decimal odds (stake included)
+  return `<div class="multi-card">
+    <div class="multi-hdr">
+      <span class="multi-name">${esc(name)}</span>
+      <span class="multi-tag">${legs.length} legs</span>
+      <span class="multi-desc">${esc(desc)}<br><span class="multi-odds-pill">${combined.toFixed(2)} odds</span></span>
+    </div>
+    <div class="multi-legs">${legs.map(multiLegRow).join('')}</div>
+    <div class="multi-foot">
+      <span class="multi-stake"><strong>£1</strong> stake</span>
+      <div class="multi-return">
+        <div class="multi-return-val">£${ret.toFixed(2)}</div>
+        <div class="multi-return-lbl">returns if all win</div>
+      </div>
+    </div>
+  </div>`;
+}
+
+// Lucky 15 — full cover of 4 selections across 15 lines.
+function lucky15Card(legs) {
+  const odds = legs.map(l => l.runner.odds_dec);
+  const ret  = lucky15Return(odds);
+  return `<div class="multi-card">
+    <div class="multi-hdr">
+      <span class="multi-name">Lucky 15</span>
+      <span class="multi-tag">4 sel · 15 bets</span>
+      <span class="multi-desc">Any winner pays<br><span class="multi-odds-pill">4 singles + 6 dbls + 4 trbls + acca</span></span>
+    </div>
+    <div class="multi-legs">${legs.map(multiLegRow).join('')}</div>
+    <div class="multi-foot">
+      <span class="multi-stake"><strong>£15</strong> (£1 × 15 lines)</span>
+      <div class="multi-return">
+        <div class="multi-return-val">£${ret.toFixed(2)}</div>
+        <div class="multi-return-lbl">max if all 4 win*</div>
+      </div>
+    </div>
+  </div>`;
+}
+
+function multiLegRow(l) {
+  return `<div class="multi-leg" onclick="fromPicks('${esc(l.race.id)}')" style="cursor:pointer">
+    <span class="multi-leg-horse">${esc(l.runner.horse)} <span class="multi-leg-where">· ${esc(l.race.time)} ${esc(l.race.course)}</span></span>
+    <span class="multi-leg-odds">${esc(l.runner.odds_str||'SP')}</span>
+  </div>`;
 }
 
 // Compact silk for the picks list (smaller than the racecard silk).
