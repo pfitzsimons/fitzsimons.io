@@ -1137,6 +1137,164 @@ def _finalise_non_runner(runner: dict) -> None:
 
 
 # ─────────────────────────────────────────────────────────────
+# INTRADAY MERGE
+#
+# The scraper runs several times through the day (see .github/workflows/
+# scrape-races.yml). Each run must fold its fresh scrape INTO the live
+# races.json without ever losing what earlier runs captured:
+#
+#   • Union by race id — a race is never dropped once seen. Finished races
+#     fall off Sporting Life's live feed, so they only survive because we keep
+#     the prior copy.
+#   • Upcoming race (off-time still in the future) → take the fresh, re-scored
+#     version so odds / non-runners / going / scores refresh through the day.
+#   • Started/finished race (off-time passed) → FREEZE the prior copy; never
+#     re-score it or overwrite it with post-off data.
+#   • Sticky non-runners — a horse marked non_runner by an earlier run stays a
+#     non_runner even if a later partial scrape omits or re-lists it.
+#   • Partial-failure safe — a fresh scrape that returns nothing, or a race
+#     that comes back drastically smaller than the copy we hold, never deletes
+#     good existing data.
+#
+# The start-of-day archive (history/races_<date>.json) is a SEPARATE, frozen
+# record written once by the first run of the day (see main); the merge only
+# governs the live file.
+# ─────────────────────────────────────────────────────────────
+
+def _horse_key(name: str) -> str:
+    """Loose key for matching a horse across scrapes of the same race."""
+    return re.sub(r"\s+", " ", html.unescape(name or "")).strip().upper()
+
+
+def race_has_started(race: dict, now_local: datetime) -> bool:
+    """True once a race's local off-time (race['time'] on race['date']) has been
+    reached. Undated/untimed races are treated as not started (kept live)."""
+    m = re.match(r"^(\d{1,2}):(\d{2})$", (race.get("time") or "").strip())
+    if not m:
+        return False
+    try:
+        d = datetime.strptime(race.get("date", ""), "%Y-%m-%d").date()
+    except ValueError:
+        return False
+    off = datetime.combine(d, dt_time(int(m.group(1)), int(m.group(2))), tzinfo=UK_IRE_TZ)
+    return now_local >= off
+
+
+def _carry_sticky_non_runners(prior: dict, fresh: dict) -> None:
+    """Ensure withdrawals seen in `prior` survive into a re-scored `fresh` race.
+
+    A horse marked non_runner earlier must stay withdrawn even if a later,
+    possibly partial, scrape omits it or lists it as active again. Mutates
+    `fresh` in place: forces the flag on any such horse still present, and
+    re-appends any that the fresh scrape dropped entirely.
+    """
+    prior_nr = {_horse_key(r.get("horse", "")): r
+                for r in prior.get("runners", []) if r.get("non_runner")}
+    if not prior_nr:
+        return
+    fresh_keys = set()
+    for r in fresh.get("runners", []):
+        k = _horse_key(r.get("horse", ""))
+        fresh_keys.add(k)
+        if k in prior_nr and not r.get("non_runner"):
+            _finalise_non_runner(r)
+    for k, nr in prior_nr.items():
+        if k not in fresh_keys:
+            fresh.setdefault("runners", []).append(nr)
+
+
+def merge_live_races(existing: list, fresh: list, now_local: datetime) -> list:
+    """Merge a fresh scrape's races into the existing live list (see policy
+    above). Returns a new list ordered by (time, course); inputs are not
+    mutated except for the sticky-non-runner carry onto fresh races."""
+    prior_by_id = {r.get("id"): r for r in existing if r.get("id")}
+    merged = dict(prior_by_id)  # union base — nothing is ever dropped
+
+    for fr_race in fresh:
+        rid = fr_race.get("id")
+        if not rid:
+            continue
+        prior = prior_by_id.get(rid)
+        if prior is None:
+            merged[rid] = fr_race          # first sighting of this race
+            continue
+        if race_has_started(prior, now_local):
+            continue                        # frozen — ignore post-off data
+        # A race that comes back drastically smaller than the copy we hold is a
+        # partial/failed fetch, not a real change (withdrawn horses are kept as
+        # non-runners, so the total count is stable) — keep the richer prior.
+        if len(fr_race.get("runners", [])) * 2 < len(prior.get("runners", [])):
+            continue
+        _carry_sticky_non_runners(prior, fr_race)
+        merged[rid] = fr_race               # upcoming — refresh with fresh data
+
+    return sorted(merged.values(), key=lambda r: (r.get("time", ""), r.get("course", "")))
+
+
+def persist_scrape(out_dir: str, today_str: str, races: list,
+                   now_local: Optional[datetime] = None) -> dict:
+    """Write one scrape's results: freeze the start-of-day archive (first run
+    only) and merge into the live races.json. Returns the written live document.
+
+    Split out of main() so the intraday behaviour is testable without the
+    network — see scripts/test_intraday_merge.py. `now_local` defaults to the
+    real UK/IRE clock; tests pass a fixed time to drive the freeze boundary.
+    """
+    if now_local is None:
+        now_local = datetime.now(UK_IRE_TZ)
+    hist_dir = os.path.join(out_dir, "history")
+
+    # ── Start-of-day archive (accuracy record) ────────────────────
+    # Written ONCE by the first run of the day, then frozen — later intraday
+    # runs must never touch it, so accuracy is always graded on the start-of-day
+    # card (the site's accuracy tab says so). This is the leak-free prediction
+    # of record; the live races.json below keeps updating through the day.
+    archive_path = os.path.join(hist_dir, f"races_{today_str}.json")
+    if races and not os.path.exists(archive_path):
+        os.makedirs(hist_dir, exist_ok=True)
+        with open(archive_path, "w", encoding="utf-8") as f:
+            json.dump({
+                "date":         today_str,
+                "generated_at": datetime.now(timezone.utc).replace(tzinfo=None).isoformat() + "Z",
+                "races":        races,
+            }, f, ensure_ascii=False, indent=2)
+        print(f"Archived start-of-day predictions: {archive_path} ({len(races)} races)",
+              file=sys.stderr)
+    elif os.path.exists(archive_path):
+        print(f"Start-of-day archive already exists for {today_str} — left frozen",
+              file=sys.stderr)
+
+    # ── Merge into the live file ──────────────────────────────────
+    # Fold this scrape into the existing races.json rather than replacing it, so
+    # nothing captured earlier in the day is lost (see merge_live_races).
+    out_path = os.path.join(out_dir, "races.json")
+    merged = races
+    if os.path.exists(out_path):
+        try:
+            with open(out_path, encoding="utf-8") as f:
+                existing = json.load(f)
+        except Exception:
+            existing = None
+        # Only merge with the same day's file; a stale file from a previous day
+        # is replaced wholesale by today's fresh scrape.
+        if existing and existing.get("date") == today_str:
+            merged = merge_live_races(existing.get("races", []), races, now_local)
+
+    output = {
+        "date":         today_str,
+        "generated_at": datetime.now(timezone.utc).replace(tzinfo=None).isoformat() + "Z",
+        "races":        merged,
+    }
+    with open(out_path, "w", encoding="utf-8") as f:
+        json.dump(output, f, ensure_ascii=False, indent=2)
+
+    print(f"Written: {out_path}", file=sys.stderr)
+    print(f"Result:  {len(merged)} races live ({len(races)} from this scrape), "
+          f"{sum(r.get('num_runners', 0) for r in merged)} runners", file=sys.stderr)
+    return output
+
+
+# ─────────────────────────────────────────────────────────────
 # MAIN
 # ─────────────────────────────────────────────────────────────
 
@@ -1182,37 +1340,7 @@ def main():
 
     races.sort(key=lambda r: (r["time"], r["course"]))
 
-    output = {
-        "date":         today_str,
-        "generated_at": datetime.now(timezone.utc).replace(tzinfo=None).isoformat() + "Z",
-        "races":        races,
-    }
-
-    out_path = os.path.join(out_dir, "races.json")
-
-    # Never overwrite a richer file for the same date with fewer races.
-    # Late-evening re-runs find no upcoming races and would clobber the
-    # morning predictions that are needed for next-day accuracy tracking.
-    if os.path.exists(out_path):
-        try:
-            with open(out_path, encoding="utf-8") as f:
-                existing = json.load(f)
-            if (existing.get("date") == today_str
-                    and len(existing.get("races", [])) > len(races)):
-                print(
-                    f"Keeping existing races.json ({len(existing['races'])} races)"
-                    f" — new scrape has only {len(races)}",
-                    file=sys.stderr,
-                )
-                return
-        except Exception:
-            pass
-
-    with open(out_path, "w", encoding="utf-8") as f:
-        json.dump(output, f, ensure_ascii=False, indent=2)
-
-    print(f"Written: {out_path}", file=sys.stderr)
-    print(f"Result:  {len(races)} races, {sum(r['num_runners'] for r in races)} runners", file=sys.stderr)
+    persist_scrape(out_dir, today_str, races)
 
 
 if __name__ == "__main__":

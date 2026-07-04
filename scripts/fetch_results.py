@@ -602,11 +602,12 @@ def save_accuracy_log(out_dir: str, log_data: list):
 
 
 def save_prediction_archive(out_dir: str, races_data: dict):
-    """Archive today's predictions before they get overwritten tomorrow.
+    """Fallback writer for the start-of-day prediction archive.
 
-    Never overwrites an existing archive that has more races — late-evening
-    scraper runs produce empty files (no upcoming races left) that would
-    otherwise clobber the rich mid-day archive.
+    The scraper's first run of the day owns this file (the frozen, leak-free
+    accuracy record). This only creates it if it is somehow missing and NEVER
+    overwrites an existing one — later intraday data must never reach the
+    graded record.
     """
     date_str = races_data.get('date', '')
     if not date_str:
@@ -614,17 +615,14 @@ def save_prediction_archive(out_dir: str, races_data: dict):
     hist_dir = os.path.join(out_dir, 'history')
     os.makedirs(hist_dir, exist_ok=True)
     path = os.path.join(hist_dir, f'races_{date_str}.json')
-    new_count = len(races_data.get('races', []))
     if os.path.exists(path):
-        with open(path, encoding='utf-8') as f:
-            existing = json.load(f)
-        existing_count = len(existing.get('races', []))
-        if existing_count >= new_count:
-            log(f'Keeping existing archive for {date_str} ({existing_count} races >= {new_count})')
-            return
+        log(f'Start-of-day archive for {date_str} already frozen — leaving untouched')
+        return
+    if not races_data.get('races'):
+        return
     with open(path, 'w', encoding='utf-8') as f:
         json.dump(races_data, f, ensure_ascii=False, indent=2)
-    log(f'Archived predictions: {path}')
+    log(f'Fallback-archived predictions: {path}')
 
 
 def main():

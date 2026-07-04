@@ -490,6 +490,8 @@
     .acc-stat-sub { font-family: var(--mono); font-size: .56rem; color: var(--dim); opacity: .7; margin-top: .1rem; }
 
     .acc-section-title { font-family: var(--mono); font-size: .63rem; color: var(--dim); letter-spacing: .1em; text-transform: uppercase; margin-bottom: .55rem; margin-top: .2rem; }
+    #acc-sod-note { font-size: .68rem; line-height: 1.5; color: var(--dim); background: var(--panel2); border: 1px solid var(--line); border-left: 3px solid var(--gold, #c9a24a); border-radius: 8px; padding: .6rem .75rem; margin-bottom: 1rem; }
+    #acc-sod-note strong { color: var(--tx); }
     .acc-days { display: flex; flex-direction: column; gap: .4rem; }
     .acc-day { background: var(--chip); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
     .acc-day-hdr { display: flex; align-items: center; gap: .7rem; padding: .6rem .85rem; cursor: pointer; user-select: none; transition: background .15s; }
@@ -655,6 +657,11 @@
   <div id="acc-drawer-body">
     <div id="acc-empty">No accuracy data yet.<br>Check back tomorrow after the<br>first automated run.</div>
     <div id="acc-content" style="display:none">
+      <div id="acc-sod-note">
+        📌 Accuracy is graded on <strong>start-of-day</strong> predictions (the first
+        scrape, ~07:00 UK). The live card updates through the day — odds, non-runners,
+        going — but graded accuracy deliberately does not, to keep it honest and leak-free.
+      </div>
       <div class="acc-summary" id="acc-summary"></div>
       <div class="acc-section-title">Daily History</div>
       <div class="acc-days" id="acc-days"></div>

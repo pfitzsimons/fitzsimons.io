@@ -28,26 +28,25 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Archive today's predictions before scraper overwrites them
+      - name: Ensure a start-of-day archive exists (safety net only)
         run: |
+          # The scraper's first run of the day writes the frozen start-of-day
+          # archive (horses/history/races_<date>.json), the leak-free accuracy
+          # record. This step only creates it as a fallback if that never
+          # happened; it must NEVER overwrite an existing archive, or later
+          # intraday data would leak into the graded record.
           mkdir -p horses/history
           if [ -f horses/races.json ]; then
             RACES_DATE=$(python3 -c "import json; d=json.load(open('horses/races.json')); print(d.get('date',''))")
             RACE_COUNT=$(python3 -c "import json; d=json.load(open('horses/races.json')); print(len(d.get('races',[])))")
             ARCHIVE="horses/history/races_${RACES_DATE}.json"
             if [ "$RACE_COUNT" -eq 0 ]; then
-              echo "Skipping archive for $RACES_DATE — races.json has 0 races (late-evening scrape)"
+              echo "Skipping archive for $RACES_DATE — races.json has 0 races"
             elif [ ! -f "$ARCHIVE" ]; then
               cp horses/races.json "$ARCHIVE"
-              echo "Archived $RACE_COUNT predictions for $RACES_DATE"
+              echo "Fallback-archived $RACE_COUNT predictions for $RACES_DATE"
             else
-              EXISTING_COUNT=$(python3 -c "import json; d=json.load(open('$ARCHIVE')); print(len(d.get('races',[])))")
-              if [ "$EXISTING_COUNT" -ge "$RACE_COUNT" ]; then
-                echo "Keeping existing archive for $RACES_DATE ($EXISTING_COUNT races >= $RACE_COUNT)"
-              else
-                cp horses/races.json "$ARCHIVE"
-                echo "Updated archive for $RACES_DATE ($RACE_COUNT races > $EXISTING_COUNT)"
-              fi
+              echo "Start-of-day archive for $RACES_DATE already frozen — leaving untouched"
             fi
           fi
 
