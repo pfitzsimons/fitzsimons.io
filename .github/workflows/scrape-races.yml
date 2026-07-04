@@ -2,14 +2,23 @@ name: Scrape Races
 
 on:
   schedule:
-    # Once daily at 08:00 UTC (09:00 BST / 08:00 GMT)
-    - cron: '0 8 * * *'
+    # Every 20 minutes across UK/IRE racing hours (07:00–20:40 UTC). The first
+    # run of the day writes the frozen start-of-day accuracy record; every later
+    # run refreshes the live races.json (odds, non-runners, going) without
+    # touching that record. Results/accuracy stay on their own daily schedule.
+    - cron: '*/20 7-20 * * *'
   workflow_dispatch:
     inputs:
       date_override:
         description: 'Date override YYYY-MM-DD (leave blank for today)'
         required: false
         default: ''
+
+# Never let two scrapes run at once — a queued run waits for the in-flight one
+# to finish committing, so intraday merges can't race each other.
+concurrency:
+  group: scrape-races
+  cancel-in-progress: false
 
 jobs:
   scrape:
@@ -49,10 +58,14 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add horses/races.json
+          # Live file plus the start-of-day archive the first run writes.
+          git add horses/races.json horses/history/ || true
           if git diff --staged --quiet; then
-            echo "No changes to races.json"
+            echo "No content changes — nothing to commit"
           else
             git commit -m "🏇 Races $(date -u +%Y-%m-%dT%H:%M)Z [skip ci]"
+            # A concurrent run may have pushed between our checkout and now;
+            # rebase on the latest before pushing so we never clobber it.
+            git pull --rebase --autostash origin "$GITHUB_REF_NAME" || true
             git push
           fi
