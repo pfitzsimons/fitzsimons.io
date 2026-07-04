@@ -14,6 +14,10 @@ Multi-factor scoring model:
   8. DNF penalty           — P (pulled up), F (fell), U (unseated), B (bolted)
   9. Distance suitability  — proven at today's trip (off by default; see
                              DIST_WEIGHT / scripts/backtest_distance.py)
+ 10. Freshness             — days since last run (off by default; see
+                             FRESH_WEIGHT / scripts/backtest_freshness.py)
+ 11. Class (captured only) — official rating + Timeform stars, threaded at
+                             weight 0 to accumulate (OR_WEIGHT / TF_WEIGHT)
 
 Final score 0–100 → label + confidence + Win/Skip
 """
@@ -589,6 +593,70 @@ def distance_suitability(cur_f: Optional[float], prev_runs: list) -> tuple:
 
 
 # ─────────────────────────────────────────────────────────────
+# FRESHNESS ("days since last run") + CLASS (official rating, Timeform)
+#
+# Three fields Sporting Life already publishes that the model did not use:
+#   • horse.last_ran_days   — exact days since the horse last ran (fitness)
+#   • ride.official_rating  — BHA handicap mark (class / ability)
+#   • ride.timeform_stars   — Timeform's 0–5 expert composite
+#
+# Each is threaded behind its own weight and is a NO-OP at zero, carved out of
+# the recent-form budget exactly like DIST_WEIGHT so the factor weights still
+# sum to their original total. FRESHNESS is the one validatable now — its value
+# can be reconstructed from our own archive (days since a horse last appeared),
+# so scripts/backtest_freshness.py walk-forward tests it and it ships at the
+# weight that clears the significance bar (0.0 until then). OFFICIAL RATING and
+# TIMEFORM STARS cannot be reconstructed from the archive (they were never
+# captured before), so they ship at weight 0 purely to CAPTURE the raw values
+# into each runner's components; once enough history accumulates a future
+# backtest can validate them. See the sportinglife-unused-fields note and the
+# backtest-shipping-discipline rule (same reason COURSE_COEFFICIENTS is empty).
+# ─────────────────────────────────────────────────────────────
+FRESH_WEIGHT = 0.0
+OR_WEIGHT = 0.0
+TF_WEIGHT = 0.0
+
+
+def _as_int(v) -> Optional[int]:
+    """Coerce a feed value to int, or None (the feed sends these as numbers,
+    but guard against the occasional numeric string / null)."""
+    try:
+        return int(v)
+    except (TypeError, ValueError):
+        return None
+
+
+def freshness_score(last_ran_days) -> float:
+    """0–100 fitness-from-freshness score; neutral 50 when unknown.
+
+    Peaks over the typical 12–35 day turnaround, eases off for very quick
+    returns, and declines as a layoff lengthens (fitness doubt). A neutral 50
+    for unknown `last_ran_days` means the factor cancels for horses with no
+    freshness data rather than rewarding or penalising them.
+    """
+    d = _as_int(last_ran_days)
+    if d is None or d < 0:
+        return 50.0
+    if d < 12:
+        return 55.0 + d / 12.0 * 15.0          # 0d→55 … 12d→70 (quick back-up)
+    if d <= 35:
+        return 70.0                             # optimal window
+    if d <= 100:
+        return 70.0 - (d - 35) / 65.0 * 25.0    # 35d→70 … 100d→45
+    if d <= 300:
+        return 45.0 - (d - 100) / 200.0 * 20.0  # 100d→45 … 300d→25
+    return 25.0                                 # very long layoff
+
+
+def timeform_score(stars) -> float:
+    """Map Timeform 0–5 stars to a 0–100 sub-score; neutral 50 if unknown."""
+    s = _as_int(stars)
+    if s is None or s < 0:
+        return 50.0
+    return max(0.0, min(100.0, s / 5.0 * 100.0))
+
+
+# ─────────────────────────────────────────────────────────────
 # EACH WAY TERMS
 # ─────────────────────────────────────────────────────────────
 
@@ -692,7 +760,19 @@ def score_runner(runner: dict, field_size: int, going: str,
     # are unchanged; DIST_WEIGHT = 0 makes this a no-op (neutral 50 → cancels).
     cur_f = distance_to_furlongs(distance)
     dist_score, dist_meta = distance_suitability(cur_f, runner.get("_prev_runs") or [])
-    form_weight = FORM_WEIGHT_BASE - DIST_WEIGHT
+
+    # ── H) Freshness / I) Class ───────────────────────────────
+    # Freshness scores days since last run; Timeform stars is absolute; official
+    # rating is field-relative (a neutral 50 placeholder here, filled across the
+    # field by normalise_class_scores, mirroring the weight factor). All three
+    # are carved out of the form budget and are no-ops at their default weight 0.
+    fresh_score = freshness_score(runner.get("_last_ran_days"))
+    tf_score    = timeform_score(runner.get("_timeform_stars"))
+    or_val      = runner.get("_official_rating")
+    runner["_or_raw"] = or_val if isinstance(or_val, int) else None
+    or_score    = 50.0
+
+    form_weight = FORM_WEIGHT_BASE - DIST_WEIGHT - FRESH_WEIGHT - OR_WEIGHT - TF_WEIGHT
 
     # ── Combine ───────────────────────────────────────────────
     raw_score = (
@@ -702,7 +782,10 @@ def score_runner(runner: dict, field_size: int, going: str,
         jockey_score      * strike_rates.JOCKEY_WEIGHT +
         trainer_score     * strike_rates.TRAINER_WEIGHT +
         weight_score      * 0.10 +
-        dist_score        * DIST_WEIGHT
+        dist_score        * DIST_WEIGHT +
+        fresh_score       * FRESH_WEIGHT +
+        tf_score          * TF_WEIGHT +
+        or_score          * OR_WEIGHT
     ) - absence_penalty
 
     # Apply going factor (field-level uncertainty modifier)
@@ -724,6 +807,15 @@ def score_runner(runner: dict, field_size: int, going: str,
             "going_factor":  round(gf, 2),
             "distance":      round(dist_score, 1),
             "distance_meta": dist_meta,
+            # Captured-and-accumulating factors (weight 0 → informational only
+            # until validated). Raw feed values are stored alongside the
+            # sub-scores so a future backtest can reconstruct and test them.
+            "freshness":       round(fresh_score, 1),
+            "last_ran_days":   _as_int(runner.get("_last_ran_days")),
+            "timeform":        round(tf_score, 1),
+            "timeform_stars":  _as_int(runner.get("_timeform_stars")),
+            "class_or":        round(or_score, 1),
+            "official_rating": runner["_or_raw"],
         },
         "_form_analysis": form,
     }
@@ -753,6 +845,30 @@ def normalise_weight_scores(runners: list) -> None:
             r["_score"] = old_score - (50 * 0.10) + (w_score * 0.10)
             r["_score"] = max(0, min(100, r["_score"]))
             r["_components"]["weight"] = round(w_score, 1)
+
+
+def normalise_class_scores(runners: list) -> None:
+    """Normalise the official-rating (class) sub-score across the field.
+
+    Higher official rating = higher class = higher sub-score, scaled to the
+    field's own OR range so it re-ranks within a race rather than on the
+    absolute BHA scale. Mutates in place, patching the score by OR_WEIGHT — a
+    no-op while OR_WEIGHT is 0 (replaces the 50 placeholder with 50). Needs at
+    least two rated runners to have a range to scale against.
+    """
+    ors = [r.get("_or_raw") for r in runners if isinstance(r.get("_or_raw"), int)]
+    if len(ors) < 2:
+        return
+    lo, hi = min(ors), max(ors)
+    rng = hi - lo if hi > lo else 1
+
+    for r in runners:
+        orr = r.get("_or_raw")
+        if isinstance(orr, int):
+            or_score = (orr - lo) / rng * 100.0
+            r["_score"] = r["_score"] - (50.0 * OR_WEIGHT) + (or_score * OR_WEIGHT)
+            r["_score"] = max(0, min(100, r["_score"]))
+            r["_components"]["class_or"] = round(or_score, 1)
 
 
 def _post_process_win_bets(runners: list, field_size: int) -> None:
@@ -1034,6 +1150,11 @@ def scrape_race(meta):
             "odds_dec": parse_odds(odds_str),
             "silk_url": ride.get("silk_filename", "") or "",
             "_prev_runs": prev_runs,
+            # Freshness / class fields — captured now, scored at weight 0 (see
+            # FRESH_WEIGHT / OR_WEIGHT / TF_WEIGHT). Stripped before writing.
+            "_last_ran_days":   _as_int(horse.get("last_ran_days")),
+            "_timeform_stars":  _as_int(ride.get("timeform_stars")),
+            "_official_rating": _as_int(ride.get("official_rating")),
             "_non_runner": is_non_runner,
         })
 
@@ -1056,6 +1177,8 @@ def scrape_race(meta):
 
     # Normalise weight scores across field
     normalise_weight_scores(active)
+    # Normalise the field-relative class (official-rating) sub-score
+    normalise_class_scores(active)
 
     # Apply per-course accuracy coefficient
     course_factor = COURSE_COEFFICIENTS.get(meta["venue"], 1.0)
@@ -1078,6 +1201,10 @@ def scrape_race(meta):
         model_prob    = runner.pop("_model_prob", None)
         market_prob   = runner.pop("_market_prob", None)
         runner.pop("_prev_runs", None)
+        runner.pop("_or_raw", None)
+        runner.pop("_last_ran_days", None)
+        runner.pop("_timeform_stars", None)
+        runner.pop("_official_rating", None)
         runner.pop("_non_runner", None)
 
         runner["score"]      = round(score, 1)
@@ -1123,6 +1250,10 @@ def _finalise_non_runner(runner: dict) -> None:
     distinct "Non-runner" label and the public `non_runner` flag the site reads.
     """
     runner.pop("_prev_runs", None)
+    runner.pop("_or_raw", None)
+    runner.pop("_last_ran_days", None)
+    runner.pop("_timeform_stars", None)
+    runner.pop("_official_rating", None)
     runner.pop("_non_runner", None)
     runner["score"]      = None
     runner["components"] = {}
