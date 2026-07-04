@@ -12,6 +12,8 @@ Multi-factor scoring model:
   6. Jockey quality        — top jockeys rated by known record
   7. Recency penalty       — long abs gaps (/) penalised
   8. DNF penalty           — P (pulled up), F (fell), U (unseated), B (bolted)
+  9. Distance suitability  — proven at today's trip (off by default; see
+                             DIST_WEIGHT / scripts/backtest_distance.py)
 
 Final score 0–100 → label + confidence + Win/Skip
 """
@@ -20,6 +22,7 @@ import argparse
 import gzip
 import html
 import json
+import math
 import os
 import re
 import sys
@@ -493,6 +496,99 @@ def going_factor(going: str, distance: str) -> float:
 
 
 # ─────────────────────────────────────────────────────────────
+# DISTANCE SUITABILITY  ("proven at the trip")
+#
+# The form string carries only finishing positions — it has no idea a horse's
+# wins came at 5f while today's race is 1m6f. Sporting Life's racecard JSON does
+# expose each past run's distance (horse.previous_results), so we can reward a
+# horse whose good runs came at a distance near today's and discount form set at
+# a very different trip.
+#
+# DIST_WEIGHT is the fraction of the 0–100 score this factor carries; the same
+# fraction is taken out of the recent-form factor so the weights still sum to
+# their original total (form is the distance-blind factor most in need of the
+# correction). DIST_WEIGHT = 0 makes the whole factor a no-op, reproducing the
+# pre-distance model exactly — it is turned on only at a weight that survives the
+# walk-forward backtest (scripts/backtest_distance.py).
+# ─────────────────────────────────────────────────────────────
+DIST_WEIGHT = 0.0
+FORM_WEIGHT_BASE = 0.30
+
+# Result → quality in 0–1, mirroring the recent-form position scale (/100).
+_DIST_POS_QUALITY = {1: 1.00, 2: 0.80, 3: 0.65, 4: 0.50, 5: 0.40}
+
+
+def _pos_quality(pos: int) -> float:
+    if pos in _DIST_POS_QUALITY:
+        return _DIST_POS_QUALITY[pos]
+    return 0.25 if pos <= 7 else 0.10
+
+
+def distance_to_furlongs(dist_str: str) -> Optional[float]:
+    """Parse a distance like '5f', '6f 111y', '1m 7f 110y', '2m 4f' to furlongs.
+
+    1 mile = 8 furlongs, 1 furlong = 220 yards. Returns None if nothing parses.
+    """
+    if not dist_str:
+        return None
+    d = dist_str.strip().lower()
+    m = re.search(r"(\d+)\s*m", d)
+    f = re.search(r"(\d+)\s*f", d)
+    y = re.search(r"(\d+)\s*y", d)
+    if not (m or f or y):
+        return None
+    miles = int(m.group(1)) if m else 0
+    fur   = int(f.group(1)) if f else 0
+    yards = int(y.group(1)) if y else 0
+    return miles * 8 + fur + yards / 220.0
+
+
+def distance_suitability(cur_f: Optional[float], prev_runs: list) -> tuple:
+    """Score how well a horse's past results suit today's distance (0–100).
+
+    Each prior run is weighted by a Gaussian on its distance gap from today's
+    trip (so exact-trip runs dominate and very different trips fade out), and by
+    how well the horse ran. The distance-weighted average result quality is then
+    shrunk toward a neutral 50 by how much trip-relevant evidence exists, so a
+    horse with no runs near today's distance — or none at all — sits at neutral
+    rather than being rewarded or penalised on irrelevant form.
+
+    Returns (score, meta) where meta explains the components for transparency.
+    """
+    if not cur_f or not prev_runs:
+        return 50.0, {"n": 0}
+
+    # Tolerance grows with trip: sprinters are more distance-sensitive (in
+    # absolute furlongs) than stayers.
+    scale = max(1.0, 0.20 * cur_f)
+    num = den = 0.0
+    used = 0
+    for pr in prev_runs:
+        df = pr.get("dist_f")
+        pos = pr.get("pos")
+        if not df or not isinstance(pos, int) or pos < 1:
+            continue
+        w = math.exp(-((abs(cur_f - df) / scale) ** 2))
+        if w < 0.01:  # effectively a different discipline of trip — ignore
+            continue
+        num += w * _pos_quality(pos)
+        den += w
+        used += 1
+
+    if den <= 0:
+        return 50.0, {"n": 0}
+
+    quality = num / den
+    # Bayesian-style shrinkage toward neutral by evidence strength (den behaves
+    # like an effective count of trip-relevant runs), matching strike_rates.py.
+    k = 1.0
+    sub01 = (den * quality + k * 0.5) / (den + k)
+    return round(100 * sub01, 1), {
+        "n": used, "relevance": round(den, 2), "quality": round(quality, 2),
+    }
+
+
+# ─────────────────────────────────────────────────────────────
 # EACH WAY TERMS
 # ─────────────────────────────────────────────────────────────
 
@@ -516,15 +612,18 @@ def score_runner(runner: dict, field_size: int, going: str,
 
     Factors & weights:
       A) Odds value          25%  — implied prob vs field average
-      B) Recent form         30%  — weighted last 5 runs
+      B) Recent form    30%−DIST_WEIGHT — weighted last 5 runs
       C) Consistency         15%  — placed% across all known runs
       D) Jockey strike-rate 7.5%  — data-derived (see strike_rates.py)
       D') Trainer strike-rate 7.5% — data-derived (see strike_rates.py)
       E) Weight advantage    10%  — relative weight vs field average
       F) Absence penalty      5%  — penalise '/' in form (long gap)
+      G) Distance suitability DIST_WEIGHT — form set near today's trip
 
     (D)+(D') keep the same 15% total the static jockey rating used to carry, so
-    score bands and recommendation thresholds are unchanged.
+    score bands and recommendation thresholds are unchanged. (G) is carved out
+    of (B) and ships at DIST_WEIGHT = 0 (a no-op) until it clears the
+    walk-forward bar — see the DIST_WEIGHT note above distance_suitability().
     """
     odds_dec  = runner.get("odds_dec")
     form_str  = runner.get("form", "")
@@ -587,14 +686,23 @@ def score_runner(runner: dict, field_size: int, going: str,
     # ── F) Absence penalty ────────────────────────────────────
     absence_penalty = 15.0 if form["long_absence"] else 0.0
 
+    # ── G) Distance suitability ───────────────────────────────
+    # Reward form set near today's trip; discount form at a very different
+    # distance. Weight is carved out of the recent-form factor so the totals
+    # are unchanged; DIST_WEIGHT = 0 makes this a no-op (neutral 50 → cancels).
+    cur_f = distance_to_furlongs(distance)
+    dist_score, dist_meta = distance_suitability(cur_f, runner.get("_prev_runs") or [])
+    form_weight = FORM_WEIGHT_BASE - DIST_WEIGHT
+
     # ── Combine ───────────────────────────────────────────────
     raw_score = (
         odds_score        * 0.25 +
-        form_score        * 0.30 +
+        form_score        * form_weight +
         consistency_score * 0.15 +
         jockey_score      * strike_rates.JOCKEY_WEIGHT +
         trainer_score     * strike_rates.TRAINER_WEIGHT +
-        weight_score      * 0.10
+        weight_score      * 0.10 +
+        dist_score        * DIST_WEIGHT
     ) - absence_penalty
 
     # Apply going factor (field-level uncertainty modifier)
@@ -614,6 +722,8 @@ def score_runner(runner: dict, field_size: int, going: str,
             "weight":        round(weight_score, 1),
             "absence_pen":   round(absence_penalty, 1),
             "going_factor":  round(gf, 2),
+            "distance":      round(dist_score, 1),
+            "distance_meta": dist_meta,
         },
         "_form_analysis": form,
     }
@@ -893,6 +1003,17 @@ def scrape_race(meta):
 
         odds_str = ride.get("betting", {}).get("current_odds") or "SP"
 
+        # Per-run distance history for the distance-suitability factor. Each
+        # entry carries the trip (in furlongs) and finishing position of a past
+        # run; non-finishers and unparseable distances are dropped. Held under a
+        # transient "_prev_runs" key that is stripped before the race is written.
+        prev_runs = []
+        for pr in (horse.get("previous_results") or []):
+            df = distance_to_furlongs(pr.get("distance"))
+            pos = pr.get("position")
+            if df and isinstance(pos, int) and pos >= 1:
+                prev_runs.append({"dist_f": round(df, 2), "pos": pos})
+
         runners.append({
             "horse":    horse_name,
             "country":  country,
@@ -905,6 +1026,7 @@ def scrape_race(meta):
             "odds_str": odds_str,
             "odds_dec": parse_odds(odds_str),
             "silk_url": ride.get("silk_filename", "") or "",
+            "_prev_runs": prev_runs,
         })
 
     if not runners:
@@ -942,6 +1064,7 @@ def scrape_race(meta):
         weight_lbs    = runner.pop("_weight_lbs", None)
         model_prob    = runner.pop("_model_prob", None)
         market_prob   = runner.pop("_market_prob", None)
+        runner.pop("_prev_runs", None)
 
         runner["score"]      = round(score, 1)
         runner["components"] = components
