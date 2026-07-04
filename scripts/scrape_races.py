@@ -18,6 +18,9 @@ Multi-factor scoring model:
                              FRESH_WEIGHT / scripts/backtest_freshness.py)
  11. Class (captured only) — official rating + Timeform stars, threaded at
                              weight 0 to accumulate (OR_WEIGHT / TF_WEIGHT)
+ 12. Experience shrink     — final score pulled toward neutral by run count, so
+                             thin-form (2yo/novice) picks carry less conviction
+                             (EXPERIENCE_K; see scripts/backtest_experience.py)
 
 Final score 0–100 → label + confidence + Win/Skip
 """
@@ -616,6 +619,29 @@ FRESH_WEIGHT = 0.0
 OR_WEIGHT = 0.0
 TF_WEIGHT = 0.0
 
+# ─────────────────────────────────────────────────────────────
+# EXPERIENCE (run-count) shrinkage of the final score
+#
+# In 2yo / novice / maiden races the ability signals the model leans on
+# (recent-form %, consistency %) are built from one or two runs yet trusted as
+# much as a 20-run horse's, so a confident Win can rest on almost no evidence.
+# After the field is fully scored, each runner's score is pulled toward neutral
+# (50) by how many runs back its form line — the same Bayesian shrink already
+# used for distance and strike-rate:
+#
+#     score' = (n * score + EXPERIENCE_K * 50) / (n + EXPERIENCE_K)
+#
+# A proven horse (large n) barely moves; a 2-run juvenile is dragged toward a
+# coin-flip, which can push an over-confident favourite below the Win threshold.
+# Set to None (or 0) to disable — a no-op that reproduces the prior model.
+#
+# k = 2 is the sample-safe setting from scripts/backtest_experience.py: on the
+# walk-forward archive it turns 2yo-race ROI from -26% to break-even by cutting
+# over-confident thin-form bets (of the dropped Win picks, ~71% were losers
+# avoided). Unlike the captured-only factors above it ships ON, at the
+# conservative end; revisit k as more juvenile results accumulate.
+EXPERIENCE_K = 2.0
+
 
 def _as_int(v) -> Optional[int]:
     """Coerce a feed value to int, or None (the feed sends these as numbers,
@@ -646,6 +672,16 @@ def freshness_score(last_ran_days) -> float:
     if d <= 300:
         return 45.0 - (d - 100) / 200.0 * 20.0  # 100d→45 … 300d→25
     return 25.0                                 # very long layoff
+
+
+def experience_shrink(score: float, num_runs: int) -> float:
+    """Pull a final score toward neutral (50) by how many runs back the horse's
+    form. No-op when EXPERIENCE_K is None/0. See the EXPERIENCE_K note above."""
+    k = EXPERIENCE_K
+    if not k:
+        return score
+    n = num_runs or 0
+    return (n * score + k * 50.0) / (n + k)
 
 
 def timeform_score(stars) -> float:
@@ -1185,6 +1221,12 @@ def scrape_race(meta):
     if course_factor != 1.0:
         for runner in active:
             runner["_score"] = max(0, min(100, runner["_score"] * course_factor))
+
+    # Experience shrink: discount conviction on lightly-raced horses before
+    # value, ordering and recommendations are derived, so all stay consistent.
+    for runner in active:
+        num_runs = (runner.get("_form_analysis") or {}).get("num_runs", 0)
+        runner["_score"] = experience_shrink(runner["_score"], num_runs)
 
     # Value metrics (model prob vs market price) — needs the whole field.
     compute_value(active)
