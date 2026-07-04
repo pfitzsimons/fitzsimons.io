@@ -109,6 +109,7 @@
     .v-strong { --vt: var(--goldB); --vbg: var(--gold-bg);  --vbd: var(--gold-bd);  --vcard: rgba(205,172,82,.055); }
     .v-value  { --vt: var(--back);  --vbg: var(--green-bg); --vbd: var(--green-bd); --vcard: rgba(79,208,127,.05); }
     .v-skip   { --vt: var(--mut);   --vbg: var(--chip);     --vbd: var(--line);     --vcard: transparent; }
+    .v-nr     { --vt: var(--dim);   --vbg: var(--chip);     --vbd: var(--line);     --vcard: transparent; }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -369,6 +370,13 @@
       transition: border-color .2s;
     }
     .rcard:hover { border-color: var(--vt); }
+
+    /* Non-runner (withdrawn): kept for reference, visibly de-emphasised. The
+       dimming is applied via filter (not opacity) so the card's fade-in
+       animation, which drives the opacity property, cannot override it. */
+    .rcard.nr { filter: opacity(.45) grayscale(1); }
+    .rcard.nr:hover { border-color: var(--line); }
+    .rcard.nr .hname { text-decoration: line-through; text-decoration-thickness: 1px; }
 
     .silk-col { text-align: center; }
     .silk-img { width: 50px; height: 50px; object-fit: contain; border-radius: 7px; background: var(--chip); display: block; margin: 0 auto; }
@@ -956,7 +964,7 @@ function renderNextUp() {
 }
 
 function topBets(race) {
-  const ranked = [...race.runners].sort((a,b) => (b.score||0) - (a.score||0));
+  const ranked = [...race.runners].filter(r => !r.non_runner).sort((a,b) => (b.score||0) - (a.score||0));
   const backed = ranked.filter(r => r.recommendation && r.recommendation.type !== 'Skip');
   const picks = backed.slice(0,3);
   for (const r of ranked) {
@@ -1070,18 +1078,19 @@ function renderRunners(race) {
   el.innerHTML = '';
   race.runners.forEach((runner, idx) => {
     const rec  = runner.recommendation || {};
-    const v    = verdict(rec);
+    const isNR = !!runner.non_runner;
+    const v    = isNR ? { state:'nr', cls:'v-nr', chip:'NON-RUNNER' } : verdict(rec);
     const val  = runner.value || {};
     const comp = runner.components || {};
-    const isFav = idx === 0 && runner.score >= 45;
-    const topExpanded = idx === 0;   // expand factors on the top pick only
+    const isFav = !isNR && idx === 0 && runner.score >= 45;
+    const topExpanded = !isNR && idx === 0;   // expand factors on the top pick only
 
     const card = document.createElement('div');
-    card.className = `rcard ${v.cls} fade s${Math.min(idx+1,8)}`;
+    card.className = `rcard ${v.cls} ${isNR ? 'nr' : ''} fade s${Math.min(idx+1,8)}`;
     card.innerHTML = `
       <div class="silk-col">
         ${silkEl(runner.silk_url, runner.jockey, idx)}
-        <div class="rnum">#${idx+1}</div>
+        <div class="rnum">${isNR ? 'NR' : '#'+(idx+1)}</div>
       </div>
       <div class="rmain">
         <div class="rtop">
@@ -1100,7 +1109,7 @@ function renderRunners(race) {
           ${runner.weight ? `<span class="tag">${esc(runner.weight)}</span>` : ''}
           ${runner.draw   ? `<span class="tag">Draw ${esc(runner.draw)}</span>` : ''}
         </div>
-        <div class="verdict-line">${esc(verdictLine(runner))}</div>
+        <div class="verdict-line">${isNR ? 'Withdrawn — will not run' : esc(verdictLine(runner))}</div>
         ${factorsHTML(comp, topExpanded)}
       </div>
       <div class="rright">
@@ -1113,7 +1122,7 @@ function renderRunners(race) {
           <div class="edge-row"><span class="edge-lbl">edge</span>${edgeReadout(val) || '<span class="edge-lbl">—</span>'}</div>
         </div>
         <div class="conf-block">
-          <div class="conf-num">${rec.confidence != null ? rec.confidence : (runner.score||0)}</div>
+          <div class="conf-num">${isNR ? '—' : (rec.confidence != null ? rec.confidence : (runner.score||0))}</div>
           <div class="conf-lbl">Confidence</div>
         </div>
       </div>`;

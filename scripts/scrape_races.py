@@ -992,6 +992,13 @@ def scrape_race(meta):
 
     runners = []
     for ride in race.get("rides", []):
+        # Declared non-runners (withdrawn horses) are KEPT for display but flag-
+        # ged so they are never scored, never count toward the field size the
+        # odds/each-way factors divide by, and never recommended as a bet — the
+        # site greys them out. Absent status is treated as a runner so older or
+        # partial feeds still parse.
+        is_non_runner = ride.get("ride_status") == "NONRUNNER"
+
         horse = ride.get("horse", {})
         # Sporting Life's embedded JSON HTML-encodes horse names (e.g.
         # "D&#39;Alboni"); decode so stored names are clean and match the
@@ -1027,37 +1034,43 @@ def scrape_race(meta):
             "odds_dec": parse_odds(odds_str),
             "silk_url": ride.get("silk_filename", "") or "",
             "_prev_runs": prev_runs,
+            "_non_runner": is_non_runner,
         })
 
     if not runners:
         log(f"  No runners found — skipping")
         return None
 
-    # ── Score all runners ──────────────────────────────────────
-    n = len(runners)
-    for runner in runners:
+    # Only actual runners are scored and set the field size; non-runners are
+    # finalised separately for display and appended at the bottom.
+    active = [r for r in runners if not r["_non_runner"]]
+    nonrunners = [r for r in runners if r["_non_runner"]]
+
+    # ── Score the active field ─────────────────────────────────
+    n = len(active)
+    for runner in active:
         result = score_runner(runner, n, going, distance, race_name)
         runner["_score"]      = result["_score"]
         runner["_components"] = result["_components"]
         runner["_form_analysis"] = result["_form_analysis"]
 
     # Normalise weight scores across field
-    normalise_weight_scores(runners)
+    normalise_weight_scores(active)
 
     # Apply per-course accuracy coefficient
     course_factor = COURSE_COEFFICIENTS.get(meta["venue"], 1.0)
     if course_factor != 1.0:
-        for runner in runners:
+        for runner in active:
             runner["_score"] = max(0, min(100, runner["_score"] * course_factor))
 
     # Value metrics (model prob vs market price) — needs the whole field.
-    compute_value(runners)
+    compute_value(active)
 
     # Sort by score descending (best recommendation first)
-    runners.sort(key=lambda r: r["_score"], reverse=True)
+    active.sort(key=lambda r: r["_score"], reverse=True)
 
     # Generate final recommendations & clean up internal fields
-    for i, runner in enumerate(runners):
+    for runner in active:
         form_analysis = runner.pop("_form_analysis")
         score         = runner.pop("_score")
         components    = runner.pop("_components")
@@ -1065,6 +1078,7 @@ def scrape_race(meta):
         model_prob    = runner.pop("_model_prob", None)
         market_prob   = runner.pop("_market_prob", None)
         runner.pop("_prev_runs", None)
+        runner.pop("_non_runner", None)
 
         runner["score"]      = round(score, 1)
         runner["components"] = components
@@ -1079,7 +1093,11 @@ def scrape_race(meta):
         )
 
     # At most one Win bet per race — demote extras to Skip
-    _post_process_win_bets(runners, n)
+    _post_process_win_bets(active, n)
+
+    # Non-runners: kept for display, never scored, never a bet.
+    for runner in nonrunners:
+        _finalise_non_runner(runner)
 
     return {
         "id":          f"{meta['venue_slug']}-{meta['id']}",
@@ -1093,7 +1111,28 @@ def scrape_race(meta):
         "num_runners": n,
         "ew_places":   ew_places(n),
         "date":        meta["date"],
-        "runners":     runners,
+        "runners":     active + nonrunners,
+    }
+
+
+def _finalise_non_runner(runner: dict) -> None:
+    """Attach display fields to a withdrawn horse (mutates in place).
+
+    A non-runner is shown greyed out with no score and a recommendation that is
+    a Skip (so every "is this a bet?" check treats it as not backed) carrying a
+    distinct "Non-runner" label and the public `non_runner` flag the site reads.
+    """
+    runner.pop("_prev_runs", None)
+    runner.pop("_non_runner", None)
+    runner["score"]      = None
+    runner["components"] = {}
+    runner["value"]      = {"model_prob": None, "market_prob": None, "edge": None}
+    runner["non_runner"] = True
+    runner["recommendation"] = {
+        "type":       "Skip",
+        "confidence": 0,
+        "label":      "Non-runner",
+        "reasoning":  "withdrawn — will not run",
     }
 
 
