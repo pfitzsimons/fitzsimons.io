@@ -809,12 +809,12 @@ function renderAngle() {
   let html = '<span class="eyebrow">Today\'s Angle</span>';
   if (best) {
     const pp = best.edge != null ? Math.round(best.edge * 100) : null;
-    html += `<span class="plain">Back <b>${esc(best.run.horse)}</b> at ${esc(best.race.course)}</span> — `
+    html += `<span class="plain">Back <b>${esc(best.run.horse)}</b> in the ${esc(best.race.time)} ${esc(best.race.course)}</span> — `
       + `our model's strongest call on the card`
       + (pp != null && pp > 0 ? `, ${pp}pp clear of the market` : '') + '.';
     if (overbet && overbet.run !== best.run) {
       const opp = Math.abs(Math.round(overbet.edge * 100));
-      html += ` Swerve the <b>${esc(overbet.run.odds_str || 'short-priced')}</b> shot at ${esc(overbet.race.course)}; `
+      html += ` Swerve the <b>${esc(overbet.run.odds_str || 'short-priced')}</b> shot in the ${esc(overbet.race.time)} ${esc(overbet.race.course)}; `
         + `we make it overbet by ${opp}pp.`;
     }
   } else {
