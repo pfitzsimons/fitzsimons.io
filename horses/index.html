@@ -323,6 +323,30 @@
     .time-chip.selected { background: var(--gold); border-color: var(--gold); color: var(--onGold); font-weight: 600; opacity: 1; }
     .time-chip.selected .chip-course { color: var(--onGold); }
 
+    /* ══ MEETING FILTER — rounded course pills above the time strip ══ */
+    #meeting-filter {
+      display: flex; flex-wrap: nowrap; gap: .45rem; margin-bottom: .9rem;
+      overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin; padding-bottom: .4rem;
+      scroll-snap-type: x proximity; overscroll-behavior-x: contain;
+    }
+    #meeting-filter::-webkit-scrollbar { height: 6px; }
+    #meeting-filter::-webkit-scrollbar-thumb { background: var(--line); border-radius: 3px; }
+    .meet-pill {
+      display: inline-flex; align-items: center; gap: .45rem; flex: 0 0 auto; scroll-snap-align: start;
+      font-family: var(--mono); font-size: .68rem; letter-spacing: .04em; text-transform: uppercase;
+      padding: .35rem .7rem; border: 1px solid var(--line); border-radius: 20px;
+      background: var(--chip); color: var(--tx2); cursor: pointer; transition: all .15s;
+    }
+    .meet-pill:hover { border-color: var(--gold); color: var(--gold); }
+    .meet-pill .mp-count {
+      font-size: .58rem; background: var(--inset); color: var(--mut);
+      border-radius: 10px; padding: .05rem .4rem; line-height: 1.5;
+    }
+    .meet-pill.active { background: var(--gold); border-color: var(--gold); color: var(--onGold); }
+    .meet-pill.active:hover { color: var(--onGold); }
+    .meet-pill.active .mp-count { background: rgba(0,0,0,.16); color: var(--onGold); }
+
     /* ══ RACE OVERVIEW ══ */
     #race-overview {
       background: var(--panel); border: 1px solid var(--line); border-radius: 14px;
@@ -666,6 +690,7 @@
   <section class="zone" id="meetings-zone" style="display:none">
     <div class="zone-label">Today's Meetings</div>
     <div id="nextoff"></div>
+    <div id="meeting-filter"></div>
     <nav id="meetings"></nav>
   </section>
 
@@ -706,9 +731,11 @@ async function loadData() {
     const data = await r.json();
     allRaces = data.races || [];
     if (!allRaces.length) { showState('🏇 No races today. Check back later.'); return; }
+    if (meetingFilter && !allRaces.some(r => r.course === meetingFilter)) meetingFilter = null;
     setMeta(data.date, data.generated_at);
     renderAngle();
-    renderMeetings(allRaces);
+    renderMeetingFilter();
+    renderMeetings();
     renderNextUp();
     const next = findNextRace();
     selectRace(next ? next.id : allRaces[allRaces.length-1].id);
@@ -783,13 +810,58 @@ function renderAngle() {
   el.style.display = '';
 }
 
+/* ── MEETING FILTER — scope the time strip to one course (hero stays global) ── */
+let meetingFilter = null;  // course name, or null for "All Meetings"
+
+// Distinct courses, ordered by their earliest race of the day.
+function coursesInOrder() {
+  const earliest = new Map();
+  allRaces.forEach(r => {
+    const m = raceMins(r);
+    if (!earliest.has(r.course) || m < earliest.get(r.course)) earliest.set(r.course, m);
+  });
+  return [...earliest.entries()].sort((a, b) => a[1] - b[1]).map(e => e[0]);
+}
+function filteredRaces() {
+  return meetingFilter ? allRaces.filter(r => r.course === meetingFilter) : allRaces;
+}
+
+function renderMeetingFilter() {
+  const el = document.getElementById('meeting-filter');
+  if (!el) return;
+  const pills = [
+    `<button class="meet-pill${meetingFilter === null ? ' active' : ''}" data-course=""`
+    + ` onclick="setMeetingFilter(this.dataset.course)">All Meetings</button>`
+  ];
+  coursesInOrder().forEach(c => {
+    const n = allRaces.filter(r => r.course === c).length;
+    pills.push(`<button class="meet-pill${meetingFilter === c ? ' active' : ''}" data-course="${esc(c)}"`
+      + ` onclick="setMeetingFilter(this.dataset.course)">`
+      + `<span class="mp-course">${esc(c)}</span><span class="mp-count">${n}</span></button>`);
+  });
+  el.innerHTML = pills.join('');
+}
+
+function setMeetingFilter(course) {
+  meetingFilter = course || null;
+  renderMeetingFilter();
+  renderMeetings();
+  // Jump the racecard to this meeting's next upcoming race (or its last, if all done).
+  if (meetingFilter) {
+    const inMeet = [...filteredRaces()].sort((a, b) => raceMins(a) - raceMins(b));
+    const nm = nowMins();
+    const target = inMeet.find(r => raceMins(r) >= nm) || inMeet[inMeet.length - 1];
+    if (target) selectRace(target.id, false);
+  }
+}
+
 /* ── MEETINGS STRIP ── */
-function renderMeetings(races) {
+function renderMeetings() {
   const el = document.getElementById('meetings');
   el.innerHTML = '';
   const nm = nowMins();
   const next = findNextRace();
-  const sorted = [...races].sort((a, b) => raceMins(a) - raceMins(b));
+  const sorted = [...filteredRaces()].sort((a, b) => raceMins(a) - raceMins(b));
   el.innerHTML = sorted.map(r => {
     const cls = ['time-chip'];
     if (raceMins(r) < nm) cls.push('past');
@@ -937,7 +1009,7 @@ function setMeta(dateStr, genAt) {
   if (genAt) {
     const g = new Date(genAt);
     document.getElementById('upd-disp').textContent =
-      '· upd ' + g.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'});
+      '· Updated: ' + g.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'});
   }
 }
 
@@ -1513,7 +1585,7 @@ function updateRefreshIndicator() {
   const el = document.getElementById('upd-disp');
   if (!el) return;
   const now = new Date();
-  el.textContent = '· upd ' + now.toLocaleTimeString('en-GB', {hour:'2-digit', minute:'2-digit'});
+  el.textContent = '· Updated: ' + now.toLocaleTimeString('en-GB', {hour:'2-digit', minute:'2-digit'});
 }
 
 updateLivePill();
