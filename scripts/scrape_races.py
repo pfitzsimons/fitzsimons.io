@@ -1022,8 +1022,7 @@ def main():
 
     output = {
         "date":         today_str,
-        "generated_at": datetime.now(datetime.timezone.utc if hasattr(datetime, 'timezone') else None).isoformat() + "Z"
-                        if False else datetime.utcnow().isoformat() + "Z",
+        "generated_at": datetime.now(timezone.utc).replace(tzinfo=None).isoformat() + "Z",
         "races":        races,
     }
 
