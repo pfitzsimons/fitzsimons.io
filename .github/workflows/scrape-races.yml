@@ -2,11 +2,17 @@ name: Scrape Races
 
 on:
   schedule:
-    # Every 20 minutes across UK/IRE racing hours (07:00–20:40 UTC). The first
+    # Every 20 minutes across UK/IRE racing hours (07:07–20:47 UTC). The first
     # run of the day writes the frozen start-of-day accuracy record; every later
     # run refreshes the live races.json (odds, non-runners, going) without
     # touching that record. Results/accuracy stay on their own daily schedule.
-    - cron: '*/20 7-20 * * *'
+    #
+    # Offset off the top of the hour (:07/:27/:47 rather than :00/:20/:40):
+    # GitHub's scheduled-workflow queue is best-effort and deprioritised under
+    # load, worst at :00. This is a stopgap that reduces — but does not
+    # eliminate — dropped/delayed runs; see community discussion 156282. The
+    # durable fix is an external scheduler firing workflow_dispatch.
+    - cron: '7,27,47 7-20 * * *'
   workflow_dispatch:
     inputs:
       date_override:
