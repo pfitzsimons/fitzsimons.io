@@ -5,7 +5,6 @@ Patrick Fitzsimons' personal site, deployed at [www.fitzsimons.io](https://www.f
 ## What's here
 
 - `index.html` — personal homepage (Engineering Manager, Belfast)
-- `irish/` — "Now You're Talking" page
 - `horses/` — Race Day: UK & Ireland horse racing predictions, a static page rendering `horses/races.json`
 - `scripts/` — Python pipeline that scrapes races, scores runners, fetches results, and backtests/calibrates the scoring model
 - `.github/workflows/` — scheduled GitHub Actions that keep the pipeline running
@@ -36,7 +35,7 @@ python3 scripts/drift.py --out horses --window 10
 
 # Serve the site locally
 python3 -m http.server
-# then open index.html, horses/index.html, irish/index.html
+# then open index.html, horses/index.html
 ```
 
 ## Configuration
