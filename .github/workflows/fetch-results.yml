@@ -13,6 +13,13 @@ on:
         required: false
         default: ''
 
+# Never let two results runs commit at once. This alone doesn't stop a
+# concurrent scrape-races push (different group) — the rebase-before-push
+# in the commit step handles that cross-workflow case.
+concurrency:
+  group: fetch-results
+  cancel-in-progress: false
+
 jobs:
   results:
     runs-on: ubuntu-latest
@@ -69,5 +76,9 @@ jobs:
             echo "No changes"
           else
             git commit -m "📊 Accuracy update $(date -u +%Y-%m-%d) [skip ci]"
+            # A scrape run may have pushed between our checkout and now;
+            # rebase on the latest before pushing so we never clobber it and
+            # our push isn't rejected as non-fast-forward.
+            git pull --rebase --autostash origin "$GITHUB_REF_NAME" || true
             git push
           fi
