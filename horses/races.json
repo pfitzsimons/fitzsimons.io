@@ -1,6 +1,6 @@
 {
   "date": "2026-07-07",
-  "generated_at": "2026-07-07T14:58:36.070492Z",
+  "generated_at": "2026-07-07T15:50:24.834645Z",
   "races": [
     {
       "id": "uttoxeter-926408",
@@ -12084,7 +12084,7 @@
       "going": "Standard",
       "race_class": "6",
       "prize": "3454.0 GBP",
-      "num_runners": 10,
+      "num_runners": 9,
       "ew_places": 3,
       "date": "2026-07-07",
       "runners": [
@@ -12100,14 +12100,14 @@
           "odds_str": "4/1",
           "odds_dec": 5.0,
           "silk_url": "20260707wol194007.png",
-          "score": 51.2,
+          "score": 48.8,
           "components": {
-            "odds_value": 63.0,
+            "odds_value": 55.6,
             "recent_form": 50.3,
             "consistency": 50.0,
             "jockey": 47.5,
             "trainer": 50.0,
-            "weight": 60.0,
+            "weight": 46.7,
             "absence_pen": 0.0,
             "going_factor": 1.0,
             "distance": 56.2,
@@ -12124,13 +12124,13 @@
             "official_rating": 48
           },
           "value": {
-            "model_prob": 0.154,
-            "market_prob": 0.17,
-            "edge": -0.016
+            "model_prob": 0.182,
+            "market_prob": 0.23,
+            "edge": -0.048
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 20,
+            "confidence": 19,
             "label": "Skip",
             "reasoning": "moderate form; consistent placer (50% placed)"
           }
@@ -12147,14 +12147,14 @@
           "odds_str": "3/1",
           "odds_dec": 4.0,
           "silk_url": "20260707wol194004.png",
-          "score": 47.9,
+          "score": 44.6,
           "components": {
-            "odds_value": 81.5,
+            "odds_value": 72.2,
             "recent_form": 42.0,
             "consistency": 16.7,
             "jockey": 48.9,
             "trainer": 53.8,
-            "weight": 40.0,
+            "weight": 20.0,
             "absence_pen": 0.0,
             "going_factor": 1.0,
             "distance": 37.2,
@@ -12171,62 +12171,15 @@
             "official_rating": 52
           },
           "value": {
-            "model_prob": 0.144,
-            "market_prob": 0.212,
-            "edge": -0.069
+            "model_prob": 0.165,
+            "market_prob": 0.288,
+            "edge": -0.123
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 19,
+            "confidence": 17,
             "label": "Skip",
             "reasoning": "moderate form"
-          }
-        },
-        {
-          "horse": "The Fixer",
-          "country": "GB",
-          "jockey": "K T O'Neill",
-          "trainer": "S Dixon",
-          "form": "9-00018",
-          "age": "5",
-          "weight": "10-0",
-          "draw": "4",
-          "odds_str": "9/4",
-          "odds_dec": 3.25,
-          "silk_url": "20260707wol194001.png",
-          "score": 47.2,
-          "components": {
-            "odds_value": 100,
-            "recent_form": 34.0,
-            "consistency": 16.7,
-            "jockey": 52.3,
-            "trainer": 61.7,
-            "weight": 0.0,
-            "absence_pen": 0.0,
-            "going_factor": 1.0,
-            "distance": 32.8,
-            "distance_meta": {
-              "n": 6,
-              "relevance": 2.79,
-              "quality": 0.27
-            },
-            "freshness": 56.2,
-            "last_ran_days": 1,
-            "timeform": 80.0,
-            "timeform_stars": 4,
-            "class_or": 100.0,
-            "official_rating": 55
-          },
-          "value": {
-            "model_prob": 0.142,
-            "market_prob": 0.261,
-            "edge": -0.12
-          },
-          "recommendation": {
-            "type": "Skip",
-            "confidence": 18,
-            "label": "Skip",
-            "reasoning": "poor recent form"
           }
         },
         {
@@ -12241,9 +12194,9 @@
           "odds_str": "10/1",
           "odds_dec": 11.0,
           "silk_url": "20260707wol194011.png",
-          "score": 38.3,
+          "score": 37.7,
           "components": {
-            "odds_value": 22.6,
+            "odds_value": 19.2,
             "recent_form": 32.5,
             "consistency": 0,
             "jockey": 34.7,
@@ -12265,9 +12218,9 @@
             "official_rating": 45
           },
           "value": {
-            "model_prob": 0.103,
-            "market_prob": 0.077,
-            "edge": 0.026
+            "model_prob": 0.124,
+            "market_prob": 0.105,
+            "edge": 0.02
           },
           "recommendation": {
             "type": "Skip",
@@ -12288,14 +12241,14 @@
           "odds_str": "20/1",
           "odds_dec": 21.0,
           "silk_url": "20260707wol194006.png",
-          "score": 34.0,
+          "score": 32.9,
           "components": {
-            "odds_value": 6.5,
+            "odds_value": 4.8,
             "recent_form": 30.0,
             "consistency": 0,
             "jockey": 38.7,
             "trainer": 50.0,
-            "weight": 60.0,
+            "weight": 46.7,
             "absence_pen": 0.0,
             "going_factor": 1.0,
             "distance": 35.0,
@@ -12312,9 +12265,9 @@
             "official_rating": 54
           },
           "value": {
-            "model_prob": 0.083,
-            "market_prob": 0.04,
-            "edge": 0.043
+            "model_prob": 0.099,
+            "market_prob": 0.055,
+            "edge": 0.044
           },
           "recommendation": {
             "type": "Skip",
@@ -12335,14 +12288,14 @@
           "odds_str": "20/1",
           "odds_dec": 21.0,
           "silk_url": "20260707wol194009.png",
-          "score": 33.1,
+          "score": 32.0,
           "components": {
-            "odds_value": 6.5,
+            "odds_value": 4.8,
             "recent_form": 35.3,
             "consistency": 16.7,
             "jockey": 28.1,
             "trainer": 47.6,
-            "weight": 70.0,
+            "weight": 60.0,
             "absence_pen": 0.0,
             "going_factor": 1.0,
             "distance": 37.2,
@@ -12359,13 +12312,13 @@
             "official_rating": 46
           },
           "value": {
-            "model_prob": 0.08,
-            "market_prob": 0.04,
+            "model_prob": 0.094,
+            "market_prob": 0.055,
             "edge": 0.04
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 13,
+            "confidence": 12,
             "label": "Skip",
             "reasoning": "moderate form"
           }
@@ -12382,14 +12335,14 @@
           "odds_str": "16/1",
           "odds_dec": 17.0,
           "silk_url": "20260707wol194008.png",
-          "score": 32.6,
+          "score": 31.3,
           "components": {
-            "odds_value": 10.7,
+            "odds_value": 8.5,
             "recent_form": 30.0,
             "consistency": 16.7,
             "jockey": 51.5,
             "trainer": 29.9,
-            "weight": 65.0,
+            "weight": 53.3,
             "absence_pen": 0.0,
             "going_factor": 1.0,
             "distance": 47.2,
@@ -12406,13 +12359,13 @@
             "official_rating": 47
           },
           "value": {
-            "model_prob": 0.078,
-            "market_prob": 0.05,
-            "edge": 0.028
+            "model_prob": 0.091,
+            "market_prob": 0.068,
+            "edge": 0.024
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 13,
+            "confidence": 12,
             "label": "Skip",
             "reasoning": "poor recent form"
           }
@@ -12429,14 +12382,14 @@
           "odds_str": "25/1",
           "odds_dec": 26.0,
           "silk_url": "20260707wol194010.png",
-          "score": 32.3,
+          "score": 31.3,
           "components": {
-            "odds_value": 3.1,
+            "odds_value": 1.7,
             "recent_form": 35.3,
             "consistency": 16.7,
             "jockey": 42.8,
             "trainer": 30.8,
-            "weight": 70.0,
+            "weight": 60.0,
             "absence_pen": 0.0,
             "going_factor": 1.0,
             "distance": 44.3,
@@ -12453,9 +12406,9 @@
             "official_rating": 45
           },
           "value": {
-            "model_prob": 0.077,
-            "market_prob": 0.033,
-            "edge": 0.045
+            "model_prob": 0.091,
+            "market_prob": 0.044,
+            "edge": 0.047
           },
           "recommendation": {
             "type": "Skip",
@@ -12476,14 +12429,14 @@
           "odds_str": "16/1",
           "odds_dec": 17.0,
           "silk_url": "20260707wol194005.png",
-          "score": 30.6,
+          "score": 29.1,
           "components": {
-            "odds_value": 10.7,
+            "odds_value": 8.5,
             "recent_form": 24.0,
             "consistency": 0,
             "jockey": 74.0,
             "trainer": 42.8,
-            "weight": 55.0,
+            "weight": 40.0,
             "absence_pen": 0.0,
             "going_factor": 1.0,
             "distance": 28.3,
@@ -12500,13 +12453,13 @@
             "official_rating": 55
           },
           "value": {
-            "model_prob": 0.071,
-            "market_prob": 0.05,
-            "edge": 0.021
+            "model_prob": 0.081,
+            "market_prob": 0.068,
+            "edge": 0.014
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 12,
+            "confidence": 11,
             "label": "Skip",
             "reasoning": "poor recent form"
           }
@@ -12523,14 +12476,14 @@
           "odds_str": "12/1",
           "odds_dec": 13.0,
           "silk_url": "20260707wol194003.png",
-          "score": 29.3,
+          "score": 26.9,
           "components": {
-            "odds_value": 17.4,
+            "odds_value": 14.5,
             "recent_form": 26.0,
             "consistency": 0,
             "jockey": 56.9,
             "trainer": 46.4,
-            "weight": 25.0,
+            "weight": 0.0,
             "absence_pen": 0.0,
             "going_factor": 1.0,
             "distance": 29.5,
@@ -12547,15 +12500,42 @@
             "official_rating": 55
           },
           "value": {
-            "model_prob": 0.067,
-            "market_prob": 0.065,
-            "edge": 0.001
+            "model_prob": 0.072,
+            "market_prob": 0.089,
+            "edge": -0.017
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 11,
+            "confidence": 10,
             "label": "Skip",
             "reasoning": "poor recent form"
+          }
+        },
+        {
+          "horse": "The Fixer",
+          "country": "GB",
+          "jockey": "K T O'Neill",
+          "trainer": "S Dixon",
+          "form": "9-00018",
+          "age": "5",
+          "weight": "10-0",
+          "draw": "4",
+          "odds_str": "9/4",
+          "odds_dec": 3.25,
+          "silk_url": "20260707wol194001.png",
+          "score": null,
+          "components": {},
+          "value": {
+            "model_prob": null,
+            "market_prob": null,
+            "edge": null
+          },
+          "non_runner": true,
+          "recommendation": {
+            "type": "Skip",
+            "confidence": 0,
+            "label": "Non-runner",
+            "reasoning": "withdrawn — will not run"
           }
         },
         {
