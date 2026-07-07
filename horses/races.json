@@ -1,6 +1,6 @@
 {
   "date": "2026-07-07",
-  "generated_at": "2026-07-07T11:17:59.064907Z",
+  "generated_at": "2026-07-07T11:38:02.710943Z",
   "races": [
     {
       "id": "uttoxeter-926408",
@@ -6304,7 +6304,7 @@
       "going": "Standard",
       "race_class": "4",
       "prize": "5400.0 GBP",
-      "num_runners": 10,
+      "num_runners": 9,
       "ew_places": 3,
       "date": "2026-07-07",
       "runners": [
@@ -6344,9 +6344,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.151,
-            "market_prob": 0.274,
-            "edge": -0.123
+            "model_prob": 0.16,
+            "market_prob": 0.278,
+            "edge": -0.118
           },
           "recommendation": {
             "type": "Win",
@@ -6391,9 +6391,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.139,
-            "market_prob": 0.299,
-            "edge": -0.159
+            "model_prob": 0.148,
+            "market_prob": 0.304,
+            "edge": -0.155
           },
           "recommendation": {
             "type": "Skip",
@@ -6416,7 +6416,7 @@
           "silk_url": "20260707wol171001.png",
           "score": 50.0,
           "components": {
-            "odds_value": 100,
+            "odds_value": 91.5,
             "recent_form": 40.0,
             "consistency": 0,
             "jockey": 74.0,
@@ -6438,9 +6438,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.107,
-            "market_prob": 0.253,
-            "edge": -0.145
+            "model_prob": 0.114,
+            "market_prob": 0.257,
+            "edge": -0.143
           },
           "recommendation": {
             "type": "Skip",
@@ -6483,9 +6483,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.107,
-            "market_prob": 0.005,
-            "edge": 0.102
+            "model_prob": 0.114,
+            "market_prob": 0.006,
+            "edge": 0.109
           },
           "recommendation": {
             "type": "Skip",
@@ -6508,7 +6508,7 @@
           "silk_url": "20260707wol171006.png",
           "score": 50.0,
           "components": {
-            "odds_value": 30.0,
+            "odds_value": 25.9,
             "recent_form": 40.0,
             "consistency": 0,
             "jockey": 63.4,
@@ -6528,9 +6528,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.107,
-            "market_prob": 0.091,
-            "edge": 0.016
+            "model_prob": 0.114,
+            "market_prob": 0.093,
+            "edge": 0.021
           },
           "recommendation": {
             "type": "Skip",
@@ -6573,9 +6573,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.107,
+            "model_prob": 0.114,
             "market_prob": 0.016,
-            "edge": 0.091
+            "edge": 0.098
           },
           "recommendation": {
             "type": "Skip",
@@ -6620,9 +6620,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.084,
+            "model_prob": 0.09,
             "market_prob": 0.016,
-            "edge": 0.068
+            "edge": 0.073
           },
           "recommendation": {
             "type": "Skip",
@@ -6667,9 +6667,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.075,
-            "market_prob": 0.024,
-            "edge": 0.051
+            "model_prob": 0.08,
+            "market_prob": 0.025,
+            "edge": 0.055
           },
           "recommendation": {
             "type": "Skip",
@@ -6714,9 +6714,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.061,
-            "market_prob": 0.005,
-            "edge": 0.056
+            "model_prob": 0.065,
+            "market_prob": 0.006,
+            "edge": 0.06
           },
           "recommendation": {
             "type": "Skip",
@@ -6737,39 +6737,19 @@
           "odds_str": "50/1",
           "odds_dec": 51.0,
           "silk_url": "20260707wol171002.png",
-          "score": 34.3,
-          "components": {
-            "odds_value": 0,
-            "recent_form": 35.0,
-            "consistency": 0,
-            "jockey": 81.4,
-            "trainer": 49.0,
-            "weight": 35.0,
-            "absence_pen": 0.0,
-            "going_factor": 1.0,
-            "distance": 45.9,
-            "distance_meta": {
-              "n": 2,
-              "relevance": 0.68,
-              "quality": 0.4
-            },
-            "freshness": 69.6,
-            "last_ran_days": 36,
-            "timeform": 40.0,
-            "timeform_stars": 2,
-            "class_or": 50.0,
-            "official_rating": null
-          },
+          "score": null,
+          "components": {},
           "value": {
-            "model_prob": 0.06,
-            "market_prob": 0.016,
-            "edge": 0.044
+            "model_prob": null,
+            "market_prob": null,
+            "edge": null
           },
+          "non_runner": true,
           "recommendation": {
             "type": "Skip",
-            "confidence": 13,
-            "label": "Skip",
-            "reasoning": "moderate form"
+            "confidence": 0,
+            "label": "Non-runner",
+            "reasoning": "withdrawn — will not run"
           }
         }
       ]
