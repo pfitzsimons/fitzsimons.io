@@ -1,6 +1,6 @@
 {
   "date": "2026-07-07",
-  "generated_at": "2026-07-07T13:58:30.572328Z",
+  "generated_at": "2026-07-07T14:18:37.957044Z",
   "races": [
     {
       "id": "uttoxeter-926408",
@@ -5819,8 +5819,8 @@
       "going": "Good (Good to Firm in places)",
       "race_class": "5",
       "prize": "4187.0 GBP",
-      "num_runners": 8,
-      "ew_places": 3,
+      "num_runners": 7,
+      "ew_places": 2,
       "date": "2026-07-07",
       "runners": [
         {
@@ -5835,9 +5835,9 @@
           "odds_str": "10/3",
           "odds_dec": 4.33,
           "silk_url": "20260707pfr164805.png",
-          "score": 52.8,
+          "score": 51.1,
           "components": {
-            "odds_value": 57.3,
+            "odds_value": 48.8,
             "recent_form": 60.3,
             "consistency": 33.3,
             "jockey": 58.0,
@@ -5859,13 +5859,13 @@
             "official_rating": 62
           },
           "value": {
-            "model_prob": 0.17,
-            "market_prob": 0.221,
-            "edge": -0.052
+            "model_prob": 0.187,
+            "market_prob": 0.232,
+            "edge": -0.045
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 21,
+            "confidence": 20,
             "label": "Skip",
             "reasoning": "solid recent form; placed last time out"
           }
@@ -5882,9 +5882,9 @@
           "odds_str": "11/4",
           "odds_dec": 3.75,
           "silk_url": "20260707pfr164801.png",
-          "score": 52.2,
+          "score": 50.2,
           "components": {
-            "odds_value": 67.9,
+            "odds_value": 58.0,
             "recent_form": 68.7,
             "consistency": 33.3,
             "jockey": 50.7,
@@ -5906,9 +5906,9 @@
             "official_rating": 66
           },
           "value": {
-            "model_prob": 0.168,
-            "market_prob": 0.256,
-            "edge": -0.088
+            "model_prob": 0.183,
+            "market_prob": 0.268,
+            "edge": -0.085
           },
           "recommendation": {
             "type": "Skip",
@@ -5929,9 +5929,9 @@
           "odds_str": "4/1",
           "odds_dec": 5.0,
           "silk_url": "20260707pfr164802.png",
-          "score": 50.1,
+          "score": 48.7,
           "components": {
-            "odds_value": 48.1,
+            "odds_value": 40.7,
             "recent_form": 52.7,
             "consistency": 66.7,
             "jockey": 55.1,
@@ -5953,13 +5953,13 @@
             "official_rating": 69
           },
           "value": {
-            "model_prob": 0.161,
-            "market_prob": 0.192,
-            "edge": -0.031
+            "model_prob": 0.177,
+            "market_prob": 0.201,
+            "edge": -0.023
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 20,
+            "confidence": 19,
             "label": "Skip",
             "reasoning": "moderate form; placed last time out; consistent placer (66% placed)"
           }
@@ -5976,9 +5976,9 @@
           "odds_str": "20/1",
           "odds_dec": 21.0,
           "silk_url": "20260707pfr164810.png",
-          "score": 40.5,
+          "score": 40.1,
           "components": {
-            "odds_value": 3.0,
+            "odds_value": 1.2,
             "recent_form": 32.0,
             "consistency": 50.0,
             "jockey": 57.6,
@@ -6000,9 +6000,9 @@
             "official_rating": 56
           },
           "value": {
-            "model_prob": 0.121,
-            "market_prob": 0.046,
-            "edge": 0.075
+            "model_prob": 0.135,
+            "market_prob": 0.048,
+            "edge": 0.088
           },
           "recommendation": {
             "type": "Skip",
@@ -6023,9 +6023,9 @@
           "odds_str": "7/1",
           "odds_dec": 8.0,
           "silk_url": "20260707pfr164809.png",
-          "score": 37.7,
+          "score": 36.8,
           "components": {
-            "odds_value": 25.9,
+            "odds_value": 21.3,
             "recent_form": 31.3,
             "consistency": 0,
             "jockey": 48.7,
@@ -6047,62 +6047,15 @@
             "official_rating": 56
           },
           "value": {
-            "model_prob": 0.107,
-            "market_prob": 0.12,
-            "edge": -0.013
-          },
-          "recommendation": {
-            "type": "Skip",
-            "confidence": 15,
-            "label": "Skip",
-            "reasoning": "poor recent form"
-          }
-        },
-        {
-          "horse": "Showtime Mahomes",
-          "country": "GB",
-          "jockey": "Oliver Stammers",
-          "trainer": "Grant Tuer",
-          "form": "94-1640",
-          "age": "7",
-          "weight": "9-8",
-          "draw": "9",
-          "odds_str": "20/1",
-          "odds_dec": 21.0,
-          "silk_url": "20260707pfr164804.png",
-          "score": 35.1,
-          "components": {
-            "odds_value": 3.0,
-            "recent_form": 38.3,
-            "consistency": 16.7,
-            "jockey": 50.7,
-            "trainer": 64.5,
-            "weight": 53.3,
-            "absence_pen": 0.0,
-            "going_factor": 1.05,
-            "distance": 37.5,
-            "distance_meta": {
-              "n": 6,
-              "relevance": 2.75,
-              "quality": 0.33
-            },
-            "freshness": 41.7,
-            "last_ran_days": 133,
-            "timeform": 60.0,
-            "timeform_stars": 3,
-            "class_or": 53.8,
-            "official_rating": 63
-          },
-          "value": {
-            "model_prob": 0.094,
-            "market_prob": 0.046,
-            "edge": 0.048
+            "model_prob": 0.116,
+            "market_prob": 0.126,
+            "edge": -0.01
           },
           "recommendation": {
             "type": "Skip",
             "confidence": 14,
             "label": "Skip",
-            "reasoning": "moderate form"
+            "reasoning": "poor recent form"
           }
         },
         {
@@ -6117,9 +6070,9 @@
           "odds_str": "16/1",
           "odds_dec": 17.0,
           "silk_url": "20260707pfr164806.png",
-          "score": 34.4,
+          "score": 34.0,
           "components": {
-            "odds_value": 6.3,
+            "odds_value": 4.1,
             "recent_form": 32.0,
             "consistency": 16.7,
             "jockey": 59.7,
@@ -6141,9 +6094,9 @@
             "official_rating": 62
           },
           "value": {
-            "model_prob": 0.091,
-            "market_prob": 0.056,
-            "edge": 0.034
+            "model_prob": 0.101,
+            "market_prob": 0.059,
+            "edge": 0.042
           },
           "recommendation": {
             "type": "Skip",
@@ -6164,9 +6117,9 @@
           "odds_str": "14/1",
           "odds_dec": 15.0,
           "silk_url": "20260707pfr164803.png",
-          "score": 34.2,
+          "score": 33.7,
           "components": {
-            "odds_value": 8.6,
+            "odds_value": 6.2,
             "recent_form": 46.0,
             "consistency": 16.7,
             "jockey": 44.1,
@@ -6188,15 +6141,42 @@
             "official_rating": 68
           },
           "value": {
-            "model_prob": 0.09,
-            "market_prob": 0.064,
-            "edge": 0.026
+            "model_prob": 0.1,
+            "market_prob": 0.067,
+            "edge": 0.033
           },
           "recommendation": {
             "type": "Skip",
             "confidence": 13,
             "label": "Skip",
             "reasoning": "moderate form"
+          }
+        },
+        {
+          "horse": "Showtime Mahomes",
+          "country": "GB",
+          "jockey": "Oliver Stammers",
+          "trainer": "Grant Tuer",
+          "form": "94-1640",
+          "age": "7",
+          "weight": "9-8",
+          "draw": "9",
+          "odds_str": "20/1",
+          "odds_dec": 21.0,
+          "silk_url": "20260707pfr164804.png",
+          "score": null,
+          "components": {},
+          "value": {
+            "model_prob": null,
+            "market_prob": null,
+            "edge": null
+          },
+          "non_runner": true,
+          "recommendation": {
+            "type": "Skip",
+            "confidence": 0,
+            "label": "Non-runner",
+            "reasoning": "withdrawn — will not run"
           }
         },
         {
