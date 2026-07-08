@@ -1,6 +1,6 @@
 {
   "date": "2026-07-08",
-  "generated_at": "2026-07-08T12:19:53.289157Z",
+  "generated_at": "2026-07-08T12:39:53.975402Z",
   "races": [
     {
       "id": "catterick-926573",
@@ -2907,7 +2907,7 @@
       "going": "Good to Firm",
       "race_class": "6",
       "prize": "4187.0 GBP",
-      "num_runners": 6,
+      "num_runners": 5,
       "ew_places": 2,
       "date": "2026-07-08",
       "runners": [
@@ -2923,9 +2923,9 @@
           "odds_str": "1/1",
           "odds_dec": 2.0,
           "silk_url": "20260708ctt160001.png",
-          "score": 56.2,
+          "score": 52.6,
           "components": {
-            "odds_value": 100,
+            "odds_value": 81.5,
             "recent_form": 57.8,
             "consistency": 33.3,
             "jockey": 46.7,
@@ -2947,13 +2947,13 @@
             "official_rating": 63
           },
           "value": {
-            "model_prob": 0.275,
-            "market_prob": 0.444,
-            "edge": -0.169
+            "model_prob": 0.307,
+            "market_prob": 0.468,
+            "edge": -0.161
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 22,
+            "confidence": 21,
             "label": "Skip",
             "reasoning": "moderate form; won last time out"
           }
@@ -2970,9 +2970,9 @@
           "odds_str": "9/4",
           "odds_dec": 3.25,
           "silk_url": "20260708ctt160002.png",
-          "score": 42.2,
+          "score": 40.0,
           "components": {
-            "odds_value": 57.3,
+            "odds_value": 45.9,
             "recent_form": 38.7,
             "consistency": 33.3,
             "jockey": 20.5,
@@ -2994,62 +2994,15 @@
             "official_rating": 62
           },
           "value": {
-            "model_prob": 0.19,
-            "market_prob": 0.273,
-            "edge": -0.083
+            "model_prob": 0.215,
+            "market_prob": 0.288,
+            "edge": -0.073
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 16,
+            "confidence": 15,
             "label": "Skip",
             "reasoning": "moderate form"
-          }
-        },
-        {
-          "horse": "Himself",
-          "country": "GB",
-          "jockey": "Connor Beasley",
-          "trainer": "P A Kirby",
-          "form": "115865",
-          "age": "4",
-          "weight": "9-0",
-          "draw": "4",
-          "odds_str": "16/1",
-          "odds_dec": 17.0,
-          "silk_url": "20260708ctt160003.png",
-          "score": 35.5,
-          "components": {
-            "odds_value": 2.0,
-            "recent_form": 34.0,
-            "consistency": 33.3,
-            "jockey": 53.8,
-            "trainer": 52.3,
-            "weight": 56.2,
-            "absence_pen": 0.0,
-            "going_factor": 1.05,
-            "distance": 53.0,
-            "distance_meta": {
-              "n": 6,
-              "relevance": 4.0,
-              "quality": 0.54
-            },
-            "freshness": 70.0,
-            "last_ran_days": 18,
-            "timeform": 40.0,
-            "timeform_stars": 2,
-            "class_or": 43.8,
-            "official_rating": 54
-          },
-          "value": {
-            "model_prob": 0.14,
-            "market_prob": 0.052,
-            "edge": 0.088
-          },
-          "recommendation": {
-            "type": "Skip",
-            "confidence": 14,
-            "label": "Skip",
-            "reasoning": "poor recent form"
           }
         },
         {
@@ -3064,9 +3017,9 @@
           "odds_str": "8/1",
           "odds_dec": 9.0,
           "silk_url": "20260708ctt160004.png",
-          "score": 35.3,
+          "score": 34.5,
           "components": {
-            "odds_value": 13.6,
+            "odds_value": 9.5,
             "recent_form": 28.3,
             "consistency": 16.7,
             "jockey": 27.1,
@@ -3088,13 +3041,13 @@
             "official_rating": 49
           },
           "value": {
-            "model_prob": 0.138,
-            "market_prob": 0.099,
-            "edge": 0.04
+            "model_prob": 0.165,
+            "market_prob": 0.104,
+            "edge": 0.061
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 14,
+            "confidence": 13,
             "label": "Skip",
             "reasoning": "poor recent form"
           }
@@ -3135,9 +3088,9 @@
             "official_rating": 48
           },
           "value": {
-            "model_prob": 0.129,
-            "market_prob": 0.034,
-            "edge": 0.095
+            "model_prob": 0.16,
+            "market_prob": 0.036,
+            "edge": 0.124
           },
           "recommendation": {
             "type": "Skip",
@@ -3158,9 +3111,9 @@
           "odds_str": "8/1",
           "odds_dec": 9.0,
           "silk_url": "20260708ctt160006.png",
-          "score": 33.4,
+          "score": 32.6,
           "components": {
-            "odds_value": 13.6,
+            "odds_value": 9.5,
             "recent_form": 22.0,
             "consistency": 0,
             "jockey": 43.4,
@@ -3182,15 +3135,42 @@
             "official_rating": 47
           },
           "value": {
-            "model_prob": 0.127,
-            "market_prob": 0.099,
-            "edge": 0.029
+            "model_prob": 0.152,
+            "market_prob": 0.104,
+            "edge": 0.048
           },
           "recommendation": {
             "type": "Skip",
             "confidence": 13,
             "label": "Skip",
             "reasoning": "poor recent form"
+          }
+        },
+        {
+          "horse": "Himself",
+          "country": "GB",
+          "jockey": "Connor Beasley",
+          "trainer": "P A Kirby",
+          "form": "115865",
+          "age": "4",
+          "weight": "9-0",
+          "draw": "4",
+          "odds_str": "16/1",
+          "odds_dec": 17.0,
+          "silk_url": "20260708ctt160003.png",
+          "score": null,
+          "components": {},
+          "value": {
+            "model_prob": null,
+            "market_prob": null,
+            "edge": null
+          },
+          "non_runner": true,
+          "recommendation": {
+            "type": "Skip",
+            "confidence": 0,
+            "label": "Non-runner",
+            "reasoning": "withdrawn — will not run"
           }
         }
       ]
