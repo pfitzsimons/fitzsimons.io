@@ -1,6 +1,6 @@
 {
   "date": "2026-07-08",
-  "generated_at": "2026-07-08T08:18:51.126211Z",
+  "generated_at": "2026-07-08T08:39:02.561192Z",
   "races": [
     {
       "id": "catterick-926573",
@@ -1964,7 +1964,7 @@
       "going": "Good to Firm",
       "race_class": "4",
       "prize": "5400.0 GBP",
-      "num_runners": 4,
+      "num_runners": 3,
       "ew_places": 1,
       "date": "2026-07-08",
       "runners": [
@@ -1980,9 +1980,9 @@
           "odds_str": "6/5",
           "odds_dec": 2.2,
           "silk_url": "20260708yar151502.png",
-          "score": 60.4,
+          "score": 58.2,
           "components": {
-            "odds_value": 56.2,
+            "odds_value": 39.4,
             "recent_form": 100,
             "consistency": 100.0,
             "jockey": 50.7,
@@ -2004,15 +2004,15 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.303,
-            "market_prob": 0.419,
-            "edge": -0.117
+            "model_prob": 0.378,
+            "market_prob": 0.606,
+            "edge": -0.227
           },
           "recommendation": {
-            "type": "Win",
-            "confidence": 60,
-            "label": "Win Bet",
-            "reasoning": "strong recent form; won last time out; consistent placer (100% placed); short price reflects market confidence"
+            "type": "Skip",
+            "confidence": 23,
+            "label": "Skip",
+            "reasoning": "strong recent form; won last time out; consistent placer (100% placed)"
           }
         },
         {
@@ -2027,9 +2027,9 @@
           "odds_str": "11/4",
           "odds_dec": 3.75,
           "silk_url": "20260708yar151501.png",
-          "score": 55.1,
+          "score": 54.2,
           "components": {
-            "odds_value": 28.4,
+            "odds_value": 18.5,
             "recent_form": 100,
             "consistency": 100.0,
             "jockey": 56.2,
@@ -2051,62 +2051,15 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.242,
-            "market_prob": 0.246,
-            "edge": -0.005
-          },
-          "recommendation": {
-            "type": "Skip",
-            "confidence": 22,
-            "label": "Skip",
-            "reasoning": "strong recent form; won last time out; consistent placer (100% placed)"
-          }
-        },
-        {
-          "horse": "Dream Vega",
-          "country": "GB",
-          "jockey": "K Shoemark",
-          "trainer": "E Walker",
-          "form": "42",
-          "age": "3",
-          "weight": "9-2",
-          "draw": "2",
-          "odds_str": "2/1",
-          "odds_dec": 3.0,
-          "silk_url": "20260708yar151503.png",
-          "score": 54.4,
-          "components": {
-            "odds_value": 38.3,
-            "recent_form": 70.0,
-            "consistency": 50.0,
-            "jockey": 54.0,
-            "trainer": 53.6,
-            "weight": 100.0,
-            "absence_pen": 0.0,
-            "going_factor": 1.05,
-            "distance": 58.8,
-            "distance_meta": {
-              "n": 2,
-              "relevance": 1.34,
-              "quality": 0.65
-            },
-            "freshness": 70.0,
-            "last_ran_days": 24,
-            "timeform": 60.0,
-            "timeform_stars": 3,
-            "class_or": 50.0,
-            "official_rating": null
-          },
-          "value": {
-            "model_prob": 0.238,
-            "market_prob": 0.308,
-            "edge": -0.07
+            "model_prob": 0.324,
+            "market_prob": 0.355,
+            "edge": -0.032
           },
           "recommendation": {
             "type": "Skip",
             "confidence": 21,
             "label": "Skip",
-            "reasoning": "solid recent form; placed last time out; consistent placer (50% placed)"
+            "reasoning": "strong recent form; won last time out; consistent placer (100% placed)"
           }
         },
         {
@@ -2143,15 +2096,42 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.218,
-            "market_prob": 0.027,
-            "edge": 0.191
+            "model_prob": 0.298,
+            "market_prob": 0.039,
+            "edge": 0.259
           },
           "recommendation": {
             "type": "Skip",
             "confidence": 20,
             "label": "Skip",
             "reasoning": "moderate form"
+          }
+        },
+        {
+          "horse": "Dream Vega",
+          "country": "GB",
+          "jockey": "K Shoemark",
+          "trainer": "E Walker",
+          "form": "42",
+          "age": "3",
+          "weight": "9-2",
+          "draw": "2",
+          "odds_str": "2/1",
+          "odds_dec": 3.0,
+          "silk_url": "20260708yar151503.png",
+          "score": null,
+          "components": {},
+          "value": {
+            "model_prob": null,
+            "market_prob": null,
+            "edge": null
+          },
+          "non_runner": true,
+          "recommendation": {
+            "type": "Skip",
+            "confidence": 0,
+            "label": "Non-runner",
+            "reasoning": "withdrawn — will not run"
           }
         }
       ]
@@ -4600,7 +4580,7 @@
       "going": "Good (Good to Firm in places)",
       "race_class": "",
       "prize": "13200.0 EUR",
-      "num_runners": 10,
+      "num_runners": 9,
       "ew_places": 3,
       "date": "2026-07-08",
       "runners": [
@@ -4616,9 +4596,9 @@
           "odds_str": "5/2",
           "odds_dec": 3.5,
           "silk_url": "20260708fai170807.png",
-          "score": 60.2,
+          "score": 58.8,
           "components": {
-            "odds_value": 94.7,
+            "odds_value": 84.1,
             "recent_form": 65.0,
             "consistency": 100.0,
             "jockey": 66.6,
@@ -4640,62 +4620,15 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.141,
-            "market_prob": 0.223,
-            "edge": -0.082
-          },
-          "recommendation": {
-            "type": "Win",
-            "confidence": 60,
-            "label": "Win Bet",
-            "reasoning": "solid recent form; consistent placer (100% placed); fair price for a win bet"
-          }
-        },
-        {
-          "horse": "Argentarius",
-          "country": "GB",
-          "jockey": "Ben Coen",
-          "trainer": "Daniel Murphy",
-          "form": "2",
-          "age": "2",
-          "weight": "9-2",
-          "draw": "2",
-          "odds_str": "3/1",
-          "odds_dec": 4.0,
-          "silk_url": "20260708fai170802.png",
-          "score": 57.5,
-          "components": {
-            "odds_value": 81.5,
-            "recent_form": 80.0,
-            "consistency": 100.0,
-            "jockey": 65.8,
-            "trainer": 59.6,
-            "weight": 0.0,
-            "absence_pen": 0.0,
-            "going_factor": 1.05,
-            "distance": 65.0,
-            "distance_meta": {
-              "n": 1,
-              "relevance": 1.0,
-              "quality": 0.8
-            },
-            "freshness": 70.0,
-            "last_ran_days": 24,
-            "timeform": 60.0,
-            "timeform_stars": 3,
-            "class_or": 50.0,
-            "official_rating": null
-          },
-          "value": {
-            "model_prob": 0.126,
-            "market_prob": 0.195,
-            "edge": -0.069
+            "model_prob": 0.154,
+            "market_prob": 0.277,
+            "edge": -0.123
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 22,
+            "confidence": 23,
             "label": "Skip",
-            "reasoning": "strong recent form; placed last time out; consistent placer (100% placed)"
+            "reasoning": "solid recent form; consistent placer (100% placed)"
           }
         },
         {
@@ -4710,9 +4643,9 @@
           "odds_str": "8/1",
           "odds_dec": 9.0,
           "silk_url": "20260708fai170803.png",
-          "score": 52.7,
+          "score": 52.4,
           "components": {
-            "odds_value": 30.0,
+            "odds_value": 25.9,
             "recent_form": 80.0,
             "consistency": 100.0,
             "jockey": 67.9,
@@ -4734,13 +4667,13 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.108,
-            "market_prob": 0.087,
-            "edge": 0.021
+            "model_prob": 0.124,
+            "market_prob": 0.108,
+            "edge": 0.016
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 21,
+            "confidence": 20,
             "label": "Skip",
             "reasoning": "strong recent form; placed last time out; consistent placer (100% placed)"
           }
@@ -4779,9 +4712,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.102,
-            "market_prob": 0.015,
-            "edge": 0.087
+            "model_prob": 0.118,
+            "market_prob": 0.019,
+            "edge": 0.099
           },
           "recommendation": {
             "type": "Skip",
@@ -4804,7 +4737,7 @@
           "silk_url": "20260708fai170805.png",
           "score": 50.0,
           "components": {
-            "odds_value": 38.3,
+            "odds_value": 33.3,
             "recent_form": 40.0,
             "consistency": 0,
             "jockey": 44.4,
@@ -4824,9 +4757,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.102,
-            "market_prob": 0.104,
-            "edge": -0.002
+            "model_prob": 0.118,
+            "market_prob": 0.129,
+            "edge": -0.011
           },
           "recommendation": {
             "type": "Skip",
@@ -4849,7 +4782,7 @@
           "silk_url": "20260708fai170806.png",
           "score": 50.0,
           "components": {
-            "odds_value": 71.2,
+            "odds_value": 63.0,
             "recent_form": 40.0,
             "consistency": 0,
             "jockey": 47.6,
@@ -4869,9 +4802,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.102,
-            "market_prob": 0.173,
-            "edge": -0.071
+            "model_prob": 0.118,
+            "market_prob": 0.215,
+            "edge": -0.097
           },
           "recommendation": {
             "type": "Skip",
@@ -4894,7 +4827,7 @@
           "silk_url": "20260708fai170809.png",
           "score": 50.0,
           "components": {
-            "odds_value": 35.2,
+            "odds_value": 30.6,
             "recent_form": 40.0,
             "consistency": 0,
             "jockey": 60.0,
@@ -4914,9 +4847,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.102,
-            "market_prob": 0.097,
-            "edge": 0.005
+            "model_prob": 0.118,
+            "market_prob": 0.121,
+            "edge": -0.003
           },
           "recommendation": {
             "type": "Skip",
@@ -4939,7 +4872,7 @@
           "silk_url": "20260708fai170810.png",
           "score": 50.0,
           "components": {
-            "odds_value": 30.0,
+            "odds_value": 25.9,
             "recent_form": 40.0,
             "consistency": 0,
             "jockey": 49.2,
@@ -4959,9 +4892,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.102,
-            "market_prob": 0.087,
-            "edge": 0.015
+            "model_prob": 0.118,
+            "market_prob": 0.108,
+            "edge": 0.01
           },
           "recommendation": {
             "type": "Skip",
@@ -5006,9 +4939,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.066,
-            "market_prob": 0.012,
-            "edge": 0.054
+            "model_prob": 0.076,
+            "market_prob": 0.014,
+            "edge": 0.062
           },
           "recommendation": {
             "type": "Skip",
@@ -5053,15 +4986,42 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.049,
-            "market_prob": 0.008,
-            "edge": 0.042
+            "model_prob": 0.057,
+            "market_prob": 0.01,
+            "edge": 0.047
           },
           "recommendation": {
             "type": "Skip",
             "confidence": 12,
             "label": "Skip",
             "reasoning": "poor recent form"
+          }
+        },
+        {
+          "horse": "Argentarius",
+          "country": "GB",
+          "jockey": "Ben Coen",
+          "trainer": "Daniel Murphy",
+          "form": "2",
+          "age": "2",
+          "weight": "9-2",
+          "draw": "2",
+          "odds_str": "3/1",
+          "odds_dec": 4.0,
+          "silk_url": "20260708fai170802.png",
+          "score": null,
+          "components": {},
+          "value": {
+            "model_prob": null,
+            "market_prob": null,
+            "edge": null
+          },
+          "non_runner": true,
+          "recommendation": {
+            "type": "Skip",
+            "confidence": 0,
+            "label": "Non-runner",
+            "reasoning": "withdrawn — will not run"
           }
         }
       ]
