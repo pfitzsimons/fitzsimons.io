@@ -1,6 +1,6 @@
 {
   "date": "2026-07-09",
-  "generated_at": "2026-07-09T13:51:55.770575Z",
+  "generated_at": "2026-07-09T14:11:47.365217Z",
   "races": [
     {
       "id": "newmarket-926783",
@@ -4078,7 +4078,7 @@
       "going": "Good to Firm (Good in places)",
       "race_class": "2",
       "prize": "20616.0 GBP",
-      "num_runners": 10,
+      "num_runners": 9,
       "ew_places": 3,
       "date": "2026-07-09",
       "runners": [
@@ -4094,9 +4094,9 @@
           "odds_str": "5/2",
           "odds_dec": 3.5,
           "silk_url": "20260709nmk161007.png",
-          "score": 66.2,
+          "score": 64.6,
           "components": {
-            "odds_value": 94.7,
+            "odds_value": 84.1,
             "recent_form": 80.0,
             "consistency": 100.0,
             "jockey": 81.0,
@@ -4118,13 +4118,13 @@
             "official_rating": 87
           },
           "value": {
-            "model_prob": 0.182,
-            "market_prob": 0.237,
-            "edge": -0.055
+            "model_prob": 0.19,
+            "market_prob": 0.241,
+            "edge": -0.051
           },
           "recommendation": {
             "type": "Win",
-            "confidence": 66,
+            "confidence": 64,
             "label": "Win Bet",
             "reasoning": "strong recent form; placed last time out; consistent placer (100% placed); fair price for a win bet"
           }
@@ -4141,9 +4141,9 @@
           "odds_str": "15/2",
           "odds_dec": 8.5,
           "silk_url": "20260709nmk161005.png",
-          "score": 51.2,
+          "score": 50.9,
           "components": {
-            "odds_value": 32.5,
+            "odds_value": 28.1,
             "recent_form": 65.0,
             "consistency": 100.0,
             "jockey": 58.5,
@@ -4165,9 +4165,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.109,
-            "market_prob": 0.098,
-            "edge": 0.012
+            "model_prob": 0.12,
+            "market_prob": 0.099,
+            "edge": 0.021
           },
           "recommendation": {
             "type": "Skip",
@@ -4188,9 +4188,9 @@
           "odds_str": "16/1",
           "odds_dec": 17.0,
           "silk_url": "20260709nmk161008.png",
-          "score": 50.5,
+          "score": 50.3,
           "components": {
-            "odds_value": 10.7,
+            "odds_value": 8.5,
             "recent_form": 80.0,
             "consistency": 100.0,
             "jockey": 53.9,
@@ -4212,9 +4212,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.108,
-            "market_prob": 0.049,
-            "edge": 0.059
+            "model_prob": 0.119,
+            "market_prob": 0.05,
+            "edge": 0.069
           },
           "recommendation": {
             "type": "Skip",
@@ -4257,9 +4257,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.107,
-            "market_prob": 0.016,
-            "edge": 0.09
+            "model_prob": 0.118,
+            "market_prob": 0.017,
+            "edge": 0.102
           },
           "recommendation": {
             "type": "Skip",
@@ -4302,9 +4302,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.107,
-            "market_prob": 0.435,
-            "edge": -0.328
+            "model_prob": 0.118,
+            "market_prob": 0.442,
+            "edge": -0.324
           },
           "recommendation": {
             "type": "Skip",
@@ -4327,7 +4327,7 @@
           "silk_url": "20260709nmk161010.png",
           "score": 50.0,
           "components": {
-            "odds_value": 3.1,
+            "odds_value": 1.7,
             "recent_form": 40.0,
             "consistency": 0,
             "jockey": 66.9,
@@ -4347,60 +4347,13 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.107,
+            "model_prob": 0.118,
             "market_prob": 0.032,
-            "edge": 0.075
+            "edge": 0.086
           },
           "recommendation": {
             "type": "Skip",
             "confidence": 20,
-            "label": "Skip",
-            "reasoning": "moderate form"
-          }
-        },
-        {
-          "horse": "Carpe Portus",
-          "country": "GB",
-          "jockey": "Jack Callan",
-          "trainer": "G Boughey",
-          "form": "4",
-          "age": "2",
-          "weight": "9-2",
-          "draw": "9",
-          "odds_str": "50/1",
-          "odds_dec": 51.0,
-          "silk_url": "20260709nmk161002.png",
-          "score": 41.6,
-          "components": {
-            "odds_value": 0,
-            "recent_form": 50.0,
-            "consistency": 0,
-            "jockey": 65.8,
-            "trainer": 45.0,
-            "weight": 0.0,
-            "absence_pen": 0.0,
-            "going_factor": 1.05,
-            "distance": 50.0,
-            "distance_meta": {
-              "n": 1,
-              "relevance": 1.0,
-              "quality": 0.5
-            },
-            "freshness": 70.0,
-            "last_ran_days": 20,
-            "timeform": 60.0,
-            "timeform_stars": 3,
-            "class_or": 50.0,
-            "official_rating": null
-          },
-          "value": {
-            "model_prob": 0.084,
-            "market_prob": 0.016,
-            "edge": 0.068
-          },
-          "recommendation": {
-            "type": "Skip",
-            "confidence": 16,
             "label": "Skip",
             "reasoning": "moderate form"
           }
@@ -4441,9 +4394,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.078,
-            "market_prob": 0.012,
-            "edge": 0.065
+            "model_prob": 0.086,
+            "market_prob": 0.013,
+            "edge": 0.074
           },
           "recommendation": {
             "type": "Skip",
@@ -4464,9 +4417,9 @@
           "odds_str": "8/1",
           "odds_dec": 9.0,
           "silk_url": "20260709nmk161009.png",
-          "score": 35.7,
+          "score": 35.2,
           "components": {
-            "odds_value": 30.0,
+            "odds_value": 25.9,
             "recent_form": 20.0,
             "consistency": 0,
             "jockey": 49.3,
@@ -4488,9 +4441,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.064,
-            "market_prob": 0.092,
-            "edge": -0.028
+            "model_prob": 0.069,
+            "market_prob": 0.094,
+            "edge": -0.025
           },
           "recommendation": {
             "type": "Skip",
@@ -4535,15 +4488,42 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.054,
-            "market_prob": 0.012,
-            "edge": 0.042
+            "model_prob": 0.06,
+            "market_prob": 0.013,
+            "edge": 0.048
           },
           "recommendation": {
             "type": "Skip",
             "confidence": 12,
             "label": "Skip",
             "reasoning": "poor recent form"
+          }
+        },
+        {
+          "horse": "Carpe Portus",
+          "country": "GB",
+          "jockey": "Jack Callan",
+          "trainer": "G Boughey",
+          "form": "4",
+          "age": "2",
+          "weight": "9-2",
+          "draw": "9",
+          "odds_str": "50/1",
+          "odds_dec": 51.0,
+          "silk_url": "20260709nmk161002.png",
+          "score": null,
+          "components": {},
+          "value": {
+            "model_prob": null,
+            "market_prob": null,
+            "edge": null
+          },
+          "non_runner": true,
+          "recommendation": {
+            "type": "Skip",
+            "confidence": 0,
+            "label": "Non-runner",
+            "reasoning": "withdrawn — will not run"
           }
         }
       ]
