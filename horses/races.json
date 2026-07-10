@@ -1,6 +1,6 @@
 {
   "date": "2026-07-10",
-  "generated_at": "2026-07-10T10:59:45.349692Z",
+  "generated_at": "2026-07-10T11:20:59.609701Z",
   "races": [
     {
       "id": "newmarket-923660",
@@ -8141,8 +8141,8 @@
       "going": "Good to Firm",
       "race_class": "3",
       "prize": "16200.0 GBP",
-      "num_runners": 12,
-      "ew_places": 4,
+      "num_runners": 11,
+      "ew_places": 3,
       "date": "2026-07-10",
       "runners": [
         {
@@ -8157,9 +8157,9 @@
           "odds_str": "4/1",
           "odds_dec": 5.0,
           "silk_url": "20260710asc165508.png",
-          "score": 60.3,
+          "score": 58.8,
           "components": {
-            "odds_value": 77.8,
+            "odds_value": 70.4,
             "recent_form": 66.7,
             "consistency": 50.0,
             "jockey": 68.4,
@@ -8181,15 +8181,15 @@
             "official_rating": 86
           },
           "value": {
-            "model_prob": 0.145,
-            "market_prob": 0.168,
-            "edge": -0.023
+            "model_prob": 0.158,
+            "market_prob": 0.185,
+            "edge": -0.027
           },
           "recommendation": {
-            "type": "Win",
-            "confidence": 60,
-            "label": "Win Bet",
-            "reasoning": "solid recent form; won last time out; consistent placer (50% placed); fair price for a win bet"
+            "type": "Skip",
+            "confidence": 23,
+            "label": "Skip",
+            "reasoning": "solid recent form; won last time out; consistent placer (50% placed)"
           }
         },
         {
@@ -8204,9 +8204,9 @@
           "odds_str": "11/2",
           "odds_dec": 6.5,
           "silk_url": "20260710asc165512.png",
-          "score": 55.0,
+          "score": 53.8,
           "components": {
-            "odds_value": 57.3,
+            "odds_value": 51.6,
             "recent_form": 70.3,
             "consistency": 50.0,
             "jockey": 24.1,
@@ -8228,62 +8228,15 @@
             "official_rating": 87
           },
           "value": {
-            "model_prob": 0.115,
-            "market_prob": 0.129,
-            "edge": -0.014
+            "model_prob": 0.13,
+            "market_prob": 0.142,
+            "edge": -0.012
           },
           "recommendation": {
             "type": "Skip",
             "confidence": 21,
             "label": "Skip",
             "reasoning": "solid recent form; placed last time out; consistent placer (50% placed)"
-          }
-        },
-        {
-          "horse": "Ray Mon Dough",
-          "country": "GB",
-          "jockey": "Kaiya Fraser",
-          "trainer": "Oliver Cole",
-          "form": "1-62",
-          "age": "3",
-          "weight": "9-5",
-          "draw": "1",
-          "odds_str": "8/1",
-          "odds_dec": 9.0,
-          "silk_url": "20260710asc165511.png",
-          "score": 52.5,
-          "components": {
-            "odds_value": 38.3,
-            "recent_form": 65.0,
-            "consistency": 66.7,
-            "jockey": 42.4,
-            "trainer": 54.4,
-            "weight": 52.4,
-            "absence_pen": 0.0,
-            "going_factor": 1.05,
-            "distance": 69.3,
-            "distance_meta": {
-              "n": 3,
-              "relevance": 2.5,
-              "quality": 0.77
-            },
-            "freshness": 63.1,
-            "last_ran_days": 53,
-            "timeform": 60.0,
-            "timeform_stars": 3,
-            "class_or": 66.7,
-            "official_rating": 90
-          },
-          "value": {
-            "model_prob": 0.11,
-            "market_prob": 0.093,
-            "edge": 0.017
-          },
-          "recommendation": {
-            "type": "Skip",
-            "confidence": 20,
-            "label": "Skip",
-            "reasoning": "solid recent form; placed last time out; consistent placer (66% placed)"
           }
         },
         {
@@ -8298,9 +8251,9 @@
           "odds_str": "6/1",
           "odds_dec": 7.0,
           "silk_url": "20260710asc165503.png",
-          "score": 48.5,
+          "score": 47.5,
           "components": {
-            "odds_value": 52.4,
+            "odds_value": 47.1,
             "recent_form": 54.3,
             "consistency": 50.0,
             "jockey": 53.6,
@@ -8322,13 +8275,13 @@
             "official_rating": 93
           },
           "value": {
-            "model_prob": 0.101,
-            "market_prob": 0.12,
-            "edge": -0.018
+            "model_prob": 0.115,
+            "market_prob": 0.132,
+            "edge": -0.017
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 19,
+            "confidence": 18,
             "label": "Skip",
             "reasoning": "moderate form; placed last time out; consistent placer (50% placed)"
           }
@@ -8345,9 +8298,9 @@
           "odds_str": "7/1",
           "odds_dec": 8.0,
           "silk_url": "20260710asc165507.png",
-          "score": 43.6,
+          "score": 42.7,
           "components": {
-            "odds_value": 44.4,
+            "odds_value": 39.8,
             "recent_form": 47.3,
             "consistency": 16.7,
             "jockey": 51.6,
@@ -8369,8 +8322,8 @@
             "official_rating": 88
           },
           "value": {
-            "model_prob": 0.089,
-            "market_prob": 0.105,
+            "model_prob": 0.1,
+            "market_prob": 0.116,
             "edge": -0.016
           },
           "recommendation": {
@@ -8392,9 +8345,9 @@
           "odds_str": "14/1",
           "odds_dec": 15.0,
           "silk_url": "20260710asc165504.png",
-          "score": 40.8,
+          "score": 40.3,
           "components": {
-            "odds_value": 18.5,
+            "odds_value": 16.0,
             "recent_form": 55.0,
             "consistency": 33.3,
             "jockey": 65.5,
@@ -8416,9 +8369,9 @@
             "official_rating": 93
           },
           "value": {
-            "model_prob": 0.08,
-            "market_prob": 0.056,
-            "edge": 0.024
+            "model_prob": 0.09,
+            "market_prob": 0.062,
+            "edge": 0.029
           },
           "recommendation": {
             "type": "Skip",
@@ -8439,9 +8392,9 @@
           "odds_str": "14/1",
           "odds_dec": 15.0,
           "silk_url": "20260710asc165513.png",
-          "score": 38.5,
+          "score": 38.0,
           "components": {
-            "odds_value": 18.5,
+            "odds_value": 16.0,
             "recent_form": 32.3,
             "consistency": 0,
             "jockey": 54.9,
@@ -8463,9 +8416,9 @@
             "official_rating": 80
           },
           "value": {
-            "model_prob": 0.072,
-            "market_prob": 0.056,
-            "edge": 0.016
+            "model_prob": 0.082,
+            "market_prob": 0.062,
+            "edge": 0.02
           },
           "recommendation": {
             "type": "Skip",
@@ -8486,9 +8439,9 @@
           "odds_str": "12/1",
           "odds_dec": 13.0,
           "silk_url": "20260710asc165502.png",
-          "score": 38.0,
+          "score": 37.5,
           "components": {
-            "odds_value": 23.1,
+            "odds_value": 20.2,
             "recent_form": 34.7,
             "consistency": 33.3,
             "jockey": 56.7,
@@ -8510,13 +8463,13 @@
             "official_rating": 94
           },
           "value": {
-            "model_prob": 0.071,
-            "market_prob": 0.064,
-            "edge": 0.006
+            "model_prob": 0.08,
+            "market_prob": 0.071,
+            "edge": 0.009
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 15,
+            "confidence": 14,
             "label": "Skip",
             "reasoning": "poor recent form"
           }
@@ -8533,9 +8486,9 @@
           "odds_str": "20/1",
           "odds_dec": 21.0,
           "silk_url": "20260710asc165510.png",
-          "score": 35.8,
+          "score": 35.5,
           "components": {
-            "odds_value": 10.1,
+            "odds_value": 8.3,
             "recent_form": 44.0,
             "consistency": 16.7,
             "jockey": 46.7,
@@ -8557,9 +8510,9 @@
             "official_rating": 85
           },
           "value": {
-            "model_prob": 0.063,
-            "market_prob": 0.04,
-            "edge": 0.023
+            "model_prob": 0.072,
+            "market_prob": 0.044,
+            "edge": 0.028
           },
           "recommendation": {
             "type": "Skip",
@@ -8580,9 +8533,9 @@
           "odds_str": "12/1",
           "odds_dec": 13.0,
           "silk_url": "20260710asc165501.png",
-          "score": 33.2,
+          "score": 32.6,
           "components": {
-            "odds_value": 23.1,
+            "odds_value": 20.2,
             "recent_form": 21.0,
             "consistency": 33.3,
             "jockey": 62.5,
@@ -8604,8 +8557,8 @@
             "official_rating": 95
           },
           "value": {
-            "model_prob": 0.056,
-            "market_prob": 0.064,
+            "model_prob": 0.063,
+            "market_prob": 0.071,
             "edge": -0.008
           },
           "recommendation": {
@@ -8627,9 +8580,9 @@
           "odds_str": "14/1",
           "odds_dec": 15.0,
           "silk_url": "20260710asc165509.png",
-          "score": 31.9,
+          "score": 31.5,
           "components": {
-            "odds_value": 18.5,
+            "odds_value": 16.0,
             "recent_form": 31.0,
             "consistency": 0,
             "jockey": 42.5,
@@ -8651,9 +8604,9 @@
             "official_rating": 85
           },
           "value": {
-            "model_prob": 0.053,
-            "market_prob": 0.056,
-            "edge": -0.003
+            "model_prob": 0.06,
+            "market_prob": 0.062,
+            "edge": -0.002
           },
           "recommendation": {
             "type": "Skip",
@@ -8674,9 +8627,9 @@
           "odds_str": "16/1",
           "odds_dec": 17.0,
           "silk_url": "20260710asc165505.png",
-          "score": 28.8,
+          "score": 28.3,
           "components": {
-            "odds_value": 15.0,
+            "odds_value": 12.9,
             "recent_form": 19.0,
             "consistency": 16.7,
             "jockey": 48.3,
@@ -8698,8 +8651,8 @@
             "official_rating": 92
           },
           "value": {
-            "model_prob": 0.045,
-            "market_prob": 0.049,
+            "model_prob": 0.051,
+            "market_prob": 0.054,
             "edge": -0.004
           },
           "recommendation": {
@@ -8721,6 +8674,33 @@
           "odds_str": "12/1",
           "odds_dec": 13.0,
           "silk_url": "20260710asc165506.png",
+          "score": null,
+          "components": {},
+          "value": {
+            "model_prob": null,
+            "market_prob": null,
+            "edge": null
+          },
+          "non_runner": true,
+          "recommendation": {
+            "type": "Skip",
+            "confidence": 0,
+            "label": "Non-runner",
+            "reasoning": "withdrawn — will not run"
+          }
+        },
+        {
+          "horse": "Ray Mon Dough",
+          "country": "GB",
+          "jockey": "Kaiya Fraser",
+          "trainer": "Oliver Cole",
+          "form": "1-62",
+          "age": "3",
+          "weight": "9-5",
+          "draw": "1",
+          "odds_str": "8/1",
+          "odds_dec": 9.0,
+          "silk_url": "20260710asc165511.png",
           "score": null,
           "components": {},
           "value": {
@@ -9091,7 +9071,7 @@
       "going": "Good to Firm (Good in places)",
       "race_class": "4",
       "prize": "12885.0 GBP",
-      "num_runners": 13,
+      "num_runners": 12,
       "ew_places": 4,
       "date": "2026-07-10",
       "runners": [
@@ -9107,9 +9087,9 @@
           "odds_str": "6/1",
           "odds_dec": 7.0,
           "silk_url": "20260710yor170513.png",
-          "score": 67.6,
+          "score": 66.6,
           "components": {
-            "odds_value": 57.7,
+            "odds_value": 52.4,
             "recent_form": 98.1,
             "consistency": 66.7,
             "jockey": 45.7,
@@ -9131,13 +9111,13 @@
             "official_rating": 74
           },
           "value": {
-            "model_prob": 0.146,
-            "market_prob": 0.113,
-            "edge": 0.032
+            "model_prob": 0.162,
+            "market_prob": 0.126,
+            "edge": 0.037
           },
           "recommendation": {
             "type": "Win",
-            "confidence": 67,
+            "confidence": 66,
             "label": "Win Bet",
             "reasoning": "strong recent form; won last time out; consistent placer (66% placed)"
           }
@@ -9154,9 +9134,9 @@
           "odds_str": "5/1",
           "odds_dec": 6.0,
           "silk_url": "20260710yor170504.png",
-          "score": 65.7,
+          "score": 64.5,
           "components": {
-            "odds_value": 69.1,
+            "odds_value": 63.0,
             "recent_form": 96.6,
             "consistency": 83.3,
             "jockey": 42.3,
@@ -9178,62 +9158,15 @@
             "official_rating": 83
           },
           "value": {
-            "model_prob": 0.136,
-            "market_prob": 0.132,
+            "model_prob": 0.15,
+            "market_prob": 0.146,
             "edge": 0.004
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 26,
+            "confidence": 25,
             "label": "Skip",
             "reasoning": "strong recent form; won last time out; consistent placer (83% placed); fair price for a win bet"
-          }
-        },
-        {
-          "horse": "Equity Law",
-          "country": "GB",
-          "jockey": "D Allan",
-          "trainer": "T D Easterby",
-          "form": "336021",
-          "age": "5",
-          "weight": "9-4",
-          "draw": "2",
-          "odds_str": "7/1",
-          "odds_dec": 8.0,
-          "silk_url": "20260710yor170510.png",
-          "score": 59.6,
-          "components": {
-            "odds_value": 49.1,
-            "recent_form": 73.9,
-            "consistency": 66.7,
-            "jockey": 68.1,
-            "trainer": 51.5,
-            "weight": 64.7,
-            "absence_pen": 0.0,
-            "going_factor": 1.05,
-            "distance": 56.4,
-            "distance_meta": {
-              "n": 6,
-              "relevance": 6.0,
-              "quality": 0.57
-            },
-            "freshness": 70.0,
-            "last_ran_days": 19,
-            "timeform": 60.0,
-            "timeform_stars": 3,
-            "class_or": 15.4,
-            "official_rating": 75
-          },
-          "value": {
-            "model_prob": 0.109,
-            "market_prob": 0.099,
-            "edge": 0.01
-          },
-          "recommendation": {
-            "type": "Skip",
-            "confidence": 23,
-            "label": "Skip",
-            "reasoning": "solid recent form; won last time out; consistent placer (66% placed)"
           }
         },
         {
@@ -9248,9 +9181,9 @@
           "odds_str": "8/1",
           "odds_dec": 9.0,
           "silk_url": "20260710yor170508.png",
-          "score": 56.3,
+          "score": 55.5,
           "components": {
-            "odds_value": 42.4,
+            "odds_value": 38.3,
             "recent_form": 72.0,
             "consistency": 66.7,
             "jockey": 54.6,
@@ -9272,9 +9205,9 @@
             "official_rating": 78
           },
           "value": {
-            "model_prob": 0.095,
-            "market_prob": 0.088,
-            "edge": 0.007
+            "model_prob": 0.106,
+            "market_prob": 0.098,
+            "edge": 0.008
           },
           "recommendation": {
             "type": "Skip",
@@ -9295,9 +9228,9 @@
           "odds_str": "4/1",
           "odds_dec": 5.0,
           "silk_url": "20260710yor170505.png",
-          "score": 49.2,
+          "score": 47.8,
           "components": {
-            "odds_value": 85.2,
+            "odds_value": 77.8,
             "recent_form": 44.0,
             "consistency": 16.7,
             "jockey": 45.7,
@@ -9319,9 +9252,9 @@
             "official_rating": 82
           },
           "value": {
-            "model_prob": 0.08,
-            "market_prob": 0.158,
-            "edge": -0.078
+            "model_prob": 0.089,
+            "market_prob": 0.176,
+            "edge": -0.086
           },
           "recommendation": {
             "type": "Skip",
@@ -9342,9 +9275,9 @@
           "odds_str": "8/1",
           "odds_dec": 9.0,
           "silk_url": "20260710yor170506.png",
-          "score": 48.2,
+          "score": 47.4,
           "components": {
-            "odds_value": 42.4,
+            "odds_value": 38.3,
             "recent_form": 54.0,
             "consistency": 50.0,
             "jockey": 50.1,
@@ -9366,13 +9299,13 @@
             "official_rating": 82
           },
           "value": {
-            "model_prob": 0.078,
-            "market_prob": 0.088,
-            "edge": -0.01
+            "model_prob": 0.089,
+            "market_prob": 0.098,
+            "edge": -0.009
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 19,
+            "confidence": 18,
             "label": "Skip",
             "reasoning": "moderate form; consistent placer (50% placed)"
           }
@@ -9389,9 +9322,9 @@
           "odds_str": "12/1",
           "odds_dec": 13.0,
           "silk_url": "20260710yor170512.png",
-          "score": 45.5,
+          "score": 45.0,
           "components": {
-            "odds_value": 25.9,
+            "odds_value": 23.1,
             "recent_form": 55.0,
             "consistency": 33.3,
             "jockey": 29.1,
@@ -9413,13 +9346,13 @@
             "official_rating": 75
           },
           "value": {
-            "model_prob": 0.074,
-            "market_prob": 0.061,
-            "edge": 0.013
+            "model_prob": 0.084,
+            "market_prob": 0.068,
+            "edge": 0.016
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 18,
+            "confidence": 17,
             "label": "Skip",
             "reasoning": "solid recent form"
           }
@@ -9436,9 +9369,9 @@
           "odds_str": "20/1",
           "odds_dec": 21.0,
           "silk_url": "20260710yor170509.png",
-          "score": 40.4,
+          "score": 40.0,
           "components": {
-            "odds_value": 11.8,
+            "odds_value": 10.1,
             "recent_form": 43.3,
             "consistency": 50.0,
             "jockey": 43.9,
@@ -9460,9 +9393,9 @@
             "official_rating": 77
           },
           "value": {
-            "model_prob": 0.061,
-            "market_prob": 0.038,
-            "edge": 0.023
+            "model_prob": 0.069,
+            "market_prob": 0.042,
+            "edge": 0.027
           },
           "recommendation": {
             "type": "Skip",
@@ -9483,9 +9416,9 @@
           "odds_str": "14/1",
           "odds_dec": 15.0,
           "silk_url": "20260710yor170503.png",
-          "score": 40.2,
+          "score": 39.7,
           "components": {
-            "odds_value": 21.0,
+            "odds_value": 18.5,
             "recent_form": 50.0,
             "consistency": 33.3,
             "jockey": 53.7,
@@ -9507,13 +9440,13 @@
             "official_rating": 84
           },
           "value": {
-            "model_prob": 0.061,
-            "market_prob": 0.053,
-            "edge": 0.008
+            "model_prob": 0.068,
+            "market_prob": 0.059,
+            "edge": 0.01
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 16,
+            "confidence": 15,
             "label": "Skip",
             "reasoning": "moderate form"
           }
@@ -9530,9 +9463,9 @@
           "odds_str": "16/1",
           "odds_dec": 17.0,
           "silk_url": "20260710yor170511.png",
-          "score": 32.8,
+          "score": 32.4,
           "components": {
-            "odds_value": 17.2,
+            "odds_value": 15.0,
             "recent_form": 27.3,
             "consistency": 0,
             "jockey": 30.5,
@@ -9554,13 +9487,13 @@
             "official_rating": 73
           },
           "value": {
-            "model_prob": 0.043,
-            "market_prob": 0.047,
-            "edge": -0.004
+            "model_prob": 0.048,
+            "market_prob": 0.052,
+            "edge": -0.003
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 13,
+            "confidence": 12,
             "label": "Skip",
             "reasoning": "poor recent form"
           }
@@ -9577,9 +9510,9 @@
           "odds_str": "16/1",
           "odds_dec": 17.0,
           "silk_url": "20260710yor170502.png",
-          "score": 32.4,
+          "score": 32.0,
           "components": {
-            "odds_value": 17.2,
+            "odds_value": 15.0,
             "recent_form": 30.0,
             "consistency": 16.7,
             "jockey": 52.1,
@@ -9601,9 +9534,9 @@
             "official_rating": 84
           },
           "value": {
-            "model_prob": 0.042,
-            "market_prob": 0.047,
-            "edge": -0.005
+            "model_prob": 0.048,
+            "market_prob": 0.052,
+            "edge": -0.004
           },
           "recommendation": {
             "type": "Skip",
@@ -9624,9 +9557,9 @@
           "odds_str": "25/1",
           "odds_dec": 26.0,
           "silk_url": "20260710yor170507.png",
-          "score": 32.2,
+          "score": 31.9,
           "components": {
-            "odds_value": 7.4,
+            "odds_value": 6.0,
             "recent_form": 30.0,
             "consistency": 16.7,
             "jockey": 50.4,
@@ -9648,9 +9581,9 @@
             "official_rating": 79
           },
           "value": {
-            "model_prob": 0.042,
-            "market_prob": 0.03,
-            "edge": 0.011
+            "model_prob": 0.047,
+            "market_prob": 0.034,
+            "edge": 0.014
           },
           "recommendation": {
             "type": "Skip",
@@ -9671,9 +9604,9 @@
           "odds_str": "16/1",
           "odds_dec": 17.0,
           "silk_url": "20260710yor170501.png",
-          "score": 28.3,
+          "score": 27.9,
           "components": {
-            "odds_value": 17.2,
+            "odds_value": 15.0,
             "recent_form": 24.0,
             "consistency": 16.7,
             "jockey": 44.1,
@@ -9695,15 +9628,42 @@
             "official_rating": 86
           },
           "value": {
-            "model_prob": 0.034,
-            "market_prob": 0.047,
-            "edge": -0.012
+            "model_prob": 0.038,
+            "market_prob": 0.052,
+            "edge": -0.013
           },
           "recommendation": {
             "type": "Skip",
             "confidence": 11,
             "label": "Skip",
             "reasoning": "poor recent form"
+          }
+        },
+        {
+          "horse": "Equity Law",
+          "country": "GB",
+          "jockey": "D Allan",
+          "trainer": "T D Easterby",
+          "form": "336021",
+          "age": "5",
+          "weight": "9-4",
+          "draw": "2",
+          "odds_str": "7/1",
+          "odds_dec": 8.0,
+          "silk_url": "20260710yor170510.png",
+          "score": null,
+          "components": {},
+          "value": {
+            "model_prob": null,
+            "market_prob": null,
+            "edge": null
+          },
+          "non_runner": true,
+          "recommendation": {
+            "type": "Skip",
+            "confidence": 0,
+            "label": "Non-runner",
+            "reasoning": "withdrawn — will not run"
           }
         }
       ]
