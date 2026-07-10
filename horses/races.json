@@ -1,6 +1,6 @@
 {
   "date": "2026-07-10",
-  "generated_at": "2026-07-10T14:01:17.176706Z",
+  "generated_at": "2026-07-10T14:21:26.984500Z",
   "races": [
     {
       "id": "newmarket-923660",
@@ -13601,57 +13601,10 @@
       "going": "Good (Good to Firm in places)",
       "race_class": "3",
       "prize": "7731.0 GBP",
-      "num_runners": 4,
+      "num_runners": 3,
       "ew_places": 1,
       "date": "2026-07-10",
       "runners": [
-        {
-          "horse": "Crownright",
-          "country": "GB",
-          "jockey": "Rossa Ryan",
-          "trainer": "R M Beckett",
-          "form": "3-229",
-          "age": "3",
-          "weight": "9-2",
-          "draw": "1",
-          "odds_str": "4/5",
-          "odds_dec": 1.8,
-          "silk_url": "20260710chs175002.png",
-          "score": 55.8,
-          "components": {
-            "odds_value": 71.2,
-            "recent_form": 50.5,
-            "consistency": 75.0,
-            "jockey": 68.2,
-            "trainer": 84.3,
-            "weight": 0.0,
-            "absence_pen": 0.0,
-            "going_factor": 1.05,
-            "distance": 55.5,
-            "distance_meta": {
-              "n": 4,
-              "relevance": 1.2,
-              "quality": 0.6
-            },
-            "freshness": 70.0,
-            "last_ran_days": 21,
-            "timeform": 100.0,
-            "timeform_stars": 5,
-            "class_or": 50.0,
-            "official_rating": 82
-          },
-          "value": {
-            "model_prob": 0.32,
-            "market_prob": 0.509,
-            "edge": -0.19
-          },
-          "recommendation": {
-            "type": "Skip",
-            "confidence": 22,
-            "label": "Skip",
-            "reasoning": "moderate form; consistent placer (75% placed)"
-          }
-        },
         {
           "horse": "Summerson",
           "country": "GB",
@@ -13664,9 +13617,9 @@
           "odds_str": "2/1",
           "odds_dec": 3.0,
           "silk_url": "20260710chs175004.png",
-          "score": 53.8,
+          "score": 52.7,
           "components": {
-            "odds_value": 38.3,
+            "odds_value": 25.9,
             "recent_form": 80.0,
             "consistency": 100.0,
             "jockey": 60.8,
@@ -13688,15 +13641,62 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.301,
-            "market_prob": 0.306,
-            "edge": -0.004
+            "model_prob": 0.368,
+            "market_prob": 0.323,
+            "edge": 0.045
           },
           "recommendation": {
             "type": "Skip",
             "confidence": 21,
             "label": "Skip",
             "reasoning": "strong recent form; placed last time out; consistent placer (100% placed)"
+          }
+        },
+        {
+          "horse": "Crownright",
+          "country": "GB",
+          "jockey": "Rossa Ryan",
+          "trainer": "R M Beckett",
+          "form": "3-229",
+          "age": "3",
+          "weight": "9-2",
+          "draw": "1",
+          "odds_str": "4/5",
+          "odds_dec": 1.8,
+          "silk_url": "20260710chs175002.png",
+          "score": 52.2,
+          "components": {
+            "odds_value": 50.6,
+            "recent_form": 50.5,
+            "consistency": 75.0,
+            "jockey": 68.2,
+            "trainer": 84.3,
+            "weight": 0.0,
+            "absence_pen": 0.0,
+            "going_factor": 1.05,
+            "distance": 55.5,
+            "distance_meta": {
+              "n": 4,
+              "relevance": 1.2,
+              "quality": 0.6
+            },
+            "freshness": 70.0,
+            "last_ran_days": 21,
+            "timeform": 100.0,
+            "timeform_stars": 5,
+            "class_or": 50.0,
+            "official_rating": 82
+          },
+          "value": {
+            "model_prob": 0.365,
+            "market_prob": 0.538,
+            "edge": -0.174
+          },
+          "recommendation": {
+            "type": "Skip",
+            "confidence": 20,
+            "label": "Skip",
+            "reasoning": "moderate form; consistent placer (75% placed)"
           }
         },
         {
@@ -13711,9 +13711,9 @@
           "odds_str": "6/1",
           "odds_dec": 7.0,
           "silk_url": "20260710chs175001.png",
-          "score": 41.3,
+          "score": 40.9,
           "components": {
-            "odds_value": 10.1,
+            "odds_value": 4.8,
             "recent_form": 40.0,
             "consistency": 0,
             "jockey": 49.0,
@@ -13735,9 +13735,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.218,
-            "market_prob": 0.131,
-            "edge": 0.087
+            "model_prob": 0.267,
+            "market_prob": 0.138,
+            "edge": 0.129
           },
           "recommendation": {
             "type": "Skip",
@@ -13758,39 +13758,19 @@
           "odds_str": "16/1",
           "odds_dec": 17.0,
           "silk_url": "20260710chs175003.png",
-          "score": 34.8,
-          "components": {
-            "odds_value": 0,
-            "recent_form": 35.0,
-            "consistency": 0,
-            "jockey": 60.4,
-            "trainer": 46.3,
-            "weight": 0.0,
-            "absence_pen": 0.0,
-            "going_factor": 1.05,
-            "distance": 43.6,
-            "distance_meta": {
-              "n": 2,
-              "relevance": 0.61,
-              "quality": 0.33
-            },
-            "freshness": 70.0,
-            "last_ran_days": 32,
-            "timeform": 40.0,
-            "timeform_stars": 2,
-            "class_or": 50.0,
-            "official_rating": null
-          },
+          "score": null,
+          "components": {},
           "value": {
-            "model_prob": 0.161,
-            "market_prob": 0.054,
-            "edge": 0.107
+            "model_prob": null,
+            "market_prob": null,
+            "edge": null
           },
+          "non_runner": true,
           "recommendation": {
             "type": "Skip",
-            "confidence": 13,
-            "label": "Skip",
-            "reasoning": "moderate form"
+            "confidence": 0,
+            "label": "Non-runner",
+            "reasoning": "withdrawn — will not run"
           }
         }
       ]
