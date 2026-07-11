@@ -1,6 +1,6 @@
 {
   "date": "2026-07-11",
-  "generated_at": "2026-07-11T07:42:53.796701Z",
+  "generated_at": "2026-07-11T08:02:52.081023Z",
   "races": [
     {
       "id": "chester-927782",
@@ -3779,57 +3779,10 @@
       "going": "Good",
       "race_class": "",
       "prize": "7200.0 EUR",
-      "num_runners": 14,
+      "num_runners": 13,
       "ew_places": 4,
       "date": "2026-07-11",
       "runners": [
-        {
-          "horse": "Hasita",
-          "country": "GB",
-          "jockey": "Ben Coen",
-          "trainer": "J P Murtagh",
-          "form": "08-334",
-          "age": "3",
-          "weight": "9-3",
-          "draw": "7",
-          "odds_str": "9/2",
-          "odds_dec": 5.5,
-          "silk_url": "20260711nav142308.png",
-          "score": 58.3,
-          "components": {
-            "odds_value": 83.2,
-            "recent_form": 49.0,
-            "consistency": 40.0,
-            "jockey": 73.5,
-            "trainer": 61.8,
-            "weight": 100.0,
-            "absence_pen": 0.0,
-            "going_factor": 1.0,
-            "distance": 41.7,
-            "distance_meta": {
-              "n": 5,
-              "relevance": 3.02,
-              "quality": 0.39
-            },
-            "freshness": 67.5,
-            "last_ran_days": 10,
-            "timeform": 60.0,
-            "timeform_stars": 3,
-            "class_or": 0.0,
-            "official_rating": 73
-          },
-          "value": {
-            "model_prob": 0.102,
-            "market_prob": 0.14,
-            "edge": -0.038
-          },
-          "recommendation": {
-            "type": "Skip",
-            "confidence": 23,
-            "label": "Skip",
-            "reasoning": "moderate form"
-          }
-        },
         {
           "horse": "Institute",
           "country": "GB",
@@ -3866,13 +3819,60 @@
             "official_rating": 80
           },
           "value": {
-            "model_prob": 0.101,
-            "market_prob": 0.192,
-            "edge": -0.091
+            "model_prob": 0.112,
+            "market_prob": 0.21,
+            "edge": -0.098
           },
           "recommendation": {
             "type": "Skip",
             "confidence": 23,
+            "label": "Skip",
+            "reasoning": "moderate form"
+          }
+        },
+        {
+          "horse": "Hasita",
+          "country": "GB",
+          "jockey": "Ben Coen",
+          "trainer": "J P Murtagh",
+          "form": "08-334",
+          "age": "3",
+          "weight": "9-3",
+          "draw": "7",
+          "odds_str": "9/2",
+          "odds_dec": 5.5,
+          "silk_url": "20260711nav142308.png",
+          "score": 57.1,
+          "components": {
+            "odds_value": 76.4,
+            "recent_form": 49.0,
+            "consistency": 40.0,
+            "jockey": 73.5,
+            "trainer": 61.8,
+            "weight": 100.0,
+            "absence_pen": 0.0,
+            "going_factor": 1.0,
+            "distance": 41.7,
+            "distance_meta": {
+              "n": 5,
+              "relevance": 3.02,
+              "quality": 0.39
+            },
+            "freshness": 67.5,
+            "last_ran_days": 10,
+            "timeform": 60.0,
+            "timeform_stars": 3,
+            "class_or": 0.0,
+            "official_rating": 73
+          },
+          "value": {
+            "model_prob": 0.107,
+            "market_prob": 0.153,
+            "edge": -0.045
+          },
+          "recommendation": {
+            "type": "Skip",
+            "confidence": 22,
             "label": "Skip",
             "reasoning": "moderate form"
           }
@@ -3889,9 +3889,9 @@
           "odds_str": "4/1",
           "odds_dec": 5.0,
           "silk_url": "20260711nav142302.png",
-          "score": 56.6,
+          "score": 55.3,
           "components": {
-            "odds_value": 92.6,
+            "odds_value": 85.2,
             "recent_form": 53.5,
             "consistency": 75.0,
             "jockey": 54.1,
@@ -3913,62 +3913,15 @@
             "official_rating": 74
           },
           "value": {
-            "model_prob": 0.095,
-            "market_prob": 0.154,
-            "edge": -0.059
+            "model_prob": 0.099,
+            "market_prob": 0.168,
+            "edge": -0.069
           },
           "recommendation": {
             "type": "Skip",
             "confidence": 22,
             "label": "Skip",
             "reasoning": "moderate form; consistent placer (75% placed)"
-          }
-        },
-        {
-          "horse": "Grande Cuvee",
-          "country": "GB",
-          "jockey": "Andrew Slattery",
-          "trainer": "J A Stack",
-          "form": "93",
-          "age": "3",
-          "weight": "9-3",
-          "draw": "14",
-          "odds_str": "8/1",
-          "odds_dec": 9.0,
-          "silk_url": "20260711nav142307.png",
-          "score": 50.3,
-          "components": {
-            "odds_value": 46.5,
-            "recent_form": 46.7,
-            "consistency": 50.0,
-            "jockey": 44.9,
-            "trainer": 54.6,
-            "weight": 100.0,
-            "absence_pen": 0.0,
-            "going_factor": 1.0,
-            "distance": 38.4,
-            "distance_meta": {
-              "n": 2,
-              "relevance": 1.59,
-              "quality": 0.31
-            },
-            "freshness": 61.9,
-            "last_ran_days": 56,
-            "timeform": 60.0,
-            "timeform_stars": 3,
-            "class_or": 50.0,
-            "official_rating": null
-          },
-          "value": {
-            "model_prob": 0.08,
-            "market_prob": 0.085,
-            "edge": -0.005
-          },
-          "recommendation": {
-            "type": "Skip",
-            "confidence": 20,
-            "label": "Skip",
-            "reasoning": "moderate form; consistent placer (50% placed)"
           }
         },
         {
@@ -3985,7 +3938,7 @@
           "silk_url": "20260711nav142304.png",
           "score": 50.0,
           "components": {
-            "odds_value": 4.1,
+            "odds_value": 3.1,
             "recent_form": 40.0,
             "consistency": 0,
             "jockey": 35.0,
@@ -4005,9 +3958,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.08,
-            "market_prob": 0.023,
-            "edge": 0.057
+            "model_prob": 0.088,
+            "market_prob": 0.025,
+            "edge": 0.064
           },
           "recommendation": {
             "type": "Skip",
@@ -4050,9 +4003,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.08,
-            "market_prob": 0.015,
-            "edge": 0.065
+            "model_prob": 0.088,
+            "market_prob": 0.016,
+            "edge": 0.072
           },
           "recommendation": {
             "type": "Skip",
@@ -4073,9 +4026,9 @@
           "odds_str": "8/1",
           "odds_dec": 9.0,
           "silk_url": "20260711nav142306.png",
-          "score": 47.0,
+          "score": 46.6,
           "components": {
-            "odds_value": 46.5,
+            "odds_value": 42.4,
             "recent_form": 40.0,
             "consistency": 0,
             "jockey": 48.8,
@@ -4097,9 +4050,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.075,
-            "market_prob": 0.085,
-            "edge": -0.01
+            "model_prob": 0.082,
+            "market_prob": 0.093,
+            "edge": -0.011
           },
           "recommendation": {
             "type": "Skip",
@@ -4120,9 +4073,9 @@
           "odds_str": "5/1",
           "odds_dec": 6.0,
           "silk_url": "20260711nav142305.png",
-          "score": 46.4,
+          "score": 45.5,
           "components": {
-            "odds_value": 75.3,
+            "odds_value": 69.1,
             "recent_form": 50.0,
             "consistency": 0,
             "jockey": 59.6,
@@ -4144,9 +4097,9 @@
             "official_rating": 75
           },
           "value": {
-            "model_prob": 0.074,
-            "market_prob": 0.128,
-            "edge": -0.054
+            "model_prob": 0.08,
+            "market_prob": 0.14,
+            "edge": -0.06
           },
           "recommendation": {
             "type": "Skip",
@@ -4191,9 +4144,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.061,
+            "model_prob": 0.068,
             "market_prob": 0.008,
-            "edge": 0.054
+            "edge": 0.059
           },
           "recommendation": {
             "type": "Skip",
@@ -4238,9 +4191,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.058,
-            "market_prob": 0.015,
-            "edge": 0.043
+            "model_prob": 0.064,
+            "market_prob": 0.016,
+            "edge": 0.048
           },
           "recommendation": {
             "type": "Skip",
@@ -4261,9 +4214,9 @@
           "odds_str": "8/1",
           "odds_dec": 9.0,
           "silk_url": "20260711nav142303.png",
-          "score": 38.8,
+          "score": 38.1,
           "components": {
-            "odds_value": 46.5,
+            "odds_value": 42.4,
             "recent_form": 30.0,
             "consistency": 25.0,
             "jockey": 54.0,
@@ -4285,9 +4238,9 @@
             "official_rating": 79
           },
           "value": {
-            "model_prob": 0.056,
-            "market_prob": 0.085,
-            "edge": -0.029
+            "model_prob": 0.06,
+            "market_prob": 0.093,
+            "edge": -0.033
           },
           "recommendation": {
             "type": "Skip",
@@ -4308,9 +4261,9 @@
           "odds_str": "14/1",
           "odds_dec": 15.0,
           "silk_url": "20260711nav142312.png",
-          "score": 37.6,
+          "score": 37.3,
           "components": {
-            "odds_value": 23.5,
+            "odds_value": 21.0,
             "recent_form": 10.0,
             "consistency": 0,
             "jockey": 36.3,
@@ -4332,13 +4285,13 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.053,
-            "market_prob": 0.051,
+            "model_prob": 0.058,
+            "market_prob": 0.056,
             "edge": 0.002
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 15,
+            "confidence": 14,
             "label": "Skip",
             "reasoning": "poor recent form"
           }
@@ -4379,9 +4332,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.046,
-            "market_prob": 0.015,
-            "edge": 0.031
+            "model_prob": 0.051,
+            "market_prob": 0.016,
+            "edge": 0.035
           },
           "recommendation": {
             "type": "Skip",
@@ -4426,15 +4379,42 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.037,
+            "model_prob": 0.041,
             "market_prob": 0.004,
-            "edge": 0.033
+            "edge": 0.037
           },
           "recommendation": {
             "type": "Skip",
             "confidence": 12,
             "label": "Skip",
             "reasoning": "poor recent form"
+          }
+        },
+        {
+          "horse": "Grande Cuvee",
+          "country": "GB",
+          "jockey": "Andrew Slattery",
+          "trainer": "J A Stack",
+          "form": "93",
+          "age": "3",
+          "weight": "9-3",
+          "draw": "14",
+          "odds_str": "8/1",
+          "odds_dec": 9.0,
+          "silk_url": "20260711nav142307.png",
+          "score": null,
+          "components": {},
+          "value": {
+            "model_prob": null,
+            "market_prob": null,
+            "edge": null
+          },
+          "non_runner": true,
+          "recommendation": {
+            "type": "Skip",
+            "confidence": 0,
+            "label": "Non-runner",
+            "reasoning": "withdrawn — will not run"
           }
         }
       ]
@@ -21793,7 +21773,7 @@
       "going": "Good to Firm",
       "race_class": "4",
       "prize": "5400.0 GBP",
-      "num_runners": 6,
+      "num_runners": 5,
       "ew_places": 2,
       "date": "2026-07-11",
       "runners": [
@@ -21809,9 +21789,9 @@
           "odds_str": "7/4",
           "odds_dec": 2.75,
           "silk_url": "20260711sal180801.png",
-          "score": 58.2,
+          "score": 57.0,
           "components": {
-            "odds_value": 69.7,
+            "odds_value": 56.2,
             "recent_form": 100,
             "consistency": 100.0,
             "jockey": 51.6,
@@ -21833,13 +21813,13 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.209,
-            "market_prob": 0.319,
-            "edge": -0.111
+            "model_prob": 0.243,
+            "market_prob": 0.365,
+            "edge": -0.122
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 23,
+            "confidence": 22,
             "label": "Skip",
             "reasoning": "strong recent form; won last time out; consistent placer (100% placed)"
           }
@@ -21856,9 +21836,9 @@
           "odds_str": "3/1",
           "odds_dec": 4.0,
           "silk_url": "20260711sal180804.png",
-          "score": 55.7,
+          "score": 54.9,
           "components": {
-            "odds_value": 44.4,
+            "odds_value": 35.2,
             "recent_form": 65.0,
             "consistency": 100.0,
             "jockey": 57.4,
@@ -21880,60 +21860,15 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.188,
-            "market_prob": 0.22,
-            "edge": -0.032
+            "model_prob": 0.222,
+            "market_prob": 0.251,
+            "edge": -0.029
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 22,
+            "confidence": 21,
             "label": "Skip",
             "reasoning": "solid recent form; consistent placer (100% placed)"
-          }
-        },
-        {
-          "horse": "Thairish",
-          "country": "GB",
-          "jockey": "George Bass",
-          "trainer": "J Channon",
-          "form": "",
-          "age": "3",
-          "weight": "9-0",
-          "draw": "2",
-          "odds_str": "6/1",
-          "odds_dec": 7.0,
-          "silk_url": "20260711sal180805.png",
-          "score": 50.0,
-          "components": {
-            "odds_value": 20.6,
-            "recent_form": 40.0,
-            "consistency": 0,
-            "jockey": 43.7,
-            "trainer": 47.3,
-            "weight": 100.0,
-            "absence_pen": 0.0,
-            "going_factor": 1.05,
-            "distance": 50.0,
-            "distance_meta": {
-              "n": 0
-            },
-            "freshness": 50.0,
-            "last_ran_days": null,
-            "timeform": 60.0,
-            "timeform_stars": 3,
-            "class_or": 50.0,
-            "official_rating": null
-          },
-          "value": {
-            "model_prob": 0.164,
-            "market_prob": 0.126,
-            "edge": 0.039
-          },
-          "recommendation": {
-            "type": "Skip",
-            "confidence": 20,
-            "label": "Skip",
-            "reasoning": "moderate form"
           }
         },
         {
@@ -21950,7 +21885,7 @@
           "silk_url": "20260711sal180806.png",
           "score": 50.0,
           "components": {
-            "odds_value": 3.7,
+            "odds_value": 1.2,
             "recent_form": 40.0,
             "consistency": 0,
             "jockey": 48.5,
@@ -21970,9 +21905,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.164,
-            "market_prob": 0.059,
-            "edge": 0.106
+            "model_prob": 0.202,
+            "market_prob": 0.067,
+            "edge": 0.135
           },
           "recommendation": {
             "type": "Skip",
@@ -21993,9 +21928,9 @@
           "odds_str": "5/2",
           "odds_dec": 3.5,
           "silk_url": "20260711sal180802.png",
-          "score": 46.2,
+          "score": 45.3,
           "components": {
-            "odds_value": 52.4,
+            "odds_value": 41.8,
             "recent_form": 40.0,
             "consistency": 0,
             "jockey": 47.9,
@@ -22017,9 +21952,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.152,
-            "market_prob": 0.251,
-            "edge": -0.099
+            "model_prob": 0.182,
+            "market_prob": 0.287,
+            "edge": -0.105
           },
           "recommendation": {
             "type": "Skip",
@@ -22064,15 +21999,42 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.124,
-            "market_prob": 0.026,
-            "edge": 0.098
+            "model_prob": 0.151,
+            "market_prob": 0.03,
+            "edge": 0.122
           },
           "recommendation": {
             "type": "Skip",
             "confidence": 16,
             "label": "Skip",
             "reasoning": "poor recent form"
+          }
+        },
+        {
+          "horse": "Thairish",
+          "country": "GB",
+          "jockey": "George Bass",
+          "trainer": "J Channon",
+          "form": "",
+          "age": "3",
+          "weight": "9-0",
+          "draw": "2",
+          "odds_str": "6/1",
+          "odds_dec": 7.0,
+          "silk_url": "20260711sal180805.png",
+          "score": null,
+          "components": {},
+          "value": {
+            "model_prob": null,
+            "market_prob": null,
+            "edge": null
+          },
+          "non_runner": true,
+          "recommendation": {
+            "type": "Skip",
+            "confidence": 0,
+            "label": "Non-runner",
+            "reasoning": "withdrawn — will not run"
           }
         }
       ]
@@ -22086,7 +22048,7 @@
       "going": "Good",
       "race_class": "4",
       "prize": "6210.0 GBP",
-      "num_runners": 7,
+      "num_runners": 6,
       "ew_places": 2,
       "date": "2026-07-11",
       "runners": [
@@ -22102,9 +22064,9 @@
           "odds_str": "7/4",
           "odds_dec": 2.75,
           "silk_url": "20260711ham181502.png",
-          "score": 55.7,
+          "score": 54.6,
           "components": {
-            "odds_value": 83.2,
+            "odds_value": 69.7,
             "recent_form": 80.0,
             "consistency": 100.0,
             "jockey": 44.9,
@@ -22126,13 +22088,13 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.186,
-            "market_prob": 0.317,
-            "edge": -0.131
+            "model_prob": 0.215,
+            "market_prob": 0.383,
+            "edge": -0.169
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 22,
+            "confidence": 21,
             "label": "Skip",
             "reasoning": "strong recent form; placed last time out; consistent placer (100% placed)"
           }
@@ -22149,9 +22111,9 @@
           "odds_str": "5/2",
           "odds_dec": 3.5,
           "silk_url": "20260711ham181501.png",
-          "score": 48.0,
+          "score": 46.7,
           "components": {
-            "odds_value": 63.0,
+            "odds_value": 52.4,
             "recent_form": 43.3,
             "consistency": 50.0,
             "jockey": 62.5,
@@ -22173,62 +22135,15 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.156,
-            "market_prob": 0.249,
-            "edge": -0.093
+            "model_prob": 0.183,
+            "market_prob": 0.301,
+            "edge": -0.118
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 19,
+            "confidence": 18,
             "label": "Skip",
             "reasoning": "moderate form; consistent placer (50% placed)"
-          }
-        },
-        {
-          "horse": "Havana Gift",
-          "country": "GB",
-          "jockey": "Rhys Elliott",
-          "trainer": "J & S Quinn",
-          "form": "4724",
-          "age": "2",
-          "weight": "9-2",
-          "draw": "6",
-          "odds_str": "4/1",
-          "odds_dec": 5.0,
-          "silk_url": "20260711ham181507.png",
-          "score": 47.8,
-          "components": {
-            "odds_value": 40.7,
-            "recent_form": 54.0,
-            "consistency": 25.0,
-            "jockey": 45.7,
-            "trainer": 41.3,
-            "weight": 100.0,
-            "absence_pen": 0.0,
-            "going_factor": 1.0,
-            "distance": 51.0,
-            "distance_meta": {
-              "n": 4,
-              "relevance": 3.99,
-              "quality": 0.51
-            },
-            "freshness": 66.2,
-            "last_ran_days": 9,
-            "timeform": 60.0,
-            "timeform_stars": 3,
-            "class_or": 100.0,
-            "official_rating": 68
-          },
-          "value": {
-            "model_prob": 0.155,
-            "market_prob": 0.174,
-            "edge": -0.019
-          },
-          "recommendation": {
-            "type": "Skip",
-            "confidence": 19,
-            "label": "Skip",
-            "reasoning": "moderate form"
           }
         },
         {
@@ -22243,9 +22158,9 @@
           "odds_str": "6/1",
           "odds_dec": 7.0,
           "silk_url": "20260711ham181506.png",
-          "score": 47.2,
+          "score": 46.4,
           "components": {
-            "odds_value": 25.9,
+            "odds_value": 20.6,
             "recent_form": 57.5,
             "consistency": 33.3,
             "jockey": 53.7,
@@ -22263,13 +22178,13 @@
             "last_ran_days": 19,
             "timeform": 80.0,
             "timeform_stars": 4,
-            "class_or": 0.0,
+            "class_or": 50.0,
             "official_rating": 67
           },
           "value": {
-            "model_prob": 0.153,
-            "market_prob": 0.124,
-            "edge": 0.029
+            "model_prob": 0.182,
+            "market_prob": 0.151,
+            "edge": 0.031
           },
           "recommendation": {
             "type": "Skip",
@@ -22290,9 +22205,9 @@
           "odds_str": "16/1",
           "odds_dec": 17.0,
           "silk_url": "20260711ham181503.png",
-          "score": 40.6,
+          "score": 40.5,
           "components": {
-            "odds_value": 4.1,
+            "odds_value": 2.0,
             "recent_form": 50.0,
             "consistency": 0,
             "jockey": 41.4,
@@ -22314,9 +22229,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.123,
-            "market_prob": 0.051,
-            "edge": 0.072
+            "model_prob": 0.148,
+            "market_prob": 0.062,
+            "edge": 0.086
           },
           "recommendation": {
             "type": "Skip",
@@ -22361,9 +22276,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.115,
-            "market_prob": 0.033,
-            "edge": 0.081
+            "model_prob": 0.139,
+            "market_prob": 0.041,
+            "edge": 0.098
           },
           "recommendation": {
             "type": "Skip",
@@ -22384,9 +22299,9 @@
           "odds_str": "16/1",
           "odds_dec": 17.0,
           "silk_url": "20260711ham181504.png",
-          "score": 38.3,
+          "score": 38.2,
           "components": {
-            "odds_value": 4.1,
+            "odds_value": 2.0,
             "recent_form": 25.0,
             "consistency": 0,
             "jockey": 46.2,
@@ -22408,15 +22323,42 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.112,
-            "market_prob": 0.051,
-            "edge": 0.06
+            "model_prob": 0.134,
+            "market_prob": 0.062,
+            "edge": 0.072
           },
           "recommendation": {
             "type": "Skip",
             "confidence": 15,
             "label": "Skip",
             "reasoning": "poor recent form"
+          }
+        },
+        {
+          "horse": "Havana Gift",
+          "country": "GB",
+          "jockey": "Rhys Elliott",
+          "trainer": "J & S Quinn",
+          "form": "4724",
+          "age": "2",
+          "weight": "9-2",
+          "draw": "6",
+          "odds_str": "4/1",
+          "odds_dec": 5.0,
+          "silk_url": "20260711ham181507.png",
+          "score": null,
+          "components": {},
+          "value": {
+            "model_prob": null,
+            "market_prob": null,
+            "edge": null
+          },
+          "non_runner": true,
+          "recommendation": {
+            "type": "Skip",
+            "confidence": 0,
+            "label": "Non-runner",
+            "reasoning": "withdrawn — will not run"
           }
         }
       ]
@@ -25226,7 +25168,7 @@
       "going": "Good",
       "race_class": "4",
       "prize": "5286.0 GBP",
-      "num_runners": 6,
+      "num_runners": 5,
       "ew_places": 2,
       "date": "2026-07-11",
       "runners": [
@@ -25242,9 +25184,9 @@
           "odds_str": "9/4",
           "odds_dec": 3.25,
           "silk_url": "20260711ham195004.png",
-          "score": 58.2,
+          "score": 56.5,
           "components": {
-            "odds_value": 57.3,
+            "odds_value": 45.9,
             "recent_form": 72.5,
             "consistency": 100.0,
             "jockey": 41.4,
@@ -25266,13 +25208,13 @@
             "official_rating": 80
           },
           "value": {
-            "model_prob": 0.235,
-            "market_prob": 0.274,
-            "edge": -0.039
+            "model_prob": 0.264,
+            "market_prob": 0.327,
+            "edge": -0.063
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 23,
+            "confidence": 22,
             "label": "Skip",
             "reasoning": "solid recent form; consistent placer (100% placed)"
           }
@@ -25289,9 +25231,9 @@
           "odds_str": "6/1",
           "odds_dec": 7.0,
           "silk_url": "20260711ham195005.png",
-          "score": 49.1,
+          "score": 48.1,
           "components": {
-            "odds_value": 20.6,
+            "odds_value": 15.3,
             "recent_form": 55.0,
             "consistency": 66.7,
             "jockey": 45.7,
@@ -25313,9 +25255,9 @@
             "official_rating": 66
           },
           "value": {
-            "model_prob": 0.182,
-            "market_prob": 0.127,
-            "edge": 0.054
+            "model_prob": 0.215,
+            "market_prob": 0.152,
+            "edge": 0.063
           },
           "recommendation": {
             "type": "Skip",
@@ -25336,9 +25278,9 @@
           "odds_str": "9/2",
           "odds_dec": 5.5,
           "silk_url": "20260711ham195003.png",
-          "score": 46.5,
+          "score": 45.2,
           "components": {
-            "odds_value": 29.3,
+            "odds_value": 22.6,
             "recent_form": 57.3,
             "consistency": 50.0,
             "jockey": 62.5,
@@ -25360,9 +25302,9 @@
             "official_rating": 72
           },
           "value": {
-            "model_prob": 0.172,
-            "market_prob": 0.162,
-            "edge": 0.01
+            "model_prob": 0.202,
+            "market_prob": 0.193,
+            "edge": 0.008
           },
           "recommendation": {
             "type": "Skip",
@@ -25383,9 +25325,9 @@
           "odds_str": "16/1",
           "odds_dec": 17.0,
           "silk_url": "20260711ham195006.png",
-          "score": 43.2,
+          "score": 42.8,
           "components": {
-            "odds_value": 2.0,
+            "odds_value": 0,
             "recent_form": 42.0,
             "consistency": 60.0,
             "jockey": 52.9,
@@ -25407,62 +25349,15 @@
             "official_rating": 75
           },
           "value": {
-            "model_prob": 0.155,
-            "market_prob": 0.052,
-            "edge": 0.103
+            "model_prob": 0.185,
+            "market_prob": 0.062,
+            "edge": 0.123
           },
           "recommendation": {
             "type": "Skip",
             "confidence": 17,
             "label": "Skip",
             "reasoning": "moderate form; consistent placer (60% placed)"
-          }
-        },
-        {
-          "horse": "Zowal",
-          "country": "GB",
-          "jockey": "D C Costello",
-          "trainer": "J & S Quinn",
-          "form": "7P0-613",
-          "age": "4",
-          "weight": "10-0",
-          "draw": "6",
-          "odds_str": "9/2",
-          "odds_dec": 5.5,
-          "silk_url": "20260711ham195002.png",
-          "score": 39.6,
-          "components": {
-            "odds_value": 29.3,
-            "recent_form": 54.7,
-            "consistency": 24.8,
-            "jockey": 54.3,
-            "trainer": 41.3,
-            "weight": 15.4,
-            "absence_pen": 0.0,
-            "going_factor": 1.0,
-            "distance": 49.4,
-            "distance_meta": {
-              "n": 5,
-              "relevance": 4.32,
-              "quality": 0.49
-            },
-            "freshness": 70.0,
-            "last_ran_days": 21,
-            "timeform": 60.0,
-            "timeform_stars": 3,
-            "class_or": 78.6,
-            "official_rating": 77
-          },
-          "value": {
-            "model_prob": 0.134,
-            "market_prob": 0.162,
-            "edge": -0.028
-          },
-          "recommendation": {
-            "type": "Skip",
-            "confidence": 15,
-            "label": "Skip",
-            "reasoning": "moderate form"
           }
         },
         {
@@ -25477,9 +25372,9 @@
           "odds_str": "3/1",
           "odds_dec": 4.0,
           "silk_url": "20260711ham195001.png",
-          "score": 37.5,
+          "score": 35.7,
           "components": {
-            "odds_value": 44.4,
+            "odds_value": 35.2,
             "recent_form": 35.3,
             "consistency": 33.3,
             "jockey": 53.7,
@@ -25501,15 +25396,42 @@
             "official_rating": 79
           },
           "value": {
-            "model_prob": 0.122,
-            "market_prob": 0.223,
-            "edge": -0.101
+            "model_prob": 0.135,
+            "market_prob": 0.266,
+            "edge": -0.131
           },
           "recommendation": {
             "type": "Skip",
             "confidence": 14,
             "label": "Skip",
             "reasoning": "moderate form; placed last time out"
+          }
+        },
+        {
+          "horse": "Zowal",
+          "country": "GB",
+          "jockey": "D C Costello",
+          "trainer": "J & S Quinn",
+          "form": "7P0-613",
+          "age": "4",
+          "weight": "10-0",
+          "draw": "6",
+          "odds_str": "9/2",
+          "odds_dec": 5.5,
+          "silk_url": "20260711ham195002.png",
+          "score": null,
+          "components": {},
+          "value": {
+            "model_prob": null,
+            "market_prob": null,
+            "edge": null
+          },
+          "non_runner": true,
+          "recommendation": {
+            "type": "Skip",
+            "confidence": 0,
+            "label": "Non-runner",
+            "reasoning": "withdrawn — will not run"
           }
         }
       ]
