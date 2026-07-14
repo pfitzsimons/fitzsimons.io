@@ -1,6 +1,6 @@
 {
   "date": "2026-07-14",
-  "generated_at": "2026-07-14T11:01:35.631673Z",
+  "generated_at": "2026-07-14T12:21:41.978184Z",
   "races": [
     {
       "id": "leicester-927642",
@@ -493,11 +493,11 @@
       "time": "14:07",
       "title": "ITBA Mares Maiden Hurdle",
       "distance": "2m 1f 165y",
-      "going": "Good (Good to Yielding in places)",
+      "going": "Good",
       "race_class": "",
       "prize": "7200.0 EUR",
-      "num_runners": 12,
-      "ew_places": 4,
+      "num_runners": 11,
+      "ew_places": 3,
       "date": "2026-07-14",
       "runners": [
         {
@@ -512,16 +512,16 @@
           "odds_str": "11/4",
           "odds_dec": 3.75,
           "silk_url": "20260714dpa140712.png",
-          "score": 60.3,
+          "score": 61.5,
           "components": {
-            "odds_value": 100,
+            "odds_value": 97.5,
             "recent_form": 62.0,
             "consistency": 50.0,
             "jockey": 40.6,
             "trainer": 50.0,
             "weight": 100.0,
             "absence_pen": 0.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 62.4,
             "distance_meta": {
               "n": 4,
@@ -536,13 +536,13 @@
             "official_rating": 104
           },
           "value": {
-            "model_prob": 0.163,
-            "market_prob": 0.2,
-            "edge": -0.038
+            "model_prob": 0.189,
+            "market_prob": 0.201,
+            "edge": -0.012
           },
           "recommendation": {
             "type": "Win",
-            "confidence": 60,
+            "confidence": 61,
             "label": "Win Bet",
             "reasoning": "solid recent form; consistent placer (50% placed); fair price for a win bet"
           }
@@ -559,16 +559,16 @@
           "odds_str": "4/1",
           "odds_dec": 5.0,
           "silk_url": "20260714dpa140701.png",
-          "score": 51.2,
+          "score": 51.6,
           "components": {
-            "odds_value": 77.8,
+            "odds_value": 70.4,
             "recent_form": 66.7,
             "consistency": 49.7,
             "jockey": 42.9,
             "trainer": 51.3,
             "weight": 0.0,
             "absence_pen": 0.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 64.6,
             "distance_meta": {
               "n": 5,
@@ -583,62 +583,15 @@
             "official_rating": 95
           },
           "value": {
-            "model_prob": 0.121,
-            "market_prob": 0.15,
-            "edge": -0.029
+            "model_prob": 0.135,
+            "market_prob": 0.151,
+            "edge": -0.016
           },
           "recommendation": {
             "type": "Skip",
             "confidence": 20,
             "label": "Skip",
             "reasoning": "solid recent form; placed last time out; consistent placer (66% placed)"
-          }
-        },
-        {
-          "horse": "Nelliestar",
-          "country": "GB",
-          "jockey": "Dylan O'Connor",
-          "trainer": "T P McGettigan",
-          "form": "",
-          "age": "6",
-          "weight": "11-7",
-          "draw": "",
-          "odds_str": "200/1",
-          "odds_dec": 201.0,
-          "silk_url": "20260714dpa140708.png",
-          "score": 50.0,
-          "components": {
-            "odds_value": 0,
-            "recent_form": 40.0,
-            "consistency": 0,
-            "jockey": 49.0,
-            "trainer": 47.6,
-            "weight": 0.0,
-            "absence_pen": 0.0,
-            "going_factor": 0.96,
-            "distance": 49.3,
-            "distance_meta": {
-              "n": 1,
-              "relevance": 0.02,
-              "quality": 0.1
-            },
-            "freshness": 57.7,
-            "last_ran_days": 67,
-            "timeform": 20.0,
-            "timeform_stars": 1,
-            "class_or": 50.0,
-            "official_rating": null
-          },
-          "value": {
-            "model_prob": 0.118,
-            "market_prob": 0.004,
-            "edge": 0.114
-          },
-          "recommendation": {
-            "type": "Skip",
-            "confidence": 20,
-            "label": "Skip",
-            "reasoning": "moderate form"
           }
         },
         {
@@ -653,16 +606,16 @@
           "odds_str": "5/1",
           "odds_dec": 6.0,
           "silk_url": "20260714dpa140703.png",
-          "score": 45.7,
+          "score": 45.9,
           "components": {
-            "odds_value": 63.0,
+            "odds_value": 56.8,
             "recent_form": 33.3,
             "consistency": 50.0,
             "jockey": 44.4,
             "trainer": 89.4,
             "weight": 0.0,
             "absence_pen": 0.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 46.8,
             "distance_meta": {
               "n": 2,
@@ -677,9 +630,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.107,
-            "market_prob": 0.125,
-            "edge": -0.018
+            "model_prob": 0.12,
+            "market_prob": 0.126,
+            "edge": -0.006
           },
           "recommendation": {
             "type": "Skip",
@@ -700,16 +653,16 @@
           "odds_str": "8/1",
           "odds_dec": 9.0,
           "silk_url": "20260714dpa140709.png",
-          "score": 41.4,
+          "score": 41.5,
           "components": {
-            "odds_value": 38.3,
+            "odds_value": 34.2,
             "recent_form": 25.0,
             "consistency": 0,
             "jockey": 52.1,
             "trainer": 60.3,
             "weight": 0.0,
             "absence_pen": 0.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 39.0,
             "distance_meta": {
               "n": 1,
@@ -724,9 +677,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.092,
-            "market_prob": 0.083,
-            "edge": 0.009
+            "model_prob": 0.103,
+            "market_prob": 0.084,
+            "edge": 0.019
           },
           "recommendation": {
             "type": "Skip",
@@ -747,7 +700,7 @@
           "odds_str": "2/1",
           "odds_dec": 3.0,
           "silk_url": "20260714dpa140702.png",
-          "score": 38.6,
+          "score": 39.5,
           "components": {
             "odds_value": 100,
             "recent_form": 35.8,
@@ -756,7 +709,7 @@
             "trainer": 54.0,
             "weight": 0.0,
             "absence_pen": 15.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 54.7,
             "distance_meta": {
               "n": 2,
@@ -771,9 +724,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.082,
-            "market_prob": 0.25,
-            "edge": -0.168
+            "model_prob": 0.095,
+            "market_prob": 0.251,
+            "edge": -0.157
           },
           "recommendation": {
             "type": "Skip",
@@ -794,16 +747,16 @@
           "odds_str": "20/1",
           "odds_dec": 21.0,
           "silk_url": "20260714dpa140711.png",
-          "score": 35.5,
+          "score": 35.6,
           "components": {
-            "odds_value": 10.1,
+            "odds_value": 8.3,
             "recent_form": 10.0,
             "consistency": 0,
             "jockey": 44.9,
             "trainer": 35.9,
             "weight": 100.0,
             "absence_pen": 0.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 25.3,
             "distance_meta": {
               "n": 2,
@@ -818,9 +771,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.07,
+            "model_prob": 0.078,
             "market_prob": 0.036,
-            "edge": 0.034
+            "edge": 0.042
           },
           "recommendation": {
             "type": "Skip",
@@ -841,16 +794,16 @@
           "odds_str": "20/1",
           "odds_dec": 21.0,
           "silk_url": "20260714dpa140704.png",
-          "score": 32.3,
+          "score": 32.9,
           "components": {
-            "odds_value": 10.1,
+            "odds_value": 8.3,
             "recent_form": 47.3,
             "consistency": 16.8,
             "jockey": 50.5,
             "trainer": 62.4,
             "weight": 0.0,
             "absence_pen": 0.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 44.2,
             "distance_meta": {
               "n": 1,
@@ -865,13 +818,13 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.061,
+            "model_prob": 0.069,
             "market_prob": 0.036,
-            "edge": 0.025
+            "edge": 0.033
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 12,
+            "confidence": 13,
             "label": "Skip",
             "reasoning": "moderate form; notable non-completion rate (33%)"
           }
@@ -888,16 +841,16 @@
           "odds_str": "10/1",
           "odds_dec": 11.0,
           "silk_url": "20260714dpa140707.png",
-          "score": 30.8,
+          "score": 31.1,
           "components": {
-            "odds_value": 29.3,
+            "odds_value": 25.9,
             "recent_form": 31.0,
             "consistency": 12.4,
             "jockey": 44.9,
             "trainer": 50.0,
             "weight": 0.0,
             "absence_pen": 0.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 37.7,
             "distance_meta": {
               "n": 5,
@@ -912,9 +865,9 @@
             "official_rating": 88
           },
           "value": {
-            "model_prob": 0.056,
+            "model_prob": 0.063,
             "market_prob": 0.068,
-            "edge": -0.012
+            "edge": -0.005
           },
           "recommendation": {
             "type": "Skip",
@@ -935,16 +888,16 @@
           "odds_str": "25/1",
           "odds_dec": 26.0,
           "silk_url": "20260714dpa140705.png",
-          "score": 28.9,
+          "score": 29.4,
           "components": {
-            "odds_value": 6.0,
+            "odds_value": 4.6,
             "recent_form": 45.3,
             "consistency": 14.0,
             "jockey": 31.1,
             "trainer": 26.1,
             "weight": 0.0,
             "absence_pen": 0.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 45.8,
             "distance_meta": {
               "n": 3,
@@ -959,9 +912,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.051,
+            "model_prob": 0.058,
             "market_prob": 0.029,
-            "edge": 0.022
+            "edge": 0.029
           },
           "recommendation": {
             "type": "Skip",
@@ -982,7 +935,7 @@
           "odds_str": "100/1",
           "odds_dec": 101.0,
           "silk_url": "20260714dpa140710.png",
-          "score": 25.3,
+          "score": 25.6,
           "components": {
             "odds_value": 0,
             "recent_form": 10.0,
@@ -991,7 +944,7 @@
             "trainer": 39.8,
             "weight": 0.0,
             "absence_pen": 0.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 21.2,
             "distance_meta": {
               "n": 3,
@@ -1006,9 +959,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.041,
+            "model_prob": 0.046,
             "market_prob": 0.007,
-            "edge": 0.033
+            "edge": 0.039
           },
           "recommendation": {
             "type": "Skip",
@@ -1038,7 +991,7 @@
             "trainer": 48.7,
             "weight": 0.0,
             "absence_pen": 15.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 50.0,
             "distance_meta": {
               "n": 0
@@ -1051,15 +1004,42 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.039,
+            "model_prob": 0.044,
             "market_prob": 0.011,
-            "edge": 0.028
+            "edge": 0.032
           },
           "recommendation": {
             "type": "Skip",
             "confidence": 6,
             "label": "Skip",
             "reasoning": "poor recent form; did not finish last time; returning from long absence; notable non-completion rate (75%)"
+          }
+        },
+        {
+          "horse": "Nelliestar",
+          "country": "GB",
+          "jockey": "Dylan O'Connor",
+          "trainer": "T P McGettigan",
+          "form": "",
+          "age": "6",
+          "weight": "11-7",
+          "draw": "",
+          "odds_str": "200/1",
+          "odds_dec": 201.0,
+          "silk_url": "20260714dpa140708.png",
+          "score": null,
+          "components": {},
+          "value": {
+            "model_prob": null,
+            "market_prob": null,
+            "edge": null
+          },
+          "non_runner": true,
+          "recommendation": {
+            "type": "Skip",
+            "confidence": 0,
+            "label": "Non-runner",
+            "reasoning": "withdrawn — will not run"
           }
         }
       ]
@@ -1810,7 +1790,7 @@
       "time": "14:37",
       "title": "Randox (C & G) Maiden Hurdle",
       "distance": "2m 1f 165y",
-      "going": "Good (Good to Yielding in places)",
+      "going": "Good",
       "race_class": "",
       "prize": "7200.0 EUR",
       "num_runners": 9,
@@ -1829,7 +1809,7 @@
           "odds_str": "11/8",
           "odds_dec": 2.38,
           "silk_url": "20260714dpa143707.png",
-          "score": 58.9,
+          "score": 60.8,
           "components": {
             "odds_value": 100,
             "recent_form": 55.7,
@@ -1838,7 +1818,7 @@
             "trainer": 30.9,
             "weight": 66.7,
             "absence_pen": 0.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 53.2,
             "distance_meta": {
               "n": 6,
@@ -1853,15 +1833,15 @@
             "official_rating": 110
           },
           "value": {
-            "model_prob": 0.193,
+            "model_prob": 0.201,
             "market_prob": 0.35,
-            "edge": -0.157
+            "edge": -0.148
           },
           "recommendation": {
-            "type": "Skip",
-            "confidence": 23,
-            "label": "Skip",
-            "reasoning": "solid recent form; consistent placer (66% placed)"
+            "type": "Win",
+            "confidence": 60,
+            "label": "Win Bet",
+            "reasoning": "solid recent form; consistent placer (66% placed); short price reflects market confidence"
           }
         },
         {
@@ -1885,7 +1865,7 @@
             "trainer": 62.4,
             "weight": 66.7,
             "absence_pen": 0.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 50.0,
             "distance_meta": {
               "n": 0
@@ -1898,9 +1878,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.147,
+            "model_prob": 0.143,
             "market_prob": 0.049,
-            "edge": 0.098
+            "edge": 0.094
           },
           "recommendation": {
             "type": "Skip",
@@ -1921,7 +1901,7 @@
           "odds_str": "8/1",
           "odds_dec": 9.0,
           "silk_url": "20260714dpa143708.png",
-          "score": 42.6,
+          "score": 42.9,
           "components": {
             "odds_value": 25.9,
             "recent_form": 10.0,
@@ -1930,7 +1910,7 @@
             "trainer": 54.0,
             "weight": 100.0,
             "absence_pen": 0.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 24.4,
             "distance_meta": {
               "n": 2,
@@ -1945,9 +1925,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.121,
+            "model_prob": 0.119,
             "market_prob": 0.092,
-            "edge": 0.029
+            "edge": 0.026
           },
           "recommendation": {
             "type": "Skip",
@@ -1968,7 +1948,7 @@
           "odds_str": "33/1",
           "odds_dec": 34.0,
           "silk_url": "20260714dpa143709.png",
-          "score": 39.7,
+          "score": 39.9,
           "components": {
             "odds_value": 0,
             "recent_form": 10.0,
@@ -1977,7 +1957,7 @@
             "trainer": 50.0,
             "weight": 100.0,
             "absence_pen": 0.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 32.4,
             "distance_meta": {
               "n": 1,
@@ -1992,9 +1972,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.108,
+            "model_prob": 0.105,
             "market_prob": 0.024,
-            "edge": 0.083
+            "edge": 0.081
           },
           "recommendation": {
             "type": "Skip",
@@ -2015,7 +1995,7 @@
           "odds_str": "12/1",
           "odds_dec": 13.0,
           "silk_url": "20260714dpa143704.png",
-          "score": 39.2,
+          "score": 39.4,
           "components": {
             "odds_value": 14.5,
             "recent_form": 0.0,
@@ -2024,7 +2004,7 @@
             "trainer": 54.0,
             "weight": 66.7,
             "absence_pen": 0.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 50.0,
             "distance_meta": {
               "n": 0
@@ -2037,9 +2017,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.105,
+            "model_prob": 0.103,
             "market_prob": 0.064,
-            "edge": 0.041
+            "edge": 0.039
           },
           "recommendation": {
             "type": "Skip",
@@ -2060,7 +2040,7 @@
           "odds_str": "16/1",
           "odds_dec": 17.0,
           "silk_url": "20260714dpa143705.png",
-          "score": 37.1,
+          "score": 37.8,
           "components": {
             "odds_value": 8.5,
             "recent_form": 35.0,
@@ -2069,7 +2049,7 @@
             "trainer": 26.1,
             "weight": 66.7,
             "absence_pen": 0.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 30.5,
             "distance_meta": {
               "n": 1,
@@ -2084,13 +2064,13 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.095,
+            "model_prob": 0.096,
             "market_prob": 0.049,
-            "edge": 0.046
+            "edge": 0.047
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 14,
+            "confidence": 15,
             "label": "Skip",
             "reasoning": "moderate form"
           }
@@ -2107,7 +2087,7 @@
           "odds_str": "9/2",
           "odds_dec": 5.5,
           "silk_url": "20260714dpa143701.png",
-          "score": 35.3,
+          "score": 36.5,
           "components": {
             "odds_value": 49.5,
             "recent_form": 37.3,
@@ -2116,7 +2096,7 @@
             "trainer": 39.8,
             "weight": 0.0,
             "absence_pen": 0.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 37.6,
             "distance_meta": {
               "n": 6,
@@ -2131,9 +2111,9 @@
             "official_rating": 101
           },
           "value": {
-            "model_prob": 0.087,
+            "model_prob": 0.089,
             "market_prob": 0.151,
-            "edge": -0.064
+            "edge": -0.062
           },
           "recommendation": {
             "type": "Skip",
@@ -2154,7 +2134,7 @@
           "odds_str": "11/2",
           "odds_dec": 6.5,
           "silk_url": "20260714dpa143706.png",
-          "score": 31.4,
+          "score": 32.1,
           "components": {
             "odds_value": 40.2,
             "recent_form": 40.0,
@@ -2163,7 +2143,7 @@
             "trainer": 57.8,
             "weight": 66.7,
             "absence_pen": 15.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 41.6,
             "distance_meta": {
               "n": 6,
@@ -2201,7 +2181,7 @@
           "odds_str": "8/1",
           "odds_dec": 9.0,
           "silk_url": "20260714dpa143702.png",
-          "score": 30.9,
+          "score": 31.6,
           "components": {
             "odds_value": 25.9,
             "recent_form": 23.3,
@@ -2210,7 +2190,7 @@
             "trainer": 50.0,
             "weight": 33.3,
             "absence_pen": 0.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 33.7,
             "distance_meta": {
               "n": 5,
@@ -2227,7 +2207,7 @@
           "value": {
             "model_prob": 0.071,
             "market_prob": 0.092,
-            "edge": -0.022
+            "edge": -0.021
           },
           "recommendation": {
             "type": "Skip",
@@ -3182,7 +3162,7 @@
       "time": "15:07",
       "title": "Join Racing TV Now With A Free Trial Handicap Hurdle (0-100)",
       "distance": "2m 1f 165y",
-      "going": "Good (Good to Yielding in places)",
+      "going": "Good",
       "race_class": "",
       "prize": "6000.0 EUR",
       "num_runners": 15,
@@ -3201,7 +3181,7 @@
           "odds_str": "3/1",
           "odds_dec": 4.0,
           "silk_url": "20260714dpa150701.png",
-          "score": 53.8,
+          "score": 55.7,
           "components": {
             "odds_value": 100,
             "recent_form": 64.0,
@@ -3210,7 +3190,7 @@
             "trainer": 35.9,
             "weight": 0.0,
             "absence_pen": 0.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 59.0,
             "distance_meta": {
               "n": 6,
@@ -3225,13 +3205,13 @@
             "official_rating": 100
           },
           "value": {
-            "model_prob": 0.125,
+            "model_prob": 0.127,
             "market_prob": 0.181,
-            "edge": -0.057
+            "edge": -0.054
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 21,
+            "confidence": 22,
             "label": "Skip",
             "reasoning": "solid recent form; consistent placer (50% placed)"
           }
@@ -3248,7 +3228,7 @@
           "odds_str": "7/2",
           "odds_dec": 4.5,
           "silk_url": "20260714dpa150702.png",
-          "score": 44.5,
+          "score": 46.0,
           "components": {
             "odds_value": 100,
             "recent_form": 32.3,
@@ -3257,7 +3237,7 @@
             "trainer": 47.6,
             "weight": 13.0,
             "absence_pen": 0.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 38.1,
             "distance_meta": {
               "n": 4,
@@ -3278,7 +3258,7 @@
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 17,
+            "confidence": 18,
             "label": "Skip",
             "reasoning": "poor recent form; placed last time out; notable non-completion rate (33%)"
           }
@@ -3295,7 +3275,7 @@
           "odds_str": "7/1",
           "odds_dec": 8.0,
           "silk_url": "20260714dpa150709.png",
-          "score": 44.0,
+          "score": 45.1,
           "components": {
             "odds_value": 58.3,
             "recent_form": 38.0,
@@ -3304,7 +3284,7 @@
             "trainer": 39.8,
             "weight": 78.3,
             "absence_pen": 0.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 40.1,
             "distance_meta": {
               "n": 5,
@@ -3321,11 +3301,11 @@
           "value": {
             "model_prob": 0.1,
             "market_prob": 0.091,
-            "edge": 0.009
+            "edge": 0.01
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 17,
+            "confidence": 18,
             "label": "Skip",
             "reasoning": "moderate form"
           }
@@ -3342,7 +3322,7 @@
           "odds_str": "6/1",
           "odds_dec": 7.0,
           "silk_url": "20260714dpa150706.png",
-          "score": 40.0,
+          "score": 41.1,
           "components": {
             "odds_value": 68.3,
             "recent_form": 20.0,
@@ -3351,7 +3331,7 @@
             "trainer": 54.0,
             "weight": 52.2,
             "absence_pen": 0.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 23.2,
             "distance_meta": {
               "n": 5,
@@ -3366,9 +3346,9 @@
             "official_rating": 88
           },
           "value": {
-            "model_prob": 0.085,
+            "model_prob": 0.086,
             "market_prob": 0.104,
-            "edge": -0.018
+            "edge": -0.017
           },
           "recommendation": {
             "type": "Skip",
@@ -3389,7 +3369,7 @@
           "odds_str": "10/1",
           "odds_dec": 11.0,
           "silk_url": "20260714dpa150710.png",
-          "score": 38.2,
+          "score": 39.2,
           "components": {
             "odds_value": 39.4,
             "recent_form": 36.7,
@@ -3398,7 +3378,7 @@
             "trainer": 50.0,
             "weight": 78.3,
             "absence_pen": 0.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 30.0,
             "distance_meta": {
               "n": 5,
@@ -3413,9 +3393,9 @@
             "official_rating": 82
           },
           "value": {
-            "model_prob": 0.079,
+            "model_prob": 0.08,
             "market_prob": 0.066,
-            "edge": 0.013
+            "edge": 0.014
           },
           "recommendation": {
             "type": "Skip",
@@ -3436,7 +3416,7 @@
           "odds_str": "14/1",
           "odds_dec": 15.0,
           "silk_url": "20260714dpa150708.png",
-          "score": 35.1,
+          "score": 35.7,
           "components": {
             "odds_value": 25.9,
             "recent_form": 15.0,
@@ -3445,7 +3425,7 @@
             "trainer": 62.4,
             "weight": 65.2,
             "absence_pen": 0.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 25.0,
             "distance_meta": {
               "n": 3,
@@ -3483,7 +3463,7 @@
           "odds_str": "16/1",
           "odds_dec": 17.0,
           "silk_url": "20260714dpa150715.png",
-          "score": 32.3,
+          "score": 33.0,
           "components": {
             "odds_value": 21.6,
             "recent_form": 11.9,
@@ -3492,7 +3472,7 @@
             "trainer": 50.0,
             "weight": 100.0,
             "absence_pen": 0.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 40.8,
             "distance_meta": {
               "n": 4,
@@ -3507,13 +3487,13 @@
             "official_rating": 77
           },
           "value": {
-            "model_prob": 0.06,
+            "model_prob": 0.059,
             "market_prob": 0.043,
             "edge": 0.017
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 12,
+            "confidence": 13,
             "label": "Skip",
             "reasoning": "poor recent form; did not finish last time; notable non-completion rate (33%)"
           }
@@ -3530,7 +3510,7 @@
           "odds_str": "16/1",
           "odds_dec": 17.0,
           "silk_url": "20260714dpa150712.png",
-          "score": 31.7,
+          "score": 32.4,
           "components": {
             "odds_value": 21.6,
             "recent_form": 9.3,
@@ -3539,7 +3519,7 @@
             "trainer": 61.7,
             "weight": 87.0,
             "absence_pen": 0.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 48.0,
             "distance_meta": {
               "n": 4,
@@ -3577,7 +3557,7 @@
           "odds_str": "14/1",
           "odds_dec": 15.0,
           "silk_url": "20260714dpa150703.png",
-          "score": 31.0,
+          "score": 31.9,
           "components": {
             "odds_value": 25.9,
             "recent_form": 36.0,
@@ -3586,7 +3566,7 @@
             "trainer": 26.1,
             "weight": 17.4,
             "absence_pen": 0.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 46.0,
             "distance_meta": {
               "n": 4,
@@ -3603,7 +3583,7 @@
           "value": {
             "model_prob": 0.056,
             "market_prob": 0.048,
-            "edge": 0.007
+            "edge": 0.008
           },
           "recommendation": {
             "type": "Skip",
@@ -3624,7 +3604,7 @@
           "odds_str": "16/1",
           "odds_dec": 17.0,
           "silk_url": "20260714dpa150713.png",
-          "score": 29.5,
+          "score": 30.1,
           "components": {
             "odds_value": 21.6,
             "recent_form": 7.3,
@@ -3633,7 +3613,7 @@
             "trainer": 48.7,
             "weight": 87.0,
             "absence_pen": 0.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 28.0,
             "distance_meta": {
               "n": 4,
@@ -3654,7 +3634,7 @@
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 11,
+            "confidence": 12,
             "label": "Skip",
             "reasoning": "poor recent form; notable non-completion rate (33%)"
           }
@@ -3671,7 +3651,7 @@
           "odds_str": "14/1",
           "odds_dec": 15.0,
           "silk_url": "20260714dpa150707.png",
-          "score": 29.5,
+          "score": 29.7,
           "components": {
             "odds_value": 25.9,
             "recent_form": 15.0,
@@ -3680,7 +3660,7 @@
             "trainer": 49.0,
             "weight": 56.5,
             "absence_pen": 15.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 54.5,
             "distance_meta": {
               "n": 6,
@@ -3695,9 +3675,9 @@
             "official_rating": 87
           },
           "value": {
-            "model_prob": 0.052,
+            "model_prob": 0.05,
             "market_prob": 0.048,
-            "edge": 0.003
+            "edge": 0.002
           },
           "recommendation": {
             "type": "Skip",
@@ -3718,7 +3698,7 @@
           "odds_str": "14/1",
           "odds_dec": 15.0,
           "silk_url": "20260714dpa150704.png",
-          "score": 28.6,
+          "score": 29.4,
           "components": {
             "odds_value": 25.9,
             "recent_form": 22.3,
@@ -3727,7 +3707,7 @@
             "trainer": 50.0,
             "weight": 26.1,
             "absence_pen": 0.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 26.3,
             "distance_meta": {
               "n": 5,
@@ -3742,7 +3722,7 @@
             "official_rating": 94
           },
           "value": {
-            "model_prob": 0.049,
+            "model_prob": 0.05,
             "market_prob": 0.048,
             "edge": 0.001
           },
@@ -3774,7 +3754,7 @@
             "trainer": 59.5,
             "weight": 100.0,
             "absence_pen": 15.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 25.1,
             "distance_meta": {
               "n": 5,
@@ -3789,9 +3769,9 @@
             "official_rating": 77
           },
           "value": {
-            "model_prob": 0.039,
+            "model_prob": 0.038,
             "market_prob": 0.028,
-            "edge": 0.011
+            "edge": 0.01
           },
           "recommendation": {
             "type": "Skip",
@@ -3812,7 +3792,7 @@
           "odds_str": "20/1",
           "odds_dec": 21.0,
           "silk_url": "20260714dpa150711.png",
-          "score": 22.7,
+          "score": 22.9,
           "components": {
             "odds_value": 15.3,
             "recent_form": 17.0,
@@ -3821,7 +3801,7 @@
             "trainer": 50.0,
             "weight": 82.6,
             "absence_pen": 15.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 29.9,
             "distance_meta": {
               "n": 5,
@@ -3836,9 +3816,9 @@
             "official_rating": 81
           },
           "value": {
-            "model_prob": 0.039,
+            "model_prob": 0.038,
             "market_prob": 0.035,
-            "edge": 0.004
+            "edge": 0.003
           },
           "recommendation": {
             "type": "Skip",
@@ -3868,7 +3848,7 @@
             "trainer": 46.9,
             "weight": 30.4,
             "absence_pen": 15.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 22.7,
             "distance_meta": {
               "n": 5,
@@ -3883,9 +3863,9 @@
             "official_rating": 93
           },
           "value": {
-            "model_prob": 0.039,
+            "model_prob": 0.037,
             "market_prob": 0.014,
-            "edge": 0.025
+            "edge": 0.023
           },
           "recommendation": {
             "type": "Skip",
@@ -4823,7 +4803,7 @@
       "time": "15:37",
       "title": "Plus 2 Print Remembering Tony Oakes MBE Maiden Hurdle",
       "distance": "2m 5f 185y",
-      "going": "Good (Good to Yielding in places)",
+      "going": "Good",
       "race_class": "",
       "prize": "7200.0 EUR",
       "num_runners": 12,
@@ -4842,7 +4822,7 @@
           "odds_str": "5/4",
           "odds_dec": 2.25,
           "silk_url": "20260714dpa153705.png",
-          "score": 56.5,
+          "score": 58.5,
           "components": {
             "odds_value": 100,
             "recent_form": 56.7,
@@ -4851,7 +4831,7 @@
             "trainer": 54.0,
             "weight": 0.0,
             "absence_pen": 0.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 60.2,
             "distance_meta": {
               "n": 6,
@@ -4866,13 +4846,13 @@
             "official_rating": 117
           },
           "value": {
-            "model_prob": 0.152,
+            "model_prob": 0.162,
             "market_prob": 0.35,
-            "edge": -0.197
+            "edge": -0.188
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 22,
+            "confidence": 23,
             "label": "Skip",
             "reasoning": "solid recent form; consistent placer (66% placed)"
           }
@@ -4898,7 +4878,7 @@
             "trainer": 60.3,
             "weight": 0.0,
             "absence_pen": 0.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 44.7,
             "distance_meta": {
               "n": 5,
@@ -4913,9 +4893,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.129,
+            "model_prob": 0.126,
             "market_prob": 0.331,
-            "edge": -0.201
+            "edge": -0.205
           },
           "recommendation": {
             "type": "Skip",
@@ -4945,7 +4925,7 @@
             "trainer": 47.6,
             "weight": 58.3,
             "absence_pen": 0.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 50.0,
             "distance_meta": {
               "n": 0
@@ -4958,9 +4938,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.129,
+            "model_prob": 0.126,
             "market_prob": 0.023,
-            "edge": 0.106
+            "edge": 0.103
           },
           "recommendation": {
             "type": "Skip",
@@ -4990,7 +4970,7 @@
             "trainer": 43.5,
             "weight": 100.0,
             "absence_pen": 0.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 50.0,
             "distance_meta": {
               "n": 0
@@ -5003,9 +4983,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.129,
+            "model_prob": 0.126,
             "market_prob": 0.012,
-            "edge": 0.117
+            "edge": 0.114
           },
           "recommendation": {
             "type": "Skip",
@@ -5026,7 +5006,7 @@
           "odds_str": "8/1",
           "odds_dec": 9.0,
           "silk_url": "20260714dpa153703.png",
-          "score": 35.6,
+          "score": 36.4,
           "components": {
             "odds_value": 38.3,
             "recent_form": 26.7,
@@ -5035,7 +5015,7 @@
             "trainer": 47.6,
             "weight": 0.0,
             "absence_pen": 0.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 46.7,
             "distance_meta": {
               "n": 2,
@@ -5050,9 +5030,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.077,
+            "model_prob": 0.078,
             "market_prob": 0.087,
-            "edge": -0.01
+            "edge": -0.009
           },
           "recommendation": {
             "type": "Skip",
@@ -5073,7 +5053,7 @@
           "odds_str": "66/1",
           "odds_dec": 67.0,
           "silk_url": "20260714dpa153709.png",
-          "score": 32.7,
+          "score": 33.0,
           "components": {
             "odds_value": 0,
             "recent_form": 15.0,
@@ -5082,7 +5062,7 @@
             "trainer": 30.5,
             "weight": 58.3,
             "absence_pen": 0.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 31.8,
             "distance_meta": {
               "n": 1,
@@ -5097,9 +5077,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.068,
+            "model_prob": 0.067,
             "market_prob": 0.012,
-            "edge": 0.056
+            "edge": 0.055
           },
           "recommendation": {
             "type": "Skip",
@@ -5120,7 +5100,7 @@
           "odds_str": "14/1",
           "odds_dec": 15.0,
           "silk_url": "20260714dpa153707.png",
-          "score": 30.5,
+          "score": 31.2,
           "components": {
             "odds_value": 18.5,
             "recent_form": 15.3,
@@ -5129,7 +5109,7 @@
             "trainer": 62.4,
             "weight": 58.3,
             "absence_pen": 0.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 27.8,
             "distance_meta": {
               "n": 4,
@@ -5146,7 +5126,7 @@
           "value": {
             "model_prob": 0.061,
             "market_prob": 0.052,
-            "edge": 0.008
+            "edge": 0.009
           },
           "recommendation": {
             "type": "Skip",
@@ -5167,7 +5147,7 @@
           "odds_str": "25/1",
           "odds_dec": 26.0,
           "silk_url": "20260714dpa153711.png",
-          "score": 29.9,
+          "score": 30.4,
           "components": {
             "odds_value": 6.0,
             "recent_form": 16.0,
@@ -5176,7 +5156,7 @@
             "trainer": 62.4,
             "weight": 58.3,
             "absence_pen": 0.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 45.4,
             "distance_meta": {
               "n": 1,
@@ -5197,7 +5177,7 @@
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 11,
+            "confidence": 12,
             "label": "Skip",
             "reasoning": "poor recent form; notable non-completion rate (75%)"
           }
@@ -5214,7 +5194,7 @@
           "odds_str": "66/1",
           "odds_dec": 67.0,
           "silk_url": "20260714dpa153701.png",
-          "score": 29.8,
+          "score": 30.1,
           "components": {
             "odds_value": 0,
             "recent_form": 9.3,
@@ -5223,7 +5203,7 @@
             "trainer": 47.6,
             "weight": 0.0,
             "absence_pen": 0.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 50.0,
             "distance_meta": {
               "n": 0
@@ -5236,13 +5216,13 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.059,
+            "model_prob": 0.058,
             "market_prob": 0.012,
-            "edge": 0.047
+            "edge": 0.046
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 11,
+            "confidence": 12,
             "label": "Skip",
             "reasoning": "poor recent form; did not finish last time; notable non-completion rate (50%)"
           }
@@ -5259,7 +5239,7 @@
           "odds_str": "66/1",
           "odds_dec": 67.0,
           "silk_url": "20260714dpa153706.png",
-          "score": 26.3,
+          "score": 26.8,
           "components": {
             "odds_value": 0,
             "recent_form": 24.5,
@@ -5268,7 +5248,7 @@
             "trainer": 43.5,
             "weight": 0.0,
             "absence_pen": 0.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 50.0,
             "distance_meta": {
               "n": 0
@@ -5304,7 +5284,7 @@
           "odds_str": "10/1",
           "odds_dec": 11.0,
           "silk_url": "20260714dpa153704.png",
-          "score": 25.2,
+          "score": 25.9,
           "components": {
             "odds_value": 29.3,
             "recent_form": 16.8,
@@ -5313,7 +5293,7 @@
             "trainer": 38.5,
             "weight": 0.0,
             "absence_pen": 0.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 44.4,
             "distance_meta": {
               "n": 4,
@@ -5328,9 +5308,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.044,
+            "model_prob": 0.045,
             "market_prob": 0.072,
-            "edge": -0.027
+            "edge": -0.026
           },
           "recommendation": {
             "type": "Skip",
@@ -5351,7 +5331,7 @@
           "odds_str": "100/1",
           "odds_dec": 101.0,
           "silk_url": "20260714dpa153708.png",
-          "score": 25.2,
+          "score": 25.7,
           "components": {
             "odds_value": 0,
             "recent_form": 13.3,
@@ -5360,7 +5340,7 @@
             "trainer": 45.5,
             "weight": 58.3,
             "absence_pen": 0.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 39.3,
             "distance_meta": {
               "n": 4,
@@ -5375,7 +5355,7 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.044,
+            "model_prob": 0.045,
             "market_prob": 0.008,
             "edge": 0.037
           },
@@ -6567,60 +6547,13 @@
       "time": "16:12",
       "title": "Go fibrefast With Fibrus Broadband Rated Novice Hurdle",
       "distance": "2m 5f 185y",
-      "going": "Good (Good to Yielding in places)",
+      "going": "Good",
       "race_class": "",
       "prize": "9000.0 EUR",
       "num_runners": 6,
       "ew_places": 2,
       "date": "2026-07-14",
       "runners": [
-        {
-          "horse": "Surfin Usa",
-          "country": "GB",
-          "jockey": "Brian Hayes",
-          "trainer": "W P Mullins",
-          "form": "2/7-1",
-          "age": "6",
-          "weight": "11-3",
-          "draw": "",
-          "odds_str": "7/4",
-          "odds_dec": 2.75,
-          "silk_url": "20260714dpa161203.png",
-          "score": 49.1,
-          "components": {
-            "odds_value": 69.7,
-            "recent_form": 86.2,
-            "consistency": 50.0,
-            "jockey": 38.5,
-            "trainer": 60.3,
-            "weight": 69.2,
-            "absence_pen": 15.0,
-            "going_factor": 0.96,
-            "distance": 69.6,
-            "distance_meta": {
-              "n": 3,
-              "relevance": 1.9,
-              "quality": 0.8
-            },
-            "freshness": 70.0,
-            "last_ran_days": 30,
-            "timeform": 80.0,
-            "timeform_stars": 4,
-            "class_or": 76.3,
-            "official_rating": 109
-          },
-          "value": {
-            "model_prob": 0.204,
-            "market_prob": 0.313,
-            "edge": -0.109
-          },
-          "recommendation": {
-            "type": "Skip",
-            "confidence": 19,
-            "label": "Skip",
-            "reasoning": "strong recent form; won last time out; consistent placer (50% placed); returning from long absence"
-          }
-        },
         {
           "horse": "Lemmy Caution",
           "country": "GB",
@@ -6633,7 +6566,7 @@
           "odds_str": "10/3",
           "odds_dec": 4.33,
           "silk_url": "20260714dpa161202.png",
-          "score": 48.5,
+          "score": 50.1,
           "components": {
             "odds_value": 40.2,
             "recent_form": 66.3,
@@ -6642,7 +6575,7 @@
             "trainer": 54.0,
             "weight": 23.1,
             "absence_pen": 0.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 60.1,
             "distance_meta": {
               "n": 6,
@@ -6663,9 +6596,56 @@
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 19,
+            "confidence": 20,
             "label": "Skip",
             "reasoning": "solid recent form; consistent placer (66% placed)"
+          }
+        },
+        {
+          "horse": "Surfin Usa",
+          "country": "GB",
+          "jockey": "Brian Hayes",
+          "trainer": "W P Mullins",
+          "form": "2/7-1",
+          "age": "6",
+          "weight": "11-3",
+          "draw": "",
+          "odds_str": "7/4",
+          "odds_dec": 2.75,
+          "silk_url": "20260714dpa161203.png",
+          "score": 50.1,
+          "components": {
+            "odds_value": 69.7,
+            "recent_form": 86.2,
+            "consistency": 50.0,
+            "jockey": 38.5,
+            "trainer": 60.3,
+            "weight": 69.2,
+            "absence_pen": 15.0,
+            "going_factor": 1.0,
+            "distance": 69.6,
+            "distance_meta": {
+              "n": 3,
+              "relevance": 1.9,
+              "quality": 0.8
+            },
+            "freshness": 70.0,
+            "last_ran_days": 30,
+            "timeform": 80.0,
+            "timeform_stars": 4,
+            "class_or": 76.3,
+            "official_rating": 109
+          },
+          "value": {
+            "model_prob": 0.202,
+            "market_prob": 0.313,
+            "edge": -0.112
+          },
+          "recommendation": {
+            "type": "Skip",
+            "confidence": 20,
+            "label": "Skip",
+            "reasoning": "strong recent form; won last time out; consistent placer (50% placed); returning from long absence"
           }
         },
         {
@@ -6680,7 +6660,7 @@
           "odds_str": "15/2",
           "odds_dec": 8.5,
           "silk_url": "20260714dpa161205.png",
-          "score": 46.7,
+          "score": 47.9,
           "components": {
             "odds_value": 15.0,
             "recent_form": 63.0,
@@ -6689,7 +6669,7 @@
             "trainer": 45.5,
             "weight": 100.0,
             "absence_pen": 0.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 53.0,
             "distance_meta": {
               "n": 6,
@@ -6704,13 +6684,13 @@
             "official_rating": 98
           },
           "value": {
-            "model_prob": 0.194,
+            "model_prob": 0.193,
             "market_prob": 0.101,
-            "edge": 0.093
+            "edge": 0.092
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 18,
+            "confidence": 19,
             "label": "Skip",
             "reasoning": "solid recent form; placed last time out; consistent placer (50% placed)"
           }
@@ -6727,7 +6707,7 @@
           "odds_str": "5/2",
           "odds_dec": 3.5,
           "silk_url": "20260714dpa161201.png",
-          "score": 43.9,
+          "score": 45.4,
           "components": {
             "odds_value": 52.4,
             "recent_form": 46.7,
@@ -6736,7 +6716,7 @@
             "trainer": 54.0,
             "weight": 0.0,
             "absence_pen": 0.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 48.0,
             "distance_meta": {
               "n": 6,
@@ -6751,13 +6731,13 @@
             "official_rating": 118
           },
           "value": {
-            "model_prob": 0.18,
+            "model_prob": 0.182,
             "market_prob": 0.246,
-            "edge": -0.066
+            "edge": -0.064
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 17,
+            "confidence": 18,
             "label": "Skip",
             "reasoning": "moderate form; consistent placer (50% placed)"
           }
@@ -6774,7 +6754,7 @@
           "odds_str": "13/2",
           "odds_dec": 7.5,
           "silk_url": "20260714dpa161204.png",
-          "score": 38.5,
+          "score": 39.4,
           "components": {
             "odds_value": 18.5,
             "recent_form": 42.0,
@@ -6783,7 +6763,7 @@
             "trainer": 41.1,
             "weight": 100.0,
             "absence_pen": 0.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 41.7,
             "distance_meta": {
               "n": 6,
@@ -6798,9 +6778,9 @@
             "official_rating": 102
           },
           "value": {
-            "model_prob": 0.144,
+            "model_prob": 0.145,
             "market_prob": 0.115,
-            "edge": 0.029
+            "edge": 0.03
           },
           "recommendation": {
             "type": "Skip",
@@ -6821,7 +6801,7 @@
           "odds_str": "33/1",
           "odds_dec": 34.0,
           "silk_url": "20260714dpa161206.png",
-          "score": 26.1,
+          "score": 26.6,
           "components": {
             "odds_value": 0,
             "recent_form": 4.9,
@@ -6830,7 +6810,7 @@
             "trainer": 62.3,
             "weight": 100.0,
             "absence_pen": 0.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 35.6,
             "distance_meta": {
               "n": 3,
@@ -7379,8 +7359,8 @@
       "going": "Good to Firm",
       "race_class": "5",
       "prize": "4711.0 GBP",
-      "num_runners": 5,
-      "ew_places": 2,
+      "num_runners": 4,
+      "ew_places": 1,
       "date": "2026-07-14",
       "runners": [
         {
@@ -7395,14 +7375,14 @@
           "odds_str": "6/4",
           "odds_dec": 2.5,
           "silk_url": "20260714les163003.png",
-          "score": 57.8,
+          "score": 53.3,
           "components": {
-            "odds_value": 63.0,
+            "odds_value": 48.1,
             "recent_form": 68.7,
             "consistency": 50.0,
             "jockey": 37.4,
             "trainer": 51.5,
-            "weight": 71.4,
+            "weight": 50.0,
             "absence_pen": 0.0,
             "going_factor": 1.05,
             "distance": 58.4,
@@ -7419,13 +7399,13 @@
             "official_rating": 66
           },
           "value": {
-            "model_prob": 0.267,
-            "market_prob": 0.358,
-            "edge": -0.091
+            "model_prob": 0.305,
+            "market_prob": 0.411,
+            "edge": -0.106
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 23,
+            "confidence": 21,
             "label": "Skip",
             "reasoning": "solid recent form; won last time out; consistent placer (50% placed)"
           }
@@ -7442,14 +7422,14 @@
           "odds_str": "11/8",
           "odds_dec": 2.38,
           "silk_url": "20260714les163002.png",
-          "score": 53.5,
+          "score": 47.2,
           "components": {
-            "odds_value": 66.7,
+            "odds_value": 51.1,
             "recent_form": 50.3,
             "consistency": 66.7,
             "jockey": 44.1,
             "trainer": 34.9,
-            "weight": 42.9,
+            "weight": 0.0,
             "absence_pen": 0.0,
             "going_factor": 1.05,
             "distance": 51.1,
@@ -7466,13 +7446,13 @@
             "official_rating": 70
           },
           "value": {
-            "model_prob": 0.228,
-            "market_prob": 0.376,
-            "edge": -0.148
+            "model_prob": 0.269,
+            "market_prob": 0.431,
+            "edge": -0.162
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 21,
+            "confidence": 18,
             "label": "Skip",
             "reasoning": "moderate form; placed last time out; consistent placer (66% placed)"
           }
@@ -7489,9 +7469,9 @@
           "odds_str": "12/1",
           "odds_dec": 13.0,
           "silk_url": "20260714les163005.png",
-          "score": 43.6,
+          "score": 43.0,
           "components": {
-            "odds_value": 3.1,
+            "odds_value": 0.3,
             "recent_form": 37.3,
             "consistency": 66.7,
             "jockey": 52.9,
@@ -7513,62 +7493,15 @@
             "official_rating": 62
           },
           "value": {
-            "model_prob": 0.182,
-            "market_prob": 0.069,
-            "edge": 0.113
+            "model_prob": 0.238,
+            "market_prob": 0.079,
+            "edge": 0.159
           },
           "recommendation": {
             "type": "Skip",
             "confidence": 17,
             "label": "Skip",
             "reasoning": "moderate form; consistent placer (66% placed)"
-          }
-        },
-        {
-          "horse": "Imola",
-          "country": "GB",
-          "jockey": "Lewis Edmunds",
-          "trainer": "Joey Ramsden",
-          "form": "421146",
-          "age": "5",
-          "weight": "10-1",
-          "draw": "2",
-          "odds_str": "6/1",
-          "odds_dec": 7.0,
-          "silk_url": "20260714les163001.png",
-          "score": 41.8,
-          "components": {
-            "odds_value": 15.3,
-            "recent_form": 60.3,
-            "consistency": 50.0,
-            "jockey": 50.3,
-            "trainer": 50.5,
-            "weight": 0.0,
-            "absence_pen": 0.0,
-            "going_factor": 1.05,
-            "distance": 65.7,
-            "distance_meta": {
-              "n": 6,
-              "relevance": 4.21,
-              "quality": 0.69
-            },
-            "freshness": 65.0,
-            "last_ran_days": 8,
-            "timeform": 60.0,
-            "timeform_stars": 3,
-            "class_or": 50.0,
-            "official_rating": 66
-          },
-          "value": {
-            "model_prob": 0.17,
-            "market_prob": 0.128,
-            "edge": 0.042
-          },
-          "recommendation": {
-            "type": "Skip",
-            "confidence": 16,
-            "label": "Skip",
-            "reasoning": "solid recent form; consistent placer (50% placed)"
           }
         },
         {
@@ -7583,14 +7516,14 @@
           "odds_str": "12/1",
           "odds_dec": 13.0,
           "silk_url": "20260714les163004.png",
-          "score": 39.4,
+          "score": 37.5,
           "components": {
-            "odds_value": 3.1,
+            "odds_value": 0.3,
             "recent_form": 47.5,
             "consistency": 0,
             "jockey": 58.8,
             "trainer": 79.6,
-            "weight": 71.4,
+            "weight": 50.0,
             "absence_pen": 0.0,
             "going_factor": 1.05,
             "distance": 47.2,
@@ -7607,15 +7540,42 @@
             "official_rating": 66
           },
           "value": {
-            "model_prob": 0.153,
-            "market_prob": 0.069,
-            "edge": 0.084
+            "model_prob": 0.188,
+            "market_prob": 0.079,
+            "edge": 0.109
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 15,
+            "confidence": 14,
             "label": "Skip",
             "reasoning": "moderate form"
+          }
+        },
+        {
+          "horse": "Imola",
+          "country": "GB",
+          "jockey": "Lewis Edmunds",
+          "trainer": "Joey Ramsden",
+          "form": "421146",
+          "age": "5",
+          "weight": "10-1",
+          "draw": "2",
+          "odds_str": "6/1",
+          "odds_dec": 7.0,
+          "silk_url": "20260714les163001.png",
+          "score": null,
+          "components": {},
+          "value": {
+            "model_prob": null,
+            "market_prob": null,
+            "edge": null
+          },
+          "non_runner": true,
+          "recommendation": {
+            "type": "Skip",
+            "confidence": 0,
+            "label": "Non-runner",
+            "reasoning": "withdrawn — will not run"
           }
         }
       ]
@@ -8064,7 +8024,7 @@
       "time": "16:47",
       "title": "Tote Guarantee, Never Beaten By SP Handicap Hurdle",
       "distance": "2m 5f 185y",
-      "going": "Good (Good to Yielding in places)",
+      "going": "Good",
       "race_class": "",
       "prize": "7200.0 EUR",
       "num_runners": 13,
@@ -8083,7 +8043,7 @@
           "odds_str": "5/1",
           "odds_dec": 6.0,
           "silk_url": "20260714dpa164712.png",
-          "score": 56.1,
+          "score": 57.9,
           "components": {
             "odds_value": 69.1,
             "recent_form": 71.3,
@@ -8092,7 +8052,7 @@
             "trainer": 62.4,
             "weight": 57.1,
             "absence_pen": 0.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 61.7,
             "distance_meta": {
               "n": 6,
@@ -8107,13 +8067,13 @@
             "official_rating": 103
           },
           "value": {
-            "model_prob": 0.122,
+            "model_prob": 0.127,
             "market_prob": 0.144,
-            "edge": -0.023
+            "edge": -0.018
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 22,
+            "confidence": 23,
             "label": "Skip",
             "reasoning": "solid recent form; placed last time out; consistent placer (50% placed)"
           }
@@ -8130,7 +8090,7 @@
           "odds_str": "9/2",
           "odds_dec": 5.5,
           "silk_url": "20260714dpa164702.png",
-          "score": 55.9,
+          "score": 57.8,
           "components": {
             "odds_value": 76.4,
             "recent_form": 72.3,
@@ -8139,7 +8099,7 @@
             "trainer": 49.0,
             "weight": 14.3,
             "absence_pen": 0.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 55.7,
             "distance_meta": {
               "n": 5,
@@ -8154,13 +8114,13 @@
             "official_rating": 109
           },
           "value": {
-            "model_prob": 0.121,
+            "model_prob": 0.126,
             "market_prob": 0.158,
-            "edge": -0.037
+            "edge": -0.031
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 22,
+            "confidence": 23,
             "label": "Skip",
             "reasoning": "solid recent form; placed last time out; consistent placer (66% placed)"
           }
@@ -8177,7 +8137,7 @@
           "odds_str": "9/2",
           "odds_dec": 5.5,
           "silk_url": "20260714dpa164708.png",
-          "score": 52.6,
+          "score": 54.3,
           "components": {
             "odds_value": 76.4,
             "recent_form": 71.3,
@@ -8186,7 +8146,7 @@
             "trainer": 39.8,
             "weight": 42.9,
             "absence_pen": 0.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 50.8,
             "distance_meta": {
               "n": 6,
@@ -8201,7 +8161,7 @@
             "official_rating": 105
           },
           "value": {
-            "model_prob": 0.111,
+            "model_prob": 0.11,
             "market_prob": 0.158,
             "edge": -0.047
           },
@@ -8233,7 +8193,7 @@
             "trainer": 54.0,
             "weight": 71.4,
             "absence_pen": 0.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 40.2,
             "distance_meta": {
               "n": 4,
@@ -8248,9 +8208,9 @@
             "official_rating": 101
           },
           "value": {
-            "model_prob": 0.105,
+            "model_prob": 0.101,
             "market_prob": 0.033,
-            "edge": 0.072
+            "edge": 0.068
           },
           "recommendation": {
             "type": "Skip",
@@ -8280,7 +8240,7 @@
             "trainer": 60.3,
             "weight": 71.4,
             "absence_pen": 0.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 48.0,
             "distance_meta": {
               "n": 5,
@@ -8295,9 +8255,9 @@
             "official_rating": 101
           },
           "value": {
-            "model_prob": 0.105,
+            "model_prob": 0.101,
             "market_prob": 0.124,
-            "edge": -0.019
+            "edge": -0.023
           },
           "recommendation": {
             "type": "Skip",
@@ -8318,7 +8278,7 @@
           "odds_str": "20/1",
           "odds_dec": 21.0,
           "silk_url": "20260714dpa164709.png",
-          "score": 38.8,
+          "score": 39.6,
           "components": {
             "odds_value": 11.8,
             "recent_form": 42.5,
@@ -8327,7 +8287,7 @@
             "trainer": 49.0,
             "weight": 42.9,
             "absence_pen": 0.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 42.7,
             "distance_meta": {
               "n": 3,
@@ -8344,7 +8304,7 @@
           "value": {
             "model_prob": 0.074,
             "market_prob": 0.041,
-            "edge": 0.033
+            "edge": 0.032
           },
           "recommendation": {
             "type": "Skip",
@@ -8365,7 +8325,7 @@
           "odds_str": "10/1",
           "odds_dec": 11.0,
           "silk_url": "20260714dpa164701.png",
-          "score": 36.5,
+          "score": 37.6,
           "components": {
             "odds_value": 32.7,
             "recent_form": 44.7,
@@ -8374,7 +8334,7 @@
             "trainer": 47.4,
             "weight": 0.0,
             "absence_pen": 0.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 47.2,
             "distance_meta": {
               "n": 4,
@@ -8389,13 +8349,13 @@
             "official_rating": 111
           },
           "value": {
-            "model_prob": 0.066,
+            "model_prob": 0.067,
             "market_prob": 0.079,
-            "edge": -0.013
+            "edge": -0.012
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 14,
+            "confidence": 15,
             "label": "Skip",
             "reasoning": "moderate form; consistent placer (50% placed)"
           }
@@ -8412,7 +8372,7 @@
           "odds_str": "33/1",
           "odds_dec": 34.0,
           "silk_url": "20260714dpa164711.png",
-          "score": 35.8,
+          "score": 36.8,
           "components": {
             "odds_value": 3.1,
             "recent_form": 47.0,
@@ -8421,7 +8381,7 @@
             "trainer": 50.0,
             "weight": 50.0,
             "absence_pen": 0.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 54.3,
             "distance_meta": {
               "n": 6,
@@ -8438,7 +8398,7 @@
           "value": {
             "model_prob": 0.064,
             "market_prob": 0.025,
-            "edge": 0.038
+            "edge": 0.039
           },
           "recommendation": {
             "type": "Skip",
@@ -8459,7 +8419,7 @@
           "odds_str": "33/1",
           "odds_dec": 34.0,
           "silk_url": "20260714dpa164718.png",
-          "score": 34.2,
+          "score": 34.9,
           "components": {
             "odds_value": 3.1,
             "recent_form": 23.1,
@@ -8468,7 +8428,7 @@
             "trainer": 43.1,
             "weight": 100.0,
             "absence_pen": 0.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 45.3,
             "distance_meta": {
               "n": 3,
@@ -8483,7 +8443,7 @@
             "official_rating": 97
           },
           "value": {
-            "model_prob": 0.059,
+            "model_prob": 0.058,
             "market_prob": 0.025,
             "edge": 0.033
           },
@@ -8506,7 +8466,7 @@
           "odds_str": "20/1",
           "odds_dec": 21.0,
           "silk_url": "20260714dpa164713.png",
-          "score": 31.9,
+          "score": 32.6,
           "components": {
             "odds_value": 11.8,
             "recent_form": 41.3,
@@ -8515,7 +8475,7 @@
             "trainer": 72.9,
             "weight": 71.4,
             "absence_pen": 15.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 52.3,
             "distance_meta": {
               "n": 6,
@@ -8532,11 +8492,11 @@
           "value": {
             "model_prob": 0.053,
             "market_prob": 0.041,
-            "edge": 0.012
+            "edge": 0.011
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 12,
+            "confidence": 13,
             "label": "Skip",
             "reasoning": "moderate form; consistent placer (60% placed); returning from long absence"
           }
@@ -8553,7 +8513,7 @@
           "odds_str": "10/1",
           "odds_dec": 11.0,
           "silk_url": "20260714dpa164703.png",
-          "score": 29.1,
+          "score": 29.7,
           "components": {
             "odds_value": 32.7,
             "recent_form": 46.0,
@@ -8562,7 +8522,7 @@
             "trainer": 47.6,
             "weight": 14.3,
             "absence_pen": 15.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 34.8,
             "distance_meta": {
               "n": 5,
@@ -8600,7 +8560,7 @@
           "odds_str": "16/1",
           "odds_dec": 17.0,
           "silk_url": "20260714dpa164706.png",
-          "score": 26.5,
+          "score": 26.7,
           "components": {
             "odds_value": 17.2,
             "recent_form": 20.0,
@@ -8609,7 +8569,7 @@
             "trainer": 39.8,
             "weight": 21.4,
             "absence_pen": 15.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 25.9,
             "distance_meta": {
               "n": 6,
@@ -8624,9 +8584,9 @@
             "official_rating": 108
           },
           "value": {
-            "model_prob": 0.04,
+            "model_prob": 0.038,
             "market_prob": 0.051,
-            "edge": -0.011
+            "edge": -0.013
           },
           "recommendation": {
             "type": "Skip",
@@ -8647,7 +8607,7 @@
           "odds_str": "20/1",
           "odds_dec": 21.0,
           "silk_url": "20260714dpa164710.png",
-          "score": 19.6,
+          "score": 19.8,
           "components": {
             "odds_value": 11.8,
             "recent_form": 21.3,
@@ -8656,7 +8616,7 @@
             "trainer": 36.6,
             "weight": 50.0,
             "absence_pen": 15.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 40.5,
             "distance_meta": {
               "n": 3,
@@ -8671,9 +8631,9 @@
             "official_rating": 104
           },
           "value": {
-            "model_prob": 0.035,
+            "model_prob": 0.034,
             "market_prob": 0.041,
-            "edge": -0.006
+            "edge": -0.007
           },
           "recommendation": {
             "type": "Skip",
@@ -10738,7 +10698,7 @@
       "time": "17:19",
       "title": "Downpatrick Racecourse Family Funday Supporters Flat Race",
       "distance": "2m 2f 165y",
-      "going": "Good (Good to Yielding in places)",
+      "going": "Good",
       "race_class": "",
       "prize": "6601.0 EUR",
       "num_runners": 10,
@@ -10757,7 +10717,7 @@
           "odds_str": "5/2",
           "odds_dec": 3.5,
           "silk_url": "20260714dpa171909.png",
-          "score": 61.2,
+          "score": 62.7,
           "components": {
             "odds_value": 94.7,
             "recent_form": 80.0,
@@ -10766,7 +10726,7 @@
             "trainer": 30.9,
             "weight": 63.6,
             "absence_pen": 0.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 50.0,
             "distance_meta": {
               "n": 0
@@ -10779,13 +10739,13 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.175,
+            "model_prob": 0.182,
             "market_prob": 0.231,
-            "edge": -0.056
+            "edge": -0.049
           },
           "recommendation": {
             "type": "Win",
-            "confidence": 61,
+            "confidence": 62,
             "label": "Win Bet",
             "reasoning": "strong recent form; placed last time out; consistent placer (100% placed); fair price for a win bet"
           }
@@ -10811,7 +10771,7 @@
             "trainer": 39.8,
             "weight": 0.0,
             "absence_pen": 0.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 50.0,
             "distance_meta": {
               "n": 0
@@ -10824,9 +10784,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.122,
+            "model_prob": 0.12,
             "market_prob": 0.038,
-            "edge": 0.084
+            "edge": 0.082
           },
           "recommendation": {
             "type": "Skip",
@@ -10856,7 +10816,7 @@
             "trainer": 50.4,
             "weight": 0.0,
             "absence_pen": 0.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 50.0,
             "distance_meta": {
               "n": 0
@@ -10869,9 +10829,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.122,
+            "model_prob": 0.12,
             "market_prob": 0.09,
-            "edge": 0.033
+            "edge": 0.03
           },
           "recommendation": {
             "type": "Skip",
@@ -10901,7 +10861,7 @@
             "trainer": 50.0,
             "weight": 100.0,
             "absence_pen": 0.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 50.0,
             "distance_meta": {
               "n": 0
@@ -10914,9 +10874,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.122,
+            "model_prob": 0.12,
             "market_prob": 0.124,
-            "edge": -0.002
+            "edge": -0.004
           },
           "recommendation": {
             "type": "Skip",
@@ -10937,7 +10897,7 @@
           "odds_str": "3/1",
           "odds_dec": 4.0,
           "silk_url": "20260714dpa171906.png",
-          "score": 46.9,
+          "score": 47.5,
           "components": {
             "odds_value": 81.5,
             "recent_form": 50.0,
@@ -10946,7 +10906,7 @@
             "trainer": 47.6,
             "weight": 0.0,
             "absence_pen": 0.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 50.0,
             "distance_meta": {
               "n": 1,
@@ -10984,7 +10944,7 @@
           "odds_str": "10/3",
           "odds_dec": 4.33,
           "silk_url": "20260714dpa171901.png",
-          "score": 42.7,
+          "score": 43.8,
           "components": {
             "odds_value": 74.4,
             "recent_form": 38.3,
@@ -10993,7 +10953,7 @@
             "trainer": 54.0,
             "weight": 0.0,
             "absence_pen": 0.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 50.0,
             "distance_meta": {
               "n": 0
@@ -11006,9 +10966,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.101,
+            "model_prob": 0.103,
             "market_prob": 0.187,
-            "edge": -0.086
+            "edge": -0.083
           },
           "recommendation": {
             "type": "Skip",
@@ -11029,7 +10989,7 @@
           "odds_str": "14/1",
           "odds_dec": 15.0,
           "silk_url": "20260714dpa171908.png",
-          "score": 38.9,
+          "score": 39.2,
           "components": {
             "odds_value": 13.6,
             "recent_form": 10.0,
@@ -11038,7 +10998,7 @@
             "trainer": 50.0,
             "weight": 36.4,
             "absence_pen": 0.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 33.7,
             "distance_meta": {
               "n": 1,
@@ -11076,7 +11036,7 @@
           "odds_str": "20/1",
           "odds_dec": 21.0,
           "silk_url": "20260714dpa171903.png",
-          "score": 32.1,
+          "score": 32.5,
           "components": {
             "odds_value": 6.5,
             "recent_form": 15.0,
@@ -11085,7 +11045,7 @@
             "trainer": 48.5,
             "weight": 0.0,
             "absence_pen": 0.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 31.4,
             "distance_meta": {
               "n": 2,
@@ -11123,7 +11083,7 @@
           "odds_str": "33/1",
           "odds_dec": 34.0,
           "silk_url": "20260714dpa171904.png",
-          "score": 28.8,
+          "score": 29.0,
           "components": {
             "odds_value": 0,
             "recent_form": 0.0,
@@ -11132,7 +11092,7 @@
             "trainer": 50.0,
             "weight": 0.0,
             "absence_pen": 0.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 50.0,
             "distance_meta": {
               "n": 0
@@ -11145,7 +11105,7 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.053,
+            "model_prob": 0.052,
             "market_prob": 0.024,
             "edge": 0.029
           },
@@ -11168,7 +11128,7 @@
           "odds_str": "66/1",
           "odds_dec": 67.0,
           "silk_url": "20260714dpa171902.png",
-          "score": 22.4,
+          "score": 22.8,
           "components": {
             "odds_value": 0,
             "recent_form": 7.0,
@@ -11177,7 +11137,7 @@
             "trainer": 44.9,
             "weight": 0.0,
             "absence_pen": 0.0,
-            "going_factor": 0.96,
+            "going_factor": 1.0,
             "distance": 23.0,
             "distance_meta": {
               "n": 3,
@@ -11198,7 +11158,7 @@
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 8,
+            "confidence": 9,
             "label": "Skip",
             "reasoning": "poor recent form"
           }
