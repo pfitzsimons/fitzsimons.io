@@ -262,6 +262,19 @@ COURSE_COEFFICIENTS = {}
 # The readout is kept so the model's confidence vs the market is visible.
 # ─────────────────────────────────────────────────────────────
 
+# Market-rank guardrail. A 10-day review (3–12 Jul 2026) of the model's top
+# pick per race showed it winning 23.0% vs 25.7% for simply backing the
+# favourite. Splitting by agreement: where the top-scored pick WAS the
+# favourite it won 27%; where it overrode the market for a non-favourite its
+# pick won only 16.2% while the favourite it passed over won 23.6%. The score's
+# fundamental factors (form/consistency/weight) destroy ~7 points of strike
+# rate whenever they outvote a short price. Restricting the Win bet to a runner
+# inside the market top-N recovers most of that: over the same window,
+# score-within-top-2 hit 24.8% / -22.7% ROI vs 23.0% / -23.2% for the
+# unconstrained argmax. N=2 is the sweet spot (top-3 regressed to 24.0%).
+# This is a guardrail on SELECTION, not value-gating (see make_recommendation).
+MARKET_TOP_N = 2
+
 # Score→win-probability calibration: band centre → observed win rate,
 # from the 61-day backtest. Linearly interpolated. The 90-99 point is held
 # at the 80-89 value (its own sample was tiny and noisy).
@@ -932,7 +945,8 @@ def _post_process_win_bets(runners: list, field_size: int) -> None:
 
 def make_recommendation(score: float, odds_dec: Optional[float],
                          field_size: int, form: dict,
-                         ev: Optional[float] = None) -> dict:
+                         ev: Optional[float] = None,
+                         market_rank: Optional[int] = None) -> dict:
     """
     Convert final score + context into a recommendation.
 
@@ -942,9 +956,20 @@ def make_recommendation(score: float, odds_dec: Optional[float],
     AGREEING with the market on strong favourites, and its "value"
     disagreements are mostly the model over-rating a horse. The `ev` argument
     is accepted for the informational model-vs-market readout only.
+
+    `market_rank` (1 = favourite, 2 = second favourite, …) enforces the
+    MARKET_TOP_N guardrail: a Win bet is only allowed on a runner inside the
+    market top-N, so the score can arbitrate between the market leaders but
+    never override them for a longer-priced horse. Passing None disables the
+    guardrail (e.g. when the field's odds are unknown).
     """
     # Suppress win bets on horses with high DNF rate (>40%)
     high_dnf = form["dnf_rate"] > 0.40
+
+    # Market-rank guardrail — the model's fundamentals are only trusted to pick
+    # between the market top-N; outside that they lose to the price (see the
+    # MARKET_TOP_N note above). Unknown rank (None) leaves this open.
+    outside_market_top = market_rank is not None and market_rank > MARKET_TOP_N
 
     # No score compression: 61-day calibration (scripts/calibrate.py) shows
     # win-rate rises monotonically with score — the 60-69 / 70-79 / 80-89
@@ -958,14 +983,14 @@ def make_recommendation(score: float, odds_dec: Optional[float],
     # don't fire a Win bet there.
     market_disagrees = bool(odds_dec and score > 62 and odds_dec > 8.0)
 
-    if effective_score >= 72 and not high_dnf and not market_disagrees and odds_dec and odds_dec <= 5.0:
+    if effective_score >= 72 and not high_dnf and not market_disagrees and not outside_market_top and odds_dec and odds_dec <= 5.0:
         return {
             "type":       "Win",
             "confidence": min(95, int(score)),
             "label":      "Strong Win Bet",
             "reasoning":  _reasoning(score, odds_dec, form, "win"),
         }
-    elif effective_score >= 60 and not high_dnf and not market_disagrees and odds_dec and odds_dec <= 10.0:
+    elif effective_score >= 60 and not high_dnf and not market_disagrees and not outside_market_top and odds_dec and odds_dec <= 10.0:
         return {
             "type":       "Win",
             "confidence": min(85, int(score)),
@@ -1231,6 +1256,15 @@ def scrape_race(meta):
     # Value metrics (model prob vs market price) — needs the whole field.
     compute_value(active)
 
+    # Market rank (1 = favourite) for the MARKET_TOP_N guardrail. Runners with
+    # no price share the worst rank so they never satisfy the top-N test.
+    priced = sorted(
+        (r for r in active if r.get("odds_dec")),
+        key=lambda r: r["odds_dec"],
+    )
+    market_rank = {id(r): i + 1 for i, r in enumerate(priced)}
+    _worst_rank = len(active) + 1
+
     # Sort by score descending (best recommendation first)
     active.sort(key=lambda r: r["_score"], reverse=True)
 
@@ -1258,7 +1292,8 @@ def scrape_race(meta):
                            if (model_prob is not None and market_prob is not None) else None,
         }
         runner["recommendation"] = make_recommendation(
-            score, runner["odds_dec"], n, form_analysis
+            score, runner["odds_dec"], n, form_analysis,
+            market_rank=market_rank.get(id(runner), _worst_rank),
         )
 
     # At most one Win bet per race — demote extras to Skip
