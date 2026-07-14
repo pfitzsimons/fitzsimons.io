@@ -1,6 +1,6 @@
 {
   "date": "2026-07-14",
-  "generated_at": "2026-07-14T07:15:46.119331Z",
+  "generated_at": "2026-07-14T09:14:08.083963Z",
   "races": [
     {
       "id": "leicester-927642",
@@ -8127,7 +8127,7 @@
       "going": "Good (Good to Yielding in places)",
       "race_class": "",
       "prize": "7200.0 EUR",
-      "num_runners": 18,
+      "num_runners": 15,
       "ew_places": 4,
       "date": "2026-07-14",
       "runners": [
@@ -8143,9 +8143,9 @@
           "odds_str": "5/1",
           "odds_dec": 6.0,
           "silk_url": "20260714dpa164712.png",
-          "score": 61.6,
+          "score": 58.3,
           "components": {
-            "odds_value": 100,
+            "odds_value": 81.5,
             "recent_form": 71.3,
             "consistency": 50.0,
             "jockey": 52.2,
@@ -8167,15 +8167,15 @@
             "official_rating": 103
           },
           "value": {
-            "model_prob": 0.106,
-            "market_prob": 0.105,
-            "edge": 0.001
+            "model_prob": 0.112,
+            "market_prob": 0.132,
+            "edge": -0.02
           },
           "recommendation": {
-            "type": "Win",
-            "confidence": 61,
-            "label": "Win Bet",
-            "reasoning": "solid recent form; placed last time out; consistent placer (50% placed); fair price for a win bet"
+            "type": "Skip",
+            "confidence": 23,
+            "label": "Skip",
+            "reasoning": "solid recent form; placed last time out; consistent placer (50% placed)"
           }
         },
         {
@@ -8190,9 +8190,9 @@
           "odds_str": "9/2",
           "odds_dec": 5.5,
           "silk_url": "20260714dpa164702.png",
-          "score": 60.1,
+          "score": 58.3,
           "components": {
-            "odds_value": 100,
+            "odds_value": 89.9,
             "recent_form": 72.3,
             "consistency": 66.7,
             "jockey": 59.6,
@@ -8214,15 +8214,15 @@
             "official_rating": 109
           },
           "value": {
-            "model_prob": 0.1,
-            "market_prob": 0.115,
-            "edge": -0.015
+            "model_prob": 0.112,
+            "market_prob": 0.144,
+            "edge": -0.032
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 24,
+            "confidence": 23,
             "label": "Skip",
-            "reasoning": "solid recent form; placed last time out; consistent placer (66% placed); fair price for a win bet"
+            "reasoning": "solid recent form; placed last time out; consistent placer (66% placed)"
           }
         },
         {
@@ -8237,9 +8237,9 @@
           "odds_str": "9/2",
           "odds_dec": 5.5,
           "silk_url": "20260714dpa164708.png",
-          "score": 56.9,
+          "score": 55.0,
           "components": {
-            "odds_value": 100,
+            "odds_value": 89.9,
             "recent_form": 71.3,
             "consistency": 33.3,
             "jockey": 39.8,
@@ -8261,62 +8261,15 @@
             "official_rating": 105
           },
           "value": {
-            "model_prob": 0.087,
-            "market_prob": 0.115,
-            "edge": -0.027
+            "model_prob": 0.097,
+            "market_prob": 0.144,
+            "edge": -0.048
           },
           "recommendation": {
             "type": "Skip",
             "confidence": 22,
             "label": "Skip",
             "reasoning": "solid recent form; won last time out"
-          }
-        },
-        {
-          "horse": "Cozone",
-          "country": "GB",
-          "jockey": "Keith Donoghue",
-          "trainer": "M J Smith",
-          "form": "08/16-31",
-          "age": "9",
-          "weight": "11-10",
-          "draw": "",
-          "odds_str": "10/3",
-          "odds_dec": 4.33,
-          "silk_url": "20260714dpa164705.png",
-          "score": 52.1,
-          "components": {
-            "odds_value": 100,
-            "recent_form": 85.7,
-            "consistency": 75.0,
-            "jockey": 48.5,
-            "trainer": 37.0,
-            "weight": 21.4,
-            "absence_pen": 15.0,
-            "going_factor": 0.96,
-            "distance": 56.8,
-            "distance_meta": {
-              "n": 6,
-              "relevance": 4.01,
-              "quality": 0.58
-            },
-            "freshness": 70.0,
-            "last_ran_days": 31,
-            "timeform": 80.0,
-            "timeform_stars": 4,
-            "class_or": 78.6,
-            "official_rating": 108
-          },
-          "value": {
-            "model_prob": 0.076,
-            "market_prob": 0.145,
-            "edge": -0.07
-          },
-          "recommendation": {
-            "type": "Skip",
-            "confidence": 20,
-            "label": "Skip",
-            "reasoning": "solid recent form; won last time out; consistent placer (75% placed); returning from long absence"
           }
         },
         {
@@ -8331,9 +8284,9 @@
           "odds_str": "14/1",
           "odds_dec": 15.0,
           "silk_url": "20260714dpa164716.png",
-          "score": 51.5,
+          "score": 50.2,
           "components": {
-            "odds_value": 33.3,
+            "odds_value": 25.9,
             "recent_form": 70.0,
             "consistency": 66.7,
             "jockey": 44.4,
@@ -8355,9 +8308,9 @@
             "official_rating": 100
           },
           "value": {
-            "model_prob": 0.075,
-            "market_prob": 0.042,
-            "edge": 0.033
+            "model_prob": 0.088,
+            "market_prob": 0.053,
+            "edge": 0.035
           },
           "recommendation": {
             "type": "Skip",
@@ -8380,7 +8333,7 @@
           "silk_url": "20260714dpa164714.png",
           "score": 50.0,
           "components": {
-            "odds_value": 14.5,
+            "odds_value": 10.3,
             "recent_form": 40.0,
             "consistency": 0,
             "jockey": 52.2,
@@ -8402,9 +8355,9 @@
             "official_rating": 101
           },
           "value": {
-            "model_prob": 0.073,
-            "market_prob": 0.024,
-            "edge": 0.049
+            "model_prob": 0.088,
+            "market_prob": 0.031,
+            "edge": 0.057
           },
           "recommendation": {
             "type": "Skip",
@@ -8427,7 +8380,7 @@
           "silk_url": "20260714dpa164715.png",
           "score": 50.0,
           "components": {
-            "odds_value": 84.1,
+            "odds_value": 68.3,
             "recent_form": 40.0,
             "consistency": 0,
             "jockey": 38.5,
@@ -8449,9 +8402,9 @@
             "official_rating": 101
           },
           "value": {
-            "model_prob": 0.073,
-            "market_prob": 0.09,
-            "edge": -0.017
+            "model_prob": 0.088,
+            "market_prob": 0.113,
+            "edge": -0.026
           },
           "recommendation": {
             "type": "Skip",
@@ -8472,9 +8425,9 @@
           "odds_str": "20/1",
           "odds_dec": 21.0,
           "silk_url": "20260714dpa164709.png",
-          "score": 40.1,
+          "score": 39.3,
           "components": {
-            "odds_value": 20.6,
+            "odds_value": 15.3,
             "recent_form": 42.5,
             "consistency": 33.3,
             "jockey": 54.3,
@@ -8496,13 +8449,13 @@
             "official_rating": 105
           },
           "value": {
-            "model_prob": 0.054,
-            "market_prob": 0.03,
-            "edge": 0.024
+            "model_prob": 0.063,
+            "market_prob": 0.038,
+            "edge": 0.025
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 16,
+            "confidence": 15,
             "label": "Skip",
             "reasoning": "moderate form"
           }
@@ -8519,9 +8472,9 @@
           "odds_str": "10/1",
           "odds_dec": 11.0,
           "silk_url": "20260714dpa164701.png",
-          "score": 39.5,
+          "score": 37.7,
           "components": {
-            "odds_value": 49.5,
+            "odds_value": 39.4,
             "recent_form": 44.7,
             "consistency": 37.2,
             "jockey": 37.3,
@@ -8543,9 +8496,9 @@
             "official_rating": 111
           },
           "value": {
-            "model_prob": 0.053,
-            "market_prob": 0.057,
-            "edge": -0.005
+            "model_prob": 0.058,
+            "market_prob": 0.072,
+            "edge": -0.014
           },
           "recommendation": {
             "type": "Skip",
@@ -8566,9 +8519,9 @@
           "odds_str": "33/1",
           "odds_dec": 34.0,
           "silk_url": "20260714dpa164711.png",
-          "score": 36.8,
+          "score": 36.2,
           "components": {
-            "odds_value": 8.5,
+            "odds_value": 5.2,
             "recent_form": 47.0,
             "consistency": 33.3,
             "jockey": 50.9,
@@ -8590,9 +8543,9 @@
             "official_rating": 104
           },
           "value": {
-            "model_prob": 0.046,
-            "market_prob": 0.019,
-            "edge": 0.028
+            "model_prob": 0.054,
+            "market_prob": 0.023,
+            "edge": 0.031
           },
           "recommendation": {
             "type": "Skip",
@@ -8613,9 +8566,9 @@
           "odds_str": "33/1",
           "odds_dec": 34.0,
           "silk_url": "20260714dpa164718.png",
-          "score": 35.3,
+          "score": 34.7,
           "components": {
-            "odds_value": 8.5,
+            "odds_value": 5.2,
             "recent_form": 23.1,
             "consistency": 37.2,
             "jockey": 47.6,
@@ -8637,13 +8590,13 @@
             "official_rating": 97
           },
           "value": {
-            "model_prob": 0.043,
-            "market_prob": 0.019,
-            "edge": 0.024
+            "model_prob": 0.05,
+            "market_prob": 0.023,
+            "edge": 0.027
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 14,
+            "confidence": 13,
             "label": "Skip",
             "reasoning": "poor recent form; did not finish last time; consistent placer (50% placed)"
           }
@@ -8660,9 +8613,9 @@
           "odds_str": "20/1",
           "odds_dec": 21.0,
           "silk_url": "20260714dpa164713.png",
-          "score": 33.2,
+          "score": 32.3,
           "components": {
-            "odds_value": 20.6,
+            "odds_value": 15.3,
             "recent_form": 41.3,
             "consistency": 60.0,
             "jockey": 48.9,
@@ -8684,62 +8637,15 @@
             "official_rating": 101
           },
           "value": {
-            "model_prob": 0.039,
-            "market_prob": 0.03,
-            "edge": 0.009
-          },
-          "recommendation": {
-            "type": "Skip",
-            "confidence": 13,
-            "label": "Skip",
-            "reasoning": "moderate form; consistent placer (60% placed); returning from long absence"
-          }
-        },
-        {
-          "horse": "Ringdufferin",
-          "country": "GB",
-          "jockey": "Ricky Doyle",
-          "trainer": "A L T Moore",
-          "form": "0P/04-82",
-          "age": "8",
-          "weight": "11-11",
-          "draw": "",
-          "odds_str": "10/1",
-          "odds_dec": 11.0,
-          "silk_url": "20260714dpa164703.png",
-          "score": 31.7,
-          "components": {
-            "odds_value": 49.5,
-            "recent_form": 46.0,
-            "consistency": 25.0,
-            "jockey": 50.5,
-            "trainer": 47.6,
-            "weight": 14.3,
-            "absence_pen": 15.0,
-            "going_factor": 0.96,
-            "distance": 34.8,
-            "distance_meta": {
-              "n": 5,
-              "relevance": 4.32,
-              "quality": 0.31
-            },
-            "freshness": 70.0,
-            "last_ran_days": 31,
-            "timeform": 40.0,
-            "timeform_stars": 2,
-            "class_or": 85.7,
-            "official_rating": 109
-          },
-          "value": {
-            "model_prob": 0.037,
-            "market_prob": 0.057,
-            "edge": -0.021
+            "model_prob": 0.045,
+            "market_prob": 0.038,
+            "edge": 0.007
           },
           "recommendation": {
             "type": "Skip",
             "confidence": 12,
             "label": "Skip",
-            "reasoning": "moderate form; placed last time out; returning from long absence"
+            "reasoning": "moderate form; consistent placer (60% placed); returning from long absence"
           }
         },
         {
@@ -8754,9 +8660,9 @@
           "odds_str": "25/1",
           "odds_dec": 26.0,
           "silk_url": "20260714dpa164717.png",
-          "score": 31.0,
+          "score": 30.3,
           "components": {
-            "odds_value": 14.5,
+            "odds_value": 10.3,
             "recent_form": 10.3,
             "consistency": 0,
             "jockey": 45.5,
@@ -8778,15 +8684,62 @@
             "official_rating": 97
           },
           "value": {
-            "model_prob": 0.035,
-            "market_prob": 0.024,
-            "edge": 0.011
+            "model_prob": 0.041,
+            "market_prob": 0.031,
+            "edge": 0.01
           },
           "recommendation": {
             "type": "Skip",
             "confidence": 12,
             "label": "Skip",
             "reasoning": "poor recent form; did not finish last time; notable non-completion rate (40%)"
+          }
+        },
+        {
+          "horse": "Ringdufferin",
+          "country": "GB",
+          "jockey": "Ricky Doyle",
+          "trainer": "A L T Moore",
+          "form": "0P/04-82",
+          "age": "8",
+          "weight": "11-11",
+          "draw": "",
+          "odds_str": "10/1",
+          "odds_dec": 11.0,
+          "silk_url": "20260714dpa164703.png",
+          "score": 30.1,
+          "components": {
+            "odds_value": 39.4,
+            "recent_form": 46.0,
+            "consistency": 25.0,
+            "jockey": 50.5,
+            "trainer": 47.6,
+            "weight": 14.3,
+            "absence_pen": 15.0,
+            "going_factor": 0.96,
+            "distance": 34.8,
+            "distance_meta": {
+              "n": 5,
+              "relevance": 4.32,
+              "quality": 0.31
+            },
+            "freshness": 70.0,
+            "last_ran_days": 31,
+            "timeform": 40.0,
+            "timeform_stars": 2,
+            "class_or": 85.7,
+            "official_rating": 109
+          },
+          "value": {
+            "model_prob": 0.041,
+            "market_prob": 0.072,
+            "edge": -0.032
+          },
+          "recommendation": {
+            "type": "Skip",
+            "confidence": 12,
+            "label": "Skip",
+            "reasoning": "moderate form; placed last time out; returning from long absence"
           }
         },
         {
@@ -8801,9 +8754,9 @@
           "odds_str": "16/1",
           "odds_dec": 17.0,
           "silk_url": "20260714dpa164706.png",
-          "score": 27.8,
+          "score": 27.1,
           "components": {
-            "odds_value": 28.1,
+            "odds_value": 21.6,
             "recent_form": 20.0,
             "consistency": 0,
             "jockey": 38.5,
@@ -8825,107 +8778,13 @@
             "official_rating": 108
           },
           "value": {
-            "model_prob": 0.03,
-            "market_prob": 0.037,
-            "edge": -0.007
+            "model_prob": 0.034,
+            "market_prob": 0.047,
+            "edge": -0.013
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 11,
-            "label": "Skip",
-            "reasoning": "poor recent form; returning from long absence"
-          }
-        },
-        {
-          "horse": "Typical Thomas",
-          "country": "GB",
-          "jockey": "Conor Smithers",
-          "trainer": "J Fahey",
-          "form": "66/68-94",
-          "age": "9",
-          "weight": "11-11",
-          "draw": "",
-          "odds_str": "16/1",
-          "odds_dec": 17.0,
-          "silk_url": "20260714dpa164704.png",
-          "score": 22.8,
-          "components": {
-            "odds_value": 28.1,
-            "recent_form": 27.5,
-            "consistency": 0,
-            "jockey": 56.9,
-            "trainer": 50.0,
-            "weight": 14.3,
-            "absence_pen": 15.0,
-            "going_factor": 0.96,
-            "distance": 32.6,
-            "distance_meta": {
-              "n": 5,
-              "relevance": 1.69,
-              "quality": 0.22
-            },
-            "freshness": 70.0,
-            "last_ran_days": 18,
-            "timeform": 40.0,
-            "timeform_stars": 2,
-            "class_or": 85.7,
-            "official_rating": 109
-          },
-          "value": {
-            "model_prob": 0.025,
-            "market_prob": 0.037,
-            "edge": -0.012
-          },
-          "recommendation": {
-            "type": "Skip",
-            "confidence": 9,
-            "label": "Skip",
-            "reasoning": "poor recent form; returning from long absence"
-          }
-        },
-        {
-          "horse": "Andys Flame",
-          "country": "GB",
-          "jockey": "Alex Harvey",
-          "trainer": "J C McConnell",
-          "form": "7P1/4-60",
-          "age": "9",
-          "weight": "11-7",
-          "draw": "",
-          "odds_str": "25/1",
-          "odds_dec": 26.0,
-          "silk_url": "20260714dpa164707.png",
-          "score": 22.1,
-          "components": {
-            "odds_value": 14.5,
-            "recent_form": 21.7,
-            "consistency": 0,
-            "jockey": 31.2,
-            "trainer": 26.1,
-            "weight": 42.9,
-            "absence_pen": 15.0,
-            "going_factor": 0.96,
-            "distance": 43.5,
-            "distance_meta": {
-              "n": 5,
-              "relevance": 3.8,
-              "quality": 0.42
-            },
-            "freshness": 70.0,
-            "last_ran_days": 31,
-            "timeform": 40.0,
-            "timeform_stars": 2,
-            "class_or": 57.1,
-            "official_rating": 105
-          },
-          "value": {
-            "model_prob": 0.025,
-            "market_prob": 0.024,
-            "edge": 0.0
-          },
-          "recommendation": {
-            "type": "Skip",
-            "confidence": 8,
+            "confidence": 10,
             "label": "Skip",
             "reasoning": "poor recent form; returning from long absence"
           }
@@ -8942,9 +8801,9 @@
           "odds_str": "20/1",
           "odds_dec": 21.0,
           "silk_url": "20260714dpa164710.png",
-          "score": 21.1,
+          "score": 20.2,
           "components": {
-            "odds_value": 20.6,
+            "odds_value": 15.3,
             "recent_form": 21.3,
             "consistency": 20.0,
             "jockey": 34.8,
@@ -8966,15 +8825,96 @@
             "official_rating": 104
           },
           "value": {
-            "model_prob": 0.024,
-            "market_prob": 0.03,
-            "edge": -0.006
+            "model_prob": 0.029,
+            "market_prob": 0.038,
+            "edge": -0.008
           },
           "recommendation": {
             "type": "Skip",
             "confidence": 8,
             "label": "Skip",
             "reasoning": "poor recent form; returning from long absence"
+          }
+        },
+        {
+          "horse": "Typical Thomas",
+          "country": "GB",
+          "jockey": "Conor Smithers",
+          "trainer": "J Fahey",
+          "form": "66/68-94",
+          "age": "9",
+          "weight": "11-11",
+          "draw": "",
+          "odds_str": "16/1",
+          "odds_dec": 17.0,
+          "silk_url": "20260714dpa164704.png",
+          "score": null,
+          "components": {},
+          "value": {
+            "model_prob": null,
+            "market_prob": null,
+            "edge": null
+          },
+          "non_runner": true,
+          "recommendation": {
+            "type": "Skip",
+            "confidence": 0,
+            "label": "Non-runner",
+            "reasoning": "withdrawn — will not run"
+          }
+        },
+        {
+          "horse": "Cozone",
+          "country": "GB",
+          "jockey": "Keith Donoghue",
+          "trainer": "M J Smith",
+          "form": "08/16-31",
+          "age": "9",
+          "weight": "11-10",
+          "draw": "",
+          "odds_str": "10/3",
+          "odds_dec": 4.33,
+          "silk_url": "20260714dpa164705.png",
+          "score": null,
+          "components": {},
+          "value": {
+            "model_prob": null,
+            "market_prob": null,
+            "edge": null
+          },
+          "non_runner": true,
+          "recommendation": {
+            "type": "Skip",
+            "confidence": 0,
+            "label": "Non-runner",
+            "reasoning": "withdrawn — will not run"
+          }
+        },
+        {
+          "horse": "Andys Flame",
+          "country": "GB",
+          "jockey": "Alex Harvey",
+          "trainer": "J C McConnell",
+          "form": "7P1/4-60",
+          "age": "9",
+          "weight": "11-7",
+          "draw": "",
+          "odds_str": "25/1",
+          "odds_dec": 26.0,
+          "silk_url": "20260714dpa164707.png",
+          "score": null,
+          "components": {},
+          "value": {
+            "model_prob": null,
+            "market_prob": null,
+            "edge": null
+          },
+          "non_runner": true,
+          "recommendation": {
+            "type": "Skip",
+            "confidence": 0,
+            "label": "Non-runner",
+            "reasoning": "withdrawn — will not run"
           }
         }
       ]
@@ -11414,7 +11354,7 @@
       "going": "Standard",
       "race_class": "5",
       "prize": "4320.0 GBP",
-      "num_runners": 13,
+      "num_runners": 12,
       "ew_places": 4,
       "date": "2026-07-14",
       "runners": [
@@ -11454,9 +11394,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.111,
-            "market_prob": 0.243,
-            "edge": -0.133
+            "model_prob": 0.117,
+            "market_prob": 0.246,
+            "edge": -0.129
           },
           "recommendation": {
             "type": "Skip",
@@ -11499,9 +11439,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.088,
+            "model_prob": 0.093,
             "market_prob": 0.016,
-            "edge": 0.072
+            "edge": 0.077
           },
           "recommendation": {
             "type": "Skip",
@@ -11524,7 +11464,7 @@
           "silk_url": "20260714wol172502.png",
           "score": 50.0,
           "components": {
-            "odds_value": 7.4,
+            "odds_value": 6.0,
             "recent_form": 40.0,
             "consistency": 0,
             "jockey": 44.1,
@@ -11544,9 +11484,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.088,
-            "market_prob": 0.03,
-            "edge": 0.057
+            "model_prob": 0.093,
+            "market_prob": 0.031,
+            "edge": 0.062
           },
           "recommendation": {
             "type": "Skip",
@@ -11569,7 +11509,7 @@
           "silk_url": "20260714wol172506.png",
           "score": 50.0,
           "components": {
-            "odds_value": 100,
+            "odds_value": 91.5,
             "recent_form": 40.0,
             "consistency": 0,
             "jockey": 47.7,
@@ -11589,9 +11529,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.088,
-            "market_prob": 0.183,
-            "edge": -0.095
+            "model_prob": 0.093,
+            "market_prob": 0.185,
+            "edge": -0.092
           },
           "recommendation": {
             "type": "Skip",
@@ -11614,7 +11554,7 @@
           "silk_url": "20260714wol172511.png",
           "score": 50.0,
           "components": {
-            "odds_value": 76.4,
+            "odds_value": 69.7,
             "recent_form": 40.0,
             "consistency": 0,
             "jockey": 75.0,
@@ -11634,9 +11574,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.088,
-            "market_prob": 0.144,
-            "edge": -0.056
+            "model_prob": 0.093,
+            "market_prob": 0.146,
+            "edge": -0.053
           },
           "recommendation": {
             "type": "Skip",
@@ -11657,9 +11597,9 @@
           "odds_str": "10/1",
           "odds_dec": 11.0,
           "silk_url": "20260714wol172510.png",
-          "score": 47.3,
+          "score": 46.9,
           "components": {
-            "odds_value": 32.7,
+            "odds_value": 29.3,
             "recent_form": 46.7,
             "consistency": 50.0,
             "jockey": 44.2,
@@ -11681,9 +11621,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.083,
-            "market_prob": 0.072,
-            "edge": 0.011
+            "model_prob": 0.087,
+            "market_prob": 0.073,
+            "edge": 0.014
           },
           "recommendation": {
             "type": "Skip",
@@ -11704,9 +11644,9 @@
           "odds_str": "25/1",
           "odds_dec": 26.0,
           "silk_url": "20260714wol172512.png",
-          "score": 44.7,
+          "score": 44.6,
           "components": {
-            "odds_value": 7.4,
+            "odds_value": 6.0,
             "recent_form": 40.0,
             "consistency": 0,
             "jockey": 74.3,
@@ -11728,9 +11668,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.078,
-            "market_prob": 0.03,
-            "edge": 0.047
+            "model_prob": 0.082,
+            "market_prob": 0.031,
+            "edge": 0.051
           },
           "recommendation": {
             "type": "Skip",
@@ -11751,9 +11691,9 @@
           "odds_str": "6/1",
           "odds_dec": 7.0,
           "silk_url": "20260714wol172503.png",
-          "score": 42.4,
+          "score": 41.7,
           "components": {
-            "odds_value": 57.7,
+            "odds_value": 52.4,
             "recent_form": 25.0,
             "consistency": 0,
             "jockey": 70.8,
@@ -11775,9 +11715,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.071,
-            "market_prob": 0.113,
-            "edge": -0.042
+            "model_prob": 0.074,
+            "market_prob": 0.114,
+            "edge": -0.041
           },
           "recommendation": {
             "type": "Skip",
@@ -11798,9 +11738,9 @@
           "odds_str": "8/1",
           "odds_dec": 9.0,
           "silk_url": "20260714wol172508.png",
-          "score": 41.6,
+          "score": 41.1,
           "components": {
-            "odds_value": 42.4,
+            "odds_value": 38.3,
             "recent_form": 20.0,
             "consistency": 0,
             "jockey": 55.0,
@@ -11822,9 +11762,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.069,
-            "market_prob": 0.088,
-            "edge": -0.019
+            "model_prob": 0.072,
+            "market_prob": 0.089,
+            "edge": -0.017
           },
           "recommendation": {
             "type": "Skip",
@@ -11869,9 +11809,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.067,
+            "model_prob": 0.071,
             "market_prob": 0.016,
-            "edge": 0.052
+            "edge": 0.055
           },
           "recommendation": {
             "type": "Skip",
@@ -11892,9 +11832,9 @@
           "odds_str": "20/1",
           "odds_dec": 21.0,
           "silk_url": "20260714wol172509.png",
-          "score": 39.1,
+          "score": 38.8,
           "components": {
-            "odds_value": 11.8,
+            "odds_value": 10.1,
             "recent_form": 33.3,
             "consistency": 0,
             "jockey": 44.8,
@@ -11916,9 +11856,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.062,
+            "model_prob": 0.065,
             "market_prob": 0.038,
-            "edge": 0.024
+            "edge": 0.027
           },
           "recommendation": {
             "type": "Skip",
@@ -11963,9 +11903,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.059,
+            "model_prob": 0.062,
             "market_prob": 0.016,
-            "edge": 0.043
+            "edge": 0.047
           },
           "recommendation": {
             "type": "Skip",
@@ -11986,39 +11926,19 @@
           "odds_str": "66/1",
           "odds_dec": 67.0,
           "silk_url": "20260714wol172513.png",
-          "score": 34.9,
-          "components": {
-            "odds_value": 0,
-            "recent_form": 15.0,
-            "consistency": 0,
-            "jockey": 30.3,
-            "trainer": 39.5,
-            "weight": 100.0,
-            "absence_pen": 0.0,
-            "going_factor": 1.0,
-            "distance": 28.3,
-            "distance_meta": {
-              "n": 2,
-              "relevance": 1.99,
-              "quality": 0.17
-            },
-            "freshness": 70.0,
-            "last_ran_days": 26,
-            "timeform": 20.0,
-            "timeform_stars": 1,
-            "class_or": 50.0,
-            "official_rating": null
-          },
+          "score": null,
+          "components": {},
           "value": {
-            "model_prob": 0.05,
-            "market_prob": 0.012,
-            "edge": 0.039
+            "model_prob": null,
+            "market_prob": null,
+            "edge": null
           },
+          "non_runner": true,
           "recommendation": {
             "type": "Skip",
-            "confidence": 13,
-            "label": "Skip",
-            "reasoning": "poor recent form"
+            "confidence": 0,
+            "label": "Non-runner",
+            "reasoning": "withdrawn — will not run"
           }
         }
       ]
@@ -12419,7 +12339,7 @@
       "going": "Standard",
       "race_class": "4",
       "prize": "5234.0 GBP",
-      "num_runners": 11,
+      "num_runners": 10,
       "ew_places": 3,
       "date": "2026-07-14",
       "runners": [
@@ -12435,9 +12355,9 @@
           "odds_str": "11/4",
           "odds_dec": 3.75,
           "silk_url": "20260714wol175511.png",
-          "score": 72.2,
+          "score": 70.3,
           "components": {
-            "odds_value": 97.5,
+            "odds_value": 87.7,
             "recent_form": 84.8,
             "consistency": 83.3,
             "jockey": 49.8,
@@ -12459,62 +12379,15 @@
             "official_rating": 80
           },
           "value": {
-            "model_prob": 0.219,
-            "market_prob": 0.215,
-            "edge": 0.004
+            "model_prob": 0.25,
+            "market_prob": 0.28,
+            "edge": -0.03
           },
           "recommendation": {
             "type": "Win",
-            "confidence": 72,
-            "label": "Strong Win Bet",
+            "confidence": 70,
+            "label": "Win Bet",
             "reasoning": "solid recent form; won last time out; consistent placer (83% placed); fair price for a win bet"
-          }
-        },
-        {
-          "horse": "Aigeas",
-          "country": "GB",
-          "jockey": "Harry Davies",
-          "trainer": "Oliver Cole",
-          "form": "18-051",
-          "age": "3",
-          "weight": "9-9",
-          "draw": "6",
-          "odds_str": "5/2",
-          "odds_dec": 3.5,
-          "silk_url": "20260714wol175505.png",
-          "score": 59.9,
-          "components": {
-            "odds_value": 100,
-            "recent_form": 62.1,
-            "consistency": 40.0,
-            "jockey": 49.5,
-            "trainer": 57.5,
-            "weight": 61.5,
-            "absence_pen": 0.0,
-            "going_factor": 1.0,
-            "distance": 55.2,
-            "distance_meta": {
-              "n": 5,
-              "relevance": 4.03,
-              "quality": 0.57
-            },
-            "freshness": 70.0,
-            "last_ran_days": 12,
-            "timeform": 100.0,
-            "timeform_stars": 5,
-            "class_or": 81.8,
-            "official_rating": 85
-          },
-          "value": {
-            "model_prob": 0.145,
-            "market_prob": 0.231,
-            "edge": -0.086
-          },
-          "recommendation": {
-            "type": "Skip",
-            "confidence": 23,
-            "label": "Skip",
-            "reasoning": "moderate form; won last time out"
           }
         },
         {
@@ -12529,9 +12402,9 @@
           "odds_str": "7/1",
           "odds_dec": 8.0,
           "silk_url": "20260714wol175510.png",
-          "score": 58.4,
+          "score": 57.6,
           "components": {
-            "odds_value": 39.8,
+            "odds_value": 35.2,
             "recent_form": 86.0,
             "consistency": 75.0,
             "jockey": 44.9,
@@ -12553,9 +12426,9 @@
             "official_rating": 81
           },
           "value": {
-            "model_prob": 0.136,
-            "market_prob": 0.101,
-            "edge": 0.035
+            "model_prob": 0.159,
+            "market_prob": 0.131,
+            "edge": 0.028
           },
           "recommendation": {
             "type": "Skip",
@@ -12576,9 +12449,9 @@
           "odds_str": "7/1",
           "odds_dec": 8.0,
           "silk_url": "20260714wol175509.png",
-          "score": 47.3,
+          "score": 46.4,
           "components": {
-            "odds_value": 39.8,
+            "odds_value": 35.2,
             "recent_form": 48.7,
             "consistency": 33.3,
             "jockey": 68.9,
@@ -12600,9 +12473,9 @@
             "official_rating": 76
           },
           "value": {
-            "model_prob": 0.1,
-            "market_prob": 0.101,
-            "edge": -0.001
+            "model_prob": 0.119,
+            "market_prob": 0.131,
+            "edge": -0.013
           },
           "recommendation": {
             "type": "Skip",
@@ -12623,9 +12496,9 @@
           "odds_str": "15/2",
           "odds_dec": 8.5,
           "silk_url": "20260714wol175502.png",
-          "score": 40.6,
+          "score": 39.9,
           "components": {
-            "odds_value": 36.8,
+            "odds_value": 32.5,
             "recent_form": 69.5,
             "consistency": 75.0,
             "jockey": 75.0,
@@ -12647,13 +12520,13 @@
             "official_rating": 86
           },
           "value": {
-            "model_prob": 0.081,
-            "market_prob": 0.095,
-            "edge": -0.014
+            "model_prob": 0.094,
+            "market_prob": 0.124,
+            "edge": -0.029
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 16,
+            "confidence": 15,
             "label": "Skip",
             "reasoning": "solid recent form; consistent placer (75% placed); returning from long absence"
           }
@@ -12670,9 +12543,9 @@
           "odds_str": "20/1",
           "odds_dec": 21.0,
           "silk_url": "20260714wol175507.png",
-          "score": 35.1,
+          "score": 34.8,
           "components": {
-            "odds_value": 8.3,
+            "odds_value": 6.5,
             "recent_form": 27.3,
             "consistency": 33.3,
             "jockey": 42.9,
@@ -12694,13 +12567,13 @@
             "official_rating": 79
           },
           "value": {
-            "model_prob": 0.062,
-            "market_prob": 0.038,
+            "model_prob": 0.074,
+            "market_prob": 0.05,
             "edge": 0.024
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 14,
+            "confidence": 13,
             "label": "Skip",
             "reasoning": "poor recent form"
           }
@@ -12717,9 +12590,9 @@
           "odds_str": "16/1",
           "odds_dec": 17.0,
           "silk_url": "20260714wol175508.png",
-          "score": 34.1,
+          "score": 33.8,
           "components": {
-            "odds_value": 12.9,
+            "odds_value": 10.7,
             "recent_form": 54.7,
             "consistency": 60.0,
             "jockey": 47.1,
@@ -12741,62 +12614,15 @@
             "official_rating": 77
           },
           "value": {
-            "model_prob": 0.059,
-            "market_prob": 0.048,
-            "edge": 0.012
+            "model_prob": 0.07,
+            "market_prob": 0.062,
+            "edge": 0.009
           },
           "recommendation": {
             "type": "Skip",
             "confidence": 13,
             "label": "Skip",
             "reasoning": "moderate form; consistent placer (60% placed); returning from long absence"
-          }
-        },
-        {
-          "horse": "American Style",
-          "country": "GB",
-          "jockey": "T Eaves",
-          "trainer": "K A Ryan",
-          "form": "29-3006",
-          "age": "4",
-          "weight": "9-10",
-          "draw": "4",
-          "odds_str": "14/1",
-          "odds_dec": 15.0,
-          "silk_url": "20260714wol175504.png",
-          "score": 33.2,
-          "components": {
-            "odds_value": 16.0,
-            "recent_form": 22.3,
-            "consistency": 33.3,
-            "jockey": 48.8,
-            "trainer": 37.6,
-            "weight": 53.8,
-            "absence_pen": 0.0,
-            "going_factor": 1.0,
-            "distance": 35.7,
-            "distance_meta": {
-              "n": 6,
-              "relevance": 5.97,
-              "quality": 0.33
-            },
-            "freshness": 70.0,
-            "last_ran_days": 13,
-            "timeform": 60.0,
-            "timeform_stars": 3,
-            "class_or": 36.4,
-            "official_rating": 80
-          },
-          "value": {
-            "model_prob": 0.057,
-            "market_prob": 0.054,
-            "edge": 0.003
-          },
-          "recommendation": {
-            "type": "Skip",
-            "confidence": 13,
-            "label": "Skip",
-            "reasoning": "poor recent form"
           }
         },
         {
@@ -12811,9 +12637,9 @@
           "odds_str": "25/1",
           "odds_dec": 26.0,
           "silk_url": "20260714wol175506.png",
-          "score": 33.0,
+          "score": 32.7,
           "components": {
-            "odds_value": 4.6,
+            "odds_value": 3.1,
             "recent_form": 34.7,
             "consistency": 16.7,
             "jockey": 56.4,
@@ -12835,9 +12661,56 @@
             "official_rating": 85
           },
           "value": {
-            "model_prob": 0.056,
-            "market_prob": 0.031,
-            "edge": 0.025
+            "model_prob": 0.067,
+            "market_prob": 0.04,
+            "edge": 0.027
+          },
+          "recommendation": {
+            "type": "Skip",
+            "confidence": 13,
+            "label": "Skip",
+            "reasoning": "poor recent form"
+          }
+        },
+        {
+          "horse": "American Style",
+          "country": "GB",
+          "jockey": "T Eaves",
+          "trainer": "K A Ryan",
+          "form": "29-3006",
+          "age": "4",
+          "weight": "9-10",
+          "draw": "4",
+          "odds_str": "14/1",
+          "odds_dec": 15.0,
+          "silk_url": "20260714wol175504.png",
+          "score": 32.7,
+          "components": {
+            "odds_value": 13.6,
+            "recent_form": 22.3,
+            "consistency": 33.3,
+            "jockey": 48.8,
+            "trainer": 37.6,
+            "weight": 53.8,
+            "absence_pen": 0.0,
+            "going_factor": 1.0,
+            "distance": 35.7,
+            "distance_meta": {
+              "n": 6,
+              "relevance": 5.97,
+              "quality": 0.33
+            },
+            "freshness": 70.0,
+            "last_ran_days": 13,
+            "timeform": 60.0,
+            "timeform_stars": 3,
+            "class_or": 36.4,
+            "official_rating": 80
+          },
+          "value": {
+            "model_prob": 0.067,
+            "market_prob": 0.07,
+            "edge": -0.003
           },
           "recommendation": {
             "type": "Skip",
@@ -12858,9 +12731,9 @@
           "odds_str": "16/1",
           "odds_dec": 17.0,
           "silk_url": "20260714wol175501.png",
-          "score": 27.9,
+          "score": 27.5,
           "components": {
-            "odds_value": 12.9,
+            "odds_value": 10.7,
             "recent_form": 32.0,
             "consistency": 16.7,
             "jockey": 28.5,
@@ -12882,13 +12755,13 @@
             "official_rating": 87
           },
           "value": {
-            "model_prob": 0.043,
-            "market_prob": 0.048,
-            "edge": -0.004
+            "model_prob": 0.051,
+            "market_prob": 0.062,
+            "edge": -0.011
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 11,
+            "confidence": 10,
             "label": "Skip",
             "reasoning": "poor recent form"
           }
@@ -12905,9 +12778,9 @@
           "odds_str": "20/1",
           "odds_dec": 21.0,
           "silk_url": "20260714wol175503.png",
-          "score": 26.8,
+          "score": 26.6,
           "components": {
-            "odds_value": 8.3,
+            "odds_value": 6.5,
             "recent_form": 33.3,
             "consistency": 33.3,
             "jockey": 55.0,
@@ -12929,15 +12802,42 @@
             "official_rating": 84
           },
           "value": {
-            "model_prob": 0.041,
-            "market_prob": 0.038,
-            "edge": 0.002
+            "model_prob": 0.048,
+            "market_prob": 0.05,
+            "edge": -0.002
           },
           "recommendation": {
             "type": "Skip",
             "confidence": 10,
             "label": "Skip",
             "reasoning": "poor recent form; returning from long absence"
+          }
+        },
+        {
+          "horse": "Aigeas",
+          "country": "GB",
+          "jockey": "Harry Davies",
+          "trainer": "Oliver Cole",
+          "form": "18-051",
+          "age": "3",
+          "weight": "9-9",
+          "draw": "6",
+          "odds_str": "5/2",
+          "odds_dec": 3.5,
+          "silk_url": "20260714wol175505.png",
+          "score": null,
+          "components": {},
+          "value": {
+            "model_prob": null,
+            "market_prob": null,
+            "edge": null
+          },
+          "non_runner": true,
+          "recommendation": {
+            "type": "Skip",
+            "confidence": 0,
+            "label": "Non-runner",
+            "reasoning": "withdrawn — will not run"
           }
         }
       ]
@@ -12951,7 +12851,7 @@
       "going": "Good",
       "race_class": "",
       "prize": "6000.0 EUR",
-      "num_runners": 14,
+      "num_runners": 12,
       "ew_places": 4,
       "date": "2026-07-14",
       "runners": [
@@ -12991,62 +12891,15 @@
             "official_rating": 42
           },
           "value": {
-            "model_prob": 0.138,
-            "market_prob": 0.229,
-            "edge": -0.091
+            "model_prob": 0.179,
+            "market_prob": 0.303,
+            "edge": -0.123
           },
           "recommendation": {
             "type": "Skip",
             "confidence": 22,
             "label": "Skip",
             "reasoning": "moderate form; placed last time out"
-          }
-        },
-        {
-          "horse": "Stonyfalls",
-          "country": "GB",
-          "jockey": "Killian Leonard",
-          "trainer": "Paul Traynor",
-          "form": "09-6930",
-          "age": "3",
-          "weight": "9-1",
-          "draw": "5",
-          "odds_str": "4/1",
-          "odds_dec": 5.0,
-          "silk_url": "20260714kil181010.png",
-          "score": 48.7,
-          "components": {
-            "odds_value": 92.6,
-            "recent_form": 26.7,
-            "consistency": 16.7,
-            "jockey": 46.2,
-            "trainer": 51.3,
-            "weight": 72.2,
-            "absence_pen": 0.0,
-            "going_factor": 1.0,
-            "distance": 32.9,
-            "distance_meta": {
-              "n": 6,
-              "relevance": 3.53,
-              "quality": 0.28
-            },
-            "freshness": 56.2,
-            "last_ran_days": 1,
-            "timeform": 60.0,
-            "timeform_stars": 3,
-            "class_or": 27.8,
-            "official_rating": 47
-          },
-          "value": {
-            "model_prob": 0.115,
-            "market_prob": 0.149,
-            "edge": -0.034
-          },
-          "recommendation": {
-            "type": "Skip",
-            "confidence": 19,
-            "label": "Skip",
-            "reasoning": "poor recent form"
           }
         },
         {
@@ -13061,9 +12914,9 @@
           "odds_str": "8/1",
           "odds_dec": 9.0,
           "silk_url": "20260714kil181013.png",
-          "score": 42.1,
+          "score": 40.5,
           "components": {
-            "odds_value": 46.5,
+            "odds_value": 38.3,
             "recent_form": 32.7,
             "consistency": 16.7,
             "jockey": 36.1,
@@ -13085,62 +12938,15 @@
             "official_rating": 43
           },
           "value": {
-            "model_prob": 0.095,
-            "market_prob": 0.083,
-            "edge": 0.012
+            "model_prob": 0.116,
+            "market_prob": 0.109,
+            "edge": 0.007
           },
           "recommendation": {
             "type": "Skip",
             "confidence": 16,
             "label": "Skip",
             "reasoning": "poor recent form"
-          }
-        },
-        {
-          "horse": "Concaire",
-          "country": "GB",
-          "jockey": "Ben Coen",
-          "trainer": "R O'Brien",
-          "form": "708627",
-          "age": "3",
-          "weight": "9-12",
-          "draw": "12",
-          "odds_str": "7/1",
-          "odds_dec": 8.0,
-          "silk_url": "20260714kil181004.png",
-          "score": 39.9,
-          "components": {
-            "odds_value": 53.7,
-            "recent_form": 36.7,
-            "consistency": 16.7,
-            "jockey": 64.0,
-            "trainer": 49.0,
-            "weight": 11.1,
-            "absence_pen": 0.0,
-            "going_factor": 1.0,
-            "distance": 37.0,
-            "distance_meta": {
-              "n": 6,
-              "relevance": 3.44,
-              "quality": 0.33
-            },
-            "freshness": 70.0,
-            "last_ran_days": 25,
-            "timeform": 100.0,
-            "timeform_stars": 5,
-            "class_or": 88.9,
-            "official_rating": 58
-          },
-          "value": {
-            "model_prob": 0.087,
-            "market_prob": 0.093,
-            "edge": -0.006
-          },
-          "recommendation": {
-            "type": "Skip",
-            "confidence": 15,
-            "label": "Skip",
-            "reasoning": "moderate form"
           }
         },
         {
@@ -13155,9 +12961,9 @@
           "odds_str": "6/1",
           "odds_dec": 7.0,
           "silk_url": "20260714kil181002.png",
-          "score": 38.9,
+          "score": 37.0,
           "components": {
-            "odds_value": 63.0,
+            "odds_value": 52.4,
             "recent_form": 28.3,
             "consistency": 12.4,
             "jockey": 78.5,
@@ -13179,13 +12985,13 @@
             "official_rating": 60
           },
           "value": {
-            "model_prob": 0.083,
-            "market_prob": 0.106,
-            "edge": -0.023
+            "model_prob": 0.099,
+            "market_prob": 0.14,
+            "edge": -0.042
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 15,
+            "confidence": 14,
             "label": "Skip",
             "reasoning": "poor recent form"
           }
@@ -13202,9 +13008,9 @@
           "odds_str": "20/1",
           "odds_dec": 21.0,
           "silk_url": "20260714kil181012.png",
-          "score": 35.0,
+          "score": 34.3,
           "components": {
-            "odds_value": 13.6,
+            "odds_value": 10.1,
             "recent_form": 27.3,
             "consistency": 16.7,
             "jockey": 43.1,
@@ -13226,9 +13032,9 @@
             "official_rating": 44
           },
           "value": {
-            "model_prob": 0.069,
-            "market_prob": 0.035,
-            "edge": 0.033
+            "model_prob": 0.087,
+            "market_prob": 0.047,
+            "edge": 0.04
           },
           "recommendation": {
             "type": "Skip",
@@ -13249,9 +13055,9 @@
           "odds_str": "10/1",
           "odds_dec": 11.0,
           "silk_url": "20260714kil181008.png",
-          "score": 34.1,
+          "score": 32.9,
           "components": {
-            "odds_value": 36.0,
+            "odds_value": 29.3,
             "recent_form": 16.0,
             "consistency": 0,
             "jockey": 46.3,
@@ -13273,9 +13079,9 @@
             "official_rating": 50
           },
           "value": {
-            "model_prob": 0.066,
-            "market_prob": 0.068,
-            "edge": -0.002
+            "model_prob": 0.081,
+            "market_prob": 0.089,
+            "edge": -0.008
           },
           "recommendation": {
             "type": "Skip",
@@ -13296,9 +13102,9 @@
           "odds_str": "14/1",
           "odds_dec": 15.0,
           "silk_url": "20260714kil181007.png",
-          "score": 31.1,
+          "score": 30.3,
           "components": {
-            "odds_value": 23.5,
+            "odds_value": 18.5,
             "recent_form": 11.5,
             "consistency": 0,
             "jockey": 54.0,
@@ -13320,9 +13126,9 @@
             "official_rating": 51
           },
           "value": {
-            "model_prob": 0.058,
-            "market_prob": 0.05,
-            "edge": 0.008
+            "model_prob": 0.072,
+            "market_prob": 0.066,
+            "edge": 0.006
           },
           "recommendation": {
             "type": "Skip",
@@ -13343,9 +13149,9 @@
           "odds_str": "33/1",
           "odds_dec": 34.0,
           "silk_url": "20260714kil181011.png",
-          "score": 29.7,
+          "score": 29.3,
           "components": {
-            "odds_value": 4.1,
+            "odds_value": 2.0,
             "recent_form": 10.0,
             "consistency": 0,
             "jockey": 50.9,
@@ -13367,9 +13173,9 @@
             "official_rating": 45
           },
           "value": {
-            "model_prob": 0.054,
-            "market_prob": 0.022,
-            "edge": 0.032
+            "model_prob": 0.068,
+            "market_prob": 0.029,
+            "edge": 0.039
           },
           "recommendation": {
             "type": "Skip",
@@ -13390,9 +13196,9 @@
           "odds_str": "20/1",
           "odds_dec": 21.0,
           "silk_url": "20260714kil181001.png",
-          "score": 29.7,
+          "score": 29.0,
           "components": {
-            "odds_value": 13.6,
+            "odds_value": 10.1,
             "recent_form": 31.0,
             "consistency": 33.3,
             "jockey": 39.8,
@@ -13414,9 +13220,9 @@
             "official_rating": 60
           },
           "value": {
-            "model_prob": 0.053,
-            "market_prob": 0.035,
-            "edge": 0.018
+            "model_prob": 0.067,
+            "market_prob": 0.047,
+            "edge": 0.02
           },
           "recommendation": {
             "type": "Skip",
@@ -13437,9 +13243,9 @@
           "odds_str": "33/1",
           "odds_dec": 34.0,
           "silk_url": "20260714kil181009.png",
-          "score": 28.8,
+          "score": 28.4,
           "components": {
-            "odds_value": 4.1,
+            "odds_value": 2.0,
             "recent_form": 17.0,
             "consistency": 0,
             "jockey": 42.8,
@@ -13461,9 +13267,9 @@
             "official_rating": 48
           },
           "value": {
-            "model_prob": 0.051,
-            "market_prob": 0.022,
-            "edge": 0.029
+            "model_prob": 0.065,
+            "market_prob": 0.029,
+            "edge": 0.036
           },
           "recommendation": {
             "type": "Skip",
@@ -13484,9 +13290,9 @@
           "odds_str": "25/1",
           "odds_dec": 26.0,
           "silk_url": "20260714kil181006.png",
-          "score": 27.0,
+          "score": 26.4,
           "components": {
-            "odds_value": 8.8,
+            "odds_value": 6.0,
             "recent_form": 19.3,
             "consistency": 16.7,
             "jockey": 43.1,
@@ -13508,9 +13314,9 @@
             "official_rating": 54
           },
           "value": {
-            "model_prob": 0.046,
-            "market_prob": 0.029,
-            "edge": 0.017
+            "model_prob": 0.057,
+            "market_prob": 0.038,
+            "edge": 0.02
           },
           "recommendation": {
             "type": "Skip",
@@ -13531,9 +13337,9 @@
           "odds_str": "25/1",
           "odds_dec": 26.0,
           "silk_url": "20260714kil181005.png",
-          "score": 26.6,
+          "score": 26.1,
           "components": {
-            "odds_value": 8.8,
+            "odds_value": 6.0,
             "recent_form": 20.5,
             "consistency": 0,
             "jockey": 35.4,
@@ -13555,9 +13361,9 @@
             "official_rating": 58
           },
           "value": {
-            "model_prob": 0.045,
-            "market_prob": 0.029,
-            "edge": 0.016
+            "model_prob": 0.056,
+            "market_prob": 0.038,
+            "edge": 0.018
           },
           "recommendation": {
             "type": "Skip",
@@ -13578,9 +13384,9 @@
           "odds_str": "14/1",
           "odds_dec": 15.0,
           "silk_url": "20260714kil181003.png",
-          "score": 25.2,
+          "score": 24.3,
           "components": {
-            "odds_value": 23.5,
+            "odds_value": 18.5,
             "recent_form": 18.0,
             "consistency": 0,
             "jockey": 38.6,
@@ -13602,15 +13408,69 @@
             "official_rating": 59
           },
           "value": {
-            "model_prob": 0.041,
-            "market_prob": 0.05,
-            "edge": -0.009
+            "model_prob": 0.052,
+            "market_prob": 0.066,
+            "edge": -0.013
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 10,
+            "confidence": 9,
             "label": "Skip",
             "reasoning": "poor recent form"
+          }
+        },
+        {
+          "horse": "Concaire",
+          "country": "GB",
+          "jockey": "Ben Coen",
+          "trainer": "R O'Brien",
+          "form": "708627",
+          "age": "3",
+          "weight": "9-12",
+          "draw": "12",
+          "odds_str": "7/1",
+          "odds_dec": 8.0,
+          "silk_url": "20260714kil181004.png",
+          "score": null,
+          "components": {},
+          "value": {
+            "model_prob": null,
+            "market_prob": null,
+            "edge": null
+          },
+          "non_runner": true,
+          "recommendation": {
+            "type": "Skip",
+            "confidence": 0,
+            "label": "Non-runner",
+            "reasoning": "withdrawn — will not run"
+          }
+        },
+        {
+          "horse": "Stonyfalls",
+          "country": "GB",
+          "jockey": "Killian Leonard",
+          "trainer": "Paul Traynor",
+          "form": "09-6930",
+          "age": "3",
+          "weight": "9-1",
+          "draw": "5",
+          "odds_str": "4/1",
+          "odds_dec": 5.0,
+          "silk_url": "20260714kil181010.png",
+          "score": null,
+          "components": {},
+          "value": {
+            "model_prob": null,
+            "market_prob": null,
+            "edge": null
+          },
+          "non_runner": true,
+          "recommendation": {
+            "type": "Skip",
+            "confidence": 0,
+            "label": "Non-runner",
+            "reasoning": "withdrawn — will not run"
           }
         }
       ]
@@ -14193,7 +14053,7 @@
       "going": "Good",
       "race_class": "",
       "prize": "7200.0 EUR",
-      "num_runners": 15,
+      "num_runners": 14,
       "ew_places": 4,
       "date": "2026-07-14",
       "runners": [
@@ -14209,14 +14069,14 @@
           "odds_str": "5/2",
           "odds_dec": 3.5,
           "silk_url": "20260714kil184012.png",
-          "score": 63.6,
+          "score": 65.3,
           "components": {
             "odds_value": 100,
             "recent_form": 64.3,
             "consistency": 50.0,
             "jockey": 78.5,
             "trainer": 47.6,
-            "weight": 68.8,
+            "weight": 91.7,
             "absence_pen": 0.0,
             "going_factor": 1.0,
             "distance": 47.4,
@@ -14229,17 +14089,17 @@
             "last_ran_days": 20,
             "timeform": 100.0,
             "timeform_stars": 5,
-            "class_or": 31.2,
+            "class_or": 8.3,
             "official_rating": 62
           },
           "value": {
-            "model_prob": 0.148,
-            "market_prob": 0.209,
-            "edge": -0.061
+            "model_prob": 0.158,
+            "market_prob": 0.212,
+            "edge": -0.055
           },
           "recommendation": {
             "type": "Win",
-            "confidence": 63,
+            "confidence": 65,
             "label": "Win Bet",
             "reasoning": "solid recent form; placed last time out; consistent placer (50% placed); fair price for a win bet"
           }
@@ -14256,14 +14116,14 @@
           "odds_str": "3/1",
           "odds_dec": 4.0,
           "silk_url": "20260714kil184004.png",
-          "score": 53.1,
+          "score": 53.7,
           "components": {
             "odds_value": 100,
             "recent_form": 49.0,
             "consistency": 33.3,
             "jockey": 48.2,
             "trainer": 44.2,
-            "weight": 25.0,
+            "weight": 33.3,
             "absence_pen": 0.0,
             "going_factor": 1.0,
             "distance": 52.5,
@@ -14276,13 +14136,13 @@
             "last_ran_days": 18,
             "timeform": 80.0,
             "timeform_stars": 4,
-            "class_or": 75.0,
+            "class_or": 66.7,
             "official_rating": 69
           },
           "value": {
-            "model_prob": 0.101,
-            "market_prob": 0.183,
-            "edge": -0.082
+            "model_prob": 0.103,
+            "market_prob": 0.186,
+            "edge": -0.083
           },
           "recommendation": {
             "type": "Skip",
@@ -14303,14 +14163,14 @@
           "odds_str": "10/1",
           "odds_dec": 11.0,
           "silk_url": "20260714kil184014.png",
-          "score": 47.3,
+          "score": 48.5,
           "components": {
-            "odds_value": 39.4,
+            "odds_value": 36.0,
             "recent_form": 39.7,
             "consistency": 50.0,
             "jockey": 64.0,
             "trainer": 64.3,
-            "weight": 75.0,
+            "weight": 100.0,
             "absence_pen": 0.0,
             "going_factor": 1.0,
             "distance": 39.8,
@@ -14323,17 +14183,17 @@
             "last_ran_days": 32,
             "timeform": 80.0,
             "timeform_stars": 4,
-            "class_or": 25.0,
+            "class_or": 0.0,
             "official_rating": 61
           },
           "value": {
-            "model_prob": 0.09,
-            "market_prob": 0.067,
-            "edge": 0.023
+            "model_prob": 0.093,
+            "market_prob": 0.068,
+            "edge": 0.025
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 18,
+            "confidence": 19,
             "label": "Skip",
             "reasoning": "moderate form; consistent placer (50% placed)"
           }
@@ -14350,14 +14210,14 @@
           "odds_str": "10/1",
           "odds_dec": 11.0,
           "silk_url": "20260714kil184011.png",
-          "score": 44.0,
+          "score": 44.9,
           "components": {
-            "odds_value": 39.4,
+            "odds_value": 36.0,
             "recent_form": 47.3,
             "consistency": 33.3,
             "jockey": 42.8,
             "trainer": 46.8,
-            "weight": 62.5,
+            "weight": 83.3,
             "absence_pen": 0.0,
             "going_factor": 1.0,
             "distance": 49.0,
@@ -14370,13 +14230,13 @@
             "last_ran_days": 25,
             "timeform": 60.0,
             "timeform_stars": 3,
-            "class_or": 37.5,
+            "class_or": 16.7,
             "official_rating": 63
           },
           "value": {
-            "model_prob": 0.082,
-            "market_prob": 0.067,
-            "edge": 0.016
+            "model_prob": 0.085,
+            "market_prob": 0.068,
+            "edge": 0.018
           },
           "recommendation": {
             "type": "Skip",
@@ -14399,12 +14259,12 @@
           "silk_url": "20260714kil184003.png",
           "score": 41.7,
           "components": {
-            "odds_value": 39.4,
+            "odds_value": 36.0,
             "recent_form": 40.7,
             "consistency": 50.0,
             "jockey": 46.3,
             "trainer": 45.4,
-            "weight": 25.0,
+            "weight": 33.3,
             "absence_pen": 0.0,
             "going_factor": 1.0,
             "distance": 45.3,
@@ -14417,13 +14277,13 @@
             "last_ran_days": 18,
             "timeform": 40.0,
             "timeform_stars": 2,
-            "class_or": 75.0,
+            "class_or": 66.7,
             "official_rating": 69
           },
           "value": {
-            "model_prob": 0.075,
-            "market_prob": 0.067,
-            "edge": 0.009
+            "model_prob": 0.076,
+            "market_prob": 0.068,
+            "edge": 0.008
           },
           "recommendation": {
             "type": "Skip",
@@ -14444,14 +14304,14 @@
           "odds_str": "8/1",
           "odds_dec": 9.0,
           "silk_url": "20260714kil184013.png",
-          "score": 40.5,
+          "score": 41.6,
           "components": {
-            "odds_value": 50.6,
+            "odds_value": 46.5,
             "recent_form": 25.0,
             "consistency": 16.7,
             "jockey": 50.9,
             "trainer": 45.4,
-            "weight": 75.0,
+            "weight": 100.0,
             "absence_pen": 0.0,
             "going_factor": 1.0,
             "distance": 31.9,
@@ -14464,13 +14324,13 @@
             "last_ran_days": 11,
             "timeform": 40.0,
             "timeform_stars": 2,
-            "class_or": 25.0,
+            "class_or": 0.0,
             "official_rating": 61
           },
           "value": {
-            "model_prob": 0.072,
-            "market_prob": 0.081,
-            "edge": -0.01
+            "model_prob": 0.075,
+            "market_prob": 0.083,
+            "edge": -0.007
           },
           "recommendation": {
             "type": "Skip",
@@ -14491,14 +14351,14 @@
           "odds_str": "14/1",
           "odds_dec": 15.0,
           "silk_url": "20260714kil184009.png",
-          "score": 39.3,
+          "score": 40.1,
           "components": {
-            "odds_value": 25.9,
+            "odds_value": 23.5,
             "recent_form": 45.0,
             "consistency": 0,
             "jockey": 36.1,
             "trainer": 51.3,
-            "weight": 56.2,
+            "weight": 75.0,
             "absence_pen": 0.0,
             "going_factor": 1.0,
             "distance": 46.8,
@@ -14511,17 +14371,17 @@
             "last_ran_days": 207,
             "timeform": 60.0,
             "timeform_stars": 3,
-            "class_or": 43.8,
+            "class_or": 25.0,
             "official_rating": 64
           },
           "value": {
-            "model_prob": 0.068,
-            "market_prob": 0.049,
-            "edge": 0.019
+            "model_prob": 0.071,
+            "market_prob": 0.05,
+            "edge": 0.021
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 15,
+            "confidence": 16,
             "label": "Skip",
             "reasoning": "moderate form"
           }
@@ -14538,14 +14398,14 @@
           "odds_str": "14/1",
           "odds_dec": 15.0,
           "silk_url": "20260714kil184008.png",
-          "score": 35.1,
+          "score": 35.9,
           "components": {
-            "odds_value": 25.9,
+            "odds_value": 23.5,
             "recent_form": 36.7,
             "consistency": 16.7,
             "jockey": 38.6,
             "trainer": 30.3,
-            "weight": 50.0,
+            "weight": 66.7,
             "absence_pen": 0.0,
             "going_factor": 1.0,
             "distance": 33.8,
@@ -14558,19 +14418,66 @@
             "last_ran_days": 18,
             "timeform": 40.0,
             "timeform_stars": 2,
-            "class_or": 50.0,
+            "class_or": 33.3,
             "official_rating": 65
           },
           "value": {
-            "model_prob": 0.055,
-            "market_prob": 0.049,
-            "edge": 0.007
+            "model_prob": 0.058,
+            "market_prob": 0.05,
+            "edge": 0.009
           },
           "recommendation": {
             "type": "Skip",
             "confidence": 14,
             "label": "Skip",
             "reasoning": "moderate form"
+          }
+        },
+        {
+          "horse": "Little Miss P",
+          "country": "GB",
+          "jockey": "Billy Lee",
+          "trainer": "W McCreery",
+          "form": "555-007",
+          "age": "4",
+          "weight": "9-9",
+          "draw": "11",
+          "odds_str": "10/1",
+          "odds_dec": 11.0,
+          "silk_url": "20260714kil184007.png",
+          "score": 34.7,
+          "components": {
+            "odds_value": 36.0,
+            "recent_form": 21.0,
+            "consistency": 0,
+            "jockey": 54.0,
+            "trainer": 47.7,
+            "weight": 66.7,
+            "absence_pen": 0.0,
+            "going_factor": 1.0,
+            "distance": 32.8,
+            "distance_meta": {
+              "n": 6,
+              "relevance": 3.78,
+              "quality": 0.28
+            },
+            "freshness": 70.0,
+            "last_ran_days": 13,
+            "timeform": 60.0,
+            "timeform_stars": 3,
+            "class_or": 33.3,
+            "official_rating": 65
+          },
+          "value": {
+            "model_prob": 0.055,
+            "market_prob": 0.068,
+            "edge": -0.013
+          },
+          "recommendation": {
+            "type": "Skip",
+            "confidence": 13,
+            "label": "Skip",
+            "reasoning": "poor recent form"
           }
         },
         {
@@ -14585,9 +14492,9 @@
           "odds_str": "25/1",
           "odds_dec": 26.0,
           "silk_url": "20260714kil184001.png",
-          "score": 34.2,
+          "score": 34.0,
           "components": {
-            "odds_value": 10.3,
+            "odds_value": 8.8,
             "recent_form": 38.0,
             "consistency": 50.0,
             "jockey": 44.6,
@@ -14610,61 +14517,14 @@
           },
           "value": {
             "model_prob": 0.053,
-            "market_prob": 0.028,
-            "edge": 0.025
+            "market_prob": 0.029,
+            "edge": 0.024
           },
           "recommendation": {
             "type": "Skip",
             "confidence": 13,
             "label": "Skip",
             "reasoning": "moderate form; consistent placer (50% placed)"
-          }
-        },
-        {
-          "horse": "Little Miss P",
-          "country": "GB",
-          "jockey": "Billy Lee",
-          "trainer": "W McCreery",
-          "form": "555-007",
-          "age": "4",
-          "weight": "9-9",
-          "draw": "11",
-          "odds_str": "10/1",
-          "odds_dec": 11.0,
-          "silk_url": "20260714kil184007.png",
-          "score": 34.1,
-          "components": {
-            "odds_value": 39.4,
-            "recent_form": 21.0,
-            "consistency": 0,
-            "jockey": 54.0,
-            "trainer": 47.7,
-            "weight": 50.0,
-            "absence_pen": 0.0,
-            "going_factor": 1.0,
-            "distance": 32.8,
-            "distance_meta": {
-              "n": 6,
-              "relevance": 3.78,
-              "quality": 0.28
-            },
-            "freshness": 70.0,
-            "last_ran_days": 13,
-            "timeform": 60.0,
-            "timeform_stars": 3,
-            "class_or": 50.0,
-            "official_rating": 65
-          },
-          "value": {
-            "model_prob": 0.053,
-            "market_prob": 0.067,
-            "edge": -0.014
-          },
-          "recommendation": {
-            "type": "Skip",
-            "confidence": 13,
-            "label": "Skip",
-            "reasoning": "poor recent form"
           }
         },
         {
@@ -14679,14 +14539,14 @@
           "odds_str": "25/1",
           "odds_dec": 26.0,
           "silk_url": "20260714kil184006.png",
-          "score": 33.2,
+          "score": 33.9,
           "components": {
-            "odds_value": 10.3,
+            "odds_value": 8.8,
             "recent_form": 33.3,
             "consistency": 20.0,
             "jockey": 46.2,
             "trainer": 50.0,
-            "weight": 37.5,
+            "weight": 50.0,
             "absence_pen": 0.0,
             "going_factor": 1.0,
             "distance": 45.7,
@@ -14699,13 +14559,13 @@
             "last_ran_days": 242,
             "timeform": 40.0,
             "timeform_stars": 2,
-            "class_or": 62.5,
+            "class_or": 50.0,
             "official_rating": 67
           },
           "value": {
-            "model_prob": 0.051,
-            "market_prob": 0.028,
-            "edge": 0.023
+            "model_prob": 0.053,
+            "market_prob": 0.029,
+            "edge": 0.024
           },
           "recommendation": {
             "type": "Skip",
@@ -14726,14 +14586,14 @@
           "odds_str": "25/1",
           "odds_dec": 26.0,
           "silk_url": "20260714kil184005.png",
-          "score": 30.0,
+          "score": 30.6,
           "components": {
-            "odds_value": 10.3,
+            "odds_value": 8.8,
             "recent_form": 22.0,
             "consistency": 16.7,
             "jockey": 65.7,
             "trainer": 49.0,
-            "weight": 31.2,
+            "weight": 41.7,
             "absence_pen": 0.0,
             "going_factor": 1.0,
             "distance": 37.7,
@@ -14746,13 +14606,13 @@
             "last_ran_days": 18,
             "timeform": 60.0,
             "timeform_stars": 3,
-            "class_or": 68.8,
+            "class_or": 58.3,
             "official_rating": 68
           },
           "value": {
-            "model_prob": 0.044,
-            "market_prob": 0.028,
-            "edge": 0.016
+            "model_prob": 0.045,
+            "market_prob": 0.029,
+            "edge": 0.017
           },
           "recommendation": {
             "type": "Skip",
@@ -14773,14 +14633,14 @@
           "odds_str": "14/1",
           "odds_dec": 15.0,
           "silk_url": "20260714kil184010.png",
-          "score": 29.3,
+          "score": 30.2,
           "components": {
-            "odds_value": 25.9,
+            "odds_value": 23.5,
             "recent_form": 13.0,
             "consistency": 0,
             "jockey": 36.1,
             "trainer": 49.0,
-            "weight": 56.2,
+            "weight": 75.0,
             "absence_pen": 0.0,
             "going_factor": 1.0,
             "distance": 21.8,
@@ -14793,17 +14653,17 @@
             "last_ran_days": 3,
             "timeform": 20.0,
             "timeform_stars": 1,
-            "class_or": 43.8,
+            "class_or": 25.0,
             "official_rating": 64
           },
           "value": {
-            "model_prob": 0.042,
-            "market_prob": 0.049,
-            "edge": -0.007
+            "model_prob": 0.044,
+            "market_prob": 0.05,
+            "edge": -0.005
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 11,
+            "confidence": 12,
             "label": "Skip",
             "reasoning": "poor recent form"
           }
@@ -14820,14 +14680,14 @@
           "odds_str": "50/1",
           "odds_dec": 51.0,
           "silk_url": "20260714kil184002.png",
-          "score": 24.4,
+          "score": 24.7,
           "components": {
             "odds_value": 0,
             "recent_form": 14.7,
             "consistency": 16.7,
             "jockey": 35.6,
             "trainer": 66.3,
-            "weight": 12.5,
+            "weight": 16.7,
             "absence_pen": 0.0,
             "going_factor": 1.0,
             "distance": 31.5,
@@ -14840,12 +14700,12 @@
             "last_ran_days": 64,
             "timeform": 40.0,
             "timeform_stars": 2,
-            "class_or": 87.5,
+            "class_or": 83.3,
             "official_rating": 71
           },
           "value": {
             "model_prob": 0.032,
-            "market_prob": 0.014,
+            "market_prob": 0.015,
             "edge": 0.018
           },
           "recommendation": {
@@ -14867,39 +14727,19 @@
           "odds_str": "50/1",
           "odds_dec": 51.0,
           "silk_url": "20260714kil184015.png",
-          "score": 20.9,
-          "components": {
-            "odds_value": 0,
-            "recent_form": 10.0,
-            "consistency": 0,
-            "jockey": 61.0,
-            "trainer": 50.0,
-            "weight": 100.0,
-            "absence_pen": 15.0,
-            "going_factor": 1.0,
-            "distance": 35.8,
-            "distance_meta": {
-              "n": 6,
-              "relevance": 5.31,
-              "quality": 0.33
-            },
-            "freshness": 70.0,
-            "last_ran_days": 34,
-            "timeform": 40.0,
-            "timeform_stars": 2,
-            "class_or": 0.0,
-            "official_rating": 57
-          },
+          "score": null,
+          "components": {},
           "value": {
-            "model_prob": 0.032,
-            "market_prob": 0.014,
-            "edge": 0.018
+            "model_prob": null,
+            "market_prob": null,
+            "edge": null
           },
+          "non_runner": true,
           "recommendation": {
             "type": "Skip",
-            "confidence": 8,
-            "label": "Skip",
-            "reasoning": "poor recent form; returning from long absence"
+            "confidence": 0,
+            "label": "Non-runner",
+            "reasoning": "withdrawn — will not run"
           }
         }
       ]
