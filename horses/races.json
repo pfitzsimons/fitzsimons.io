@@ -1,6 +1,6 @@
 {
   "date": "2026-07-16",
-  "generated_at": "2026-07-16T11:16:33.851965Z",
+  "generated_at": "2026-07-16T12:58:19.050933Z",
   "races": [
     {
       "id": "hamilton-928051",
@@ -1712,7 +1712,7 @@
             "official_rating": 68
           },
           "value": {
-            "model_prob": 0.186,
+            "model_prob": 0.187,
             "market_prob": 0.242,
             "edge": -0.055
           },
@@ -1759,7 +1759,7 @@
             "official_rating": 67
           },
           "value": {
-            "model_prob": 0.137,
+            "model_prob": 0.138,
             "market_prob": 0.141,
             "edge": -0.003
           },
@@ -1806,7 +1806,7 @@
             "official_rating": 66
           },
           "value": {
-            "model_prob": 0.125,
+            "model_prob": 0.126,
             "market_prob": 0.141,
             "edge": -0.015
           },
@@ -1853,62 +1853,15 @@
             "official_rating": 62
           },
           "value": {
-            "model_prob": 0.11,
+            "model_prob": 0.111,
             "market_prob": 0.065,
-            "edge": 0.045
+            "edge": 0.046
           },
           "recommendation": {
             "type": "Skip",
             "confidence": 16,
             "label": "Skip",
             "reasoning": "moderate form"
-          }
-        },
-        {
-          "horse": "Straight Ahead",
-          "country": "GB",
-          "jockey": "C Lee",
-          "trainer": "Craig Lidster",
-          "form": "2011-48",
-          "age": "3",
-          "weight": "9-9",
-          "draw": "8",
-          "odds_str": "7/1",
-          "odds_dec": 8.0,
-          "silk_url": "20260716thr150301.png",
-          "score": 41.2,
-          "components": {
-            "odds_value": 30.6,
-            "recent_form": 50.7,
-            "consistency": 50.0,
-            "jockey": 48.8,
-            "trainer": 29.0,
-            "weight": 0.0,
-            "absence_pen": 0.0,
-            "going_factor": 1.05,
-            "distance": 61.8,
-            "distance_meta": {
-              "n": 6,
-              "relevance": 5.38,
-              "quality": 0.64
-            },
-            "freshness": 70.0,
-            "last_ran_days": 34,
-            "timeform": 60.0,
-            "timeform_stars": 3,
-            "class_or": 100.0,
-            "official_rating": 72
-          },
-          "value": {
-            "model_prob": 0.105,
-            "market_prob": 0.106,
-            "edge": -0.0
-          },
-          "recommendation": {
-            "type": "Skip",
-            "confidence": 16,
-            "label": "Skip",
-            "reasoning": "moderate form; consistent placer (50% placed)"
           }
         },
         {
@@ -1949,13 +1902,60 @@
           "value": {
             "model_prob": 0.103,
             "market_prob": 0.113,
-            "edge": -0.01
+            "edge": -0.009
           },
           "recommendation": {
             "type": "Skip",
             "confidence": 16,
             "label": "Skip",
             "reasoning": "moderate form"
+          }
+        },
+        {
+          "horse": "Straight Ahead",
+          "country": "GB",
+          "jockey": "William Pyle",
+          "trainer": "Craig Lidster",
+          "form": "2011-48",
+          "age": "3",
+          "weight": "9-9",
+          "draw": "8",
+          "odds_str": "7/1",
+          "odds_dec": 8.0,
+          "silk_url": "20260716thr150301.png",
+          "score": 40.4,
+          "components": {
+            "odds_value": 30.6,
+            "recent_form": 50.7,
+            "consistency": 50.0,
+            "jockey": 34.8,
+            "trainer": 29.0,
+            "weight": 0.0,
+            "absence_pen": 0.0,
+            "going_factor": 1.05,
+            "distance": 61.8,
+            "distance_meta": {
+              "n": 6,
+              "relevance": 5.38,
+              "quality": 0.64
+            },
+            "freshness": 70.0,
+            "last_ran_days": 34,
+            "timeform": 60.0,
+            "timeform_stars": 3,
+            "class_or": 100.0,
+            "official_rating": 72
+          },
+          "value": {
+            "model_prob": 0.102,
+            "market_prob": 0.106,
+            "edge": -0.003
+          },
+          "recommendation": {
+            "type": "Skip",
+            "confidence": 16,
+            "label": "Skip",
+            "reasoning": "moderate form; consistent placer (50% placed)"
           }
         },
         {
@@ -1994,9 +1994,9 @@
             "official_rating": 63
           },
           "value": {
-            "model_prob": 0.083,
+            "model_prob": 0.084,
             "market_prob": 0.094,
-            "edge": -0.011
+            "edge": -0.01
           },
           "recommendation": {
             "type": "Skip",
@@ -2041,7 +2041,7 @@
             "official_rating": 69
           },
           "value": {
-            "model_prob": 0.075,
+            "model_prob": 0.076,
             "market_prob": 0.05,
             "edge": 0.026
           },
@@ -2088,7 +2088,7 @@
             "official_rating": 68
           },
           "value": {
-            "model_prob": 0.073,
+            "model_prob": 0.074,
             "market_prob": 0.05,
             "edge": 0.024
           },
@@ -8045,9 +8045,9 @@
             "official_rating": 52
           },
           "value": {
-            "model_prob": 0.239,
+            "model_prob": 0.24,
             "market_prob": 0.18,
-            "edge": 0.059
+            "edge": 0.06
           },
           "recommendation": {
             "type": "Skip",
@@ -8092,9 +8092,9 @@
             "official_rating": 65
           },
           "value": {
-            "model_prob": 0.236,
+            "model_prob": 0.237,
             "market_prob": 0.378,
-            "edge": -0.142
+            "edge": -0.141
           },
           "recommendation": {
             "type": "Skip",
@@ -8139,9 +8139,9 @@
             "official_rating": 55
           },
           "value": {
-            "model_prob": 0.225,
+            "model_prob": 0.226,
             "market_prob": 0.15,
-            "edge": 0.075
+            "edge": 0.076
           },
           "recommendation": {
             "type": "Skip",
@@ -8153,7 +8153,7 @@
         {
           "horse": "Time Turner",
           "country": "GB",
-          "jockey": "Connor Beasley",
+          "jockey": "D Tudhope",
           "trainer": "E Bethell",
           "form": "421945",
           "age": "4",
@@ -8162,12 +8162,12 @@
           "odds_str": "9/2",
           "odds_dec": 5.5,
           "silk_url": "20260716ham171002.png",
-          "score": 41.2,
+          "score": 40.7,
           "components": {
             "odds_value": 22.6,
             "recent_form": 47.3,
             "consistency": 33.3,
-            "jockey": 53.5,
+            "jockey": 45.8,
             "trainer": 83.0,
             "weight": 11.8,
             "absence_pen": 0.0,
@@ -8186,9 +8186,9 @@
             "official_rating": 63
           },
           "value": {
-            "model_prob": 0.193,
+            "model_prob": 0.19,
             "market_prob": 0.164,
-            "edge": 0.029
+            "edge": 0.026
           },
           "recommendation": {
             "type": "Skip",
@@ -8233,7 +8233,7 @@
             "official_rating": 48
           },
           "value": {
-            "model_prob": 0.107,
+            "model_prob": 0.108,
             "market_prob": 0.129,
             "edge": -0.021
           },
