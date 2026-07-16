@@ -457,6 +457,11 @@ def compare_predictions_to_results(predictions: dict, results: list) -> dict:
     dnf_count = 0
     # Flat £1-stake profit & loss on primary picks, for ROI reporting.
     pnl = {'win': {'stake': 0.0, 'ret': 0.0}, 'ew': {'stake': 0.0, 'ret': 0.0}}
+    # Best-price execution tracking: the same Win bets settled at the best
+    # captured book price (best_odds_dec, scraped from bookmakerOdds), paired
+    # with the current-odds P&L on exactly that subset so the uplift is
+    # like-for-like. Stays empty until predictions carry the capture.
+    pnl_best = {'stake': 0.0, 'ret': 0.0, 'base_stake': 0.0, 'base_ret': 0.0}
 
     for pred_race in predictions.get('races', []):
         result = match_race(pred_race, results)
@@ -494,6 +499,8 @@ def compare_predictions_to_results(predictions: dict, results: list) -> dict:
             outcome['score']     = runner.get('score', 0)
             outcome['odds']      = runner.get('odds_str', '')
             outcome['label']     = runner.get('recommendation', {}).get('label', '')
+            if runner.get('best_odds_dec') is not None:
+                outcome['best_odds'] = runner['best_odds_dec']
 
             # Mark as primary or secondary
             is_primary = not primary_used.get(rec_type, False)
@@ -520,6 +527,13 @@ def compare_predictions_to_results(predictions: dict, results: list) -> dict:
             if pl:
                 pnl[key]['stake'] += pl[0]
                 pnl[key]['ret']   += pl[1]
+                if key == 'win' and runner.get('best_odds_dec'):
+                    plb = bet_pnl(rec_type, outcome['outcome'], runner['best_odds_dec'])
+                    if plb:
+                        pnl_best['stake']      += plb[0]
+                        pnl_best['ret']        += plb[1]
+                        pnl_best['base_stake'] += pl[0]
+                        pnl_best['base_ret']   += pl[1]
 
             ew_correct_outcomes = {'correct', 'ew_win', 'ew_placed'}
             # For EW: ew_win and ew_placed both count as correct
@@ -580,6 +594,15 @@ def compare_predictions_to_results(predictions: dict, results: list) -> dict:
                 'win_ret':   round(pnl['win']['ret'], 2),
                 'ew_stake':  round(pnl['ew']['stake'], 2),
                 'ew_ret':    round(pnl['ew']['ret'], 2),
+            },
+            # Same Win bets settled at best captured book price vs at
+            # current_odds, on the identical bet subset (execution uplift).
+            'win_roi_best': roi_pct(pnl_best),
+            'roi_best': {
+                'win_stake':      round(pnl_best['stake'], 2),
+                'win_ret':        round(pnl_best['ret'], 2),
+                'win_base_stake': round(pnl_best['base_stake'], 2),
+                'win_base_ret':   round(pnl_best['base_ret'], 2),
             },
         },
         'races': race_outcomes,

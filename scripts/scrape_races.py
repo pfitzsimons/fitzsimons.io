@@ -346,6 +346,28 @@ def clean(s):
     return re.sub(r"\s+", " ", s).strip()
 
 
+def best_book_odds(ride: dict) -> tuple:
+    """Best decimal price across the ride's bookmakerOdds list.
+
+    Capture-only — never a scoring input. Stored so accuracy tracking can
+    compare realised ROI at the best available price against the single
+    current_odds we settle at today (execution uplift). Returns
+    (best_dec, bookmaker_name, priced_book_count); (None, None, 0) when the
+    list is absent or unpriced.
+    """
+    best, name, n = None, None, 0
+    for book in (ride.get("bookmakerOdds") or []):
+        try:
+            od = float(book.get("decimalOdds"))
+        except (TypeError, ValueError):
+            continue
+        if od > 1.0:
+            n += 1
+            if best is None or od > best:
+                best, name = round(od, 2), book.get("bookmakerName") or None
+    return best, name, n
+
+
 def parse_odds(raw):
     raw = (raw or "").strip().replace(",", "")
     if not raw or raw in ("-", "—", "SP"):
@@ -1161,6 +1183,7 @@ def scrape_race(meta):
         horse_name = re.sub(r"\s*\([A-Z]{2,3}\)\s*$", "", horse_raw).strip()
 
         odds_str = ride.get("betting", {}).get("current_odds") or "SP"
+        best_dec, best_book, priced_books = best_book_odds(ride)
 
         # Per-run distance history for the distance-suitability factor. Each
         # entry carries the trip (in furlongs) and finishing position of a past
@@ -1184,6 +1207,11 @@ def scrape_race(meta):
             "draw":     str(ride.get("draw_number", "") or ""),
             "odds_str": odds_str,
             "odds_dec": parse_odds(odds_str),
+            # Best available book price — capture-only for execution-uplift
+            # measurement (see best_book_odds); not a scoring input.
+            "best_odds_dec":  best_dec,
+            "best_odds_book": best_book,
+            "priced_books":   priced_books,
             "silk_url": ride.get("silk_filename", "") or "",
             "_prev_runs": prev_runs,
             # Freshness / class fields — captured now, scored at weight 0 (see
