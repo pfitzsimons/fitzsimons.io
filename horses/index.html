@@ -106,10 +106,10 @@
     }
 
     /* Verdict tokens — 3 states. Each sets local vars a card/chip reads. */
-    .v-strong { --vt: var(--goldB); --vbg: var(--gold-bg);  --vbd: var(--gold-bd);  --vcard: rgba(205,172,82,.055); }
-    .v-value  { --vt: var(--back);  --vbg: var(--green-bg); --vbd: var(--green-bd); --vcard: rgba(79,208,127,.05); }
-    .v-skip   { --vt: var(--mut);   --vbg: var(--chip);     --vbd: var(--line);     --vcard: transparent; }
-    .v-nr     { --vt: var(--dim);   --vbg: var(--chip);     --vbd: var(--line);     --vcard: transparent; }
+    .v-strong  { --vt: var(--goldB); --vbg: var(--gold-bg);  --vbd: var(--gold-bd);  --vcard: rgba(205,172,82,.055); }
+    .v-notable { --vt: var(--back);  --vbg: var(--green-bg); --vbd: var(--green-bd); --vcard: rgba(79,208,127,.05); }
+    .v-skip    { --vt: var(--mut);   --vbg: var(--chip);     --vbd: var(--line);     --vcard: transparent; }
+    .v-nr      { --vt: var(--dim);   --vbg: var(--chip);     --vbd: var(--line);     --vcard: transparent; }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -386,7 +386,6 @@
     .rmain { min-width: 0; }
     .rtop { display: flex; align-items: center; gap: .6rem; flex-wrap: wrap; }
     .hname { font-family: var(--display); font-weight: 500; font-size: 1.4rem; letter-spacing: .02em; line-height: 1; color: var(--tx); }
-    .badge-fav  { font-family: var(--mono); font-size: .54rem; font-weight: 600; background: var(--gold-bg); border: 1px solid var(--gold-bd); color: var(--gold); padding: .1rem .38rem; border-radius: 3px; letter-spacing: .06em; }
     .badge-ctry { font-family: var(--mono); font-size: .54rem; background: var(--chip); border: 1px solid var(--line); color: var(--mut); padding: .1rem .38rem; border-radius: 3px; }
     .people { display: flex; flex-wrap: wrap; gap: .18rem .7rem; margin-top: .4rem; font-family: var(--mono); font-size: .68rem; color: var(--mut); }
     .people strong { color: var(--tx2); font-weight: 500; }
@@ -553,11 +552,13 @@
     .pick-meta { font-family: var(--mono); font-size: .58rem; color: var(--dim); margin-top: .15rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .pick-odds { font-family: var(--display); font-weight: 600; font-size: 1.35rem; color: var(--gold); text-align: right; }
     .pick-badge { font-family: var(--mono); font-weight: 600; font-size: .68rem; letter-spacing: .04em; padding: .28rem .5rem; border-radius: 6px; text-align: center; min-width: 44px; }
-    .pick-badge.swb { background: var(--gold-bg); color: var(--gold); border: 1px solid var(--gold-bd); }
-    .pick-badge.wb  { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-bd); }
+    .pick-badge.swb     { background: var(--gold-bg);  color: var(--gold);  border: 1px solid var(--gold-bd); }
+    .pick-badge.notable { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-bd); }
     .picks-legend { font-family: var(--mono); font-size: .58rem; color: var(--dim); margin-top: .9rem; line-height: 1.7; border-top: 1px solid var(--line); padding-top: .7rem; }
-    .picks-legend b.swb { color: var(--gold); }
-    .picks-legend b.wb  { color: var(--green); }
+    .picks-legend b.swb     { color: var(--gold); }
+    .picks-legend b.notable { color: var(--green); }
+    .picks-section-label { font-family: var(--mono); font-size: .63rem; color: var(--dim); letter-spacing: .1em; text-transform: uppercase; margin: .9rem 0 .5rem; }
+    .picks-section-label:first-child { margin-top: .2rem; }
 
     #multis-section { margin-top: 1.4rem; }
     #multis-section .acc-section-title { margin-top: 0; }
@@ -674,12 +675,12 @@
   <div id="picks-drawer-header">
     <div>
       <h2>TOP PICKS</h2>
-      <div id="picks-sub">Recommended win bets across today's card</div>
+      <div id="picks-sub">Win bets & notable picks across today's card</div>
     </div>
     <button id="picks-close" onclick="closePicks()">✕</button>
   </div>
   <div id="picks-drawer-body">
-    <div id="picks-empty">No win bets recommended today.<br>Every runner scored a Skip.</div>
+    <div id="picks-empty">No picks today.<br>Every runner scored too low to call.</div>
     <div id="picks-list"></div>
     <div id="multis-section" style="display:none">
       <div class="acc-section-title">Multi Bets</div>
@@ -781,12 +782,14 @@ function countdownStr(r) {
   return `in ${m}m ${sec}s`;
 }
 
-/* ── VERDICT MAPPING — model output → 3 consumer states ── */
+/* ── VERDICT MAPPING — model output → consumer state ──
+   Win Bet (type 'Win') only ever fires as Strong Win Bet now — the wider
+   Win Bet / Each-Way tiers were retired after backtesting showed them
+   losing money. 'Notable' is a separate, non-bet state: the model's
+   highest-ranked runner in a race with no Win Bet (see renderRunners). */
 function verdict(rec) {
   rec = rec || {};
   if (rec.label === 'Strong Win Bet') return { state: 'strong', cls: 'v-strong', chip: 'STRONG BACK' };
-  if (rec.type === 'Win')             return { state: 'value',  cls: 'v-value',  chip: 'VALUE' };
-  if (rec.type === 'EachWay')         return { state: 'value',  cls: 'v-value',  chip: 'EACH-WAY' };
   return { state: 'skip', cls: 'v-skip', chip: 'SKIP' };
 }
 
@@ -1086,10 +1089,14 @@ function renderRunners(race) {
   race.runners.forEach((runner, idx) => {
     const rec  = runner.recommendation || {};
     const isNR = !!runner.non_runner;
-    const v    = isNR ? { state:'nr', cls:'v-nr', chip:'NON-RUNNER' } : verdict(rec);
+    // Notable: this race's top-ranked runner, only when no Win Bet already
+    // covers it — the model's stats-based favourite, not a recommended bet.
+    const isNotable = !isNR && rec.type !== 'Win' && idx === 0 && (runner.score||0) >= 45;
+    const v    = isNR      ? { state:'nr',      cls:'v-nr',      chip:'NON-RUNNER' }
+               : isNotable ? { state:'notable', cls:'v-notable', chip:'TOP PICK' }
+               : verdict(rec);
     const val  = runner.value || {};
     const comp = runner.components || {};
-    const isFav = !isNR && idx === 0 && runner.score >= 45;
     const topExpanded = !isNR && idx === 0;   // expand factors on the top pick only
 
     const card = document.createElement('div');
@@ -1103,7 +1110,6 @@ function renderRunners(race) {
         <div class="rtop">
           <span class="hname">${esc(runner.horse)}</span>
           <span class="vchip"><span class="vdot"></span>${v.chip}</span>
-          ${isFav ? '<span class="badge-fav">TOP PICK</span>' : ''}
           ${runner.country && runner.country!=='GB' ? `<span class="badge-ctry">${esc(runner.country)}</span>` : ''}
         </div>
         <div class="people">
@@ -1165,8 +1171,8 @@ function factorsHTML(comp, expanded) {
 function renderLegend() {
   document.getElementById('legend').innerHTML = `
     <h3>Verdict Key</h3>
-    <div class="leg-item v-strong"><span class="vchip sm"><span class="vdot"></span>Strong Back</span> Model's highest-conviction win call</div>
-    <div class="leg-item v-value"><span class="vchip sm"><span class="vdot"></span>Value</span> A win bet at a fair price</div>
+    <div class="leg-item v-strong"><span class="vchip sm"><span class="vdot"></span>Strong Back</span> Win bet — backed by profitable backtesting</div>
+    <div class="leg-item v-notable"><span class="vchip sm"><span class="vdot"></span>Top Pick</span> Model's stats favourite in this race — not a recommended bet</div>
     <div class="leg-item v-skip"><span class="vchip sm"><span class="vdot"></span>Skip</span> Not enough value at the odds</div>
     <div id="leg-disc">Not financial advice. For information only.</div>`;
 }
@@ -1243,25 +1249,40 @@ function closePicks() { document.body.classList.remove('picks-open'); }
 
 function betAbbr(label) {
   if (label === 'Strong Win Bet') return { text: 'SWB', cls: 'swb' };
-  return { text: 'WB', cls: 'wb' };
+  return { text: 'TOP', cls: 'notable' };
 }
 
+// Two distinct, mutually-exclusive tiers per race:
+//  - Win Bets: score>=72 & odds<=5.0, backed by profitable walk-forward
+//    backtesting (scripts/backtest_value.py) — the only picks worth staking on.
+//  - Notable Picks: the model's top-ranked runner in every OTHER race — a
+//    stats-based opinion for races that didn't clear the win-bet bar, not a
+//    bet recommendation. Gives an answer for every race on the card without
+//    reopening the retired Win Bet tier (see scrape_races.py::make_recommendation).
 function renderPicks() {
-  const picks = [];
+  const winPicks = [];
+  const notablePicks = [];
   allRaces.forEach(race => {
+    let hasWin = false;
     race.runners.forEach(runner => {
       const rec = runner.recommendation || {};
-      if (rec.type === 'Win') picks.push({ race, runner, rec });
+      if (rec.type === 'Win') { winPicks.push({ race, runner, rec }); hasWin = true; }
     });
+    if (!hasWin) {
+      const top = race.runners.find(r => !r.non_runner);
+      if (top && (top.score||0) >= 45)
+        notablePicks.push({ race, runner: top, rec: { ...(top.recommendation||{}), label: 'Notable Pick' } });
+    }
   });
-  picks.sort((a, b) =>
-    raceMins(a.race) - raceMins(b.race) || (b.runner.score||0) - (a.runner.score||0));
+  const bySlot = (a, b) => raceMins(a.race) - raceMins(b.race) || (b.runner.score||0) - (a.runner.score||0);
+  winPicks.sort(bySlot);
+  notablePicks.sort(bySlot);
 
   renderMultis();
 
   const listEl  = document.getElementById('picks-list');
   const emptyEl = document.getElementById('picks-empty');
-  if (!picks.length) {
+  if (!winPicks.length && !notablePicks.length) {
     listEl.innerHTML = '';
     emptyEl.style.display = 'block';
     return;
@@ -1269,25 +1290,34 @@ function renderPicks() {
   emptyEl.style.display = 'none';
 
   const nm = nowMins();
-  const strong = picks.filter(p => p.rec.label === 'Strong Win Bet').length;
   document.getElementById('picks-sub').textContent =
-    `${picks.length} win bet${picks.length!==1?'s':''} · ${strong} strong`;
+    `${winPicks.length} win bet${winPicks.length!==1?'s':''} · ${notablePicks.length} notable pick${notablePicks.length!==1?'s':''}`;
 
-  listEl.innerHTML = picks.map((p, i) => {
+  const row = (p, i) => {
     const { race, runner, rec } = p;
     const ab   = betAbbr(rec.label);
     const past = raceMins(race) < nm ? ' past' : '';
-    return `<div class="pick-row${past}" onclick="fromPicks('${esc(race.id)}')" title="${esc(rec.label)} — ${esc(runner.horse)}">
+    return `<div class="pick-row${past}" onclick="fromPicks('${esc(race.id)}')" title="${esc(rec.label || 'Notable Pick')} — ${esc(runner.horse)}">
       ${pickSilk(runner.silk_url, runner.jockey, i)}
       <div class="pick-main">
         <div class="pick-horse">${esc(runner.horse)}</div>
         <div class="pick-meta">${esc(race.time)} ${esc(race.course)}${runner.jockey ? ' · ' + esc(runner.jockey) : ''}</div>
       </div>
       <div class="pick-odds">${esc(runner.odds_str||'SP')}</div>
-      <div class="pick-badge ${ab.cls}" title="${esc(rec.label)}">${ab.text}</div>
+      <div class="pick-badge ${ab.cls}" title="${esc(rec.label || 'Notable Pick')}">${ab.text}</div>
     </div>`;
-  }).join('') +
-    `<div class="picks-legend"><b class="swb">SWB</b> Strong Win Bet · <b class="wb">WB</b> Win Bet<br>Not financial advice. For information only.</div>`;
+  };
+
+  let html = '';
+  if (winPicks.length) html += `<div class="picks-section-label">Win Bets</div>` + winPicks.map(row).join('');
+  if (notablePicks.length) {
+    html += `<div class="picks-section-label">Notable Picks</div>`
+      + notablePicks.map((p, i) => row(p, winPicks.length + i)).join('');
+  }
+  listEl.innerHTML = html +
+    `<div class="picks-legend"><b class="swb">SWB</b> Strong Win Bet · <b class="notable">TOP</b> Notable Pick`
+    + `<br>Notable Picks are the model's stats-based favourite where no Win Bet cleared the bar — not a recommended bet.`
+    + `<br>Not financial advice. For information only.</div>`;
 }
 
 function fromPicks(id) {
