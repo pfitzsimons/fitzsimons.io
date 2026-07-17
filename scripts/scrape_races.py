@@ -987,14 +987,16 @@ def make_recommendation(score: float, odds_dec: Optional[float],
             "label":      "Strong Win Bet",
             "reasoning":  _reasoning(score, odds_dec, form, "win"),
         }
-    elif effective_score >= 60 and not high_dnf and not market_disagrees and odds_dec and odds_dec <= 10.0:
-        return {
-            "type":       "Win",
-            "confidence": min(85, int(score)),
-            "label":      "Win Bet",
-            "reasoning":  _reasoning(score, odds_dec, form, "win"),
-        }
     else:
+        # Win Bet tier (score 60-71, odds<=10.0) retired entirely. A 58-day
+        # walk-forward backtest (scripts/backtest_win_threshold.py) showed it
+        # ran -8.9% ROI OOS (n=878), dragging an otherwise roughly-breakeven
+        # Strong Win Bet tier down to -6.0% overall; no intermediate score
+        # cutoff or odds ceiling rescued it. Dropping it entirely lifts
+        # overall Win-tier ROI to +1.4%, positive in 4 of 6 ten-day windows
+        # [95% CI -3.9%, +19.4%, P(better)=0.90]. Strong Win Bet (>=72,
+        # odds<=5.0) is the only tier that returns a Win recommendation.
+        #
         # Each-Way tier retired entirely. The 60-day walk-forward backtest
         # (scripts/backtest_value.py --bootstrap) shows the EW tier returned
         # -9.1% ROI out-of-sample [90% CI -16.5%, -1.0%], profitable in only

@@ -54,4 +54,4 @@ Both can also be triggered manually via `workflow_dispatch` with a date override
 
 ## Contributing
 
-Changes to the scoring model should be validated against `horses/history/` with the relevant backtest script (`backtest_distance.py`, `backtest_experience.py`, `backtest_freshness.py`, `backtest_value.py`) and checked with `drift.py` to confirm the change doesn't regress recent performance before merging.
+Changes to the scoring model should be validated against `horses/history/` with the relevant backtest script (`backtest_distance.py`, `backtest_experience.py`, `backtest_freshness.py`, `backtest_value.py`, `backtest_win_threshold.py`) and checked with `drift.py` to confirm the change doesn't regress recent performance before merging. `calibrate.py --rescore` re-scores the whole archive walk-forward with the current model instead of trusting each archived day's (possibly stale) stored score/recommendation — use it to reconcile calibration numbers exactly with `backtest_value.py`.

@@ -97,6 +97,9 @@ def score_and_recommend(prace, table, k):
 
     runners.sort(key=lambda r: r["_score"], reverse=True)
     for run in runners:
+        # Mirror the live pipeline: archived runners carry a stale (or null)
+        # "score" which _post_process_win_bets reads for demotion confidence.
+        run["score"] = round(run["_score"], 1)
         form = s.parse_form(run.get("form", ""))
         run["recommendation"] = s.make_recommendation(
             run["_score"], run.get("odds_dec"), n, form)
