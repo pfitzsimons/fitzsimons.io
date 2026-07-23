@@ -543,6 +543,22 @@ def going_factor(going: str, distance: str) -> float:
 DIST_WEIGHT = 0.0
 FORM_WEIGHT_BASE = 0.30
 
+# ─────────────────────────────────────────────────────────────
+# WEIGHT CARRIED ("lower weight = advantage")
+#
+# Unlike DIST_WEIGHT/FRESH_WEIGHT above, this factor has been live (at 10%)
+# since the model's early days, not a new speculative addition — but the
+# 2026-07-17 drift review found it mildly backwards within Strong Win Bet
+# picks (winners average a LOWER weight-advantage sub-score than losers,
+# persistent across the whole archive) and a walk-forward sweep
+# (scripts/backtest_weight_weight.py) confirmed dropping it to 0 lifts
+# Strong Win Bet from -3.4% to +9.0% ROI (n=316-488, delta +12.3pp, bootstrap
+# CI [+3.8, +20.3]pp, P=1.00 — clears significance). WEIGHT_WEIGHT = 0.0 turns it off;
+# the raw sub-score is still captured in _components["weight"] in case a
+# reweighted (not just binary on/off) version is worth revisiting later.
+# ─────────────────────────────────────────────────────────────
+WEIGHT_WEIGHT = 0.0
+
 # Result → quality in 0–1, mirroring the recent-form position scale (/100).
 _DIST_POS_QUALITY = {1: 1.00, 2: 0.80, 3: 0.65, 4: 0.50, 5: 0.40}
 
@@ -839,7 +855,7 @@ def score_runner(runner: dict, field_size: int, going: str,
         consistency_score * 0.15 +
         jockey_score      * strike_rates.JOCKEY_WEIGHT +
         trainer_score     * strike_rates.TRAINER_WEIGHT +
-        weight_score      * 0.10 +
+        weight_score      * WEIGHT_WEIGHT +
         dist_score        * DIST_WEIGHT +
         fresh_score       * FRESH_WEIGHT +
         tf_score          * TF_WEIGHT +
@@ -900,7 +916,7 @@ def normalise_weight_scores(runners: list) -> None:
             old_score = r["_score"]
             old_w = r["_components"]["weight"]
             # Replace 50 placeholder with real value
-            r["_score"] = old_score - (50 * 0.10) + (w_score * 0.10)
+            r["_score"] = old_score - (50 * WEIGHT_WEIGHT) + (w_score * WEIGHT_WEIGHT)
             r["_score"] = max(0, min(100, r["_score"]))
             r["_components"]["weight"] = round(w_score, 1)
 
