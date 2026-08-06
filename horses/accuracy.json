@@ -1,317 +1,5 @@
 [
   {
-    "date": "2026-07-06",
-    "summary": {
-      "overall_pct": 14.3,
-      "win_pct": 14.3,
-      "ew_pct": null,
-      "win_correct": 2,
-      "win_total": 14,
-      "ew_correct": 0,
-      "ew_total": 0,
-      "ew_win_count": 0,
-      "ew_placed_count": 0,
-      "excluded": {
-        "non_runner": 0,
-        "unmatched": 0,
-        "no_result": 0
-      },
-      "excluded_total": 0,
-      "dnf_count": 0,
-      "overall_roi": -65.1,
-      "win_roi": -65.1,
-      "ew_roi": null,
-      "roi": {
-        "win_stake": 14.0,
-        "win_ret": 4.88,
-        "ew_stake": 0.0,
-        "ew_ret": 0.0
-      }
-    },
-    "races": [
-      {
-        "course": "Lingfield",
-        "time": "15:45",
-        "race_name": "Syd Renwick 90th Birthday Handicap",
-        "date": "2026-07-06",
-        "winner": "Home Secretary",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 9,
-            "outcome": "incorrect",
-            "horse": "Worlington",
-            "score": 65.1,
-            "odds": "11/8",
-            "label": "Win Bet",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Ayr",
-        "time": "16:00",
-        "race_name": "Try Racing TV For Free Now Handicap",
-        "date": "2026-07-06",
-        "winner": "Ey Up He's A Star",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 6,
-            "outcome": "incorrect",
-            "horse": "Hunterian",
-            "score": 67.8,
-            "odds": "15/8",
-            "label": "Win Bet",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Ayr",
-        "time": "16:30",
-        "race_name": "Ladbrokes Get More With Racing Bet Builder Ayr Silver Cup Trial Handicap",
-        "date": "2026-07-06",
-        "winner": "Manila Scouse",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 16,
-            "outcome": "incorrect",
-            "horse": "Daizen",
-            "score": 62.1,
-            "odds": "5/1",
-            "label": "Win Bet",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Roscommon",
-        "time": "17:48",
-        "race_name": "Shanagher Hearing Maiden Hurdle (Div 1)",
-        "date": "2026-07-06",
-        "winner": "Cocofred",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 2,
-            "outcome": "incorrect",
-            "horse": "Astelia",
-            "score": 63.6,
-            "odds": "7/2",
-            "label": "Win Bet",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Ripon",
-        "time": "18:09",
-        "race_name": "Download The Raceday Ready App Fillies' Restricted Novice Stakes (GBB Race)",
-        "date": "2026-07-06",
-        "winner": "Lady Rosalind",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 2,
-            "outcome": "incorrect",
-            "horse": "Eleven Eighty Two",
-            "score": 62.0,
-            "odds": "2/1",
-            "label": "Win Bet",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Roscommon",
-        "time": "18:18",
-        "race_name": "Shanagher Hearing Maiden Hurdle (Div 2)",
-        "date": "2026-07-06",
-        "winner": "Like An Ocean",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 7,
-            "outcome": "incorrect",
-            "horse": "Manoir De Mirande",
-            "score": 62.8,
-            "odds": "9/4",
-            "label": "Win Bet",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Lingfield",
-        "time": "18:25",
-        "race_name": "Rapido Racing Limited Handicap Stakes 0-75 - Arab Race",
-        "date": "2026-07-06",
-        "winner": "Ashj'Aa (A)",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 5,
-            "outcome": "incorrect",
-            "horse": "Pharitz Lahia (A)",
-            "score": 64.6,
-            "odds": "1/1",
-            "label": "Win Bet",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Ripon",
-        "time": "18:39",
-        "race_name": "Merit Estates Chartered Surveyors Restricted Maiden Fillies' Stakes (GBB Race)",
-        "date": "2026-07-06",
-        "winner": "Alterity",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 1,
-            "outcome": "correct",
-            "horse": "Alterity",
-            "score": 61.2,
-            "odds": "1/1",
-            "label": "Win Bet",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Roscommon",
-        "time": "18:48",
-        "race_name": "SuperValu Co. Roscommon Ladies Day Novice Hurdle",
-        "date": "2026-07-06",
-        "winner": "Lizzie Twigg",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 1,
-            "outcome": "correct",
-            "horse": "Lizzie Twigg",
-            "score": 62.5,
-            "odds": "15/8",
-            "label": "Win Bet",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Ripon",
-        "time": "19:09",
-        "race_name": "Napoleons Casino And Restaurant Leeds Handicap",
-        "date": "2026-07-06",
-        "winner": "Jesmond Dawn",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 2,
-            "outcome": "incorrect",
-            "horse": "Up The Jazz",
-            "score": 61.8,
-            "odds": "5/2",
-            "label": "Win Bet",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Ripon",
-        "time": "19:40",
-        "race_name": "Mark's Choice, Ripon's Most-Winning Horse Handicap",
-        "date": "2026-07-06",
-        "winner": "Reigning Profit",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 2,
-            "outcome": "incorrect",
-            "horse": "Rock Of England",
-            "score": 60.3,
-            "odds": "9/2",
-            "label": "Win Bet",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Wolverhampton",
-        "time": "20:00",
-        "race_name": "Roy Grimwood Memorial Handicap",
-        "date": "2026-07-06",
-        "winner": "Suggy",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 4,
-            "outcome": "incorrect",
-            "horse": "Safe Harbor",
-            "score": 63.7,
-            "odds": "9/4",
-            "label": "Win Bet",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Ripon",
-        "time": "20:15",
-        "race_name": "Sky Sports Racing Sky 415 Handicap",
-        "date": "2026-07-06",
-        "winner": "Riddikulus",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 5,
-            "outcome": "incorrect",
-            "horse": "Vietnorm",
-            "score": 62.4,
-            "odds": "5/4",
-            "label": "Win Bet",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Ripon",
-        "time": "20:52",
-        "race_name": "David Chapman Memorial Handicap",
-        "date": "2026-07-06",
-        "winner": "Lamlash Bay",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 4,
-            "outcome": "incorrect",
-            "horse": "Long Shot",
-            "score": 65.2,
-            "odds": "9/4",
-            "label": "Win Bet",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      }
-    ]
-  },
-  {
     "date": "2026-07-07",
     "summary": {
       "overall_pct": 0.0,
@@ -5490,6 +5178,44 @@
   },
   {
     "date": "2026-08-04",
+    "summary": {
+      "overall_pct": null,
+      "win_pct": null,
+      "ew_pct": null,
+      "win_correct": 0,
+      "win_total": 0,
+      "ew_correct": 0,
+      "ew_total": 0,
+      "ew_win_count": 0,
+      "ew_placed_count": 0,
+      "excluded": {
+        "non_runner": 0,
+        "unmatched": 0,
+        "no_result": 0
+      },
+      "excluded_total": 0,
+      "dnf_count": 0,
+      "overall_roi": null,
+      "win_roi": null,
+      "ew_roi": null,
+      "roi": {
+        "win_stake": 0.0,
+        "win_ret": 0.0,
+        "ew_stake": 0.0,
+        "ew_ret": 0.0
+      },
+      "win_roi_best": null,
+      "roi_best": {
+        "win_stake": 0.0,
+        "win_ret": 0.0,
+        "win_base_stake": 0.0,
+        "win_base_ret": 0.0
+      }
+    },
+    "races": []
+  },
+  {
+    "date": "2026-08-05",
     "summary": {
       "overall_pct": null,
       "win_pct": null,
