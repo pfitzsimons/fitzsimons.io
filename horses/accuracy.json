@@ -1,283 +1,5 @@
 [
   {
-    "date": "2026-07-12",
-    "summary": {
-      "overall_pct": 33.3,
-      "win_pct": 33.3,
-      "ew_pct": null,
-      "win_correct": 4,
-      "win_total": 12,
-      "ew_correct": 0,
-      "ew_total": 0,
-      "ew_win_count": 0,
-      "ew_placed_count": 0,
-      "excluded": {
-        "non_runner": 0,
-        "unmatched": 0,
-        "no_result": 0
-      },
-      "excluded_total": 0,
-      "dnf_count": 3,
-      "overall_roi": -7.5,
-      "win_roi": -7.5,
-      "ew_roi": null,
-      "roi": {
-        "win_stake": 12.0,
-        "win_ret": 11.1,
-        "ew_stake": 0.0,
-        "ew_ret": 0.0
-      }
-    },
-    "races": [
-      {
-        "course": "Stratford",
-        "time": "13:50",
-        "race_name": "Welcome To Family Day Juvenile Hurdle (GBB Race)",
-        "date": "2026-07-12",
-        "winner": "Lucky Sevens",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 2,
-            "outcome": "incorrect",
-            "horse": "Tiny Riot",
-            "score": 60.5,
-            "odds": "11/10",
-            "label": "Win Bet",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Dundalk",
-        "time": "14:35",
-        "race_name": "RACING TV FREE ONE MONTH TRIAL Handicap",
-        "date": "2026-07-12",
-        "winner": "Bullet Bourbon",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 8,
-            "outcome": "incorrect",
-            "horse": "Kc Bear",
-            "score": 61.3,
-            "odds": "7/2",
-            "label": "Win Bet",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Perth",
-        "time": "14:41",
-        "race_name": "Sun Racing Summer Jumps Championship Handicap Chase (GBB Race)",
-        "date": "2026-07-12",
-        "winner": "Conquer The Breeze",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 1,
-            "outcome": "correct",
-            "horse": "Conquer The Breeze",
-            "score": 63.3,
-            "odds": "11/10",
-            "label": "Win Bet",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Dundalk",
-        "time": "15:10",
-        "race_name": "Anglo Printers - Award Winning Print And Packaging Maiden",
-        "date": "2026-07-12",
-        "winner": "Krasimir",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 1,
-            "outcome": "correct",
-            "horse": "Krasimir",
-            "score": 66.8,
-            "odds": "6/4",
-            "label": "Win Bet",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Perth",
-        "time": "15:16",
-        "race_name": "Saints In The Community Handicap Hurdle",
-        "date": "2026-07-12",
-        "winner": "Lets Mingle",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 2,
-            "outcome": "incorrect",
-            "horse": "Atlantic City",
-            "score": 66.2,
-            "odds": "9/4",
-            "label": "Win Bet",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Sligo",
-        "time": "16:00",
-        "race_name": "Kilcawley Construction Handicap Hurdle (0-100) (Div 2)",
-        "date": "2026-07-12",
-        "winner": "Lilac Lady",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 8,
-            "outcome": "incorrect",
-            "horse": "Larkins Lane",
-            "score": 60.1,
-            "odds": "3/1",
-            "label": "Win Bet",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Stratford",
-        "time": "16:10",
-        "race_name": "Visit Zoolab In The Centre Course Handicap Chase",
-        "date": "2026-07-12",
-        "winner": "Thickthorn Tom",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 1,
-            "outcome": "correct",
-            "horse": "Thickthorn Tom",
-            "score": 60.8,
-            "odds": "5/2",
-            "label": "Win Bet",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Perth",
-        "time": "16:26",
-        "race_name": "Saints Kidz Community Football Handicap Hurdle",
-        "date": "2026-07-12",
-        "winner": "Dalileo",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 1,
-            "outcome": "correct",
-            "horse": "Dalileo",
-            "score": 60.5,
-            "odds": "2/1",
-            "label": "Win Bet",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Stratford",
-        "time": "16:45",
-        "race_name": "Try Our Picnic Package Handicap Hurdle",
-        "date": "2026-07-12",
-        "winner": "Getmetothemoon",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": null,
-            "outcome": "incorrect",
-            "dnf": true,
-            "casualty": "Fell",
-            "horse": "Edelak",
-            "score": 75.8,
-            "odds": "8/13",
-            "label": "Strong Win Bet",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Dundalk",
-        "time": "16:55",
-        "race_name": "Border Boutique Hire Maiden",
-        "date": "2026-07-12",
-        "winner": "Police Gazette",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 2,
-            "outcome": "incorrect",
-            "horse": "Reynir",
-            "score": 63.5,
-            "odds": "4/6",
-            "label": "Win Bet",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Perth",
-        "time": "17:01",
-        "race_name": "Scone Palace International Horse Trials Conditional Jockeys' Handicap Hurdle",
-        "date": "2026-07-12",
-        "winner": "Follow Charlie",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": null,
-            "outcome": "incorrect",
-            "dnf": true,
-            "casualty": "UnseatedRider",
-            "horse": "Scots Poet",
-            "score": 65.0,
-            "odds": "11/4",
-            "label": "Win Bet",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Stratford",
-        "time": "17:20",
-        "race_name": "Sun Racing The Favourite Pullout Every Day Mares' Handicap Hurdle",
-        "date": "2026-07-12",
-        "winner": "Basilette",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": null,
-            "outcome": "incorrect",
-            "dnf": true,
-            "casualty": "PulledUp",
-            "horse": "Miss Kassiopi",
-            "score": 71.7,
-            "odds": "4/5",
-            "label": "Win Bet",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      }
-    ]
-  },
-  {
     "date": "2026-07-13",
     "summary": {
       "overall_pct": 22.2,
@@ -3370,6 +3092,44 @@
   },
   {
     "date": "2026-08-10",
+    "summary": {
+      "overall_pct": null,
+      "win_pct": null,
+      "ew_pct": null,
+      "win_correct": 0,
+      "win_total": 0,
+      "ew_correct": 0,
+      "ew_total": 0,
+      "ew_win_count": 0,
+      "ew_placed_count": 0,
+      "excluded": {
+        "non_runner": 0,
+        "unmatched": 0,
+        "no_result": 0
+      },
+      "excluded_total": 0,
+      "dnf_count": 0,
+      "overall_roi": null,
+      "win_roi": null,
+      "ew_roi": null,
+      "roi": {
+        "win_stake": 0.0,
+        "win_ret": 0.0,
+        "ew_stake": 0.0,
+        "ew_ret": 0.0
+      },
+      "win_roi_best": null,
+      "roi_best": {
+        "win_stake": 0.0,
+        "win_ret": 0.0,
+        "win_base_stake": 0.0,
+        "win_base_ret": 0.0
+      }
+    },
+    "races": []
+  },
+  {
+    "date": "2026-08-11",
     "summary": {
       "overall_pct": null,
       "win_pct": null,
