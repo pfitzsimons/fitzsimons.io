@@ -1,317 +1,5 @@
 [
   {
-    "date": "2026-07-14",
-    "summary": {
-      "overall_pct": 28.6,
-      "win_pct": 28.6,
-      "ew_pct": null,
-      "win_correct": 4,
-      "win_total": 14,
-      "ew_correct": 0,
-      "ew_total": 0,
-      "ew_win_count": 0,
-      "ew_placed_count": 0,
-      "excluded": {
-        "non_runner": 0,
-        "unmatched": 0,
-        "no_result": 0
-      },
-      "excluded_total": 0,
-      "dnf_count": 0,
-      "overall_roi": -23.2,
-      "win_roi": -23.2,
-      "ew_roi": null,
-      "roi": {
-        "win_stake": 14.0,
-        "win_ret": 10.75,
-        "ew_stake": 0.0,
-        "ew_ret": 0.0
-      }
-    },
-    "races": [
-      {
-        "course": "Downpatrick",
-        "time": "14:07",
-        "race_name": "ITBA Mares Maiden Hurdle",
-        "date": "2026-07-14",
-        "winner": "Fastnet Crystal",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 7,
-            "outcome": "incorrect",
-            "horse": "Ritz Plan",
-            "score": 60.3,
-            "odds": "11/4",
-            "label": "Win Bet",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Leicester",
-        "time": "14:54",
-        "race_name": "Nelson Restaurant For Classic Raceday Dining Handicap",
-        "date": "2026-07-14",
-        "winner": "Ottoman",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 5,
-            "outcome": "incorrect",
-            "horse": "Betelgeuse",
-            "score": 61.4,
-            "odds": "4/6",
-            "label": "Win Bet",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Ffos Las",
-        "time": "15:30",
-        "race_name": "Diplomat Hotel Maiden Stakes (GBB Race)",
-        "date": "2026-07-14",
-        "winner": "Star Velocity",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 1,
-            "outcome": "correct",
-            "horse": "Star Velocity",
-            "score": 61.0,
-            "odds": "6/4",
-            "label": "Win Bet",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Beverley",
-        "time": "15:48",
-        "race_name": "Beverley Annual Badgeholders Handicap",
-        "date": "2026-07-14",
-        "winner": "Kitsune Power",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 6,
-            "outcome": "incorrect",
-            "horse": "Bradbury",
-            "score": 76.5,
-            "odds": "7/4",
-            "label": "Strong Win Bet",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Downpatrick",
-        "time": "16:47",
-        "race_name": "Tote Guarantee, Never Beaten By SP Handicap Hurdle",
-        "date": "2026-07-14",
-        "winner": "Tolka Row",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 8,
-            "outcome": "incorrect",
-            "horse": "Morell River",
-            "score": 61.6,
-            "odds": "5/1",
-            "label": "Win Bet",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Wolverhampton",
-        "time": "16:53",
-        "race_name": "Sky Sports Racing Sky 415 Fillies' Handicap",
-        "date": "2026-07-14",
-        "winner": "Lady Magu",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 1,
-            "outcome": "correct",
-            "horse": "Lady Magu",
-            "score": 61.6,
-            "odds": "7/4",
-            "label": "Win Bet",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Downpatrick",
-        "time": "17:19",
-        "race_name": "Downpatrick Racecourse Family Funday Supporters Flat Race",
-        "date": "2026-07-14",
-        "winner": "Its Time For A Run",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 2,
-            "outcome": "incorrect",
-            "horse": "Payslip",
-            "score": 61.2,
-            "odds": "5/2",
-            "label": "Win Bet",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Wolverhampton",
-        "time": "17:55",
-        "race_name": "attheraces.com/marketmovers Handicap",
-        "date": "2026-07-14",
-        "winner": "Jungle Drums",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 5,
-            "outcome": "incorrect",
-            "horse": "Manly Fireball",
-            "score": 72.2,
-            "odds": "11/4",
-            "label": "Strong Win Bet",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Killarney",
-        "time": "18:40",
-        "race_name": "Killarney Plaza Hotel & Spa Handicap",
-        "date": "2026-07-14",
-        "winner": "Red Hugh O'Donnell",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 7,
-            "outcome": "incorrect",
-            "horse": "Elusive Duke",
-            "score": 63.6,
-            "odds": "5/2",
-            "label": "Win Bet",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Wolverhampton",
-        "time": "18:55",
-        "race_name": "Free Bets On attheraces.com Handicap (Div 1)",
-        "date": "2026-07-14",
-        "winner": "On Key",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 1,
-            "outcome": "correct",
-            "horse": "On Key",
-            "score": 64.9,
-            "odds": "7/4",
-            "label": "Win Bet",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Killarney",
-        "time": "19:10",
-        "race_name": "Irish Stallion Farms EBF Fillies Handicap",
-        "date": "2026-07-14",
-        "winner": "Saga Gaga",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 2,
-            "outcome": "incorrect",
-            "horse": "Spanish Temptress",
-            "score": 60.7,
-            "odds": "9/4",
-            "label": "Win Bet",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Wolverhampton",
-        "time": "19:25",
-        "race_name": "Free Bets On attheraces.com Handicap (Div 2)",
-        "date": "2026-07-14",
-        "winner": "Classy Clarets",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 1,
-            "outcome": "correct",
-            "horse": "Classy Clarets",
-            "score": 68.0,
-            "odds": "7/4",
-            "label": "Win Bet",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Killarney",
-        "time": "19:40",
-        "race_name": "Rose Hotel Handicap",
-        "date": "2026-07-14",
-        "winner": "Gaoth Chuil",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 3,
-            "outcome": "incorrect",
-            "horse": "Satono Chevalier",
-            "score": 67.1,
-            "odds": "6/4",
-            "label": "Win Bet",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Wolverhampton",
-        "time": "19:55",
-        "race_name": "Follow AtTheRaces On X Handicap",
-        "date": "2026-07-14",
-        "winner": "Luan",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 5,
-            "outcome": "incorrect",
-            "horse": "A Daughters Love",
-            "score": 71.7,
-            "odds": "9/4",
-            "label": "Win Bet",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      }
-    ]
-  },
-  {
     "date": "2026-07-15",
     "summary": {
       "overall_pct": 23.1,
@@ -2756,6 +2444,44 @@
   },
   {
     "date": "2026-08-12",
+    "summary": {
+      "overall_pct": null,
+      "win_pct": null,
+      "ew_pct": null,
+      "win_correct": 0,
+      "win_total": 0,
+      "ew_correct": 0,
+      "ew_total": 0,
+      "ew_win_count": 0,
+      "ew_placed_count": 0,
+      "excluded": {
+        "non_runner": 0,
+        "unmatched": 0,
+        "no_result": 0
+      },
+      "excluded_total": 0,
+      "dnf_count": 0,
+      "overall_roi": null,
+      "win_roi": null,
+      "ew_roi": null,
+      "roi": {
+        "win_stake": 0.0,
+        "win_ret": 0.0,
+        "ew_stake": 0.0,
+        "ew_ret": 0.0
+      },
+      "win_roi_best": null,
+      "roi_best": {
+        "win_stake": 0.0,
+        "win_ret": 0.0,
+        "win_base_stake": 0.0,
+        "win_base_ret": 0.0
+      }
+    },
+    "races": []
+  },
+  {
+    "date": "2026-08-13",
     "summary": {
       "overall_pct": null,
       "win_pct": null,
