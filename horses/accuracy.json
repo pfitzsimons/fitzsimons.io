@@ -1,297 +1,5 @@
 [
   {
-    "date": "2026-07-15",
-    "summary": {
-      "overall_pct": 23.1,
-      "win_pct": 23.1,
-      "ew_pct": null,
-      "win_correct": 3,
-      "win_total": 13,
-      "ew_correct": 0,
-      "ew_total": 0,
-      "ew_win_count": 0,
-      "ew_placed_count": 0,
-      "excluded": {
-        "non_runner": 0,
-        "unmatched": 0,
-        "no_result": 0
-      },
-      "excluded_total": 0,
-      "dnf_count": 0,
-      "overall_roi": -57.1,
-      "win_roi": -57.1,
-      "ew_roi": null,
-      "roi": {
-        "win_stake": 13.0,
-        "win_ret": 5.58,
-        "ew_stake": 0.0,
-        "ew_ret": 0.0
-      }
-    },
-    "races": [
-      {
-        "course": "Catterick",
-        "time": "14:40",
-        "race_name": "EBF Restricted Novice Stakes (GBB Race)",
-        "date": "2026-07-15",
-        "winner": "South West",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 7,
-            "outcome": "incorrect",
-            "horse": "Cheeky Chesca",
-            "score": 63.6,
-            "odds": "5/2",
-            "label": "Win Bet",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Uttoxeter",
-        "time": "15:18",
-        "race_name": "Bravo Benefits Celebrations Novices' Limited Handicap Chase (GBB Race)",
-        "date": "2026-07-15",
-        "winner": "Sunray Shadow",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 1,
-            "outcome": "correct",
-            "horse": "Sunray Shadow",
-            "score": 69.6,
-            "odds": "10/11",
-            "label": "Win Bet",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Catterick",
-        "time": "15:40",
-        "race_name": "Le Veinard 2026. Racing And Info Handicap",
-        "date": "2026-07-15",
-        "winner": "The Good Biscuit",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 3,
-            "outcome": "incorrect",
-            "horse": "Two Commanders",
-            "score": 61.9,
-            "odds": "4/1",
-            "label": "Win Bet",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Uttoxeter",
-        "time": "15:48",
-        "race_name": "Sun Racing The Favourite Pullout Every Day Handicap Hurdle",
-        "date": "2026-07-15",
-        "winner": "King Ulanda",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 2,
-            "outcome": "incorrect",
-            "horse": "Machete Beach",
-            "score": 65.8,
-            "odds": "15/8",
-            "label": "Win Bet",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Catterick",
-        "time": "16:10",
-        "race_name": "Try Racing TV For Free Now Handicap",
-        "date": "2026-07-15",
-        "winner": "Naval Light",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 4,
-            "outcome": "incorrect",
-            "horse": "Haaderr",
-            "score": 64.3,
-            "odds": "13/8",
-            "label": "Win Bet",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Catterick",
-        "time": "16:40",
-        "race_name": "Racing Again 22nd July Handicap",
-        "date": "2026-07-15",
-        "winner": "Our Absent Friends",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 2,
-            "outcome": "incorrect",
-            "horse": "South Shore",
-            "score": 67.5,
-            "odds": "7/4",
-            "label": "Win Bet",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Uttoxeter",
-        "time": "16:48",
-        "race_name": "Sun Racing Summer Jumps Championship Mares' Handicap Hurdle",
-        "date": "2026-07-15",
-        "winner": "Belladinotte",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 3,
-            "outcome": "incorrect",
-            "horse": "Camshaft",
-            "score": 63.3,
-            "odds": "9/4",
-            "label": "Win Bet",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Uttoxeter",
-        "time": "17:25",
-        "race_name": "QuinnBet Open NH Flat Race (GBB Race)",
-        "date": "2026-07-15",
-        "winner": "The Elusive Pike",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 2,
-            "outcome": "incorrect",
-            "horse": "Redbarn",
-            "score": 64.4,
-            "odds": "5/4",
-            "label": "Win Bet",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Lingfield",
-        "time": "17:50",
-        "race_name": "Follow AtTheRaces On Instagram Maiden Stakes (GBB/GBBPlus Race)",
-        "date": "2026-07-15",
-        "winner": "Brunhilde",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 1,
-            "outcome": "correct",
-            "horse": "Brunhilde",
-            "score": 62.3,
-            "odds": "11/10",
-            "label": "Win Bet",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Lingfield",
-        "time": "18:20",
-        "race_name": "Hamways EBF Restricted Maiden Fillies' Stakes (GBB Race)",
-        "date": "2026-07-15",
-        "winner": "Fire Thunder",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 1,
-            "outcome": "correct",
-            "horse": "Fire Thunder",
-            "score": 65.4,
-            "odds": "4/7",
-            "label": "Win Bet",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Yarmouth",
-        "time": "18:40",
-        "race_name": "4-Head Handicap",
-        "date": "2026-07-15",
-        "winner": "Tryst",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 3,
-            "outcome": "incorrect",
-            "horse": "Dion Baker",
-            "score": 72.2,
-            "odds": "11/4",
-            "label": "Strong Win Bet",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Killarney",
-        "time": "19:00",
-        "race_name": "Irish Stallion Farms EBF Cairn Rouge Stakes (Fillies' Listed)",
-        "date": "2026-07-15",
-        "winner": "Meriden",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 2,
-            "outcome": "incorrect",
-            "horse": "Green Carrera",
-            "score": 70.8,
-            "odds": "5/2",
-            "label": "Win Bet",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Killarney",
-        "time": "20:30",
-        "race_name": "Kitty O'Se's Seafood And Grill Restaurant Handicap",
-        "date": "2026-07-15",
-        "winner": "Loyal Touch",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 5,
-            "outcome": "incorrect",
-            "horse": "Jurality",
-            "score": 64.2,
-            "odds": "10/3",
-            "label": "Win Bet",
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      }
-    ]
-  },
-  {
     "date": "2026-07-16",
     "summary": {
       "overall_pct": 39.1,
@@ -2482,6 +2190,44 @@
   },
   {
     "date": "2026-08-13",
+    "summary": {
+      "overall_pct": null,
+      "win_pct": null,
+      "ew_pct": null,
+      "win_correct": 0,
+      "win_total": 0,
+      "ew_correct": 0,
+      "ew_total": 0,
+      "ew_win_count": 0,
+      "ew_placed_count": 0,
+      "excluded": {
+        "non_runner": 0,
+        "unmatched": 0,
+        "no_result": 0
+      },
+      "excluded_total": 0,
+      "dnf_count": 0,
+      "overall_roi": null,
+      "win_roi": null,
+      "ew_roi": null,
+      "roi": {
+        "win_stake": 0.0,
+        "win_ret": 0.0,
+        "ew_stake": 0.0,
+        "ew_ret": 0.0
+      },
+      "win_roi_best": null,
+      "roi_best": {
+        "win_stake": 0.0,
+        "win_ret": 0.0,
+        "win_base_stake": 0.0,
+        "win_base_ret": 0.0
+      }
+    },
+    "races": []
+  },
+  {
+    "date": "2026-08-14",
     "summary": {
       "overall_pct": null,
       "win_pct": null,
