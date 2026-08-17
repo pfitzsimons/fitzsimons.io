@@ -71,12 +71,22 @@ def score_and_recommend(prace, use_strike, table):
         res = s.score_runner(run, n, prace["going"], prace["distance"], prace["title"])
         run["_score"] = res["_score"]
         run["_components"] = res["_components"]
+        run["_form_analysis"] = res["_form_analysis"]
     s.normalise_weight_scores(runners)
+    s.normalise_class_scores(runners)
 
     cf = s.COURSE_COEFFICIENTS.get(prace["course"], 1.0)
     if cf != 1.0:
         for run in runners:
             run["_score"] = max(0.0, min(100.0, run["_score"] * cf))
+
+    # Experience shrink: shipped in production (scrape_races.py, EXPERIENCE_K)
+    # but previously missing here, which let this tool score every runner
+    # more confidently than production ever does — see backtest-shipping
+    # discipline note on the 2026-08-17 review that caught this.
+    for run in runners:
+        num_runs = (run.get("_form_analysis") or {}).get("num_runs", 0)
+        run["_score"] = s.experience_shrink(run["_score"], num_runs)
 
     runners.sort(key=lambda r: r["_score"], reverse=True)
     for run in runners:

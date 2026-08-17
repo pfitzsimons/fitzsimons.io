@@ -1,28 +1,30 @@
 #!/usr/bin/env python3
 """
-Walk-forward A/B for the freshness factor (scrape_races.FRESH_WEIGHT).
+Walk-forward A/B for the official-rating and Timeform-star factors
+(scrape_races.OR_WEIGHT / TF_WEIGHT).
 
-Proves — or rejects — the "days since last run" factor out-of-sample, holding
-everything else at the shipped model (data-derived jockey/trainer strike-rates).
-Two arms are scored on every out-of-sample race:
+Both were added 2026-07-04 alongside distance/freshness but, per the
+freshness-and-class-factors memory note, were shipped OFF at weight 0 and
+marked "CANNOT be backtested now" — unlike distance/freshness they aren't
+reconstructible from results, and the archive didn't store them before that
+date. That blocker is gone: official_rating and timeform_stars are stored
+directly per-runner in the archive (components.official_rating /
+components.timeform_stars) from the day they were added, and ~6 weeks of real
+capture (2026-07-05 onward) has now accumulated — this is the first time
+either factor can be tested. No reconstruction needed and no conservative
+caveat: this uses the exact same raw values production captures.
 
-    off : FRESH_WEIGHT = 0   (current production model)
-    on  : FRESH_WEIGHT = w   (form weight reduced by the same w)
+Two arms per weight, same shipped model otherwise (strike-rates, experience
+shrink, class/weight normalisation — the full pipeline, matching the
+experience_shrink fix in backtest_value.py from the 2026-08-17 review):
 
-CONSERVATIVE BY CONSTRUCTION. Production reads each horse's exact days since its
-last run from Sporting Life's racecard JSON (horse.last_ran_days), which reaches
-back before our archive began. The archives predate that capture, so here each
-horse's "days since last run" is RECONSTRUCTED as the gap to the last date the
-horse appears (having started) in our own history — only runs inside the archive,
-rolled strictly forward (a horse's run on day D informs only races on days > D).
-That is leak-free but a horse's true previous run is often before our window, so
-this UNDERSTATES the factor's real power: if it helps here, it should help at
-least as much live. A horse with no prior run in the archive gets no freshness
-signal (neutral), exactly as production treats a missing last_ran_days.
+    off : OR_WEIGHT/TF_WEIGHT = 0   (current production model)
+    on  : OR_WEIGHT/TF_WEIGHT = w   (form weight reduced by the same w)
 
-    python3 scripts/backtest_freshness.py                 # sweep default weights
-    python3 scripts/backtest_freshness.py --weight 0.06    # single weight + bootstrap
-    python3 scripts/backtest_freshness.py --burn-in 15
+    python3 scripts/backtest_class.py                  # sweep both factors
+    python3 scripts/backtest_class.py --bootstrap       # + significance
+    python3 scripts/backtest_class.py --or-weight 0.05  # single OR weight
+    python3 scripts/backtest_class.py --tf-weight 0.05  # single TF weight
 """
 
 import argparse
@@ -30,7 +32,6 @@ import copy
 import os
 import random
 import sys
-from datetime import date
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import scrape_races as s
@@ -39,57 +40,26 @@ import fetch_results as fr
 
 
 # ─────────────────────────────────────────────────────────────
-# Rolling per-horse last-run date, reconstructed from our archive
-# ─────────────────────────────────────────────────────────────
-
-def _to_date(d: str):
-    try:
-        return date.fromisoformat(d)
-    except (TypeError, ValueError):
-        return None
-
-
-class HorseLastRun:
-    """norm_horse -> most recent date (str) the horse started a race."""
-
-    def __init__(self):
-        self.rec = {}
-
-    def days_since(self, horse: str, on: str):
-        """Days from the horse's last recorded run to `on`, or None if unseen."""
-        last = self.rec.get(fr.normalise_name(horse))
-        d0, d1 = _to_date(last), _to_date(on)
-        if d0 is None or d1 is None or d1 <= d0:
-            return None
-        return (d1 - d0).days
-
-    def add_race(self, prace: dict, on: str) -> None:
-        """Record `on` as the last-run date for every horse that STARTED
-        (finished or failed to finish) — non-runners never ran, so are skipped."""
-        for run in prace.get("runners", []):
-            oc = run.get("_oc")
-            if not oc or oc.get("status") == "non_runner":
-                continue
-            self.rec[fr.normalise_name(run.get("horse", ""))] = on
-
-
-# ─────────────────────────────────────────────────────────────
 # Scoring one race through the real production code path
 # ─────────────────────────────────────────────────────────────
 
-def score_and_recommend(prace, table, lastrun, on_date, fresh_weight):
-    """Re-score a race with the shipped strike-rate model plus FRESH_WEIGHT,
-    injecting each runner's reconstructed days-since-last-run. Returns runners
-    (deep-copied), sorted best-first with fresh recommendations."""
+def score_and_recommend(prace, table, or_weight, tf_weight):
+    """Re-score a race with the shipped strike-rate model plus OR_WEIGHT /
+    TF_WEIGHT, reading each runner's archived official_rating/timeform_stars
+    directly (no reconstruction — these are stored raw, unlike distance/
+    freshness). Returns runners (deep-copied), sorted best-first."""
     runners = [copy.deepcopy(r) for r in prace["runners"]]
     n = len(runners)
 
     s.STRIKE_TABLE = table
     sr.JOCKEY_WEIGHT, sr.TRAINER_WEIGHT = 0.075, 0.075
-    s.FRESH_WEIGHT = fresh_weight
+    s.OR_WEIGHT = or_weight
+    s.TF_WEIGHT = tf_weight
 
     for run in runners:
-        run["_last_ran_days"] = lastrun.days_since(run.get("horse", ""), on_date)
+        comp = run.get("components") or {}
+        run["_official_rating"] = comp.get("official_rating")
+        run["_timeform_stars"]  = comp.get("timeform_stars")
         res = s.score_runner(run, n, prace["going"], prace["distance"], prace["title"])
         run["_score"] = res["_score"]
         run["_components"] = res["_components"]
@@ -115,7 +85,6 @@ def score_and_recommend(prace, table, lastrun, on_date, fresh_weight):
 
 
 def primary_win(runners):
-    """The single top-scored Win pick, or None."""
     for r in runners:
         if r["recommendation"]["type"] == "Win":
             return r
@@ -123,7 +92,6 @@ def primary_win(runners):
 
 
 def pnl_for(run, strong_only=False):
-    """Flat £1 (stake, ret) for a Win pick, or None if unpriced/void."""
     oc = run.get("_oc")
     if not oc or oc["status"] == "non_runner":
         return None
@@ -140,20 +108,22 @@ def pnl_for(run, strong_only=False):
 # Walk-forward driver
 # ─────────────────────────────────────────────────────────────
 
-def walk_forward(days, burn_in, weights):
-    """Return per_day[weight][tier] -> [(date, [(stake,ret),...]), ...]."""
-    arms = {"off": 0.0}
-    arms.update({f"{w:.3f}": w for w in weights})
+def walk_forward(days, burn_in, or_weights, tf_weights):
+    """Return per_day[arm][tier] -> [(date, [(stake,ret),...]), ...].
+    arm is "off", "or:<w>" or "tf:<w>" — OR and TF are swept independently,
+    each held at 0 while the other varies."""
+    arms = {"off": (0.0, 0.0)}
+    arms.update({f"or:{w:.3f}": (w, 0.0) for w in or_weights})
+    arms.update({f"tf:{w:.3f}": (0.0, w) for w in tf_weights})
     table = sr.StrikeTable()
-    lastrun = HorseLastRun()
     per_day = {a: {t: [] for t in ("win", "swin")} for a in arms}
 
     for i, (date_str, praces) in enumerate(days):
         if i >= burn_in:
             day = {a: {t: [] for t in ("win", "swin")} for a in arms}
             for prace in praces:
-                for arm, w in arms.items():
-                    runners = score_and_recommend(prace, table, lastrun, date_str, w)
+                for arm, (orw, tfw) in arms.items():
+                    runners = score_and_recommend(prace, table, orw, tfw)
                     run = primary_win(runners)
                     if not run:
                         continue
@@ -166,10 +136,8 @@ def walk_forward(days, burn_in, weights):
             for a in arms:
                 for t in ("win", "swin"):
                     per_day[a][t].append((date_str, day[a][t]))
-        # advance both rolling tables with the day's outcomes (after scoring)
         for prace in praces:
             table.add_race(prace)
-            lastrun.add_race(prace, date_str)
     return per_day, arms
 
 
@@ -188,7 +156,6 @@ def flat(day_pairs):
 
 
 def bootstrap(per_day, arm, tier, nboot=2000):
-    """Resample whole days; (mean, lo, hi, p_gt0) for arm−off ROI delta."""
     paired = list(zip(per_day[arm][tier], per_day["off"][tier]))
     deltas = []
     for _ in range(nboot):
@@ -203,14 +170,13 @@ def bootstrap(per_day, arm, tier, nboot=2000):
 
 
 def report(per_day, arms, do_bootstrap):
-    print("\n============  FRESHNESS-FACTOR WALK-FORWARD ROI (out-of-sample)  ============")
-    print(f'{"arm (FRESH_WEIGHT)":18} | {"Strong Win Bet":>20} | {"All Win":>20}')
-    print("-" * 66)
+    print("\n============  OFFICIAL RATING / TIMEFORM WALK-FORWARD ROI (out-of-sample)  ============")
+    print(f'{"arm":14} | {"Strong Win Bet":>20} | {"All Win":>20}')
+    print("-" * 62)
     for arm in arms:
         s_roi, s_st = roi(flat(per_day[arm]["swin"]))
         w_roi, w_st = roi(flat(per_day[arm]["win"]))
-        tag = "off" if arm == "off" else arm
-        print(f"{tag:18} | {s_roi:+6.1f}%  n{int(s_st):<5}      "
+        print(f"{arm:14} | {s_roi:+6.1f}%  n{int(s_st):<5}      "
               f"| {w_roi:+6.1f}%  n{int(w_st):<5}")
 
     if do_bootstrap:
@@ -221,7 +187,7 @@ def report(per_day, arms, do_bootstrap):
             for tier, name in (("swin", "Strong Win Bet"), ("win", "All Win")):
                 m, lo, hi, p = bootstrap(per_day, arm, tier)
                 verdict = "significant" if (lo > 0 or hi < 0) else "not significant"
-                print(f"w={arm} {name:16} | delta {m:+5.1f}pp  95% CI [{lo:+.1f}, {hi:+.1f}]"
+                print(f"{arm} {name:16} | delta {m:+5.1f}pp  95% CI [{lo:+.1f}, {hi:+.1f}]"
                       f"  P(on>off)={p:.2f}  ({verdict})")
 
 
@@ -230,15 +196,21 @@ def main():
     ap.add_argument("--out", default="horses", help="Directory holding history/")
     ap.add_argument("--burn-in", type=int, default=15,
                     help="Warm-up days excluded from ROI (default 15)")
-    ap.add_argument("--weight", type=float, default=None,
-                    help="Single FRESH_WEIGHT to test (default: sweep)")
+    ap.add_argument("--or-weight", type=float, default=None,
+                    help="Single OR_WEIGHT to test (default: sweep)")
+    ap.add_argument("--tf-weight", type=float, default=None,
+                    help="Single TF_WEIGHT to test (default: sweep)")
     ap.add_argument("--bootstrap", action="store_true", default=None)
     ap.add_argument("--seed", type=int, default=1)
     args = ap.parse_args()
     random.seed(args.seed)
 
-    weights = [args.weight] if args.weight is not None else [0.03, 0.05, 0.08, 0.12]
-    do_boot = args.bootstrap if args.bootstrap is not None else (args.weight is not None)
+    single = args.or_weight is not None or args.tf_weight is not None
+    or_weights = [args.or_weight] if args.or_weight is not None else \
+        ([] if args.tf_weight is not None else [0.03, 0.05, 0.08, 0.12])
+    tf_weights = [args.tf_weight] if args.tf_weight is not None else \
+        ([] if args.or_weight is not None else [0.03, 0.05, 0.08, 0.12])
+    do_boot = args.bootstrap if args.bootstrap is not None else single
 
     hist = os.path.join(os.path.abspath(args.out), "history")
     days = sr.iter_history(hist)
@@ -249,7 +221,7 @@ def main():
     print(f"{len(days)} days ({days[0][0]}..{days[-1][0]}), "
           f"burn-in {args.burn_in} -> {len(days) - args.burn_in} out-of-sample days")
 
-    per_day, arms = walk_forward(days, args.burn_in, weights)
+    per_day, arms = walk_forward(days, args.burn_in, or_weights, tf_weights)
     report(per_day, arms, do_boot)
 
 
