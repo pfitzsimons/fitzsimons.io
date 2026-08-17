@@ -1,401 +1,5 @@
 [
   {
-    "date": "2026-07-17",
-    "summary": {
-      "overall_pct": 43.8,
-      "win_pct": 43.8,
-      "ew_pct": null,
-      "win_correct": 7,
-      "win_total": 16,
-      "ew_correct": 0,
-      "ew_total": 0,
-      "ew_win_count": 0,
-      "ew_placed_count": 0,
-      "excluded": {
-        "non_runner": 1,
-        "unmatched": 0,
-        "no_result": 0
-      },
-      "excluded_total": 1,
-      "dnf_count": 0,
-      "overall_roi": 4.7,
-      "win_roi": 4.7,
-      "ew_roi": null,
-      "roi": {
-        "win_stake": 16.0,
-        "win_ret": 16.75,
-        "ew_stake": 0.0,
-        "ew_ret": 0.0
-      },
-      "win_roi_best": 21.5,
-      "roi_best": {
-        "win_stake": 16.0,
-        "win_ret": 19.44,
-        "win_base_stake": 16.0,
-        "win_base_ret": 16.75
-      }
-    },
-    "races": [
-      {
-        "course": "Newbury",
-        "time": "15:00",
-        "race_name": "Ire-Incentive, It Pays To Buy Irish EBF Novice Stakes (GBB Race)",
-        "date": "2026-07-17",
-        "winner": "Fuel The Jet",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 2,
-            "outcome": "incorrect",
-            "horse": "Cilician",
-            "score": 62.8,
-            "odds": "7/2",
-            "label": "Win Bet",
-            "best_odds": 4.5,
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Wolverhampton",
-        "time": "15:18",
-        "race_name": "Free Tips On attheraces.com Maiden Stakes (GBB Race)",
-        "date": "2026-07-17",
-        "winner": "Carnival Of Light",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 2,
-            "outcome": "incorrect",
-            "horse": "Korbut",
-            "score": 62.4,
-            "odds": "11/4",
-            "label": "Win Bet",
-            "best_odds": 2.63,
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Newbury",
-        "time": "16:10",
-        "race_name": "Apple Print & Creative Rose Bowl Stakes (Listed)",
-        "date": "2026-07-17",
-        "winner": "Arapaho Gold",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 2,
-            "outcome": "incorrect",
-            "horse": "Nabati",
-            "score": 62.4,
-            "odds": "6/4",
-            "label": "Win Bet",
-            "best_odds": 3.75,
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Killarney",
-        "time": "16:17",
-        "race_name": "Europe Hotel And Resort Handicap Chase (0-100) (Div 1)",
-        "date": "2026-07-17",
-        "winner": "Ladies Well",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": null,
-            "outcome": "non_runner",
-            "horse": "Fr Gilligansvoyge",
-            "score": 62.4,
-            "odds": "9/2",
-            "label": "Win Bet",
-            "best_odds": 17.0,
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Newbury",
-        "time": "17:20",
-        "race_name": "Uhy Ross Brooke Fillies' Handicap (GBBPlus Race)",
-        "date": "2026-07-17",
-        "winner": "Green Sky",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 2,
-            "outcome": "incorrect",
-            "horse": "Koala Rose",
-            "score": 63.0,
-            "odds": "6/5",
-            "label": "Win Bet",
-            "best_odds": 2.5,
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Hamilton",
-        "time": "17:30",
-        "race_name": "Joe Mac's Big Retirement Bash Handicap (GBBPlus Race)",
-        "date": "2026-07-17",
-        "winner": "Rizal",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 1,
-            "outcome": "correct",
-            "horse": "Rizal",
-            "score": 63.7,
-            "odds": "4/5",
-            "label": "Win Bet",
-            "best_odds": 1.91,
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Newbury",
-        "time": "17:55",
-        "race_name": "Crossland Employment Solicitors Handicap (GBBPlus Race)",
-        "date": "2026-07-17",
-        "winner": "Devil's Peak",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 2,
-            "outcome": "incorrect",
-            "horse": "Turty Tree",
-            "score": 67.1,
-            "odds": "7/4",
-            "label": "Win Bet",
-            "best_odds": 2.1,
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Down Royal",
-        "time": "18:15",
-        "race_name": "Irish Stallion Farms EBF Maiden",
-        "date": "2026-07-17",
-        "winner": "West Of Eden",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 4,
-            "outcome": "incorrect",
-            "horse": "Cashel Queen",
-            "score": 64.4,
-            "odds": "13/8",
-            "label": "Win Bet",
-            "best_odds": 3.25,
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Down Royal",
-        "time": "18:49",
-        "race_name": "Ampion Electrical Testing And Solar Experts Maiden",
-        "date": "2026-07-17",
-        "winner": "Youcansaythatagain",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 4,
-            "outcome": "incorrect",
-            "horse": "Camelot Queen",
-            "score": 62.7,
-            "odds": "5/4",
-            "label": "Win Bet",
-            "best_odds": 3.0,
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Pontefract",
-        "time": "19:07",
-        "race_name": "Sky Bet Go-Racing-In-Yorkshire Summer Festival Handicap",
-        "date": "2026-07-17",
-        "winner": "Badri",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 1,
-            "outcome": "correct",
-            "horse": "Badri",
-            "score": 64.4,
-            "odds": "13/8",
-            "label": "Win Bet",
-            "best_odds": 2.63,
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Pontefract",
-        "time": "19:42",
-        "race_name": "Sky Bet For The Fans Handicap",
-        "date": "2026-07-17",
-        "winner": "Best Rate",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 1,
-            "outcome": "correct",
-            "horse": "Best Rate",
-            "score": 63.5,
-            "odds": "11/8",
-            "label": "Win Bet",
-            "best_odds": 1.83,
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Hamilton",
-        "time": "19:50",
-        "race_name": "British Stallion Studs EBF Glasgow Stakes (Listed)",
-        "date": "2026-07-17",
-        "winner": "Superior Choice",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 1,
-            "outcome": "correct",
-            "horse": "Superior Choice",
-            "score": 65.4,
-            "odds": "11/8",
-            "label": "Win Bet",
-            "best_odds": 2.0,
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Down Royal",
-        "time": "19:59",
-        "race_name": "Ampion Electrical Testing And Solar Experts Fillies Handicap",
-        "date": "2026-07-17",
-        "winner": "Teologia",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 1,
-            "outcome": "correct",
-            "horse": "Teologia",
-            "score": 73.8,
-            "odds": "4/7",
-            "label": "Strong Win Bet",
-            "best_odds": 1.57,
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Hamilton",
-        "time": "20:25",
-        "race_name": "Hamilton Park Celebrates 100 Years Of Racing Handicap",
-        "date": "2026-07-17",
-        "winner": "Rock Of England",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 4,
-            "outcome": "incorrect",
-            "horse": "Law Of Average",
-            "score": 65.6,
-            "odds": "11/10",
-            "label": "Win Bet",
-            "best_odds": 2.63,
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Newmarket",
-        "time": "20:43",
-        "race_name": "Burwell Apprentice Handicap",
-        "date": "2026-07-17",
-        "winner": "Prefer The Sister",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 1,
-            "outcome": "correct",
-            "horse": "Prefer The Sister",
-            "score": 71.7,
-            "odds": "6/4",
-            "label": "Win Bet",
-            "best_odds": 3.0,
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Pontefract",
-        "time": "20:52",
-        "race_name": "Always Trying Racing Syndicate Handicap",
-        "date": "2026-07-17",
-        "winner": "Mount King",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 6,
-            "outcome": "incorrect",
-            "horse": "Hunterian",
-            "score": 62.2,
-            "odds": "11/4",
-            "label": "Win Bet",
-            "best_odds": 4.5,
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      },
-      {
-        "course": "Hamilton",
-        "time": "21:00",
-        "race_name": "Hampton By Hilton Hamilton Park Fillies' Handicap",
-        "date": "2026-07-17",
-        "winner": "Stella Lucente",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 1,
-            "outcome": "correct",
-            "horse": "Stella Lucente",
-            "score": 63.6,
-            "odds": "5/2",
-            "label": "Win Bet",
-            "best_odds": 6.5,
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      }
-    ]
-  },
-  {
     "date": "2026-07-18",
     "summary": {
       "overall_pct": 0.0,
@@ -1824,5 +1428,43 @@
         "abandoned": false
       }
     ]
+  },
+  {
+    "date": "2026-08-16",
+    "summary": {
+      "overall_pct": null,
+      "win_pct": null,
+      "ew_pct": null,
+      "win_correct": 0,
+      "win_total": 0,
+      "ew_correct": 0,
+      "ew_total": 0,
+      "ew_win_count": 0,
+      "ew_placed_count": 0,
+      "excluded": {
+        "non_runner": 0,
+        "unmatched": 0,
+        "no_result": 0
+      },
+      "excluded_total": 0,
+      "dnf_count": 0,
+      "overall_roi": null,
+      "win_roi": null,
+      "ew_roi": null,
+      "roi": {
+        "win_stake": 0.0,
+        "win_ret": 0.0,
+        "ew_stake": 0.0,
+        "ew_ret": 0.0
+      },
+      "win_roi_best": null,
+      "roi_best": {
+        "win_stake": 0.0,
+        "win_ret": 0.0,
+        "win_base_stake": 0.0,
+        "win_base_ret": 0.0
+      }
+    },
+    "races": []
   }
 ]
