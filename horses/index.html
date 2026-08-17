@@ -1453,6 +1453,14 @@ async function loadAccuracy() {
 }
 
 function renderAccuracy(log) {
+  // Only show days where a prediction actually fired — a day with no Win
+  // and no EW pick has nothing to grade (races is empty in that case too).
+  log = log.filter(d => (d.summary.win_total || 0) + (d.summary.ew_total || 0) > 0);
+  if (!log.length) {
+    document.getElementById('acc-empty').style.display = 'block';
+    document.getElementById('acc-content').style.display = 'none';
+    return;
+  }
   document.getElementById('acc-empty').style.display = 'none';
   document.getElementById('acc-content').style.display = 'block';
 
