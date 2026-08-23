@@ -1,65 +1,5 @@
 [
   {
-    "date": "2026-07-23",
-    "summary": {
-      "overall_pct": 0.0,
-      "win_pct": 0.0,
-      "ew_pct": null,
-      "win_correct": 0,
-      "win_total": 1,
-      "ew_correct": 0,
-      "ew_total": 0,
-      "ew_win_count": 0,
-      "ew_placed_count": 0,
-      "excluded": {
-        "non_runner": 0,
-        "unmatched": 0,
-        "no_result": 0
-      },
-      "excluded_total": 0,
-      "dnf_count": 0,
-      "overall_roi": -100.0,
-      "win_roi": -100.0,
-      "ew_roi": null,
-      "roi": {
-        "win_stake": 1.0,
-        "win_ret": 0.0,
-        "ew_stake": 0.0,
-        "ew_ret": 0.0
-      },
-      "win_roi_best": -100.0,
-      "roi_best": {
-        "win_stake": 1.0,
-        "win_ret": 0.0,
-        "win_base_stake": 1.0,
-        "win_base_ret": 0.0
-      }
-    },
-    "races": [
-      {
-        "course": "Sandown",
-        "time": "17:17",
-        "race_name": "Billy Ocean Live At Sandown Park 29 July Handicap",
-        "date": "2026-07-23",
-        "winner": "Marsh Benham",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 5,
-            "outcome": "incorrect",
-            "horse": "Sail On Sailor",
-            "score": 76.7,
-            "odds": "3/1",
-            "label": "Strong Win Bet",
-            "best_odds": 3.75,
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      }
-    ]
-  },
-  {
     "date": "2026-07-24",
     "summary": {
       "overall_pct": 0.0,
@@ -1379,5 +1319,67 @@
       }
     },
     "races": []
+  },
+  {
+    "date": "2026-08-22",
+    "summary": {
+      "overall_pct": 0.0,
+      "win_pct": 0.0,
+      "ew_pct": null,
+      "win_correct": 0,
+      "win_total": 1,
+      "ew_correct": 0,
+      "ew_total": 0,
+      "ew_win_count": 0,
+      "ew_placed_count": 0,
+      "excluded": {
+        "non_runner": 0,
+        "unmatched": 0,
+        "no_result": 0
+      },
+      "excluded_total": 0,
+      "dnf_count": 1,
+      "overall_roi": -100.0,
+      "win_roi": -100.0,
+      "ew_roi": null,
+      "roi": {
+        "win_stake": 1.0,
+        "win_ret": 0.0,
+        "ew_stake": 0.0,
+        "ew_ret": 0.0
+      },
+      "win_roi_best": -100.0,
+      "roi_best": {
+        "win_stake": 1.0,
+        "win_ret": 0.0,
+        "win_base_stake": 1.0,
+        "win_base_ret": 0.0
+      }
+    },
+    "races": [
+      {
+        "course": "Newton Abbot",
+        "time": "16:15",
+        "race_name": "Aubrey Loze Memorial Handicap Hurdle (GBB Race)",
+        "date": "2026-08-22",
+        "winner": "American Sniper",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": null,
+            "outcome": "incorrect",
+            "dnf": true,
+            "casualty": "PulledUp",
+            "horse": "Supreme Yeats",
+            "score": 72.3,
+            "odds": "15/8",
+            "label": "Strong Win Bet",
+            "best_odds": 4.5,
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      }
+    ]
   }
 ]
