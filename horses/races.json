@@ -1,6 +1,6 @@
 {
   "date": "2026-08-23",
-  "generated_at": "2026-08-23T14:33:07.786009Z",
+  "generated_at": "2026-08-23T15:00:56.039888Z",
   "races": [
     {
       "id": "worcester-934495",
@@ -7629,7 +7629,7 @@
           "draw": "3",
           "odds_str": "6/1",
           "odds_dec": 7.0,
-          "best_odds_dec": 4.5,
+          "best_odds_dec": 4.33,
           "best_odds_book": "Paddy Power",
           "priced_books": 3,
           "silk_url": "20260823bgh162003.png",
@@ -7994,7 +7994,7 @@
           "draw": "4",
           "odds_str": "8/1",
           "odds_dec": 9.0,
-          "best_odds_dec": 4.0,
+          "best_odds_dec": 5.0,
           "best_odds_book": "Paddy Power",
           "priced_books": 3,
           "silk_url": "20260823naa163005.png",
@@ -8144,7 +8144,7 @@
           "draw": "14",
           "odds_str": "14/1",
           "odds_dec": 15.0,
-          "best_odds_dec": 9.0,
+          "best_odds_dec": 9.5,
           "best_odds_book": "Paddy Power",
           "priced_books": 3,
           "silk_url": "20260823naa163007.png",
@@ -8194,7 +8194,7 @@
           "draw": "11",
           "odds_str": "25/1",
           "odds_dec": 26.0,
-          "best_odds_dec": 67.0,
+          "best_odds_dec": 29.0,
           "best_odds_book": "Paddy Power",
           "priced_books": 3,
           "silk_url": "20260823naa163013.png",
@@ -8294,7 +8294,7 @@
           "draw": "3",
           "odds_str": "14/1",
           "odds_dec": 15.0,
-          "best_odds_dec": 13.0,
+          "best_odds_dec": 15.0,
           "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20260823naa163006.png",
@@ -8594,7 +8594,7 @@
           "draw": "10",
           "odds_str": "20/1",
           "odds_dec": 21.0,
-          "best_odds_dec": 111.0,
+          "best_odds_dec": 67.0,
           "best_odds_book": "Paddy Power",
           "priced_books": 3,
           "silk_url": "20260823naa163010.png",
@@ -9737,7 +9737,7 @@
           "draw": "9",
           "odds_str": "8/1",
           "odds_dec": 9.0,
-          "best_odds_dec": 8.5,
+          "best_odds_dec": 10.0,
           "best_odds_book": "Paddy Power",
           "priced_books": 3,
           "silk_url": "20260823naa170005.png",
@@ -9787,7 +9787,7 @@
           "draw": "1",
           "odds_str": "12/1",
           "odds_dec": 13.0,
-          "best_odds_dec": 5.0,
+          "best_odds_dec": 6.0,
           "best_odds_book": "Paddy Power",
           "priced_books": 3,
           "silk_url": "20260823naa170001.png",
@@ -9987,7 +9987,7 @@
           "draw": "2",
           "odds_str": "14/1",
           "odds_dec": 15.0,
-          "best_odds_dec": 15.0,
+          "best_odds_dec": 13.0,
           "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20260823naa170004.png",
@@ -10037,7 +10037,7 @@
           "draw": "3",
           "odds_str": "16/1",
           "odds_dec": 17.0,
-          "best_odds_dec": 19.0,
+          "best_odds_dec": 13.0,
           "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20260823naa170009.png",
@@ -10340,7 +10340,7 @@
             "official_rating": 100
           },
           "value": {
-            "model_prob": 0.189,
+            "model_prob": 0.188,
             "market_prob": 0.211,
             "edge": -0.022
           },
@@ -10402,6 +10402,56 @@
           }
         },
         {
+          "horse": "Kylenoe Dancer",
+          "country": "GB",
+          "jockey": "Sam Twiston-Davies",
+          "trainer": "K Bailey & M Nicholls",
+          "form": "33/1P-32",
+          "age": "8",
+          "weight": "10-8",
+          "draw": "",
+          "odds_str": "5/1",
+          "odds_dec": 6.0,
+          "best_odds_dec": 5.5,
+          "best_odds_book": "Paddy Power",
+          "priced_books": 3,
+          "silk_url": "20260823wor170808.png",
+          "score": 40.8,
+          "components": {
+            "odds_value": 69.1,
+            "recent_form": 61.5,
+            "consistency": 46.9,
+            "jockey": 71.1,
+            "trainer": 41.7,
+            "weight": 76.9,
+            "absence_pen": 15.0,
+            "going_factor": 1.0,
+            "distance": 71.4,
+            "distance_meta": {
+              "n": 5,
+              "relevance": 4.11,
+              "quality": 0.77
+            },
+            "freshness": 55.0,
+            "last_ran_days": 74,
+            "timeform": 60.0,
+            "timeform_stars": 3,
+            "class_or": 28.6,
+            "official_rating": 80
+          },
+          "value": {
+            "model_prob": 0.088,
+            "market_prob": 0.132,
+            "edge": -0.044
+          },
+          "recommendation": {
+            "type": "Skip",
+            "confidence": 16,
+            "label": "Skip",
+            "reasoning": "solid recent form; placed last time out; consistent placer (75% placed); returning from long absence"
+          }
+        },
+        {
           "horse": "La Lolita",
           "country": "GB",
           "jockey": "James Bowen",
@@ -10442,63 +10492,13 @@
           "value": {
             "model_prob": 0.088,
             "market_prob": 0.046,
-            "edge": 0.042
+            "edge": 0.041
           },
           "recommendation": {
             "type": "Skip",
             "confidence": 16,
             "label": "Skip",
             "reasoning": "solid recent form; consistent placer (50% placed)"
-          }
-        },
-        {
-          "horse": "Kylenoe Dancer",
-          "country": "GB",
-          "jockey": "Thomas Bellamy",
-          "trainer": "K Bailey & M Nicholls",
-          "form": "33/1P-32",
-          "age": "8",
-          "weight": "10-8",
-          "draw": "",
-          "odds_str": "5/1",
-          "odds_dec": 6.0,
-          "best_odds_dec": 5.5,
-          "best_odds_book": "Paddy Power",
-          "priced_books": 3,
-          "silk_url": "20260823wor170808.png",
-          "score": 39.9,
-          "components": {
-            "odds_value": 69.1,
-            "recent_form": 61.5,
-            "consistency": 46.9,
-            "jockey": 53.5,
-            "trainer": 41.7,
-            "weight": 76.9,
-            "absence_pen": 15.0,
-            "going_factor": 1.0,
-            "distance": 71.4,
-            "distance_meta": {
-              "n": 5,
-              "relevance": 4.11,
-              "quality": 0.77
-            },
-            "freshness": 55.0,
-            "last_ran_days": 74,
-            "timeform": 60.0,
-            "timeform_stars": 3,
-            "class_or": 28.6,
-            "official_rating": 80
-          },
-          "value": {
-            "model_prob": 0.085,
-            "market_prob": 0.132,
-            "edge": -0.047
-          },
-          "recommendation": {
-            "type": "Skip",
-            "confidence": 15,
-            "label": "Skip",
-            "reasoning": "solid recent form; placed last time out; consistent placer (75% placed); returning from long absence"
           }
         },
         {
@@ -10540,7 +10540,7 @@
             "official_rating": 79
           },
           "value": {
-            "model_prob": 0.08,
+            "model_prob": 0.079,
             "market_prob": 0.061,
             "edge": 0.019
           },
@@ -10790,7 +10790,7 @@
             "official_rating": 72
           },
           "value": {
-            "model_prob": 0.058,
+            "model_prob": 0.057,
             "market_prob": 0.061,
             "edge": -0.003
           },
@@ -10942,7 +10942,7 @@
           "value": {
             "model_prob": 0.039,
             "market_prob": 0.046,
-            "edge": -0.007
+            "edge": -0.008
           },
           "recommendation": {
             "type": "Skip",
@@ -10977,7 +10977,7 @@
           "draw": "10",
           "odds_str": "13/2",
           "odds_dec": 7.5,
-          "best_odds_dec": 11.0,
+          "best_odds_dec": 12.0,
           "best_odds_book": "Paddy Power",
           "priced_books": 3,
           "silk_url": "20260823naa173006.png",
@@ -11077,7 +11077,7 @@
           "draw": "3",
           "odds_str": "5/1",
           "odds_dec": 6.0,
-          "best_odds_dec": 4.33,
+          "best_odds_dec": 4.5,
           "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20260823naa173008.png",
@@ -11177,7 +11177,7 @@
           "draw": "6",
           "odds_str": "7/2",
           "odds_dec": 4.5,
-          "best_odds_dec": 5.0,
+          "best_odds_dec": 5.5,
           "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20260823naa173004.png",
@@ -11227,7 +11227,7 @@
           "draw": "8",
           "odds_str": "12/1",
           "odds_dec": 13.0,
-          "best_odds_dec": 8.5,
+          "best_odds_dec": 8.0,
           "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20260823naa173002.png",
@@ -11377,7 +11377,7 @@
           "draw": "5",
           "odds_str": "33/1",
           "odds_dec": 34.0,
-          "best_odds_dec": 31.0,
+          "best_odds_dec": 15.0,
           "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20260823naa173010.png",
