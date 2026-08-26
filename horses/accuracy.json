@@ -1,43 +1,5 @@
 [
   {
-    "date": "2026-07-26",
-    "summary": {
-      "overall_pct": null,
-      "win_pct": null,
-      "ew_pct": null,
-      "win_correct": 0,
-      "win_total": 0,
-      "ew_correct": 0,
-      "ew_total": 0,
-      "ew_win_count": 0,
-      "ew_placed_count": 0,
-      "excluded": {
-        "non_runner": 0,
-        "unmatched": 0,
-        "no_result": 0
-      },
-      "excluded_total": 0,
-      "dnf_count": 0,
-      "overall_roi": null,
-      "win_roi": null,
-      "ew_roi": null,
-      "roi": {
-        "win_stake": 0.0,
-        "win_ret": 0.0,
-        "ew_stake": 0.0,
-        "ew_ret": 0.0
-      },
-      "win_roi_best": null,
-      "roi_best": {
-        "win_stake": 0.0,
-        "win_ret": 0.0,
-        "win_base_stake": 0.0,
-        "win_base_ret": 0.0
-      }
-    },
-    "races": []
-  },
-  {
     "date": "2026-07-27",
     "summary": {
       "overall_pct": null,
@@ -1362,5 +1324,88 @@
       }
     },
     "races": []
+  },
+  {
+    "date": "2026-08-25",
+    "summary": {
+      "overall_pct": 0.0,
+      "win_pct": 0.0,
+      "ew_pct": null,
+      "win_correct": 0,
+      "win_total": 2,
+      "ew_correct": 0,
+      "ew_total": 0,
+      "ew_win_count": 0,
+      "ew_placed_count": 0,
+      "excluded": {
+        "non_runner": 0,
+        "unmatched": 0,
+        "no_result": 0
+      },
+      "excluded_total": 0,
+      "dnf_count": 1,
+      "overall_roi": -100.0,
+      "win_roi": -100.0,
+      "ew_roi": null,
+      "roi": {
+        "win_stake": 2.0,
+        "win_ret": 0.0,
+        "ew_stake": 0.0,
+        "ew_ret": 0.0
+      },
+      "win_roi_best": -100.0,
+      "roi_best": {
+        "win_stake": 2.0,
+        "win_ret": 0.0,
+        "win_base_stake": 2.0,
+        "win_base_ret": 0.0
+      }
+    },
+    "races": [
+      {
+        "course": "Stratford",
+        "time": "18:15",
+        "race_name": "George & Dragon Handicap Chase (GBB Race)",
+        "date": "2026-08-25",
+        "winner": "Duke Of Luckley",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": null,
+            "outcome": "incorrect",
+            "dnf": true,
+            "casualty": "PulledUp",
+            "horse": "Beorma",
+            "score": 75.6,
+            "odds": "8/15",
+            "label": "Strong Win Bet",
+            "best_odds": 1.4,
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Stratford",
+        "time": "18:45",
+        "race_name": "Allsopps Love Stratford Handicap Hurdle",
+        "date": "2026-08-25",
+        "winner": "Mi Sueno",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 6,
+            "outcome": "incorrect",
+            "horse": "Getmyfriend",
+            "score": 72.6,
+            "odds": "6/4",
+            "label": "Strong Win Bet",
+            "best_odds": 2.75,
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      }
+    ]
   }
 ]
