@@ -1,65 +1,5 @@
 [
   {
-    "date": "2026-07-28",
-    "summary": {
-      "overall_pct": 100.0,
-      "win_pct": 100.0,
-      "ew_pct": null,
-      "win_correct": 1,
-      "win_total": 1,
-      "ew_correct": 0,
-      "ew_total": 0,
-      "ew_win_count": 0,
-      "ew_placed_count": 0,
-      "excluded": {
-        "non_runner": 0,
-        "unmatched": 0,
-        "no_result": 0
-      },
-      "excluded_total": 0,
-      "dnf_count": 0,
-      "overall_roi": 91.0,
-      "win_roi": 91.0,
-      "ew_roi": null,
-      "roi": {
-        "win_stake": 1.0,
-        "win_ret": 1.91,
-        "ew_stake": 0.0,
-        "ew_ret": 0.0
-      },
-      "win_roi_best": 110.0,
-      "roi_best": {
-        "win_stake": 1.0,
-        "win_ret": 2.1,
-        "win_base_stake": 1.0,
-        "win_base_ret": 1.91
-      }
-    },
-    "races": [
-      {
-        "course": "Goodwood",
-        "time": "15:35",
-        "race_name": "Al Shaqab Goodwood Cup Stakes (Group 1)",
-        "date": "2026-07-28",
-        "winner": "Scandinavia",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 1,
-            "outcome": "correct",
-            "horse": "Scandinavia",
-            "score": 74.2,
-            "odds": "10/11",
-            "label": "Strong Win Bet",
-            "best_odds": 2.1,
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      }
-    ]
-  },
-  {
     "date": "2026-07-29",
     "summary": {
       "overall_pct": 100.0,
@@ -1407,5 +1347,86 @@
       }
     },
     "races": []
+  },
+  {
+    "date": "2026-08-27",
+    "summary": {
+      "overall_pct": 50.0,
+      "win_pct": 50.0,
+      "ew_pct": null,
+      "win_correct": 1,
+      "win_total": 2,
+      "ew_correct": 0,
+      "ew_total": 0,
+      "ew_win_count": 0,
+      "ew_placed_count": 0,
+      "excluded": {
+        "non_runner": 0,
+        "unmatched": 0,
+        "no_result": 0
+      },
+      "excluded_total": 0,
+      "dnf_count": 0,
+      "overall_roi": 12.5,
+      "win_roi": 12.5,
+      "ew_roi": null,
+      "roi": {
+        "win_stake": 2.0,
+        "win_ret": 2.25,
+        "ew_stake": 0.0,
+        "ew_ret": 0.0
+      },
+      "win_roi_best": 25.0,
+      "roi_best": {
+        "win_stake": 2.0,
+        "win_ret": 2.5,
+        "win_base_stake": 2.0,
+        "win_base_ret": 2.25
+      }
+    },
+    "races": [
+      {
+        "course": "Carlisle",
+        "time": "15:30",
+        "race_name": "Christmas Community Raceday 13th Dec Handicap",
+        "date": "2026-08-27",
+        "winner": "Rikki Tiki Tavi",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 7,
+            "outcome": "incorrect",
+            "horse": "Town Queen",
+            "score": 72.5,
+            "odds": "6/4",
+            "label": "Strong Win Bet",
+            "best_odds": 3.5,
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Newton Abbot",
+        "time": "18:42",
+        "race_name": "Compwiz Ltd - IT Solutions For Business Handicap Hurdle",
+        "date": "2026-08-27",
+        "winner": "My Girl Katie",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 1,
+            "outcome": "correct",
+            "horse": "My Girl Katie",
+            "score": 73.6,
+            "odds": "5/4",
+            "label": "Strong Win Bet",
+            "best_odds": 2.5,
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      }
+    ]
   }
 ]
