@@ -1,65 +1,5 @@
 [
   {
-    "date": "2026-07-29",
-    "summary": {
-      "overall_pct": 100.0,
-      "win_pct": 100.0,
-      "ew_pct": null,
-      "win_correct": 1,
-      "win_total": 1,
-      "ew_correct": 0,
-      "ew_total": 0,
-      "ew_win_count": 0,
-      "ew_placed_count": 0,
-      "excluded": {
-        "non_runner": 0,
-        "unmatched": 0,
-        "no_result": 0
-      },
-      "excluded_total": 0,
-      "dnf_count": 0,
-      "overall_roi": 120.0,
-      "win_roi": 120.0,
-      "ew_roi": null,
-      "roi": {
-        "win_stake": 1.0,
-        "win_ret": 2.2,
-        "ew_stake": 0.0,
-        "ew_ret": 0.0
-      },
-      "win_roi_best": 110.0,
-      "roi_best": {
-        "win_stake": 1.0,
-        "win_ret": 2.1,
-        "win_base_stake": 1.0,
-        "win_base_ret": 2.2
-      }
-    },
-    "races": [
-      {
-        "course": "Goodwood",
-        "time": "16:10",
-        "race_name": "Visit Qatar Sussex Stakes (Group 1)",
-        "date": "2026-07-29",
-        "winner": "Bow Echo",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 1,
-            "outcome": "correct",
-            "horse": "Bow Echo",
-            "score": 74.9,
-            "odds": "6/5",
-            "label": "Strong Win Bet",
-            "best_odds": 2.1,
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      }
-    ]
-  },
-  {
     "date": "2026-07-30",
     "summary": {
       "overall_pct": 100.0,
@@ -1428,5 +1368,43 @@
         "abandoned": false
       }
     ]
+  },
+  {
+    "date": "2026-08-28",
+    "summary": {
+      "overall_pct": null,
+      "win_pct": null,
+      "ew_pct": null,
+      "win_correct": 0,
+      "win_total": 0,
+      "ew_correct": 0,
+      "ew_total": 0,
+      "ew_win_count": 0,
+      "ew_placed_count": 0,
+      "excluded": {
+        "non_runner": 0,
+        "unmatched": 0,
+        "no_result": 0
+      },
+      "excluded_total": 0,
+      "dnf_count": 0,
+      "overall_roi": null,
+      "win_roi": null,
+      "ew_roi": null,
+      "roi": {
+        "win_stake": 0.0,
+        "win_ret": 0.0,
+        "ew_stake": 0.0,
+        "ew_ret": 0.0
+      },
+      "win_roi_best": null,
+      "roi_best": {
+        "win_stake": 0.0,
+        "win_ret": 0.0,
+        "win_base_stake": 0.0,
+        "win_base_ret": 0.0
+      }
+    },
+    "races": []
   }
 ]
