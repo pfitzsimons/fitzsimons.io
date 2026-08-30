@@ -1,65 +1,5 @@
 [
   {
-    "date": "2026-07-30",
-    "summary": {
-      "overall_pct": 100.0,
-      "win_pct": 100.0,
-      "ew_pct": null,
-      "win_correct": 1,
-      "win_total": 1,
-      "ew_correct": 0,
-      "ew_total": 0,
-      "ew_win_count": 0,
-      "ew_placed_count": 0,
-      "excluded": {
-        "non_runner": 0,
-        "unmatched": 0,
-        "no_result": 0
-      },
-      "excluded_total": 0,
-      "dnf_count": 0,
-      "overall_roi": 62.0,
-      "win_roi": 62.0,
-      "ew_roi": null,
-      "roi": {
-        "win_stake": 1.0,
-        "win_ret": 1.62,
-        "ew_stake": 0.0,
-        "ew_ret": 0.0
-      },
-      "win_roi_best": 80.0,
-      "roi_best": {
-        "win_stake": 1.0,
-        "win_ret": 1.8,
-        "win_base_stake": 1.0,
-        "win_base_ret": 1.62
-      }
-    },
-    "races": [
-      {
-        "course": "Goodwood",
-        "time": "15:35",
-        "race_name": "Qatar Nassau Stakes (Fillies' And Mares' Group 1)",
-        "date": "2026-07-30",
-        "winner": "Diamond Necklace",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 1,
-            "outcome": "correct",
-            "horse": "Diamond Necklace",
-            "score": 73.4,
-            "odds": "8/13",
-            "label": "Strong Win Bet",
-            "best_odds": 1.8,
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      }
-    ]
-  },
-  {
     "date": "2026-07-31",
     "summary": {
       "overall_pct": 0.0,
@@ -1406,5 +1346,65 @@
       }
     },
     "races": []
+  },
+  {
+    "date": "2026-08-29",
+    "summary": {
+      "overall_pct": 100.0,
+      "win_pct": 100.0,
+      "ew_pct": null,
+      "win_correct": 1,
+      "win_total": 1,
+      "ew_correct": 0,
+      "ew_total": 0,
+      "ew_win_count": 0,
+      "ew_placed_count": 0,
+      "excluded": {
+        "non_runner": 0,
+        "unmatched": 0,
+        "no_result": 0
+      },
+      "excluded_total": 0,
+      "dnf_count": 0,
+      "overall_roi": 250.0,
+      "win_roi": 250.0,
+      "ew_roi": null,
+      "roi": {
+        "win_stake": 1.0,
+        "win_ret": 3.5,
+        "ew_stake": 0.0,
+        "ew_ret": 0.0
+      },
+      "win_roi_best": 250.0,
+      "roi_best": {
+        "win_stake": 1.0,
+        "win_ret": 3.5,
+        "win_base_stake": 1.0,
+        "win_base_ret": 3.5
+      }
+    },
+    "races": [
+      {
+        "course": "Goodwood",
+        "time": "14:00",
+        "race_name": "Virgin Bet Every Saturday Money Back Handicap",
+        "date": "2026-08-29",
+        "winner": "Forty Years On",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 1,
+            "outcome": "correct",
+            "horse": "Forty Years On",
+            "score": 75.2,
+            "odds": "5/2",
+            "label": "Strong Win Bet",
+            "best_odds": 3.5,
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      }
+    ]
   }
 ]
