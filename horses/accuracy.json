@@ -1,43 +1,5 @@
 [
   {
-    "date": "2026-08-06",
-    "summary": {
-      "overall_pct": null,
-      "win_pct": null,
-      "ew_pct": null,
-      "win_correct": 0,
-      "win_total": 0,
-      "ew_correct": 0,
-      "ew_total": 0,
-      "ew_win_count": 0,
-      "ew_placed_count": 0,
-      "excluded": {
-        "non_runner": 0,
-        "unmatched": 0,
-        "no_result": 0
-      },
-      "excluded_total": 0,
-      "dnf_count": 0,
-      "overall_roi": null,
-      "win_roi": null,
-      "ew_roi": null,
-      "roi": {
-        "win_stake": 0.0,
-        "win_ret": 0.0,
-        "ew_stake": 0.0,
-        "ew_ret": 0.0
-      },
-      "win_roi_best": null,
-      "roi_best": {
-        "win_stake": 0.0,
-        "win_ret": 0.0,
-        "win_base_stake": 0.0,
-        "win_base_ret": 0.0
-      }
-    },
-    "races": []
-  },
-  {
     "date": "2026-08-07",
     "summary": {
       "overall_pct": 0.0,
@@ -1384,5 +1346,65 @@
       }
     },
     "races": []
+  },
+  {
+    "date": "2026-09-05",
+    "summary": {
+      "overall_pct": 0.0,
+      "win_pct": 0.0,
+      "ew_pct": null,
+      "win_correct": 0,
+      "win_total": 1,
+      "ew_correct": 0,
+      "ew_total": 0,
+      "ew_win_count": 0,
+      "ew_placed_count": 0,
+      "excluded": {
+        "non_runner": 0,
+        "unmatched": 0,
+        "no_result": 0
+      },
+      "excluded_total": 0,
+      "dnf_count": 0,
+      "overall_roi": -100.0,
+      "win_roi": -100.0,
+      "ew_roi": null,
+      "roi": {
+        "win_stake": 1.0,
+        "win_ret": 0.0,
+        "ew_stake": 0.0,
+        "ew_ret": 0.0
+      },
+      "win_roi_best": -100.0,
+      "roi_best": {
+        "win_stake": 1.0,
+        "win_ret": 0.0,
+        "win_base_stake": 1.0,
+        "win_base_ret": 0.0
+      }
+    },
+    "races": [
+      {
+        "course": "Stratford",
+        "time": "18:45",
+        "race_name": "Envesca Safety Champions Handicap Chase",
+        "date": "2026-09-05",
+        "winner": "Gone In Sixty",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 4,
+            "outcome": "incorrect",
+            "horse": "Huckleberry Sting",
+            "score": 74.7,
+            "odds": "7/4",
+            "label": "Strong Win Bet",
+            "best_odds": 3.5,
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      }
+    ]
   }
 ]
