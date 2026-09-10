@@ -1,43 +1,5 @@
 [
   {
-    "date": "2026-08-10",
-    "summary": {
-      "overall_pct": null,
-      "win_pct": null,
-      "ew_pct": null,
-      "win_correct": 0,
-      "win_total": 0,
-      "ew_correct": 0,
-      "ew_total": 0,
-      "ew_win_count": 0,
-      "ew_placed_count": 0,
-      "excluded": {
-        "non_runner": 0,
-        "unmatched": 0,
-        "no_result": 0
-      },
-      "excluded_total": 0,
-      "dnf_count": 0,
-      "overall_roi": null,
-      "win_roi": null,
-      "ew_roi": null,
-      "roi": {
-        "win_stake": 0.0,
-        "win_ret": 0.0,
-        "ew_stake": 0.0,
-        "ew_ret": 0.0
-      },
-      "win_roi_best": null,
-      "roi_best": {
-        "win_stake": 0.0,
-        "win_ret": 0.0,
-        "win_base_stake": 0.0,
-        "win_base_ret": 0.0
-      }
-    },
-    "races": []
-  },
-  {
     "date": "2026-08-11",
     "summary": {
       "overall_pct": null,
@@ -1362,5 +1324,86 @@
       }
     },
     "races": []
+  },
+  {
+    "date": "2026-09-09",
+    "summary": {
+      "overall_pct": 50.0,
+      "win_pct": 50.0,
+      "ew_pct": null,
+      "win_correct": 1,
+      "win_total": 2,
+      "ew_correct": 0,
+      "ew_total": 0,
+      "ew_win_count": 0,
+      "ew_placed_count": 0,
+      "excluded": {
+        "non_runner": 0,
+        "unmatched": 0,
+        "no_result": 0
+      },
+      "excluded_total": 0,
+      "dnf_count": 0,
+      "overall_roi": -16.5,
+      "win_roi": -16.5,
+      "ew_roi": null,
+      "roi": {
+        "win_stake": 2.0,
+        "win_ret": 1.67,
+        "ew_stake": 0.0,
+        "ew_ret": 0.0
+      },
+      "win_roi_best": 19.0,
+      "roi_best": {
+        "win_stake": 2.0,
+        "win_ret": 2.38,
+        "win_base_stake": 2.0,
+        "win_base_ret": 1.67
+      }
+    },
+    "races": [
+      {
+        "course": "Sedgefield",
+        "time": "14:30",
+        "race_name": "Roxyfet Sports Lounge For Private Hire Mares' Handicap Hurdle",
+        "date": "2026-09-09",
+        "winner": "Spot On Soph",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 2,
+            "outcome": "incorrect",
+            "horse": "Stellarmasterpiece",
+            "score": 72.1,
+            "odds": "4/6",
+            "label": "Strong Win Bet",
+            "best_odds": 2.25,
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      },
+      {
+        "course": "Sedgefield",
+        "time": "16:00",
+        "race_name": "Sedgefield Racecourse For Outdoor Events Handicap Hurdle",
+        "date": "2026-09-09",
+        "winner": "Loriko",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 1,
+            "outcome": "correct",
+            "horse": "Loriko",
+            "score": 76.6,
+            "odds": "4/6",
+            "label": "Strong Win Bet",
+            "best_odds": 2.38,
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      }
+    ]
   }
 ]
