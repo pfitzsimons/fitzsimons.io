@@ -1,43 +1,5 @@
 [
   {
-    "date": "2026-08-13",
-    "summary": {
-      "overall_pct": null,
-      "win_pct": null,
-      "ew_pct": null,
-      "win_correct": 0,
-      "win_total": 0,
-      "ew_correct": 0,
-      "ew_total": 0,
-      "ew_win_count": 0,
-      "ew_placed_count": 0,
-      "excluded": {
-        "non_runner": 0,
-        "unmatched": 0,
-        "no_result": 0
-      },
-      "excluded_total": 0,
-      "dnf_count": 0,
-      "overall_roi": null,
-      "win_roi": null,
-      "ew_roi": null,
-      "roi": {
-        "win_stake": 0.0,
-        "win_ret": 0.0,
-        "ew_stake": 0.0,
-        "ew_ret": 0.0
-      },
-      "win_roi_best": null,
-      "roi_best": {
-        "win_stake": 0.0,
-        "win_ret": 0.0,
-        "win_base_stake": 0.0,
-        "win_base_ret": 0.0
-      }
-    },
-    "races": []
-  },
-  {
     "date": "2026-08-14",
     "summary": {
       "overall_pct": null,
@@ -1405,5 +1367,65 @@
       }
     },
     "races": []
+  },
+  {
+    "date": "2026-09-12",
+    "summary": {
+      "overall_pct": 100.0,
+      "win_pct": 100.0,
+      "ew_pct": null,
+      "win_correct": 1,
+      "win_total": 1,
+      "ew_correct": 0,
+      "ew_total": 0,
+      "ew_win_count": 0,
+      "ew_placed_count": 0,
+      "excluded": {
+        "non_runner": 0,
+        "unmatched": 0,
+        "no_result": 0
+      },
+      "excluded_total": 0,
+      "dnf_count": 0,
+      "overall_roi": 125.0,
+      "win_roi": 125.0,
+      "ew_roi": null,
+      "roi": {
+        "win_stake": 1.0,
+        "win_ret": 2.25,
+        "ew_stake": 0.0,
+        "ew_ret": 0.0
+      },
+      "win_roi_best": 80.0,
+      "roi_best": {
+        "win_stake": 1.0,
+        "win_ret": 1.8,
+        "win_base_stake": 1.0,
+        "win_base_ret": 2.25
+      }
+    },
+    "races": [
+      {
+        "course": "Leopardstown",
+        "time": "15:55",
+        "race_name": "Coolmore America 'Justify' Matron Stakes (Fillies' And Mares' Group 1)",
+        "date": "2026-09-12",
+        "winner": "Blue Bolt",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 1,
+            "outcome": "correct",
+            "horse": "Blue Bolt",
+            "score": 73.4,
+            "odds": "5/4",
+            "label": "Strong Win Bet",
+            "best_odds": 1.8,
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      }
+    ]
   }
 ]
