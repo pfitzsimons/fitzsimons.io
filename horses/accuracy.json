@@ -1,43 +1,5 @@
 [
   {
-    "date": "2026-08-17",
-    "summary": {
-      "overall_pct": null,
-      "win_pct": null,
-      "ew_pct": null,
-      "win_correct": 0,
-      "win_total": 0,
-      "ew_correct": 0,
-      "ew_total": 0,
-      "ew_win_count": 0,
-      "ew_placed_count": 0,
-      "excluded": {
-        "non_runner": 0,
-        "unmatched": 0,
-        "no_result": 0
-      },
-      "excluded_total": 0,
-      "dnf_count": 0,
-      "overall_roi": null,
-      "win_roi": null,
-      "ew_roi": null,
-      "roi": {
-        "win_stake": 0.0,
-        "win_ret": 0.0,
-        "ew_stake": 0.0,
-        "ew_ret": 0.0
-      },
-      "win_roi_best": null,
-      "roi_best": {
-        "win_stake": 0.0,
-        "win_ret": 0.0,
-        "win_base_stake": 0.0,
-        "win_base_ret": 0.0
-      }
-    },
-    "races": []
-  },
-  {
     "date": "2026-08-18",
     "summary": {
       "overall_pct": null,
@@ -1469,5 +1431,65 @@
       }
     },
     "races": []
+  },
+  {
+    "date": "2026-09-16",
+    "summary": {
+      "overall_pct": 0.0,
+      "win_pct": 0.0,
+      "ew_pct": null,
+      "win_correct": 0,
+      "win_total": 1,
+      "ew_correct": 0,
+      "ew_total": 0,
+      "ew_win_count": 0,
+      "ew_placed_count": 0,
+      "excluded": {
+        "non_runner": 0,
+        "unmatched": 0,
+        "no_result": 0
+      },
+      "excluded_total": 0,
+      "dnf_count": 0,
+      "overall_roi": -100.0,
+      "win_roi": -100.0,
+      "ew_roi": null,
+      "roi": {
+        "win_stake": 1.0,
+        "win_ret": 0.0,
+        "ew_stake": 0.0,
+        "ew_ret": 0.0
+      },
+      "win_roi_best": -100.0,
+      "roi_best": {
+        "win_stake": 1.0,
+        "win_ret": 0.0,
+        "win_base_stake": 1.0,
+        "win_base_ret": 0.0
+      }
+    },
+    "races": [
+      {
+        "course": "Kelso",
+        "time": "17:25",
+        "race_name": "Paul Ferguson's Jumpers To Follow Handicap Hurdle",
+        "date": "2026-09-16",
+        "winner": "Dream's Ka",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 3,
+            "outcome": "incorrect",
+            "horse": "Loriko",
+            "score": 78.6,
+            "odds": "4/5",
+            "label": "Strong Win Bet",
+            "best_odds": 1.91,
+            "primary": true
+          }
+        ],
+        "abandoned": false
+      }
+    ]
   }
 ]
