@@ -1,67 +1,5 @@
 [
   {
-    "date": "2026-08-23",
-    "summary": {
-      "overall_pct": 0.0,
-      "win_pct": 0.0,
-      "ew_pct": null,
-      "win_correct": 0,
-      "win_total": 1,
-      "ew_correct": 0,
-      "ew_total": 0,
-      "ew_win_count": 0,
-      "ew_placed_count": 0,
-      "excluded": {
-        "non_runner": 0,
-        "unmatched": 0,
-        "no_result": 0
-      },
-      "excluded_total": 0,
-      "dnf_count": 1,
-      "overall_roi": -100.0,
-      "win_roi": -100.0,
-      "ew_roi": null,
-      "roi": {
-        "win_stake": 1.0,
-        "win_ret": 0.0,
-        "ew_stake": 0.0,
-        "ew_ret": 0.0
-      },
-      "win_roi_best": -100.0,
-      "roi_best": {
-        "win_stake": 1.0,
-        "win_ret": 0.0,
-        "win_base_stake": 1.0,
-        "win_base_ret": 0.0
-      }
-    },
-    "races": [
-      {
-        "course": "Worcester",
-        "time": "14:38",
-        "race_name": "Neu-Servo Rapid Response Handicap Chase (GBB Race)",
-        "date": "2026-08-23",
-        "winner": "Little Ledgend",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": null,
-            "outcome": "incorrect",
-            "dnf": true,
-            "casualty": "BroughtDown",
-            "horse": "At The Oche",
-            "score": 72.7,
-            "odds": "9/4",
-            "label": "Strong Win Bet",
-            "best_odds": 2.25,
-            "primary": true
-          }
-        ],
-        "abandoned": false
-      }
-    ]
-  },
-  {
     "date": "2026-08-24",
     "summary": {
       "overall_pct": null,
@@ -1410,6 +1348,44 @@
   },
   {
     "date": "2026-09-21",
+    "summary": {
+      "overall_pct": null,
+      "win_pct": null,
+      "ew_pct": null,
+      "win_correct": 0,
+      "win_total": 0,
+      "ew_correct": 0,
+      "ew_total": 0,
+      "ew_win_count": 0,
+      "ew_placed_count": 0,
+      "excluded": {
+        "non_runner": 0,
+        "unmatched": 0,
+        "no_result": 0
+      },
+      "excluded_total": 0,
+      "dnf_count": 0,
+      "overall_roi": null,
+      "win_roi": null,
+      "ew_roi": null,
+      "roi": {
+        "win_stake": 0.0,
+        "win_ret": 0.0,
+        "ew_stake": 0.0,
+        "ew_ret": 0.0
+      },
+      "win_roi_best": null,
+      "roi_best": {
+        "win_stake": 0.0,
+        "win_ret": 0.0,
+        "win_base_stake": 0.0,
+        "win_base_ret": 0.0
+      }
+    },
+    "races": []
+  },
+  {
+    "date": "2026-09-22",
     "summary": {
       "overall_pct": null,
       "win_pct": null,
