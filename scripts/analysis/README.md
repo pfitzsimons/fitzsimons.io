@@ -74,8 +74,9 @@ races, 45,740 runners.
    and add a "vs backing the favourite" baseline.
 3. ~~Paper-trade the market-anchored model~~ — dropped, see finding 5.
 
-Steps 1 and 2 shipped: `fetch_results.py` now settles at the best bookmaker
-price (SP before 2026-07-17), keeps the full history, and reports a
-favourite baseline. Regrading the full archive (`--rebuild`): 3,356 bets
+Steps 1 and 2 shipped: `fetch_results.py`, `calibrate.py` and every
+`backtest_*.py` now settle at the best bookmaker price (SP before
+2026-07-17); the accuracy log keeps the full history and a favourite
+baseline. Walk-forward Strong Win Bet moves from −11.8% to −17.9% (n=57). Regrading the full archive (`--rebuild`): 3,356 bets
 over 99 graded days, ROI −12.6%, against −10.0% for backing the morning
 favourite in the same races (−10.5% at the old forecast price).

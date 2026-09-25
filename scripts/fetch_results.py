@@ -318,6 +318,16 @@ def match_race(pred_race: dict, result_races: list) -> dict | None:
     return best
 
 
+def match_runner(horse: str, result: dict) -> dict | None:
+    """Find a horse in a result's full field. Exact name first; substring only
+    as a fallback, so a short name can't pick up a longer one's result
+    ("Sea" vs "Sea Legend")."""
+    key = normalise_name(horse)
+    field = [(normalise_name(r.get('name', '')), r) for r in result.get('runners', [])]
+    return next((r for n, r in field if n == key), None) or \
+           next((r for n, r in field if key in n or n in key), None)
+
+
 def evaluate_prediction(runner: dict, result: dict, ew_places: int) -> dict:
     """
     Compare a single runner's prediction to the actual result.
@@ -351,11 +361,7 @@ def evaluate_prediction(runner: dict, result: dict, ew_places: int) -> dict:
         return {'rec': rec_type, 'actual_pos': None, 'outcome': 'no_result'}
 
     # Locate this horse in the full field.
-    # Exact name first; substring only as a fallback, so a short name can't
-    # pick up a longer one's result ("Sea" vs "Sea Legend").
-    field = [(normalise_name(r.get('name', '')), r) for r in result.get('runners', [])]
-    matched = next((r for n, r in field if n == pred_name), None) or \
-              next((r for n, r in field if pred_name in n or n in pred_name), None)
+    matched = match_runner(runner.get('horse', ''), result)
 
     if matched is None:
         # Full field is known but the horse isn't in it — almost always a
@@ -680,14 +686,6 @@ def compare_predictions_to_results(predictions: dict, results: list) -> dict:
     }
 
 
-def load_accuracy_log(out_dir: str) -> list:
-    path = os.path.join(out_dir, 'accuracy.json')
-    if os.path.exists(path):
-        with open(path, encoding='utf-8') as f:
-            return json.load(f)
-    return []
-
-
 # Per-race detail is kept for this many recent days; older days keep only
 # their summary so the full history stays small enough for the page to load.
 DETAIL_DAYS = 30
@@ -823,14 +821,10 @@ def main():
         f'Overall {s["overall_pct"]}% · '
         f'ROI win {s["win_roi"]}% ew {s["ew_roi"]}% overall {s["overall_roi"]}%')
 
-    # 5. Append to running accuracy log
-    acc_log = load_accuracy_log(out_dir)
-    # Remove any existing entry for this date
-    acc_log = [e for e in acc_log if e.get('date') != results_date]
-    acc_log.append(report)
-    # Keep the full history — the panel shows every graded day
-    # (save_accuracy_log trims old days to their summary).
-    save_accuracy_log(out_dir, acc_log)
+    # 5. Regrade the whole log from history/. accuracy.json is fully derived
+    #    from the frozen archives + saved results, so it never drifts, and a
+    #    merge conflict on it resolves itself on the next run.
+    rebuild_accuracy_log(out_dir)
 
 
 if __name__ == '__main__':

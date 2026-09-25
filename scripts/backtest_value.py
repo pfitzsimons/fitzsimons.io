@@ -114,7 +114,7 @@ def pnl_for(rt, run, strong_only=False):
     oc = run.get("_oc")
     if not oc or oc["status"] == "non_runner":
         return None
-    od = run.get("odds_dec")
+    od = fr.settle_price(run, oc)[0]
     if not od or od <= 1:
         return None
     if strong_only and run["recommendation"].get("label") != "Strong Win Bet":

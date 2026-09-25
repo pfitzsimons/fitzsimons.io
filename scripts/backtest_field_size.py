@@ -33,7 +33,7 @@ def pnl_for(run):
     oc = run.get("_oc")
     if not oc or oc["status"] == "non_runner":
         return None
-    od = run.get("odds_dec")
+    od = fr.settle_price(run, oc)[0]  # bettable price, not the forecast
     if not od or od <= 1:
         return None
     res = "correct" if (oc["status"] == "finished" and oc["pos"] == 1) else "incorrect"
