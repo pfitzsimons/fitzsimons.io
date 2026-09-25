@@ -419,7 +419,7 @@ def load_predictions(out_dir: str, date_str: str) -> dict | None:
 def parse_sp(raw) -> float | None:
     """Decimal price from a result's SP string ('11/8', 'EVS', '4.5')."""
     raw = (raw or '').strip().replace(',', '')
-    if raw == 'EVS':
+    if raw.upper() in ('EVS', 'EVENS'):
         return 2.0
     m = re.match(r'^(\d+)/(\d+)$', raw)
     if m:

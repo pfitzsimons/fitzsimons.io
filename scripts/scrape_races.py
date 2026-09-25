@@ -288,22 +288,29 @@ def compute_value(runners: list) -> None:
     Attach model-vs-market metrics to each runner (mutates in place):
       _model_prob  — calibrated win prob, normalised so the field sums to 1
       _market_prob — implied prob from odds, overround-removed (sums to 1)
+      _market_basis — "book" or "forecast": which price _market_prob uses
 
-    Runners must already carry a "_score" and an "odds_dec". These feed the
-    informational readout only — recommendations are not gated on them.
+    The market is the best bookmaker price when every runner has one — a
+    price you can actually bet. Otherwise the whole race falls back to the
+    Sporting Life overnight forecast (odds_dec), so one race never mixes the
+    two. Runners must already carry a "_score". These feed the informational
+    readout only — recommendations are not gated on them.
     """
     raw = [score_to_winprob(r.get("_score", 0)) for r in runners]
     tot = sum(raw) or 1.0
 
+    book = all((r.get("best_odds_dec") or 0) > 1 for r in runners)
+    key = "best_odds_dec" if book else "odds_dec"
     mkt = []
     for r in runners:
-        od = r.get("odds_dec")
+        od = r.get(key)
         mkt.append(1.0 / od if od and od > 1 else 0.0)
     mtot = sum(mkt) or 1.0
 
     for r, rw, mk in zip(runners, raw, mkt):
         r["_model_prob"]  = rw / tot
         r["_market_prob"] = mk / mtot if mtot else 0.0
+        r["_market_basis"] = "book" if book else "forecast"
 
 
 # ─────────────────────────────────────────────────────────────
@@ -1288,6 +1295,7 @@ def scrape_race(meta):
         weight_lbs    = runner.pop("_weight_lbs", None)
         model_prob    = runner.pop("_model_prob", None)
         market_prob   = runner.pop("_market_prob", None)
+        market_basis  = runner.pop("_market_basis", None)
         runner.pop("_prev_runs", None)
         runner.pop("_or_raw", None)
         runner.pop("_last_ran_days", None)
@@ -1302,6 +1310,7 @@ def scrape_race(meta):
             "market_prob": round(market_prob, 3) if market_prob is not None else None,
             "edge":        round((model_prob - market_prob), 3)
                            if (model_prob is not None and market_prob is not None) else None,
+            "market_basis": market_basis,
         }
         runner["recommendation"] = make_recommendation(
             score, runner["odds_dec"], n, form_analysis
@@ -1345,7 +1354,8 @@ def _finalise_non_runner(runner: dict) -> None:
     runner.pop("_non_runner", None)
     runner["score"]      = None
     runner["components"] = {}
-    runner["value"]      = {"model_prob": None, "market_prob": None, "edge": None}
+    runner["value"]      = {"model_prob": None, "market_prob": None, "edge": None,
+                            "market_basis": None}
     runner["non_runner"] = True
     runner["recommendation"] = {
         "type":       "Skip",

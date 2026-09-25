@@ -278,6 +278,7 @@
       padding: .3rem .6rem; border-radius: 7px; text-transform: uppercase; white-space: nowrap; line-height: 1;
     }
     .vchip.sm { font-size: .58rem; padding: .22rem .45rem; gap: .3rem; }
+    .swb-note { font-family: var(--mono); font-size: .56rem; color: var(--dim); letter-spacing: .02em; }
     .vdot { width: 7px; height: 7px; border-radius: 50%; background: var(--vt); flex-shrink: 0; }
     .vchip.sm .vdot { width: 6px; height: 6px; }
 
@@ -805,7 +806,8 @@ function renderAngle() {
       const edge = (run.value || {}).edge;
       if (rec.type === 'Win' && (!best || (rec.confidence||0) > (best.rec.confidence||0)))
         best = { race, run, rec, edge };
-      if (run.odds_dec && run.odds_dec <= 4 && edge != null && edge < -0.03 &&
+      const px = mktOdds(run);
+      if (px && px <= 4 && edge != null && edge < -0.03 &&
           (!overbet || edge < overbet.edge))
         overbet = { race, run, rec, edge };
     });
@@ -819,7 +821,9 @@ function renderAngle() {
       + (pp != null && pp > 0 ? `, ${pp}pp clear of the market` : '') + '.';
     if (overbet && overbet.run !== best.run) {
       const opp = Math.abs(Math.round(overbet.edge * 100));
-      html += ` Swerve the <b>${esc(overbet.run.odds_str || 'short-priced')}</b> shot in the ${esc(overbet.race.time)} ${esc(overbet.race.course)}; `
+      const opx = (overbet.run.value || {}).market_basis === 'book' && overbet.run.best_odds_dec
+        ? overbet.run.best_odds_dec.toFixed(2) : overbet.run.odds_str;
+      html += ` Swerve the <b>${esc(opx || 'short-priced')}</b> shot in the ${esc(overbet.race.time)} ${esc(overbet.race.course)}; `
         + `we make it overbet by ${opp}pp.`;
     }
   } else {
@@ -986,12 +990,22 @@ function topBets(race) {
   return picks.map(runner => ({ runner }));
 }
 
+/* Which price the market side of the readout uses: the best bookmaker
+   price when the whole race had one, else the overnight forecast. */
+function mktName(v) {
+  return (v && v.market_basis === 'book') ? 'best bookmaker price' : 'overnight forecast';
+}
+function mktOdds(run) {
+  const v = run.value || {};
+  return v.market_basis === 'book' && run.best_odds_dec ? run.best_odds_dec : run.odds_dec;
+}
+
 /* Model-vs-market shared bar: fill = model %, tick = market % */
 function mvmBar(v) {
   if (!v || v.model_prob == null || v.market_prob == null) return '<div class="mvm-bar"></div>';
   const mp = Math.min(100, Math.round(v.model_prob * 100));
   const mk = Math.min(100, Math.round(v.market_prob * 100));
-  return `<div class="mvm-bar" title="model ${mp}% vs market ${mk}%">`
+  return `<div class="mvm-bar" title="model ${mp}% vs market ${mk}% (${mktName(v)})">`
     + `<div class="mvm-fill" style="width:${mp}%"></div>`
     + `<div class="mvm-tick" style="left:${mk}%"></div></div>`;
 }
@@ -999,7 +1013,7 @@ function probPct(p) { return p == null ? '—' : Math.round(p*100) + '%'; }
 function edgeReadout(v) {
   if (!v || v.edge == null) return '';
   const pp = Math.round(v.edge * 100);
-  return `<span class="edge ${pp >= 0 ? 'pos' : 'neg'}">${pp > 0 ? '+' : ''}${pp}pp</span>`;
+  return `<span class="edge ${pp >= 0 ? 'pos' : 'neg'}" title="vs the ${mktName(v)}">${pp > 0 ? '+' : ''}${pp}pp</span>`;
 }
 
 /* ── 1-second ticker: clock + countdowns ── */
@@ -1112,6 +1126,7 @@ function renderRunners(race) {
         <div class="rtop">
           <span class="hname">${esc(runner.horse)}</span>
           <span class="vchip"><span class="vdot"></span>${v.chip}</span>
+          ${v.state === 'strong' ? `<span class="swb-note">No betting edge proven yet</span>` : ''}
           ${runner.country && runner.country!=='GB' ? `<span class="badge-ctry">${esc(runner.country)}</span>` : ''}
         </div>
         <div class="people">
@@ -1174,7 +1189,7 @@ function factorsHTML(comp, expanded) {
 function renderLegend() {
   document.getElementById('legend').innerHTML = `
     <h3>Verdict Key</h3>
-    <div class="leg-item v-strong"><span class="vchip sm"><span class="vdot"></span>Strong Back</span> Win bet — backed by profitable backtesting</div>
+    <div class="leg-item v-strong"><span class="vchip sm"><span class="vdot"></span>Strong Back</span> The model's strongest call. <span class="swb-note">No betting edge proven yet: it loses money in backtests at real bookmaker prices.</span></div>
     <div class="leg-item v-notable"><span class="vchip sm"><span class="vdot"></span>Top Pick</span> Model's stats favourite in this race — not a recommended bet</div>
     <div class="leg-item v-skip"><span class="vchip sm"><span class="vdot"></span>Skip</span> Not enough value at the odds</div>
     <div id="leg-disc">Not financial advice. For information only.</div>`;
@@ -1319,6 +1334,7 @@ function renderPicks() {
   }
   listEl.innerHTML = html +
     `<div class="picks-legend"><b class="swb">SWB</b> Strong Win Bet · <b class="notable">TOP</b> Notable Pick`
+    + `<br>Strong Win Bet is the model's strongest call. No betting edge is proven yet: it loses money in backtests at real bookmaker prices.`
     + `<br>Notable Picks are the model's stats-based favourite where no Win Bet cleared the bar — not a recommended bet.`
     + `<br>Not financial advice. For information only.</div>`;
 }

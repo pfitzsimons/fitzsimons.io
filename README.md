@@ -33,6 +33,10 @@ python3 scripts/calibrate.py --out horses
 # Check for decaying signals in a rolling window
 python3 scripts/drift.py --out horses --window 10
 
+# Run the offline tests (also run in CI on every PR touching scripts/)
+python3 scripts/test_intraday_merge.py
+python3 scripts/test_settlement.py
+
 # Serve the site locally
 python3 -m http.server
 # then open index.html, horses/index.html
