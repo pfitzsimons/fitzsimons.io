@@ -9,6 +9,7 @@ Run after scrape_races.py each morning:
 """
 
 import argparse
+import glob
 import gzip
 import html
 import json
@@ -317,6 +318,16 @@ def match_race(pred_race: dict, result_races: list) -> dict | None:
     return best
 
 
+def match_runner(horse: str, result: dict) -> dict | None:
+    """Find a horse in a result's full field. Exact name first; substring only
+    as a fallback, so a short name can't pick up a longer one's result
+    ("Sea" vs "Sea Legend")."""
+    key = normalise_name(horse)
+    field = [(normalise_name(r.get('name', '')), r) for r in result.get('runners', [])]
+    return next((r for n, r in field if n == key), None) or \
+           next((r for n, r in field if key in n or n in key), None)
+
+
 def evaluate_prediction(runner: dict, result: dict, ew_places: int) -> dict:
     """
     Compare a single runner's prediction to the actual result.
@@ -350,12 +361,7 @@ def evaluate_prediction(runner: dict, result: dict, ew_places: int) -> dict:
         return {'rec': rec_type, 'actual_pos': None, 'outcome': 'no_result'}
 
     # Locate this horse in the full field.
-    matched = None
-    for res_runner in result.get('runners', []):
-        res_name = normalise_name(res_runner.get('name', ''))
-        if pred_name == res_name or pred_name in res_name or res_name in pred_name:
-            matched = res_runner
-            break
+    matched = match_runner(runner.get('horse', ''), result)
 
     if matched is None:
         # Full field is known but the horse isn't in it — almost always a
@@ -364,6 +370,7 @@ def evaluate_prediction(runner: dict, result: dict, ew_places: int) -> dict:
         return {'rec': rec_type, 'actual_pos': None, 'outcome': 'unmatched'}
 
     status = matched.get('status', 'finished')
+    sp = parse_sp(matched.get('odds'))
     if status == 'non_runner':
         return {'rec': rec_type, 'actual_pos': None, 'outcome': 'non_runner'}
     if status == 'dnf':
@@ -371,7 +378,7 @@ def evaluate_prediction(runner: dict, result: dict, ew_places: int) -> dict:
         # count as "correct" since the horse did not win.
         outcome = 'correct' if rec_type == 'Skip' else 'incorrect'
         return {'rec': rec_type, 'actual_pos': None, 'outcome': outcome,
-                'dnf': True, 'casualty': matched.get('casualty', '')}
+                'dnf': True, 'casualty': matched.get('casualty', ''), 'sp': sp}
 
     actual_pos = matched.get('position')
 
@@ -390,7 +397,7 @@ def evaluate_prediction(runner: dict, result: dict, ew_places: int) -> dict:
     else:
         outcome = 'skip'
 
-    return {'rec': rec_type, 'actual_pos': actual_pos, 'outcome': outcome}
+    return {'rec': rec_type, 'actual_pos': actual_pos, 'outcome': outcome, 'sp': sp}
 
 
 def load_predictions(out_dir: str, date_str: str) -> dict | None:
@@ -407,6 +414,37 @@ def load_predictions(out_dir: str, date_str: str) -> dict | None:
             if d.get('date') == date_str:
                 return d
     return None
+
+
+def parse_sp(raw) -> float | None:
+    """Decimal price from a result's SP string ('11/8', 'EVS', '4.5')."""
+    raw = (raw or '').strip().replace(',', '')
+    if raw.upper() in ('EVS', 'EVENS'):
+        return 2.0
+    m = re.match(r'^(\d+)/(\d+)$', raw)
+    if m:
+        return round(int(m.group(1)) / int(m.group(2)) + 1, 2)
+    try:
+        v = float(raw)
+    except ValueError:
+        return None
+    return v if v > 1 else None
+
+
+def settle_price(runner: dict, outcome: dict) -> tuple:
+    """(price, basis) a bet is settled at: a price you could actually get.
+
+    `odds_dec` (Sporting Life `current_odds`) is the overnight betting
+    forecast, not a bookmaker price — it runs ~25% long on winners, so
+    settling there flatters ROI. Use the best bookmaker price captured in the
+    start-of-day scrape ('book'); before that capture existed (2026-07-17)
+    or when no book priced the horse, fall back to SP ('sp').
+    """
+    if runner.get('best_odds_dec') and runner['best_odds_dec'] > 1:
+        return runner['best_odds_dec'], 'book'
+    if outcome.get('sp'):
+        return outcome['sp'], 'sp'
+    return None, None
 
 
 def bet_pnl(rec_type: str, outcome: str, odds_dec) -> tuple | None:
@@ -434,6 +472,28 @@ def bet_pnl(rec_type: str, outcome: str, odds_dec) -> tuple | None:
     return (1.0, ret)
 
 
+def favourite_bet(pred_race: dict, result: dict | None) -> tuple | None:
+    """(stake, return, horse) for £1 to win on the morning favourite.
+
+    The favourite is the shortest forecast price among runners not already
+    withdrawn at the start-of-day scrape — known before the off, so this is
+    a fair baseline. Settled like our own picks (settle_price). None when
+    the race has no result or the favourite didn't run / can't be priced.
+    """
+    if result is None:
+        return None
+    field = [r for r in pred_race.get('runners', [])
+             if not r.get('non_runner') and (r.get('odds_dec') or 0) > 1]
+    if not field:
+        return None
+    runner = min(field, key=lambda r: r['odds_dec'])
+    oc = evaluate_prediction({**runner, 'recommendation': {'type': 'Win'}}, result, 0)
+    if oc['outcome'] not in ('correct', 'incorrect'):
+        return None
+    pl = bet_pnl('Win', oc['outcome'], settle_price(runner, oc)[0])
+    return (pl[0], pl[1], runner.get('horse', '')) if pl else None
+
+
 def compare_predictions_to_results(predictions: dict, results: list) -> dict:
     """
     Compare all predicted races to actual results.
@@ -455,13 +515,17 @@ def compare_predictions_to_results(predictions: dict, results: list) -> dict:
     # DNFs are counted as incorrect (a losing bet) but tallied separately so
     # the UI can show how many "losses" were non-completions.
     dnf_count = 0
-    # Flat £1-stake profit & loss on primary picks, for ROI reporting.
+    # Flat £1-stake profit & loss on primary picks, settled at a bettable
+    # price (see settle_price), for ROI reporting.
     pnl = {'win': {'stake': 0.0, 'ret': 0.0}, 'ew': {'stake': 0.0, 'ret': 0.0}}
-    # Best-price execution tracking: the same Win bets settled at the best
-    # captured book price (best_odds_dec, scraped from bookmakerOdds), paired
-    # with the current-odds P&L on exactly that subset so the uplift is
-    # like-for-like. Stays empty until predictions carry the capture.
-    pnl_best = {'stake': 0.0, 'ret': 0.0, 'base_stake': 0.0, 'base_ret': 0.0}
+    # How many bets settled at each basis ('book' / 'sp').
+    basis_count = {'book': 0, 'sp': 0}
+    # The same bets at the overnight forecast price the site used to settle
+    # at — kept so the old (flattering) figure stays visible for comparison.
+    pnl_forecast = {'stake': 0.0, 'ret': 0.0}
+    # Baseline: back the morning favourite to win in every race where one of
+    # our picks was settled, at the same price basis.
+    fav = {'stake': 0.0, 'ret': 0.0, 'wins': 0}
 
     for pred_race in predictions.get('races', []):
         result = match_race(pred_race, results)
@@ -480,6 +544,7 @@ def compare_predictions_to_results(predictions: dict, results: list) -> dict:
         # Runners are already sorted by score descending from scraper.
         # Track whether we've already used the primary pick for each rec type.
         primary_used = {'Win': False, 'EachWay': False}
+        race_bet = False
 
         for runner in pred_race.get('runners', []):
             rec_type = runner.get('recommendation', {}).get('type', 'Skip')
@@ -522,18 +587,19 @@ def compare_predictions_to_results(predictions: dict, results: list) -> dict:
                 dnf_count += 1
             key = 'win' if rec_type == 'Win' else 'ew'
 
-            # Flat-stake P&L for ROI (skips picks with no priced odds).
-            pl = bet_pnl(rec_type, outcome['outcome'], runner.get('odds_dec'))
+            # Flat-stake P&L for ROI (skips picks with no bettable price).
+            price, basis = settle_price(runner, outcome)
+            pl = bet_pnl(rec_type, outcome['outcome'], price)
             if pl:
                 pnl[key]['stake'] += pl[0]
                 pnl[key]['ret']   += pl[1]
-                if key == 'win' and runner.get('best_odds_dec'):
-                    plb = bet_pnl(rec_type, outcome['outcome'], runner['best_odds_dec'])
-                    if plb:
-                        pnl_best['stake']      += plb[0]
-                        pnl_best['ret']        += plb[1]
-                        pnl_best['base_stake'] += pl[0]
-                        pnl_best['base_ret']   += pl[1]
+                basis_count[basis] += 1
+                outcome['settle_odds'], outcome['settle_basis'] = price, basis
+                race_bet = True
+                plf = bet_pnl(rec_type, outcome['outcome'], runner.get('odds_dec'))
+                if plf:
+                    pnl_forecast['stake'] += plf[0]
+                    pnl_forecast['ret']   += plf[1]
 
             ew_correct_outcomes = {'correct', 'ew_win', 'ew_placed'}
             # For EW: ew_win and ew_placed both count as correct
@@ -546,6 +612,14 @@ def compare_predictions_to_results(predictions: dict, results: list) -> dict:
                     totals['ew'][outcome['outcome']] += 1
             elif outcome['outcome'] in totals.get(key, {}):
                 totals[key][outcome['outcome']] += 1
+
+        if race_bet:
+            fb = favourite_bet(pred_race, result)
+            if fb:
+                fav['stake'] += fb[0]
+                fav['ret']   += fb[1]
+                fav['wins']  += fb[1] > 0
+                race_result['favourite'] = fb[2]
 
         if race_result['runners']:
             race_outcomes.append(race_result)
@@ -595,29 +669,32 @@ def compare_predictions_to_results(predictions: dict, results: list) -> dict:
                 'ew_stake':  round(pnl['ew']['stake'], 2),
                 'ew_ret':    round(pnl['ew']['ret'], 2),
             },
-            # Same Win bets settled at best captured book price vs at
-            # current_odds, on the identical bet subset (execution uplift).
-            'win_roi_best': roi_pct(pnl_best),
-            'roi_best': {
-                'win_stake':      round(pnl_best['stake'], 2),
-                'win_ret':        round(pnl_best['ret'], 2),
-                'win_base_stake': round(pnl_best['base_stake'], 2),
-                'win_base_ret':   round(pnl_best['base_ret'], 2),
+            'settle_basis': basis_count,
+            # The same bets at the overnight forecast price (old basis).
+            'roi_forecast': {
+                'stake': round(pnl_forecast['stake'], 2),
+                'ret':   round(pnl_forecast['ret'], 2),
+            },
+            # Favourite-to-win baseline in the races we bet.
+            'fav': {
+                'stake': round(fav['stake'], 2),
+                'ret':   round(fav['ret'], 2),
+                'wins':  fav['wins'],
             },
         },
         'races': race_outcomes,
     }
 
 
-def load_accuracy_log(out_dir: str) -> list:
-    path = os.path.join(out_dir, 'accuracy.json')
-    if os.path.exists(path):
-        with open(path, encoding='utf-8') as f:
-            return json.load(f)
-    return []
+# Per-race detail is kept for this many recent days; older days keep only
+# their summary so the full history stays small enough for the page to load.
+DETAIL_DAYS = 30
 
 
 def save_accuracy_log(out_dir: str, log_data: list):
+    log_data = sorted(log_data, key=lambda e: e['date'])
+    for e in log_data[:-DETAIL_DAYS]:
+        e['races'] = []
     path = os.path.join(out_dir, 'accuracy.json')
     with open(path, 'w', encoding='utf-8') as f:
         json.dump(log_data, f, ensure_ascii=False, indent=2)
@@ -648,11 +725,36 @@ def save_prediction_archive(out_dir: str, races_data: dict):
     log(f'Fallback-archived predictions: {path}')
 
 
+def rebuild_accuracy_log(out_dir: str):
+    """Regrade every day that has both a start-of-day archive and a saved
+    full result, and rewrite accuracy.json from scratch. Offline and
+    deterministic — use it after changing how bets are graded or settled."""
+    hist_dir = os.path.join(out_dir, 'history')
+    acc_log = []
+    for res_path in sorted(glob.glob(os.path.join(hist_dir, 'results_full_*.json'))):
+        d = os.path.basename(res_path)[len('results_full_'):-len('.json')]
+        pred_path = os.path.join(hist_dir, f'races_{d}.json')
+        if not os.path.exists(pred_path):
+            continue
+        with open(pred_path, encoding='utf-8') as f:
+            predictions = json.load(f)
+        with open(res_path, encoding='utf-8') as f:
+            results = json.load(f).get('races', [])
+        if not predictions.get('races') or not results:
+            continue
+        acc_log.append(compare_predictions_to_results(predictions, results))
+    log(f'Regraded {len(acc_log)} days from {hist_dir}')
+    save_accuracy_log(out_dir, acc_log)
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--out', default='', help='Output directory (horses/ folder)')
     parser.add_argument('--results-date', default='',
                         help='Date to fetch results for (default: yesterday)')
+    parser.add_argument('--rebuild', action='store_true',
+                        help='Regrade every archived day from history/ (no network) '
+                             'and rewrite accuracy.json')
     args = parser.parse_args()
 
     if args.out:
@@ -660,6 +762,10 @@ def main():
     else:
         script_dir = os.path.dirname(os.path.abspath(__file__))
         out_dir = os.path.abspath(os.path.join(script_dir, '..', 'horses'))
+
+    if args.rebuild:
+        rebuild_accuracy_log(out_dir)
+        return
 
     yesterday = (date.today() - timedelta(days=1)).strftime('%Y-%m-%d')
     results_date = args.results_date or yesterday
@@ -715,14 +821,10 @@ def main():
         f'Overall {s["overall_pct"]}% · '
         f'ROI win {s["win_roi"]}% ew {s["ew_roi"]}% overall {s["overall_roi"]}%')
 
-    # 5. Append to running accuracy log
-    acc_log = load_accuracy_log(out_dir)
-    # Remove any existing entry for this date
-    acc_log = [e for e in acc_log if e.get('date') != results_date]
-    acc_log.append(report)
-    # Keep last 30 days
-    acc_log = sorted(acc_log, key=lambda x: x['date'])[-30:]
-    save_accuracy_log(out_dir, acc_log)
+    # 5. Regrade the whole log from history/. accuracy.json is fully derived
+    #    from the frozen archives + saved results, so it never drifts, and a
+    #    merge conflict on it resolves itself on the next run.
+    rebuild_accuracy_log(out_dir)
 
 
 if __name__ == '__main__':

@@ -15,6 +15,9 @@ reports three things:
      performed on primary picks, as strike-rate AND return per £1 staked.
 
 Betting assumptions (see --place-fraction):
+  • "odds" = the best bookmaker price from the start-of-day scrape, or SP
+    where none was captured (fetch_results.settle_price) — never the
+    displayed overnight forecast, which runs long on winners.
   • Win bet: £1 → profit (odds-1) if won, else -£1.
   • Each-Way bet: £1 total = £0.50 win + £0.50 place; place part pays at
     `place_fraction` of the odds (default 1/5). Non-runners are treated as
@@ -41,6 +44,7 @@ import json
 import os
 import sys
 from collections import defaultdict
+from datetime import date
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import fetch_results as fr  # reuse the full-field fetcher + matching
@@ -91,8 +95,15 @@ def print_report(bands, recs, n_dates, n_races_matched, n_races_total, pf_frac):
               f'| {roi(c["ret"], c["stake"])} | {c["dnf"]:>4}')
 
 
-def load_results_for_date(date_str: str, cache_dir: str) -> list:
-    """Full-field results for a date, cached to disk to avoid re-fetching."""
+def load_results_for_date(date_str: str, cache_dir: str, hist_dir: str) -> list:
+    """Full-field results for a date: the committed history/results_full file
+    when there is one, else fetched from Sporting Life and cached to disk."""
+    saved = os.path.join(hist_dir, f'results_full_{date_str}.json')
+    if os.path.exists(saved):
+        with open(saved, encoding='utf-8') as f:
+            return json.load(f).get('races', [])
+    if date_str >= date.today().isoformat():
+        return []  # results incomplete — don't cache a partial day forever
     os.makedirs(cache_dir, exist_ok=True)
     cache = os.path.join(cache_dir, f'results_full_{date_str}.json')
     if os.path.exists(cache):
@@ -105,16 +116,14 @@ def load_results_for_date(date_str: str, cache_dir: str) -> list:
 
 
 def horse_outcome(pred_name: str, result: dict):
-    """Return ('finished', pos) | ('dnf', None) | ('non_runner', None) | None."""
-    key = fr.normalise_name(pred_name)
-    for r in result.get('runners', []):
-        rn = fr.normalise_name(r.get('name', ''))
-        if key == rn or key in rn or rn in key:
-            status = r.get('status', 'finished')
-            if status == 'finished':
-                return ('finished', r.get('position'))
-            return (status, None)
-    return None
+    """Return (status, pos, sp) — status finished|dnf|non_runner, pos None
+    unless finished — or None if the horse isn't in the field."""
+    r = fr.match_runner(pred_name, result)
+    if r is None:
+        return None
+    status = r.get('status', 'finished')
+    pos = r.get('position') if status == 'finished' else None
+    return (status, pos, fr.parse_sp(r.get('odds')))
 
 
 def bucket(score: float) -> str:
@@ -158,8 +167,8 @@ def run_rescore(out_dir: str, min_date: str, burn_in: int, pf_frac: float):
                     score = runner.get('score')
                     if score is None:
                         continue
-                    od = runner.get('odds_dec')
                     oc = runner.get('_oc')
+                    od = fr.settle_price(runner, oc or {})[0]  # bettable, not forecast
                     b = bands[bucket(score)]
                     b['n'] += 1
                     if oc is None:
@@ -254,7 +263,7 @@ def main():
             continue
         n_dates += 1
         print(f'  {date_str} …', file=sys.stderr)
-        results = load_results_for_date(date_str, cache_dir)
+        results = load_results_for_date(date_str, cache_dir, os.path.join(out_dir, 'history'))
 
         for prace in pred.get('races', []):
             n_races_total += 1
@@ -269,14 +278,14 @@ def main():
                 score = runner.get('score')
                 if score is None:
                     continue
-                od = runner.get('odds_dec')
                 oc = horse_outcome(runner.get('horse', ''), result)
                 b = bands[bucket(score)]
                 b['n'] += 1
                 if oc is None:
                     b['unmatched'] += 1
                     continue
-                kind, pos = oc
+                kind, pos, sp = oc
+                od = fr.settle_price(runner, {'sp': sp})[0]  # bettable, not forecast
                 won = kind == 'finished' and pos == 1
                 placed = kind == 'finished' and pos is not None and pos <= ewp
                 if kind == 'dnf':

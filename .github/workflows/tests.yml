@@ -1,0 +1,32 @@
+name: Tests
+
+# Offline pipeline tests (stdlib only, no network). The bot's data commits
+# carry [skip ci] and never touch scripts/, so this only runs on real changes.
+on:
+  pull_request:
+    paths:
+      - 'scripts/**'
+      - '.github/workflows/tests.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/**'
+      - '.github/workflows/tests.yml'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Intraday merge keeps live data and freezes the archive
+        run: python3 scripts/test_intraday_merge.py
+
+      - name: Settlement, favourite baseline and derived accuracy log
+        run: python3 scripts/test_settlement.py

@@ -128,8 +128,8 @@ class StrikeTable:
 def join_race(prace: dict, result: dict) -> dict:
     """Attach an `_oc` outcome dict to each runner in `prace` from `result`.
 
-    Outcome: {status: finished|dnf|non_runner, pos, placed} or None if the
-    horse could not be matched in the full field.
+    Outcome: {status: finished|dnf|non_runner, pos, placed, sp} or None if
+    the horse could not be matched in the full field.
     """
     ewp = prace.get("ew_places", 3)
     for run in prace.get("runners", []):
@@ -138,17 +138,16 @@ def join_race(prace: dict, result: dict) -> dict:
 
 
 def _outcome(horse: str, result: dict, ewp: int):
-    key = fr.normalise_name(horse)
-    for r in result.get("runners", []):
-        rn = fr.normalise_name(r.get("name", ""))
-        if key == rn or key in rn or rn in key:
-            st = r.get("status", "finished")
-            if st != "finished":
-                return {"status": st, "pos": None, "placed": False}
-            pos = r.get("position")
-            return {"status": "finished", "pos": pos,
-                    "placed": bool(pos and pos <= ewp)}
-    return None
+    r = fr.match_runner(horse, result)
+    if r is None:
+        return None
+    sp = fr.parse_sp(r.get("odds"))
+    st = r.get("status", "finished")
+    if st != "finished":
+        return {"status": st, "pos": None, "placed": False, "sp": sp}
+    pos = r.get("position")
+    return {"status": "finished", "pos": pos,
+            "placed": bool(pos and pos <= ewp), "sp": sp}
 
 
 def iter_history(hist_dir: str):
