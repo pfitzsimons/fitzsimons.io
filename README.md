@@ -13,7 +13,7 @@ Patrick Fitzsimons' personal site, deployed at [www.fitzsimons.io](https://www.f
 ## How the horse racing pipeline works
 
 1. **`scrape_races.py`** runs every 20 minutes during UK/IRE racing hours (07:00–20:40 UTC). It scrapes Sporting Life racecards and scores each runner on a dozen factors — recent form, consistency, odds value, weight-for-age, going suitability, jockey quality, recency/DNF penalties, distance suitability, freshness, class, and experience shrinkage — into a 0–100 score with a label, confidence, and Win/Skip recommendation. It writes `horses/races.json`, and the first run of the day freezes a leak-free start-of-day archive in `horses/history/`.
-2. **`fetch_results.py`** runs once daily at 09:00 UTC, pulls the previous day's results, and updates `horses/accuracy.json`.
+2. **`fetch_results.py`** runs once daily at 09:00 UTC, pulls the previous day's results, and updates `horses/accuracy.json`. Bets are settled at the best bookmaker price captured in the start-of-day scrape (SP where none was captured) — not at the displayed odds, which are Sporting Life's overnight forecast and run long on winners. Each day also records a favourite-to-win baseline in the same races. The full history is kept; per-race detail only for the last 30 days. `--rebuild` regrades every archived day offline.
 3. **`calibrate.py`**, **`drift.py`**, and the **`backtest_*.py`** scripts are offline tools for checking whether the score is honest (calibration curve), whether it's profitable (flat-stake ROI), and whether a signal is decaying over time.
 
 ## Quick start

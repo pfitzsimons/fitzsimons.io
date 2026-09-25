@@ -478,7 +478,7 @@
     #acc-drawer-body::-webkit-scrollbar, #picks-drawer-body::-webkit-scrollbar { width: 4px; }
     #acc-drawer-body::-webkit-scrollbar-thumb, #picks-drawer-body::-webkit-scrollbar-thumb { background: var(--line); border-radius: 2px; }
 
-    .acc-summary { display: grid; grid-template-columns: repeat(5,1fr); gap: .5rem; margin-bottom: 1.1rem; }
+    .acc-summary { display: grid; grid-template-columns: repeat(3,1fr); gap: .5rem; margin-bottom: 1.1rem; }
     .acc-stat { background: var(--chip); border: 1px solid var(--line); border-radius: 8px; padding: .6rem .5rem; text-align: center; }
     .acc-stat-val { font-family: var(--display); font-weight: 600; font-size: 1.7rem; letter-spacing: .02em; line-height: 1; }
     .acc-stat-val.good { color: var(--green); }
@@ -490,7 +490,8 @@
 
     .acc-section-title { font-family: var(--mono); font-size: .63rem; color: var(--dim); letter-spacing: .1em; text-transform: uppercase; margin-bottom: .55rem; margin-top: .2rem; }
     #acc-sod-note { font-size: .68rem; line-height: 1.5; color: var(--dim); background: var(--panel2); border: 1px solid var(--line); border-left: 3px solid var(--gold, #c9a24a); border-radius: 8px; padding: .6rem .75rem; margin-bottom: 1rem; }
-    #acc-sod-note strong { color: var(--tx); }
+    #acc-sod-note strong, #acc-price-note strong { color: var(--tx); }
+    #acc-price-note { font-size: .68rem; line-height: 1.5; color: var(--dim); margin: -.5rem 0 1rem; }
     .acc-days { display: flex; flex-direction: column; gap: .4rem; }
     .acc-day { background: var(--chip); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
     .acc-day-hdr { display: flex; align-items: center; gap: .7rem; padding: .6rem .85rem; cursor: pointer; user-select: none; transition: background .15s; }
@@ -664,6 +665,7 @@
         going — but graded accuracy deliberately does not, to keep it honest and leak-free.
       </div>
       <div class="acc-summary" id="acc-summary"></div>
+      <div id="acc-price-note"></div>
       <div class="acc-section-title">Daily History</div>
       <div class="acc-days" id="acc-days"></div>
     </div>
@@ -967,7 +969,7 @@ function renderNextUp() {
         </div>
         <div class="call-right">
           <span class="vchip sm"><span class="vdot"></span>${v.chip}</span>
-          <span class="call-odds">${esc(b.runner.odds_str||'SP')}</span>
+          <span class="call-odds" title="Sporting Life overnight forecast — a guide, not a bookmaker price">${esc(b.runner.odds_str||'SP')}</span>
         </div>
       </div>`;
     }).join('');
@@ -1127,8 +1129,9 @@ function renderRunners(race) {
       </div>
       <div class="rright">
         <div class="odds-block">
-          <div class="odds-big">${esc(runner.odds_str||'SP')}</div>
-          ${runner.odds_dec ? `<div class="odds-dec">${runner.odds_dec.toFixed(2)} dec</div>` : ''}
+          <div class="odds-big" title="Sporting Life overnight forecast — a guide, not a bookmaker price">${esc(runner.odds_str||'SP')}</div>
+          ${runner.odds_dec ? `<div class="odds-dec">forecast</div>` : ''}
+          ${runner.best_odds_dec ? `<div class="odds-dec" title="${esc(runner.best_odds_book||'')}">best ${runner.best_odds_dec.toFixed(2)}</div>` : ''}
         </div>
         <div class="mvm-wrap">
           ${mvmBar(val)}
@@ -1303,7 +1306,7 @@ function renderPicks() {
         <div class="pick-horse">${esc(runner.horse)}</div>
         <div class="pick-meta">${esc(race.time)} ${esc(race.course)}${runner.jockey ? ' · ' + esc(runner.jockey) : ''}</div>
       </div>
-      <div class="pick-odds">${esc(runner.odds_str||'SP')}</div>
+      <div class="pick-odds" title="Sporting Life overnight forecast — a guide, not a bookmaker price">${esc(runner.odds_str||'SP')}</div>
       <div class="pick-badge ${ab.cls}" title="${esc(rec.label || 'Notable Pick')}">${ab.text}</div>
     </div>`;
   };
@@ -1465,7 +1468,7 @@ function renderAccuracy(log) {
   document.getElementById('acc-content').style.display = 'block';
 
   let totWin=0, totWinC=0, totEW=0, totEWC=0;
-  let stake=0, ret=0;
+  let stake=0, ret=0, fStake=0, fRet=0, favStake=0, favRet=0;
   for (const d of log) {
     const s = d.summary;
     totWin  += s.win_total   || 0;
@@ -1477,20 +1480,35 @@ function renderAccuracy(log) {
       stake += (r.win_stake||0) + (r.ew_stake||0);
       ret   += (r.win_ret||0)   + (r.ew_ret||0);
     }
+    if (s.roi_forecast) { fStake += s.roi_forecast.stake||0; fRet += s.roi_forecast.ret||0; }
+    if (s.fav)          { favStake += s.fav.stake||0;         favRet += s.fav.ret||0; }
   }
   const all  = totWin + totEW;
   const allC = totWinC + totEWC;
   const overallPct = all  ? Math.round(allC/all*100)    : null;
   const winPct     = totWin ? Math.round(totWinC/totWin*100) : null;
   const ewPct      = totEW  ? Math.round(totEWC/totEW*100)  : null;
-  const roiPct     = stake ? Math.round((ret-stake)/stake*1000)/10 : null;
+  const pct = (st, rt) => st ? Math.round((rt-st)/st*1000)/10 : null;
+  const roiPct     = pct(stake, ret);
+  const favPct     = pct(favStake, favRet);
+  const fcPct      = pct(fStake, fRet);
+  const since = new Date(log[0].date + 'T12:00:00')
+    .toLocaleDateString('en-GB', {day:'numeric', month:'short'});
 
   document.getElementById('acc-summary').innerHTML = `
     ${stat('Overall', overallPct, `${allC}/${all}`)}
     ${stat('Win',     winPct,     `${totWinC}/${totWin}`)}
     ${stat('Each Way',ewPct,      `${totEWC}/${totEW}`)}
-    ${roiStat(roiPct, stake)}
-    ${stat('Days', log.length, 'tracked', true)}`;
+    ${roiStat('ROI', roiPct, `£1 flat · ${Math.round(stake)} bets`)}
+    ${roiStat('Favourite', favPct, `${Math.round(favStake)} same races`)}
+    ${stat('Days', log.length, `since ${since}`, true)}`;
+  document.getElementById('acc-price-note').innerHTML =
+    `💷 ROI is settled at the <strong>best bookmaker price</strong> in the morning scrape,
+    or the starting price where none was captured. <strong>Favourite</strong> is what
+    £1 to win on the morning favourite returned in the same races.` +
+    (fcPct != null ? ` At the overnight forecast price the site used to settle at,
+    ROI would read ${fcPct > 0 ? '+' : ''}${fcPct}% — flattering, because that price
+    runs long on winners.` : '');
 
   const daysEl = document.getElementById('acc-days');
   daysEl.innerHTML = '';
@@ -1531,13 +1549,13 @@ function stat(label, val, sub, neutral=false) {
   </div>`;
 }
 
-function roiStat(roiPct, stake) {
+function roiStat(label, roiPct, sub) {
   const display = roiPct != null ? (roiPct > 0 ? '+' : '') + roiPct + '%' : '—';
   const cls = roiPct == null ? '' : roiPct >= 0 ? 'good' : roiPct >= -10 ? 'mid' : 'poor';
   return `<div class="acc-stat">
     <div class="acc-stat-val ${cls}">${display}</div>
-    <div class="acc-stat-lbl">ROI</div>
-    <div class="acc-stat-sub">£1 flat · ${Math.round(stake)} bets</div>
+    <div class="acc-stat-lbl">${label}</div>
+    <div class="acc-stat-sub">${sub}</div>
   </div>`;
 }
 
@@ -1547,7 +1565,7 @@ function toggleDay(hdr) {
 }
 
 function buildDayRaces(races) {
-  if (!races || !races.length) return '<div style="font-family:var(--mono);font-size:.63rem;color:var(--dim);padding:.3rem 0">No detail available</div>';
+  if (!races || !races.length) return '<div style="font-family:var(--mono);font-size:.63rem;color:var(--dim);padding:.3rem 0">Race detail is kept for the last 30 days</div>';
   return races.map(race => {
     const runners = race.runners.map(r => {
       let icon, iconCol, rowCls;

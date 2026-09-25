@@ -11,7 +11,14 @@ the pipeline. Run them from anywhere. `build_rows.py`, `head_to_head.py` and
 | `clogit.py` | Does the model add information on top of the market price? |
 | `prices.py` | Is `current_odds` a bettable price? (forecast vs best bookmaker vs SP) |
 | `robust.py` | Rolling monthly value-bet test, settled at forecast / SP / bookmaker prices |
-| `book_value.py` | The open lead: value betting against the best bookmaker price |
+| `book_value.py` | The "lead": value betting against the best bookmaker price (**refuted**, see 5) |
+
+> **Caveat on the whole dataset.** `build_rows.py` keeps only horses that
+> actually ran, so each race's field silently drops late non-runners — known
+> only after the fact. Anything that normalises prices across the field
+> (`clogit.py`, `robust.py`, `book_value.py`) uses that hindsight. It's what
+> produced the false lead in finding 5. Rebuild the field from the
+> start-of-day archive (void bets on non-runners) before trusting a new result.
 
 ## Findings
 
@@ -47,16 +54,17 @@ races, 45,740 runners.
    really is. For example, the market+components value strategy shows +11% to
    +31% at the forecast price, and that disappears at SP (`robust.py`).
 
-5. **Lead, not a finding** (`book_value.py`, data since 2026-07-17, races
-   where every runner has `best_odds_dec`). A logit on the log best-book
-   implied probability (coefficient ≈1.12) that backs EV > 5% at odds ≤ 10,
-   settled at the best-book price:
-   forward split +30.1% on 305 bets, CI [+13, +46]; reverse split +9.8% on
-   188 bets, CI [−12, +33]. Caveats: about 5 weeks of data; effectively 2
-   bookmakers (Betfair Sportsbook and Paddy Power are the same company, and
-   Sky Bet rarely has the best price); the best-book overround (1.175) is no
-   tighter than SP's, so some quotes may be stale; the reverse split isn't
-   walk-forward.
+5. **Refuted: the best-bookmaker value lead was hindsight.** `book_value.py`
+   (a logit on the log best-book implied probability, coefficient ≈1.12,
+   backing EV > 5% at odds ≤ 10) showed +30.1% on 305 bets forward and +9.8%
+   on 188 reversed. But those bets came from races where a horse (often the
+   morning favourite) was a **late non-runner**: dropping it after the fact
+   pushes the rest of the book below 100% (192 races summed < 1.0), so
+   nearly every remaining runner looks like value, and Rule 4 deductions
+   would take that back in real betting. Using the morning field, which is
+   what was actually knowable, the same rule fires **twice since 2026-07-17**.
+   With a ~17.5% overround across effectively two bookmakers, sharpening the
+   market price can't find positive EV. Nothing to paper-trade.
 
 ## Possible next steps
 
@@ -64,6 +72,10 @@ races, 45,740 runners.
    relabel that price on the site.
 2. Show the full history in the accuracy panel, or label it "last 30 days",
    and add a "vs backing the favourite" baseline.
-3. Paper-trade a market-anchored model (log market probability + jockey /
-   trainer / consistency) forward for 4–6 weeks before it drives any
-   recommendation.
+3. ~~Paper-trade the market-anchored model~~ — dropped, see finding 5.
+
+Steps 1 and 2 shipped: `fetch_results.py` now settles at the best bookmaker
+price (SP before 2026-07-17), keeps the full history, and reports a
+favourite baseline. Regrading the full archive (`--rebuild`): 3,356 bets
+over 99 graded days, ROI −12.6%, against −10.0% for backing the morning
+favourite in the same races (−10.5% at the old forecast price).
