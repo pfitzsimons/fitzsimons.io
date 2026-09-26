@@ -6616,5 +6616,75 @@
       }
     },
     "races": []
+  },
+  {
+    "date": "2026-09-25",
+    "summary": {
+      "overall_pct": 100.0,
+      "win_pct": 100.0,
+      "ew_pct": null,
+      "win_correct": 1,
+      "win_total": 1,
+      "ew_correct": 0,
+      "ew_total": 0,
+      "ew_win_count": 0,
+      "ew_placed_count": 0,
+      "excluded": {
+        "non_runner": 0,
+        "unmatched": 0,
+        "no_result": 0
+      },
+      "excluded_total": 0,
+      "dnf_count": 0,
+      "overall_roi": 53.0,
+      "win_roi": 53.0,
+      "ew_roi": null,
+      "roi": {
+        "win_stake": 1.0,
+        "win_ret": 1.53,
+        "ew_stake": 0.0,
+        "ew_ret": 0.0
+      },
+      "settle_basis": {
+        "book": 1,
+        "sp": 0
+      },
+      "roi_forecast": {
+        "stake": 1.0,
+        "ret": 1.67
+      },
+      "fav": {
+        "stake": 1.0,
+        "ret": 1.53,
+        "wins": 1
+      }
+    },
+    "races": [
+      {
+        "course": "Newmarket",
+        "time": "15:00",
+        "race_name": "Betway Joel Stakes (Group 2)",
+        "date": "2026-09-25",
+        "winner": "Talk Of New York",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 1,
+            "outcome": "correct",
+            "sp": 1.44,
+            "horse": "Talk Of New York",
+            "score": 74.3,
+            "odds": "4/6",
+            "label": "Strong Win Bet",
+            "best_odds": 1.53,
+            "primary": true,
+            "settle_odds": 1.53,
+            "settle_basis": "book"
+          }
+        ],
+        "abandoned": false,
+        "favourite": "Talk Of New York"
+      }
+    ]
   }
 ]
