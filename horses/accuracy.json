@@ -5101,58 +5101,7 @@
         "wins": 1
       }
     },
-    "races": [
-      {
-        "course": "Carlisle",
-        "time": "15:30",
-        "race_name": "Christmas Community Raceday 13th Dec Handicap",
-        "date": "2026-08-27",
-        "winner": "Rikki Tiki Tavi",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 7,
-            "outcome": "incorrect",
-            "sp": 2.88,
-            "horse": "Town Queen",
-            "score": 72.5,
-            "odds": "6/4",
-            "label": "Strong Win Bet",
-            "best_odds": 3.5,
-            "primary": true,
-            "settle_odds": 3.5,
-            "settle_basis": "book"
-          }
-        ],
-        "abandoned": false,
-        "favourite": "Town Queen"
-      },
-      {
-        "course": "Newton Abbot",
-        "time": "18:42",
-        "race_name": "Compwiz Ltd - IT Solutions For Business Handicap Hurdle",
-        "date": "2026-08-27",
-        "winner": "My Girl Katie",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 1,
-            "outcome": "correct",
-            "sp": 2.88,
-            "horse": "My Girl Katie",
-            "score": 73.6,
-            "odds": "5/4",
-            "label": "Strong Win Bet",
-            "best_odds": 2.5,
-            "primary": true,
-            "settle_odds": 2.5,
-            "settle_basis": "book"
-          }
-        ],
-        "abandoned": false,
-        "favourite": "My Girl Katie"
-      }
-    ]
+    "races": []
   },
   {
     "date": "2026-08-28",
@@ -6684,6 +6633,76 @@
         ],
         "abandoned": false,
         "favourite": "Talk Of New York"
+      }
+    ]
+  },
+  {
+    "date": "2026-09-26",
+    "summary": {
+      "overall_pct": 100.0,
+      "win_pct": 100.0,
+      "ew_pct": null,
+      "win_correct": 1,
+      "win_total": 1,
+      "ew_correct": 0,
+      "ew_total": 0,
+      "ew_win_count": 0,
+      "ew_placed_count": 0,
+      "excluded": {
+        "non_runner": 0,
+        "unmatched": 0,
+        "no_result": 0
+      },
+      "excluded_total": 0,
+      "dnf_count": 0,
+      "overall_roi": 138.0,
+      "win_roi": 138.0,
+      "ew_roi": null,
+      "roi": {
+        "win_stake": 1.0,
+        "win_ret": 2.38,
+        "ew_stake": 0.0,
+        "ew_ret": 0.0
+      },
+      "settle_basis": {
+        "book": 1,
+        "sp": 0
+      },
+      "roi_forecast": {
+        "stake": 1.0,
+        "ret": 2.5
+      },
+      "fav": {
+        "stake": 1.0,
+        "ret": 2.38,
+        "wins": 1
+      }
+    },
+    "races": [
+      {
+        "course": "Newmarket",
+        "time": "14:27",
+        "race_name": "Tattersalls Sceptre Sessions Cheveley Park Stakes (Fillies' Group 1)",
+        "date": "2026-09-26",
+        "winner": "Sun Goddess",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 1,
+            "outcome": "correct",
+            "sp": 1.83,
+            "horse": "Sun Goddess",
+            "score": 72.1,
+            "odds": "6/4",
+            "label": "Strong Win Bet",
+            "best_odds": 2.38,
+            "primary": true,
+            "settle_odds": 2.38,
+            "settle_basis": "book"
+          }
+        ],
+        "abandoned": false,
+        "favourite": "Sun Goddess"
       }
     ]
   }
