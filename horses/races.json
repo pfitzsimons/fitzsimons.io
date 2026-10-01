@@ -1,6 +1,6 @@
 {
   "date": "2026-10-01",
-  "generated_at": "2026-10-01T12:59:24.775139Z",
+  "generated_at": "2026-10-01T13:56:59.244701Z",
   "races": [
     {
       "id": "bellewstown-941732",
@@ -6677,61 +6677,10 @@
       "going": "Good",
       "race_class": "",
       "prize": "7200.0 EUR",
-      "num_runners": 12,
-      "ew_places": 4,
+      "num_runners": 11,
+      "ew_places": 3,
       "date": "2026-10-01",
       "runners": [
-        {
-          "horse": "Kalico Leader",
-          "country": "GB",
-          "jockey": "Kieren Buckley",
-          "trainer": "E Buckley",
-          "form": "F4-25F",
-          "age": "7",
-          "weight": "11-12",
-          "draw": "",
-          "odds_str": "5/1",
-          "odds_dec": 6.0,
-          "best_odds_dec": 8.0,
-          "best_odds_book": "Paddy Power",
-          "priced_books": 3,
-          "silk_url": "20261001clo145904.png",
-          "score": 36.3,
-          "components": {
-            "odds_value": 63.0,
-            "recent_form": 23.3,
-            "consistency": 8.0,
-            "jockey": 48.8,
-            "trainer": 42.5,
-            "weight": 0.0,
-            "absence_pen": 0.0,
-            "going_factor": 1.0,
-            "distance": 45.1,
-            "distance_meta": {
-              "n": 1,
-              "relevance": 0.96,
-              "quality": 0.4
-            },
-            "freshness": 70.0,
-            "last_ran_days": 12,
-            "timeform": 60.0,
-            "timeform_stars": 3,
-            "class_or": 50.0,
-            "official_rating": null
-          },
-          "value": {
-            "model_prob": 0.116,
-            "market_prob": 0.094,
-            "edge": 0.022,
-            "market_basis": "book"
-          },
-          "recommendation": {
-            "type": "Skip",
-            "confidence": 14,
-            "label": "Skip",
-            "reasoning": "poor recent form; did not finish last time; notable non-completion rate (40%)"
-          }
-        },
         {
           "horse": "Vargas",
           "country": "GB",
@@ -6743,8 +6692,8 @@
           "draw": "",
           "odds_str": "5/2",
           "odds_dec": 3.5,
-          "best_odds_dec": 5.0,
-          "best_odds_book": "Paddy Power",
+          "best_odds_dec": 5.5,
+          "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20261001clo145907.png",
           "score": 35.2,
@@ -6771,9 +6720,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.11,
-            "market_prob": 0.15,
-            "edge": -0.04,
+            "model_prob": 0.119,
+            "market_prob": 0.146,
+            "edge": -0.027,
             "market_basis": "book"
           },
           "recommendation": {
@@ -6784,54 +6733,54 @@
           }
         },
         {
-          "horse": "Howyasox",
+          "horse": "Kalico Leader",
           "country": "GB",
-          "jockey": "Mr J L Gleeson",
-          "trainer": "J Queally",
-          "form": "F5P-76F",
-          "age": "6",
-          "weight": "11-5",
+          "jockey": "Kieren Buckley",
+          "trainer": "E Buckley",
+          "form": "F4-25F",
+          "age": "7",
+          "weight": "11-12",
           "draw": "",
-          "odds_str": "9/2",
-          "odds_dec": 5.5,
-          "best_odds_dec": 6.0,
-          "best_odds_book": "Betfair Sportsbook",
+          "odds_str": "5/1",
+          "odds_dec": 6.0,
+          "best_odds_dec": 8.5,
+          "best_odds_book": "Paddy Power",
           "priced_books": 3,
-          "silk_url": "20261001clo145912.png",
-          "score": 35.1,
+          "silk_url": "20261001clo145904.png",
+          "score": 35.2,
           "components": {
-            "odds_value": 69.7,
-            "recent_form": 10.0,
-            "consistency": 0,
-            "jockey": 75.1,
-            "trainer": 54.7,
-            "weight": 100.0,
+            "odds_value": 56.8,
+            "recent_form": 23.3,
+            "consistency": 8.0,
+            "jockey": 48.8,
+            "trainer": 42.5,
+            "weight": 0.0,
             "absence_pen": 0.0,
             "going_factor": 1.0,
-            "distance": 28.1,
+            "distance": 45.1,
             "distance_meta": {
-              "n": 4,
-              "relevance": 2.72,
-              "quality": 0.2
+              "n": 1,
+              "relevance": 0.96,
+              "quality": 0.4
             },
-            "freshness": 51.5,
-            "last_ran_days": 83,
-            "timeform": 100.0,
-            "timeform_stars": 5,
-            "class_or": 64.3,
-            "official_rating": 94
+            "freshness": 70.0,
+            "last_ran_days": 12,
+            "timeform": 60.0,
+            "timeform_stars": 3,
+            "class_or": 50.0,
+            "official_rating": null
           },
           "value": {
-            "model_prob": 0.109,
-            "market_prob": 0.125,
-            "edge": -0.016,
+            "model_prob": 0.119,
+            "market_prob": 0.094,
+            "edge": 0.024,
             "market_basis": "book"
           },
           "recommendation": {
             "type": "Skip",
             "confidence": 14,
             "label": "Skip",
-            "reasoning": "poor recent form; did not finish last time; notable non-completion rate (50%)"
+            "reasoning": "poor recent form; did not finish last time; notable non-completion rate (40%)"
           }
         },
         {
@@ -6873,9 +6822,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.108,
-            "market_prob": 0.115,
-            "edge": -0.007,
+            "model_prob": 0.117,
+            "market_prob": 0.123,
+            "edge": -0.006,
             "market_basis": "book"
           },
           "recommendation": {
@@ -6883,6 +6832,57 @@
             "confidence": 13,
             "label": "Skip",
             "reasoning": "poor recent form; returning from long absence"
+          }
+        },
+        {
+          "horse": "Howyasox",
+          "country": "GB",
+          "jockey": "Mr J L Gleeson",
+          "trainer": "J Queally",
+          "form": "F5P-76F",
+          "age": "6",
+          "weight": "11-5",
+          "draw": "",
+          "odds_str": "9/2",
+          "odds_dec": 5.5,
+          "best_odds_dec": 5.0,
+          "best_odds_book": "Betfair Sportsbook",
+          "priced_books": 3,
+          "silk_url": "20261001clo145912.png",
+          "score": 33.9,
+          "components": {
+            "odds_value": 63.0,
+            "recent_form": 10.0,
+            "consistency": 0,
+            "jockey": 75.1,
+            "trainer": 54.7,
+            "weight": 100.0,
+            "absence_pen": 0.0,
+            "going_factor": 1.0,
+            "distance": 28.1,
+            "distance_meta": {
+              "n": 4,
+              "relevance": 2.72,
+              "quality": 0.2
+            },
+            "freshness": 51.5,
+            "last_ran_days": 83,
+            "timeform": 100.0,
+            "timeform_stars": 5,
+            "class_or": 0.0,
+            "official_rating": 94
+          },
+          "value": {
+            "model_prob": 0.112,
+            "market_prob": 0.16,
+            "edge": -0.048,
+            "market_basis": "book"
+          },
+          "recommendation": {
+            "type": "Skip",
+            "confidence": 13,
+            "label": "Skip",
+            "reasoning": "poor recent form; did not finish last time; notable non-completion rate (50%)"
           }
         },
         {
@@ -6896,7 +6896,7 @@
           "draw": "",
           "odds_str": "100/1",
           "odds_dec": 101.0,
-          "best_odds_dec": 81.0,
+          "best_odds_dec": 26.0,
           "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20261001clo145911.png",
@@ -6924,9 +6924,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.089,
-            "market_prob": 0.009,
-            "edge": 0.08,
+            "model_prob": 0.096,
+            "market_prob": 0.031,
+            "edge": 0.065,
             "market_basis": "book"
           },
           "recommendation": {
@@ -6947,8 +6947,8 @@
           "draw": "",
           "odds_str": "100/1",
           "odds_dec": 101.0,
-          "best_odds_dec": 51.0,
-          "best_odds_book": "Paddy Power",
+          "best_odds_dec": 71.0,
+          "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20261001clo145903.png",
           "score": 29.5,
@@ -6975,9 +6975,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.084,
-            "market_prob": 0.015,
-            "edge": 0.069,
+            "model_prob": 0.091,
+            "market_prob": 0.011,
+            "edge": 0.079,
             "market_basis": "book"
           },
           "recommendation": {
@@ -6998,7 +6998,7 @@
           "draw": "",
           "odds_str": "100/1",
           "odds_dec": 101.0,
-          "best_odds_dec": 101.0,
+          "best_odds_dec": 126.0,
           "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20261001clo145910.png",
@@ -7026,9 +7026,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.069,
-            "market_prob": 0.007,
-            "edge": 0.061,
+            "model_prob": 0.074,
+            "market_prob": 0.006,
+            "edge": 0.068,
             "market_basis": "book"
           },
           "recommendation": {
@@ -7036,57 +7036,6 @@
             "confidence": 10,
             "label": "Skip",
             "reasoning": "poor recent form; notable non-completion rate (33%)"
-          }
-        },
-        {
-          "horse": "Pixie Hill",
-          "country": "GB",
-          "jockey": "Donagh Meyler",
-          "trainer": "Daniel O'leary",
-          "form": "P-0960",
-          "age": "6",
-          "weight": "11-5",
-          "draw": "",
-          "odds_str": "25/1",
-          "odds_dec": 26.0,
-          "best_odds_dec": 17.0,
-          "best_odds_book": "Betfair Sportsbook",
-          "priced_books": 3,
-          "silk_url": "20261001clo145913.png",
-          "score": 22.5,
-          "components": {
-            "odds_value": 6.0,
-            "recent_form": 13.3,
-            "consistency": 0,
-            "jockey": 40.8,
-            "trainer": 40.0,
-            "weight": 100.0,
-            "absence_pen": 0.0,
-            "going_factor": 1.0,
-            "distance": 22.2,
-            "distance_meta": {
-              "n": 4,
-              "relevance": 3.13,
-              "quality": 0.13
-            },
-            "freshness": 65.0,
-            "last_ran_days": 8,
-            "timeform": 40.0,
-            "timeform_stars": 2,
-            "class_or": 0.0,
-            "official_rating": 85
-          },
-          "value": {
-            "model_prob": 0.063,
-            "market_prob": 0.044,
-            "edge": 0.019,
-            "market_basis": "book"
-          },
-          "recommendation": {
-            "type": "Skip",
-            "confidence": 9,
-            "label": "Skip",
-            "reasoning": "poor recent form"
           }
         },
         {
@@ -7100,13 +7049,13 @@
           "draw": "",
           "odds_str": "14/1",
           "odds_dec": 15.0,
-          "best_odds_dec": 4.33,
+          "best_odds_dec": 4.5,
           "best_odds_book": "Paddy Power",
           "priced_books": 3,
           "silk_url": "20261001clo145902.png",
-          "score": 22.1,
+          "score": 21.7,
           "components": {
-            "odds_value": 18.5,
+            "odds_value": 16.0,
             "recent_form": 15.8,
             "consistency": 0,
             "jockey": 61.8,
@@ -7128,8 +7077,8 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.063,
-            "market_prob": 0.173,
+            "model_prob": 0.068,
+            "market_prob": 0.178,
             "edge": -0.11,
             "market_basis": "book"
           },
@@ -7151,13 +7100,13 @@
           "draw": "",
           "odds_str": "6/1",
           "odds_dec": 7.0,
-          "best_odds_dec": 3.25,
-          "best_odds_book": "Paddy Power",
+          "best_odds_dec": 4.0,
+          "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20261001clo145905.png",
-          "score": 21.3,
+          "score": 20.4,
           "components": {
-            "odds_value": 52.4,
+            "odds_value": 47.1,
             "recent_form": 18.0,
             "consistency": 0,
             "jockey": 43.3,
@@ -7179,9 +7128,9 @@
             "official_rating": 99
           },
           "value": {
-            "model_prob": 0.063,
-            "market_prob": 0.231,
-            "edge": -0.168,
+            "model_prob": 0.068,
+            "market_prob": 0.2,
+            "edge": -0.132,
             "market_basis": "book"
           },
           "recommendation": {
@@ -7202,7 +7151,7 @@
           "draw": "",
           "odds_str": "200/1",
           "odds_dec": 201.0,
-          "best_odds_dec": 101.0,
+          "best_odds_dec": 41.0,
           "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20261001clo145906.png",
@@ -7230,9 +7179,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.063,
-            "market_prob": 0.007,
-            "edge": 0.056,
+            "model_prob": 0.068,
+            "market_prob": 0.02,
+            "edge": 0.049,
             "market_basis": "book"
           },
           "recommendation": {
@@ -7281,9 +7230,9 @@
             "official_rating": null
           },
           "value": {
-            "model_prob": 0.062,
-            "market_prob": 0.029,
-            "edge": 0.034,
+            "model_prob": 0.068,
+            "market_prob": 0.031,
+            "edge": 0.037,
             "market_basis": "book"
           },
           "recommendation": {
@@ -7308,6 +7257,37 @@
           "best_odds_book": null,
           "priced_books": 0,
           "silk_url": "20261001clo145909.png",
+          "score": null,
+          "components": {},
+          "value": {
+            "model_prob": null,
+            "market_prob": null,
+            "edge": null,
+            "market_basis": null
+          },
+          "non_runner": true,
+          "recommendation": {
+            "type": "Skip",
+            "confidence": 0,
+            "label": "Non-runner",
+            "reasoning": "withdrawn — will not run"
+          }
+        },
+        {
+          "horse": "Pixie Hill",
+          "country": "GB",
+          "jockey": "Donagh Meyler",
+          "trainer": "Daniel O'leary",
+          "form": "P-0960",
+          "age": "6",
+          "weight": "11-5",
+          "draw": "",
+          "odds_str": "25/1",
+          "odds_dec": 26.0,
+          "best_odds_dec": null,
+          "best_odds_book": null,
+          "priced_books": 0,
+          "silk_url": "20261001clo145913.png",
           "score": null,
           "components": {},
           "value": {
@@ -7350,7 +7330,7 @@
           "draw": "4",
           "odds_str": "10/11",
           "odds_dec": 1.91,
-          "best_odds_dec": 1.36,
+          "best_odds_dec": 1.33,
           "best_odds_book": "Paddy Power",
           "priced_books": 3,
           "silk_url": "20261001ntt150807.png",
@@ -7379,8 +7359,8 @@
           },
           "value": {
             "model_prob": 0.237,
-            "market_prob": 0.633,
-            "edge": -0.396,
+            "market_prob": 0.647,
+            "edge": -0.409,
             "market_basis": "book"
           },
           "recommendation": {
@@ -7401,7 +7381,7 @@
           "draw": "5",
           "odds_str": "6/1",
           "odds_dec": 7.0,
-          "best_odds_dec": 8.0,
+          "best_odds_dec": 7.0,
           "best_odds_book": "Paddy Power",
           "priced_books": 3,
           "silk_url": "20261001ntt150801.png",
@@ -7428,8 +7408,8 @@
           },
           "value": {
             "model_prob": 0.143,
-            "market_prob": 0.108,
-            "edge": 0.036,
+            "market_prob": 0.123,
+            "edge": 0.021,
             "market_basis": "book"
           },
           "recommendation": {
@@ -7450,7 +7430,7 @@
           "draw": "1",
           "odds_str": "25/1",
           "odds_dec": 26.0,
-          "best_odds_dec": 34.0,
+          "best_odds_dec": 101.0,
           "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20261001ntt150802.png",
@@ -7477,8 +7457,8 @@
           },
           "value": {
             "model_prob": 0.143,
-            "market_prob": 0.025,
-            "edge": 0.118,
+            "market_prob": 0.009,
+            "edge": 0.135,
             "market_basis": "book"
           },
           "recommendation": {
@@ -7499,7 +7479,7 @@
           "draw": "2",
           "odds_str": "14/1",
           "odds_dec": 15.0,
-          "best_odds_dec": 13.0,
+          "best_odds_dec": 17.0,
           "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20261001ntt150804.png",
@@ -7526,8 +7506,8 @@
           },
           "value": {
             "model_prob": 0.143,
-            "market_prob": 0.066,
-            "edge": 0.077,
+            "market_prob": 0.051,
+            "edge": 0.093,
             "market_basis": "book"
           },
           "recommendation": {
@@ -7599,7 +7579,7 @@
           "draw": "3",
           "odds_str": "9/2",
           "odds_dec": 5.5,
-          "best_odds_dec": 13.0,
+          "best_odds_dec": 12.0,
           "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20261001ntt150805.png",
@@ -7628,8 +7608,8 @@
           },
           "value": {
             "model_prob": 0.13,
-            "market_prob": 0.066,
-            "edge": 0.064,
+            "market_prob": 0.072,
+            "edge": 0.058,
             "market_basis": "book"
           },
           "recommendation": {
@@ -7650,7 +7630,7 @@
           "draw": "7",
           "odds_str": "33/1",
           "odds_dec": 34.0,
-          "best_odds_dec": 151.0,
+          "best_odds_dec": 201.0,
           "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20261001ntt150806.png",
@@ -7679,8 +7659,8 @@
           },
           "value": {
             "model_prob": 0.068,
-            "market_prob": 0.006,
-            "edge": 0.062,
+            "market_prob": 0.004,
+            "edge": 0.064,
             "market_basis": "book"
           },
           "recommendation": {
@@ -8017,7 +7997,7 @@
           "draw": "10",
           "odds_str": "2/1",
           "odds_dec": 3.0,
-          "best_odds_dec": 3.25,
+          "best_odds_dec": 3.0,
           "best_odds_book": "Paddy Power",
           "priced_books": 3,
           "silk_url": "20261001bel152003.png",
@@ -8046,8 +8026,8 @@
           },
           "value": {
             "model_prob": 0.241,
-            "market_prob": 0.25,
-            "edge": -0.009,
+            "market_prob": 0.267,
+            "edge": -0.027,
             "market_basis": "book"
           },
           "recommendation": {
@@ -8068,7 +8048,7 @@
           "draw": "5",
           "odds_str": "9/4",
           "odds_dec": 3.25,
-          "best_odds_dec": 3.5,
+          "best_odds_dec": 3.25,
           "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20261001bel152002.png",
@@ -8097,8 +8077,8 @@
           },
           "value": {
             "model_prob": 0.199,
-            "market_prob": 0.232,
-            "edge": -0.034,
+            "market_prob": 0.247,
+            "edge": -0.048,
             "market_basis": "book"
           },
           "recommendation": {
@@ -8119,7 +8099,7 @@
           "draw": "7",
           "odds_str": "13/2",
           "odds_dec": 7.5,
-          "best_odds_dec": 5.5,
+          "best_odds_dec": 6.0,
           "best_odds_book": "Paddy Power",
           "priced_books": 3,
           "silk_url": "20261001bel152001.png",
@@ -8148,8 +8128,8 @@
           },
           "value": {
             "model_prob": 0.151,
-            "market_prob": 0.148,
-            "edge": 0.003,
+            "market_prob": 0.134,
+            "edge": 0.017,
             "market_basis": "book"
           },
           "recommendation": {
@@ -8199,8 +8179,8 @@
           },
           "value": {
             "model_prob": 0.088,
-            "market_prob": 0.125,
-            "edge": -0.037,
+            "market_prob": 0.123,
+            "edge": -0.036,
             "market_basis": "book"
           },
           "recommendation": {
@@ -8221,7 +8201,7 @@
           "draw": "4",
           "odds_str": "12/1",
           "odds_dec": 13.0,
-          "best_odds_dec": 15.0,
+          "best_odds_dec": 23.0,
           "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20261001bel152004.png",
@@ -8250,8 +8230,8 @@
           },
           "value": {
             "model_prob": 0.065,
-            "market_prob": 0.054,
-            "edge": 0.011,
+            "market_prob": 0.035,
+            "edge": 0.03,
             "market_basis": "book"
           },
           "recommendation": {
@@ -8272,7 +8252,7 @@
           "draw": "8",
           "odds_str": "14/1",
           "odds_dec": 15.0,
-          "best_odds_dec": 8.5,
+          "best_odds_dec": 9.0,
           "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20261001bel152010.png",
@@ -8301,8 +8281,8 @@
           },
           "value": {
             "model_prob": 0.065,
-            "market_prob": 0.096,
-            "edge": -0.031,
+            "market_prob": 0.089,
+            "edge": -0.024,
             "market_basis": "book"
           },
           "recommendation": {
@@ -8374,7 +8354,7 @@
           "draw": "1",
           "odds_str": "20/1",
           "odds_dec": 21.0,
-          "best_odds_dec": 12.0,
+          "best_odds_dec": 11.0,
           "best_odds_book": "Paddy Power",
           "priced_books": 3,
           "silk_url": "20261001bel152005.png",
@@ -8403,8 +8383,8 @@
           },
           "value": {
             "model_prob": 0.064,
-            "market_prob": 0.068,
-            "edge": -0.003,
+            "market_prob": 0.073,
+            "edge": -0.009,
             "market_basis": "book"
           },
           "recommendation": {
@@ -8425,7 +8405,7 @@
           "draw": "2",
           "odds_str": "50/1",
           "odds_dec": 51.0,
-          "best_odds_dec": 41.0,
+          "best_odds_dec": 34.0,
           "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20261001bel152007.png",
@@ -8454,8 +8434,8 @@
           },
           "value": {
             "model_prob": 0.064,
-            "market_prob": 0.02,
-            "edge": 0.044,
+            "market_prob": 0.024,
+            "edge": 0.04,
             "market_basis": "book"
           },
           "recommendation": {
@@ -8821,8 +8801,8 @@
           },
           "value": {
             "model_prob": 0.191,
-            "market_prob": 0.146,
-            "edge": 0.045,
+            "market_prob": 0.15,
+            "edge": 0.042,
             "market_basis": "book"
           },
           "recommendation": {
@@ -8843,7 +8823,7 @@
           "draw": "",
           "odds_str": "3/1",
           "odds_dec": 4.0,
-          "best_odds_dec": 6.5,
+          "best_odds_dec": 5.5,
           "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20261001clo153412.png",
@@ -8872,8 +8852,8 @@
           },
           "value": {
             "model_prob": 0.154,
-            "market_prob": 0.112,
-            "edge": 0.042,
+            "market_prob": 0.136,
+            "edge": 0.018,
             "market_basis": "book"
           },
           "recommendation": {
@@ -8894,7 +8874,7 @@
           "draw": "",
           "odds_str": "11/2",
           "odds_dec": 6.5,
-          "best_odds_dec": 4.0,
+          "best_odds_dec": 4.33,
           "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20261001clo153408.png",
@@ -8923,8 +8903,8 @@
           },
           "value": {
             "model_prob": 0.105,
-            "market_prob": 0.182,
-            "edge": -0.077,
+            "market_prob": 0.173,
+            "edge": -0.068,
             "market_basis": "book"
           },
           "recommendation": {
@@ -8974,8 +8954,8 @@
           },
           "value": {
             "model_prob": 0.104,
-            "market_prob": 0.021,
-            "edge": 0.083,
+            "market_prob": 0.022,
+            "edge": 0.082,
             "market_basis": "book"
           },
           "recommendation": {
@@ -8996,7 +8976,7 @@
           "draw": "",
           "odds_str": "16/1",
           "odds_dec": 17.0,
-          "best_odds_dec": 4.5,
+          "best_odds_dec": 4.33,
           "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20261001clo153410.png",
@@ -9025,8 +9005,8 @@
           },
           "value": {
             "model_prob": 0.083,
-            "market_prob": 0.162,
-            "edge": -0.08,
+            "market_prob": 0.173,
+            "edge": -0.09,
             "market_basis": "book"
           },
           "recommendation": {
@@ -9047,7 +9027,7 @@
           "draw": "",
           "odds_str": "10/1",
           "odds_dec": 11.0,
-          "best_odds_dec": 5.0,
+          "best_odds_dec": 5.5,
           "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20261001clo153405.png",
@@ -9076,8 +9056,8 @@
           },
           "value": {
             "model_prob": 0.075,
-            "market_prob": 0.146,
-            "edge": -0.071,
+            "market_prob": 0.136,
+            "edge": -0.061,
             "market_basis": "book"
           },
           "recommendation": {
@@ -9098,7 +9078,7 @@
           "draw": "",
           "odds_str": "14/1",
           "odds_dec": 15.0,
-          "best_odds_dec": 17.0,
+          "best_odds_dec": 21.0,
           "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20261001clo153401.png",
@@ -9127,8 +9107,8 @@
           },
           "value": {
             "model_prob": 0.07,
-            "market_prob": 0.043,
-            "edge": 0.027,
+            "market_prob": 0.036,
+            "edge": 0.035,
             "market_basis": "book"
           },
           "recommendation": {
@@ -9149,7 +9129,7 @@
           "draw": "",
           "odds_str": "16/1",
           "odds_dec": 17.0,
-          "best_odds_dec": 9.0,
+          "best_odds_dec": 8.5,
           "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20261001clo153407.png",
@@ -9178,8 +9158,8 @@
           },
           "value": {
             "model_prob": 0.058,
-            "market_prob": 0.081,
-            "edge": -0.023,
+            "market_prob": 0.088,
+            "edge": -0.03,
             "market_basis": "book"
           },
           "recommendation": {
@@ -9229,8 +9209,8 @@
           },
           "value": {
             "model_prob": 0.054,
-            "market_prob": 0.021,
-            "edge": 0.033,
+            "market_prob": 0.022,
+            "edge": 0.032,
             "market_basis": "book"
           },
           "recommendation": {
@@ -9251,7 +9231,7 @@
           "draw": "",
           "odds_str": "25/1",
           "odds_dec": 26.0,
-          "best_odds_dec": 13.0,
+          "best_odds_dec": 21.0,
           "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20261001clo153404.png",
@@ -9280,8 +9260,8 @@
           },
           "value": {
             "model_prob": 0.053,
-            "market_prob": 0.056,
-            "edge": -0.003,
+            "market_prob": 0.036,
+            "edge": 0.017,
             "market_basis": "book"
           },
           "recommendation": {
@@ -9331,7 +9311,7 @@
           },
           "value": {
             "model_prob": 0.053,
-            "market_prob": 0.028,
+            "market_prob": 0.029,
             "edge": 0.024,
             "market_basis": "book"
           },
@@ -9399,7 +9379,7 @@
           "draw": "3",
           "odds_str": "11/4",
           "odds_dec": 3.75,
-          "best_odds_dec": 1.73,
+          "best_odds_dec": 1.8,
           "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20261001ntt154305.png",
@@ -9428,8 +9408,8 @@
           },
           "value": {
             "model_prob": 0.214,
-            "market_prob": 0.484,
-            "edge": -0.271,
+            "market_prob": 0.469,
+            "edge": -0.255,
             "market_basis": "book"
           },
           "recommendation": {
@@ -9531,7 +9511,7 @@
           "value": {
             "model_prob": 0.129,
             "market_prob": 0.056,
-            "edge": 0.073,
+            "edge": 0.072,
             "market_basis": "book"
           },
           "recommendation": {
@@ -9552,7 +9532,7 @@
           "draw": "8",
           "odds_str": "14/1",
           "odds_dec": 15.0,
-          "best_odds_dec": 12.0,
+          "best_odds_dec": 11.0,
           "best_odds_book": "Paddy Power",
           "priced_books": 3,
           "silk_url": "20261001ntt154308.png",
@@ -9581,8 +9561,8 @@
           },
           "value": {
             "model_prob": 0.112,
-            "market_prob": 0.07,
-            "edge": 0.042,
+            "market_prob": 0.077,
+            "edge": 0.035,
             "market_basis": "book"
           },
           "recommendation": {
@@ -9603,7 +9583,7 @@
           "draw": "11",
           "odds_str": "7/1",
           "odds_dec": 8.0,
-          "best_odds_dec": 6.0,
+          "best_odds_dec": 5.5,
           "best_odds_book": "Paddy Power",
           "priced_books": 3,
           "silk_url": "20261001ntt154302.png",
@@ -9632,8 +9612,8 @@
           },
           "value": {
             "model_prob": 0.108,
-            "market_prob": 0.14,
-            "edge": -0.032,
+            "market_prob": 0.153,
+            "edge": -0.046,
             "market_basis": "book"
           },
           "recommendation": {
@@ -9734,8 +9714,8 @@
           },
           "value": {
             "model_prob": 0.089,
-            "market_prob": 0.049,
-            "edge": 0.04,
+            "market_prob": 0.05,
+            "edge": 0.039,
             "market_basis": "book"
           },
           "recommendation": {
@@ -9756,7 +9736,7 @@
           "draw": "2",
           "odds_str": "16/1",
           "odds_dec": 17.0,
-          "best_odds_dec": 26.0,
+          "best_odds_dec": 34.0,
           "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20261001ntt154303.png",
@@ -9785,8 +9765,8 @@
           },
           "value": {
             "model_prob": 0.057,
-            "market_prob": 0.032,
-            "edge": 0.025,
+            "market_prob": 0.025,
+            "edge": 0.032,
             "market_basis": "book"
           },
           "recommendation": {
@@ -9935,7 +9915,7 @@
           "draw": "14",
           "odds_str": "9/2",
           "odds_dec": 5.5,
-          "best_odds_dec": 13.0,
+          "best_odds_dec": 17.0,
           "best_odds_book": "Paddy Power",
           "priced_books": 3,
           "silk_url": "20261001sal154909.png",
@@ -9964,8 +9944,8 @@
           },
           "value": {
             "model_prob": 0.112,
-            "market_prob": 0.059,
-            "edge": 0.053,
+            "market_prob": 0.045,
+            "edge": 0.067,
             "market_basis": "book"
           },
           "recommendation": {
@@ -10015,8 +9995,8 @@
           },
           "value": {
             "model_prob": 0.111,
-            "market_prob": 0.063,
-            "edge": 0.048,
+            "market_prob": 0.064,
+            "edge": 0.047,
             "market_basis": "book"
           },
           "recommendation": {
@@ -10066,8 +10046,8 @@
           },
           "value": {
             "model_prob": 0.094,
-            "market_prob": 0.138,
-            "edge": -0.044,
+            "market_prob": 0.139,
+            "edge": -0.045,
             "market_basis": "book"
           },
           "recommendation": {
@@ -10139,7 +10119,7 @@
           "draw": "6",
           "odds_str": "5/1",
           "odds_dec": 6.0,
-          "best_odds_dec": 4.33,
+          "best_odds_dec": 4.5,
           "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20261001sal154904.png",
@@ -10168,8 +10148,8 @@
           },
           "value": {
             "model_prob": 0.081,
-            "market_prob": 0.176,
-            "edge": -0.095,
+            "market_prob": 0.17,
+            "edge": -0.09,
             "market_basis": "book"
           },
           "recommendation": {
@@ -10292,7 +10272,7 @@
           "draw": "7",
           "odds_str": "12/1",
           "odds_dec": 13.0,
-          "best_odds_dec": 10.0,
+          "best_odds_dec": 9.0,
           "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20261001sal154912.png",
@@ -10321,8 +10301,8 @@
           },
           "value": {
             "model_prob": 0.077,
-            "market_prob": 0.076,
-            "edge": 0.001,
+            "market_prob": 0.085,
+            "edge": -0.008,
             "market_basis": "book"
           },
           "recommendation": {
@@ -10343,8 +10323,8 @@
           "draw": "9",
           "odds_str": "10/1",
           "odds_dec": 11.0,
-          "best_odds_dec": 9.0,
-          "best_odds_book": "Betfair Sportsbook",
+          "best_odds_dec": 7.5,
+          "best_odds_book": "Sky Bet v2",
           "priced_books": 3,
           "silk_url": "20261001sal154907.png",
           "score": 41.7,
@@ -10372,8 +10352,8 @@
           },
           "value": {
             "model_prob": 0.075,
-            "market_prob": 0.085,
-            "edge": -0.01,
+            "market_prob": 0.102,
+            "edge": -0.028,
             "market_basis": "book"
           },
           "recommendation": {
@@ -10394,7 +10374,7 @@
           "draw": "3",
           "odds_str": "14/1",
           "odds_dec": 15.0,
-          "best_odds_dec": 9.0,
+          "best_odds_dec": 10.0,
           "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20261001sal154910.png",
@@ -10423,8 +10403,8 @@
           },
           "value": {
             "model_prob": 0.057,
-            "market_prob": 0.085,
-            "edge": -0.027,
+            "market_prob": 0.077,
+            "edge": -0.019,
             "market_basis": "book"
           },
           "recommendation": {
@@ -10445,7 +10425,7 @@
           "draw": "1",
           "odds_str": "14/1",
           "odds_dec": 15.0,
-          "best_odds_dec": 23.0,
+          "best_odds_dec": 26.0,
           "best_odds_book": "Sky Bet v2",
           "priced_books": 3,
           "silk_url": "20261001sal154905.png",
@@ -10474,8 +10454,8 @@
           },
           "value": {
             "model_prob": 0.046,
-            "market_prob": 0.033,
-            "edge": 0.012,
+            "market_prob": 0.029,
+            "edge": 0.016,
             "market_basis": "book"
           },
           "recommendation": {
@@ -10496,7 +10476,7 @@
           "draw": "12",
           "odds_str": "33/1",
           "odds_dec": 34.0,
-          "best_odds_dec": 12.0,
+          "best_odds_dec": 11.0,
           "best_odds_book": "Sky Bet v2",
           "priced_books": 3,
           "silk_url": "20261001sal154906.png",
@@ -10525,8 +10505,8 @@
           },
           "value": {
             "model_prob": 0.038,
-            "market_prob": 0.063,
-            "edge": -0.026,
+            "market_prob": 0.07,
+            "edge": -0.032,
             "market_basis": "book"
           },
           "recommendation": {
@@ -10547,7 +10527,7 @@
           "draw": "2",
           "odds_str": "25/1",
           "odds_dec": 26.0,
-          "best_odds_dec": 17.0,
+          "best_odds_dec": 19.0,
           "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20261001sal154914.png",
@@ -10576,8 +10556,8 @@
           },
           "value": {
             "model_prob": 0.034,
-            "market_prob": 0.045,
-            "edge": -0.011,
+            "market_prob": 0.04,
+            "edge": -0.007,
             "market_basis": "book"
           },
           "recommendation": {
@@ -10627,8 +10607,8 @@
           },
           "value": {
             "model_prob": 0.032,
-            "market_prob": 0.063,
-            "edge": -0.031,
+            "market_prob": 0.064,
+            "edge": -0.032,
             "market_basis": "book"
           },
           "recommendation": {
@@ -10664,7 +10644,7 @@
           "draw": "1",
           "odds_str": "2/1",
           "odds_dec": 3.0,
-          "best_odds_dec": 1.83,
+          "best_odds_dec": 1.62,
           "best_odds_book": "Sky Bet v2",
           "priced_books": 3,
           "silk_url": "20261001bel155505.png",
@@ -10693,8 +10673,8 @@
           },
           "value": {
             "model_prob": 0.46,
-            "market_prob": 0.49,
-            "edge": -0.03,
+            "market_prob": 0.547,
+            "edge": -0.087,
             "market_basis": "book"
           },
           "recommendation": {
@@ -10715,7 +10695,7 @@
           "draw": "5",
           "odds_str": "13/8",
           "odds_dec": 2.62,
-          "best_odds_dec": 2.25,
+          "best_odds_dec": 2.5,
           "best_odds_book": "Sky Bet v2",
           "priced_books": 3,
           "silk_url": "20261001bel155502.png",
@@ -10744,8 +10724,8 @@
           },
           "value": {
             "model_prob": 0.382,
-            "market_prob": 0.398,
-            "edge": -0.016,
+            "market_prob": 0.354,
+            "edge": 0.027,
             "market_basis": "book"
           },
           "recommendation": {
@@ -10766,7 +10746,7 @@
           "draw": "2",
           "odds_str": "10/1",
           "odds_dec": 11.0,
-          "best_odds_dec": 8.0,
+          "best_odds_dec": 9.0,
           "best_odds_book": "Paddy Power",
           "priced_books": 3,
           "silk_url": "20261001bel155501.png",
@@ -10795,8 +10775,8 @@
           },
           "value": {
             "model_prob": 0.158,
-            "market_prob": 0.112,
-            "edge": 0.046,
+            "market_prob": 0.098,
+            "edge": 0.06,
             "market_basis": "book"
           },
           "recommendation": {
@@ -10894,7 +10874,7 @@
           "draw": "",
           "odds_str": "6/5",
           "odds_dec": 2.2,
-          "best_odds_dec": 2.25,
+          "best_odds_dec": 2.0,
           "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20261001sth160002.png",
@@ -10923,8 +10903,8 @@
           },
           "value": {
             "model_prob": 0.308,
-            "market_prob": 0.383,
-            "edge": -0.075,
+            "market_prob": 0.418,
+            "edge": -0.11,
             "market_basis": "book"
           },
           "recommendation": {
@@ -10974,8 +10954,8 @@
           },
           "value": {
             "model_prob": 0.142,
-            "market_prob": 0.108,
-            "edge": 0.035,
+            "market_prob": 0.104,
+            "edge": 0.038,
             "market_basis": "book"
           },
           "recommendation": {
@@ -10996,7 +10976,7 @@
           "draw": "",
           "odds_str": "15/2",
           "odds_dec": 8.5,
-          "best_odds_dec": 19.0,
+          "best_odds_dec": 17.0,
           "best_odds_book": "Paddy Power",
           "priced_books": 3,
           "silk_url": "20261001sth160006.png",
@@ -11025,8 +11005,8 @@
           },
           "value": {
             "model_prob": 0.128,
-            "market_prob": 0.045,
-            "edge": 0.082,
+            "market_prob": 0.049,
+            "edge": 0.079,
             "market_basis": "book"
           },
           "recommendation": {
@@ -11047,7 +11027,7 @@
           "draw": "",
           "odds_str": "14/1",
           "odds_dec": 15.0,
-          "best_odds_dec": 17.0,
+          "best_odds_dec": 15.0,
           "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20261001sth160007.png",
@@ -11076,8 +11056,8 @@
           },
           "value": {
             "model_prob": 0.12,
-            "market_prob": 0.051,
-            "edge": 0.07,
+            "market_prob": 0.056,
+            "edge": 0.065,
             "market_basis": "book"
           },
           "recommendation": {
@@ -11098,7 +11078,7 @@
           "draw": "",
           "odds_str": "8/1",
           "odds_dec": 9.0,
-          "best_odds_dec": 7.0,
+          "best_odds_dec": 6.5,
           "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20261001sth160003.png",
@@ -11127,8 +11107,8 @@
           },
           "value": {
             "model_prob": 0.095,
-            "market_prob": 0.123,
-            "edge": -0.029,
+            "market_prob": 0.129,
+            "edge": -0.034,
             "market_basis": "book"
           },
           "recommendation": {
@@ -11149,7 +11129,7 @@
           "draw": "",
           "odds_str": "16/1",
           "odds_dec": 17.0,
-          "best_odds_dec": 6.0,
+          "best_odds_dec": 7.0,
           "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20261001sth160001.png",
@@ -11178,8 +11158,8 @@
           },
           "value": {
             "model_prob": 0.07,
-            "market_prob": 0.144,
-            "edge": -0.074,
+            "market_prob": 0.119,
+            "edge": -0.049,
             "market_basis": "book"
           },
           "recommendation": {
@@ -11200,7 +11180,7 @@
           "draw": "",
           "odds_str": "12/1",
           "odds_dec": 13.0,
-          "best_odds_dec": 9.0,
+          "best_odds_dec": 11.0,
           "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20261001sth160008.png",
@@ -11229,8 +11209,8 @@
           },
           "value": {
             "model_prob": 0.069,
-            "market_prob": 0.096,
-            "edge": -0.027,
+            "market_prob": 0.076,
+            "edge": -0.007,
             "market_basis": "book"
           },
           "recommendation": {
@@ -11280,8 +11260,8 @@
           },
           "value": {
             "model_prob": 0.068,
-            "market_prob": 0.051,
-            "edge": 0.017,
+            "market_prob": 0.049,
+            "edge": 0.019,
             "market_basis": "book"
           },
           "recommendation": {
@@ -11349,7 +11329,7 @@
           "odds_str": "3/1",
           "odds_dec": 4.0,
           "best_odds_dec": 4.0,
-          "best_odds_book": "Paddy Power",
+          "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20261001clo160911.png",
           "score": 59.1,
@@ -11377,8 +11357,8 @@
           },
           "value": {
             "model_prob": 0.143,
-            "market_prob": 0.169,
-            "edge": -0.026,
+            "market_prob": 0.173,
+            "edge": -0.03,
             "market_basis": "book"
           },
           "recommendation": {
@@ -11428,8 +11408,8 @@
           },
           "value": {
             "model_prob": 0.128,
-            "market_prob": 0.112,
-            "edge": 0.016,
+            "market_prob": 0.115,
+            "edge": 0.013,
             "market_basis": "book"
           },
           "recommendation": {
@@ -11450,7 +11430,7 @@
           "draw": "",
           "odds_str": "6/1",
           "odds_dec": 7.0,
-          "best_odds_dec": 10.0,
+          "best_odds_dec": 9.0,
           "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20261001clo160907.png",
@@ -11479,8 +11459,8 @@
           },
           "value": {
             "model_prob": 0.103,
-            "market_prob": 0.067,
-            "edge": 0.035,
+            "market_prob": 0.077,
+            "edge": 0.026,
             "market_basis": "book"
           },
           "recommendation": {
@@ -11501,7 +11481,7 @@
           "draw": "",
           "odds_str": "4/1",
           "odds_dec": 5.0,
-          "best_odds_dec": 4.5,
+          "best_odds_dec": 5.0,
           "best_odds_book": "Paddy Power",
           "priced_books": 3,
           "silk_url": "20261001clo160903.png",
@@ -11530,8 +11510,8 @@
           },
           "value": {
             "model_prob": 0.079,
-            "market_prob": 0.15,
-            "edge": -0.071,
+            "market_prob": 0.138,
+            "edge": -0.059,
             "market_basis": "book"
           },
           "recommendation": {
@@ -11632,8 +11612,8 @@
           },
           "value": {
             "model_prob": 0.062,
-            "market_prob": 0.15,
-            "edge": -0.088,
+            "market_prob": 0.153,
+            "edge": -0.092,
             "market_basis": "book"
           },
           "recommendation": {
@@ -11655,7 +11635,7 @@
           "odds_str": "8/1",
           "odds_dec": 9.0,
           "best_odds_dec": 11.0,
-          "best_odds_book": "Betfair Sportsbook",
+          "best_odds_book": "Paddy Power",
           "priced_books": 3,
           "silk_url": "20261001clo160916.png",
           "score": 33.3,
@@ -11683,8 +11663,8 @@
           },
           "value": {
             "model_prob": 0.058,
-            "market_prob": 0.061,
-            "edge": -0.003,
+            "market_prob": 0.063,
+            "edge": -0.004,
             "market_basis": "book"
           },
           "recommendation": {
@@ -11705,8 +11685,8 @@
           "draw": "",
           "odds_str": "12/1",
           "odds_dec": 13.0,
-          "best_odds_dec": 6.0,
-          "best_odds_book": "Betfair Sportsbook",
+          "best_odds_dec": 7.0,
+          "best_odds_book": "Paddy Power",
           "priced_books": 3,
           "silk_url": "20261001clo160902.png",
           "score": 29.9,
@@ -11734,8 +11714,8 @@
           },
           "value": {
             "model_prob": 0.049,
-            "market_prob": 0.112,
-            "edge": -0.063,
+            "market_prob": 0.099,
+            "edge": -0.049,
             "market_basis": "book"
           },
           "recommendation": {
@@ -11756,7 +11736,7 @@
           "draw": "",
           "odds_str": "14/1",
           "odds_dec": 15.0,
-          "best_odds_dec": 67.0,
+          "best_odds_dec": 51.0,
           "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20261001clo160908.png",
@@ -11785,8 +11765,8 @@
           },
           "value": {
             "model_prob": 0.047,
-            "market_prob": 0.01,
-            "edge": 0.037,
+            "market_prob": 0.014,
+            "edge": 0.034,
             "market_basis": "book"
           },
           "recommendation": {
@@ -11836,8 +11816,8 @@
           },
           "value": {
             "model_prob": 0.044,
-            "market_prob": 0.04,
-            "edge": 0.005,
+            "market_prob": 0.041,
+            "edge": 0.004,
             "market_basis": "book"
           },
           "recommendation": {
@@ -11888,7 +11868,7 @@
           "value": {
             "model_prob": 0.037,
             "market_prob": 0.01,
-            "edge": 0.027,
+            "edge": 0.026,
             "market_basis": "book"
           },
           "recommendation": {
@@ -11909,7 +11889,7 @@
           "draw": "",
           "odds_str": "25/1",
           "odds_dec": 26.0,
-          "best_odds_dec": 21.0,
+          "best_odds_dec": 26.0,
           "best_odds_book": "Paddy Power",
           "priced_books": 3,
           "silk_url": "20261001clo160912.png",
@@ -11938,8 +11918,8 @@
           },
           "value": {
             "model_prob": 0.037,
-            "market_prob": 0.032,
-            "edge": 0.004,
+            "market_prob": 0.027,
+            "edge": 0.01,
             "market_basis": "book"
           },
           "recommendation": {
@@ -11960,7 +11940,7 @@
           "draw": "",
           "odds_str": "25/1",
           "odds_dec": 26.0,
-          "best_odds_dec": 51.0,
+          "best_odds_dec": 41.0,
           "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20261001clo160910.png",
@@ -11989,8 +11969,8 @@
           },
           "value": {
             "model_prob": 0.036,
-            "market_prob": 0.013,
-            "edge": 0.023,
+            "market_prob": 0.017,
+            "edge": 0.02,
             "market_basis": "book"
           },
           "recommendation": {
@@ -12142,7 +12122,7 @@
           },
           "value": {
             "model_prob": 0.036,
-            "market_prob": 0.013,
+            "market_prob": 0.014,
             "edge": 0.023,
             "market_basis": "book"
           },
@@ -13028,8 +13008,8 @@
           },
           "value": {
             "model_prob": 0.147,
-            "market_prob": 0.287,
-            "edge": -0.14,
+            "market_prob": 0.283,
+            "edge": -0.136,
             "market_basis": "book"
           },
           "recommendation": {
@@ -13079,8 +13059,8 @@
           },
           "value": {
             "model_prob": 0.121,
-            "market_prob": 0.069,
-            "edge": 0.053,
+            "market_prob": 0.068,
+            "edge": 0.054,
             "market_basis": "book"
           },
           "recommendation": {
@@ -13232,8 +13212,8 @@
           },
           "value": {
             "model_prob": 0.084,
-            "market_prob": 0.058,
-            "edge": 0.026,
+            "market_prob": 0.057,
+            "edge": 0.027,
             "market_basis": "book"
           },
           "recommendation": {
@@ -13283,8 +13263,8 @@
           },
           "value": {
             "model_prob": 0.082,
-            "market_prob": 0.116,
-            "edge": -0.034,
+            "market_prob": 0.114,
+            "edge": -0.032,
             "market_basis": "book"
           },
           "recommendation": {
@@ -13305,7 +13285,7 @@
           "draw": "2",
           "odds_str": "12/1",
           "odds_dec": 13.0,
-          "best_odds_dec": 21.0,
+          "best_odds_dec": 15.0,
           "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20261001sal162411.png",
@@ -13334,8 +13314,8 @@
           },
           "value": {
             "model_prob": 0.082,
-            "market_prob": 0.036,
-            "edge": 0.046,
+            "market_prob": 0.05,
+            "edge": 0.032,
             "market_basis": "book"
           },
           "recommendation": {
@@ -13385,8 +13365,8 @@
           },
           "value": {
             "model_prob": 0.079,
-            "market_prob": 0.126,
-            "edge": -0.046,
+            "market_prob": 0.124,
+            "edge": -0.045,
             "market_basis": "book"
           },
           "recommendation": {
@@ -13487,8 +13467,8 @@
           },
           "value": {
             "model_prob": 0.055,
-            "market_prob": 0.151,
-            "edge": -0.095,
+            "market_prob": 0.149,
+            "edge": -0.093,
             "market_basis": "book"
           },
           "recommendation": {
@@ -13539,7 +13519,7 @@
           "value": {
             "model_prob": 0.05,
             "market_prob": 0.05,
-            "edge": -0.0,
+            "edge": 0.0,
             "market_basis": "book"
           },
           "recommendation": {
@@ -13657,7 +13637,7 @@
           "draw": "12",
           "odds_str": "7/2",
           "odds_dec": 4.5,
-          "best_odds_dec": 4.0,
+          "best_odds_dec": 3.5,
           "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20261001bel163005.png",
@@ -13686,8 +13666,8 @@
           },
           "value": {
             "model_prob": 0.172,
-            "market_prob": 0.186,
-            "edge": -0.013,
+            "market_prob": 0.206,
+            "edge": -0.034,
             "market_basis": "book"
           },
           "recommendation": {
@@ -13737,8 +13717,8 @@
           },
           "value": {
             "model_prob": 0.142,
-            "market_prob": 0.198,
-            "edge": -0.057,
+            "market_prob": 0.192,
+            "edge": -0.051,
             "market_basis": "book"
           },
           "recommendation": {
@@ -13788,8 +13768,8 @@
           },
           "value": {
             "model_prob": 0.108,
-            "market_prob": 0.149,
-            "edge": -0.041,
+            "market_prob": 0.144,
+            "edge": -0.037,
             "market_basis": "book"
           },
           "recommendation": {
@@ -13839,8 +13819,8 @@
           },
           "value": {
             "model_prob": 0.091,
-            "market_prob": 0.198,
-            "edge": -0.107,
+            "market_prob": 0.192,
+            "edge": -0.101,
             "market_basis": "book"
           },
           "recommendation": {
@@ -13890,8 +13870,8 @@
           },
           "value": {
             "model_prob": 0.08,
-            "market_prob": 0.135,
-            "edge": -0.055,
+            "market_prob": 0.131,
+            "edge": -0.051,
             "market_basis": "book"
           },
           "recommendation": {
@@ -13939,8 +13919,8 @@
           },
           "value": {
             "model_prob": 0.072,
-            "market_prob": 0.022,
-            "edge": 0.05,
+            "market_prob": 0.021,
+            "edge": 0.051,
             "market_basis": "book"
           },
           "recommendation": {
@@ -13961,7 +13941,7 @@
           "draw": "6",
           "odds_str": "50/1",
           "odds_dec": 51.0,
-          "best_odds_dec": 51.0,
+          "best_odds_dec": 41.0,
           "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20261001bel163010.png",
@@ -13990,8 +13970,8 @@
           },
           "value": {
             "model_prob": 0.068,
-            "market_prob": 0.015,
-            "edge": 0.053,
+            "market_prob": 0.018,
+            "edge": 0.05,
             "market_basis": "book"
           },
           "recommendation": {
@@ -14041,8 +14021,8 @@
           },
           "value": {
             "model_prob": 0.067,
-            "market_prob": 0.022,
-            "edge": 0.045,
+            "market_prob": 0.021,
+            "edge": 0.046,
             "market_basis": "book"
           },
           "recommendation": {
@@ -14092,7 +14072,7 @@
           },
           "value": {
             "model_prob": 0.067,
-            "market_prob": 0.029,
+            "market_prob": 0.028,
             "edge": 0.039,
             "market_basis": "book"
           },
@@ -14143,7 +14123,7 @@
           },
           "value": {
             "model_prob": 0.067,
-            "market_prob": 0.029,
+            "market_prob": 0.028,
             "edge": 0.039,
             "market_basis": "book"
           },
@@ -14262,9 +14242,9 @@
           "draw": "",
           "odds_str": "15/8",
           "odds_dec": 2.88,
-          "best_odds_dec": 6.0,
-          "best_odds_book": "Paddy Power",
-          "priced_books": 3,
+          "best_odds_dec": null,
+          "best_odds_book": null,
+          "priced_books": 0,
           "silk_url": "20261001sth163503.png",
           "score": 63.8,
           "components": {
@@ -14291,9 +14271,9 @@
           },
           "value": {
             "model_prob": 0.241,
-            "market_prob": 0.141,
-            "edge": 0.1,
-            "market_basis": "book"
+            "market_prob": 0.308,
+            "edge": -0.067,
+            "market_basis": "forecast"
           },
           "recommendation": {
             "type": "Skip",
@@ -14313,9 +14293,9 @@
           "draw": "",
           "odds_str": "4/1",
           "odds_dec": 5.0,
-          "best_odds_dec": 6.0,
-          "best_odds_book": "Betfair Sportsbook",
-          "priced_books": 3,
+          "best_odds_dec": null,
+          "best_odds_book": null,
+          "priced_books": 0,
           "silk_url": "20261001sth163508.png",
           "score": 56.2,
           "components": {
@@ -14342,9 +14322,9 @@
           },
           "value": {
             "model_prob": 0.18,
-            "market_prob": 0.141,
-            "edge": 0.038,
-            "market_basis": "book"
+            "market_prob": 0.177,
+            "edge": 0.003,
+            "market_basis": "forecast"
           },
           "recommendation": {
             "type": "Skip",
@@ -14364,9 +14344,9 @@
           "draw": "",
           "odds_str": "6/1",
           "odds_dec": 7.0,
-          "best_odds_dec": 5.5,
-          "best_odds_book": "Paddy Power",
-          "priced_books": 3,
+          "best_odds_dec": null,
+          "best_odds_book": null,
+          "priced_books": 0,
           "silk_url": "20261001sth163502.png",
           "score": 44.8,
           "components": {
@@ -14393,9 +14373,9 @@
           },
           "value": {
             "model_prob": 0.137,
-            "market_prob": 0.154,
-            "edge": -0.017,
-            "market_basis": "book"
+            "market_prob": 0.127,
+            "edge": 0.011,
+            "market_basis": "forecast"
           },
           "recommendation": {
             "type": "Skip",
@@ -14415,9 +14395,9 @@
           "draw": "",
           "odds_str": "8/1",
           "odds_dec": 9.0,
-          "best_odds_dec": 9.0,
-          "best_odds_book": "Betfair Sportsbook",
-          "priced_books": 3,
+          "best_odds_dec": null,
+          "best_odds_book": null,
+          "priced_books": 0,
           "silk_url": "20261001sth163506.png",
           "score": 41.8,
           "components": {
@@ -14444,9 +14424,9 @@
           },
           "value": {
             "model_prob": 0.122,
-            "market_prob": 0.094,
-            "edge": 0.028,
-            "market_basis": "book"
+            "market_prob": 0.098,
+            "edge": 0.024,
+            "market_basis": "forecast"
           },
           "recommendation": {
             "type": "Skip",
@@ -14466,9 +14446,9 @@
           "draw": "",
           "odds_str": "8/1",
           "odds_dec": 9.0,
-          "best_odds_dec": 7.5,
-          "best_odds_book": "Paddy Power",
-          "priced_books": 3,
+          "best_odds_dec": null,
+          "best_odds_book": null,
+          "priced_books": 0,
           "silk_url": "20261001sth163507.png",
           "score": 40.1,
           "components": {
@@ -14495,9 +14475,9 @@
           },
           "value": {
             "model_prob": 0.114,
-            "market_prob": 0.113,
-            "edge": 0.001,
-            "market_basis": "book"
+            "market_prob": 0.098,
+            "edge": 0.016,
+            "market_basis": "forecast"
           },
           "recommendation": {
             "type": "Skip",
@@ -14517,9 +14497,9 @@
           "draw": "",
           "odds_str": "10/1",
           "odds_dec": 11.0,
-          "best_odds_dec": 5.0,
-          "best_odds_book": "Betfair Sportsbook",
-          "priced_books": 3,
+          "best_odds_dec": null,
+          "best_odds_book": null,
+          "priced_books": 0,
           "silk_url": "20261001sth163509.png",
           "score": 32.7,
           "components": {
@@ -14546,9 +14526,9 @@
           },
           "value": {
             "model_prob": 0.08,
-            "market_prob": 0.17,
-            "edge": -0.089,
-            "market_basis": "book"
+            "market_prob": 0.081,
+            "edge": -0.0,
+            "market_basis": "forecast"
           },
           "recommendation": {
             "type": "Skip",
@@ -14568,9 +14548,9 @@
           "draw": "",
           "odds_str": "14/1",
           "odds_dec": 15.0,
-          "best_odds_dec": 7.0,
-          "best_odds_book": "Betfair Sportsbook",
-          "priced_books": 3,
+          "best_odds_dec": null,
+          "best_odds_book": null,
+          "priced_books": 0,
           "silk_url": "20261001sth163505.png",
           "score": 30.7,
           "components": {
@@ -14597,9 +14577,9 @@
           },
           "value": {
             "model_prob": 0.073,
-            "market_prob": 0.121,
-            "edge": -0.048,
-            "market_basis": "book"
+            "market_prob": 0.059,
+            "edge": 0.014,
+            "market_basis": "forecast"
           },
           "recommendation": {
             "type": "Skip",
@@ -14619,9 +14599,9 @@
           "draw": "",
           "odds_str": "16/1",
           "odds_dec": 17.0,
-          "best_odds_dec": 13.0,
-          "best_odds_book": "Betfair Sportsbook",
-          "priced_books": 3,
+          "best_odds_dec": null,
+          "best_odds_book": null,
+          "priced_books": 0,
           "silk_url": "20261001sth163501.png",
           "score": 22.4,
           "components": {
@@ -14648,9 +14628,9 @@
           },
           "value": {
             "model_prob": 0.052,
-            "market_prob": 0.065,
-            "edge": -0.013,
-            "market_basis": "book"
+            "market_prob": 0.052,
+            "edge": -0.0,
+            "market_basis": "forecast"
           },
           "recommendation": {
             "type": "Skip",
@@ -17029,8 +17009,8 @@
           },
           "value": {
             "model_prob": 0.153,
-            "market_prob": 0.131,
-            "edge": 0.022,
+            "market_prob": 0.129,
+            "edge": 0.024,
             "market_basis": "book"
           },
           "recommendation": {
@@ -17080,8 +17060,8 @@
           },
           "value": {
             "model_prob": 0.139,
-            "market_prob": 0.145,
-            "edge": -0.006,
+            "market_prob": 0.142,
+            "edge": -0.003,
             "market_basis": "book"
           },
           "recommendation": {
@@ -17102,7 +17082,7 @@
           "draw": "10",
           "odds_str": "16/1",
           "odds_dec": 17.0,
-          "best_odds_dec": 11.0,
+          "best_odds_dec": 9.0,
           "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20261001bel170505.png",
@@ -17131,8 +17111,8 @@
           },
           "value": {
             "model_prob": 0.109,
-            "market_prob": 0.066,
-            "edge": 0.043,
+            "market_prob": 0.079,
+            "edge": 0.03,
             "market_basis": "book"
           },
           "recommendation": {
@@ -17182,8 +17162,8 @@
           },
           "value": {
             "model_prob": 0.104,
-            "market_prob": 0.096,
-            "edge": 0.008,
+            "market_prob": 0.095,
+            "edge": 0.009,
             "market_basis": "book"
           },
           "recommendation": {
@@ -17233,8 +17213,8 @@
           },
           "value": {
             "model_prob": 0.104,
-            "market_prob": 0.181,
-            "edge": -0.077,
+            "market_prob": 0.177,
+            "edge": -0.074,
             "market_basis": "book"
           },
           "recommendation": {
@@ -17284,8 +17264,8 @@
           },
           "value": {
             "model_prob": 0.078,
-            "market_prob": 0.076,
-            "edge": 0.002,
+            "market_prob": 0.075,
+            "edge": 0.003,
             "market_basis": "book"
           },
           "recommendation": {
@@ -17335,8 +17315,8 @@
           },
           "value": {
             "model_prob": 0.064,
-            "market_prob": 0.043,
-            "edge": 0.021,
+            "market_prob": 0.042,
+            "edge": 0.022,
             "market_basis": "book"
           },
           "recommendation": {
@@ -17386,8 +17366,8 @@
           },
           "value": {
             "model_prob": 0.063,
-            "market_prob": 0.161,
-            "edge": -0.098,
+            "market_prob": 0.158,
+            "edge": -0.095,
             "market_basis": "book"
           },
           "recommendation": {
@@ -17408,7 +17388,7 @@
           "draw": "3",
           "odds_str": "14/1",
           "odds_dec": 15.0,
-          "best_odds_dec": 17.0,
+          "best_odds_dec": 15.0,
           "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20261001bel170508.png",
@@ -17437,8 +17417,8 @@
           },
           "value": {
             "model_prob": 0.063,
-            "market_prob": 0.043,
-            "edge": 0.02,
+            "market_prob": 0.047,
+            "edge": 0.015,
             "market_basis": "book"
           },
           "recommendation": {
@@ -17488,8 +17468,8 @@
           },
           "value": {
             "model_prob": 0.062,
-            "market_prob": 0.048,
-            "edge": 0.014,
+            "market_prob": 0.047,
+            "edge": 0.015,
             "market_basis": "book"
           },
           "recommendation": {
@@ -17540,7 +17520,7 @@
           "value": {
             "model_prob": 0.062,
             "market_prob": 0.011,
-            "edge": 0.051,
+            "edge": 0.052,
             "market_basis": "book"
           },
           "recommendation": {
@@ -17623,7 +17603,7 @@
       "going": "Good",
       "race_class": "4",
       "prize": "4066.0 GBP",
-      "num_runners": 4,
+      "num_runners": 3,
       "ew_places": 1,
       "date": "2026-10-01",
       "runners": [
@@ -17638,13 +17618,13 @@
           "draw": "",
           "odds_str": "11/8",
           "odds_dec": 2.38,
-          "best_odds_dec": 2.2,
+          "best_odds_dec": 2.1,
           "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20261001sth171001.png",
-          "score": 57.1,
+          "score": 54.2,
           "components": {
-            "odds_value": 51.1,
+            "odds_value": 35.6,
             "recent_form": 93.1,
             "consistency": 83.3,
             "jockey": 38.6,
@@ -17666,14 +17646,14 @@
             "official_rating": 108
           },
           "value": {
-            "model_prob": 0.349,
-            "market_prob": 0.407,
-            "edge": -0.058,
+            "model_prob": 0.395,
+            "market_prob": 0.434,
+            "edge": -0.038,
             "market_basis": "book"
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 22,
+            "confidence": 21,
             "label": "Skip",
             "reasoning": "strong recent form; won last time out; consistent placer (83% placed)"
           }
@@ -17693,14 +17673,14 @@
           "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20261001sth171002.png",
-          "score": 48.4,
+          "score": 46.1,
           "components": {
-            "odds_value": 38.3,
+            "odds_value": 25.9,
             "recent_form": 68.7,
             "consistency": 50.0,
             "jockey": 71.0,
             "trainer": 64.7,
-            "weight": 10.5,
+            "weight": 66.7,
             "absence_pen": 0.0,
             "going_factor": 1.0,
             "distance": 57.7,
@@ -17713,18 +17693,18 @@
             "last_ran_days": 22,
             "timeform": 60.0,
             "timeform_stars": 3,
-            "class_or": 81.0,
+            "class_or": 20.0,
             "official_rating": 104
           },
           "value": {
-            "model_prob": 0.278,
-            "market_prob": 0.199,
-            "edge": 0.079,
+            "model_prob": 0.334,
+            "market_prob": 0.202,
+            "edge": 0.132,
             "market_basis": "book"
           },
           "recommendation": {
             "type": "Skip",
-            "confidence": 19,
+            "confidence": 18,
             "label": "Skip",
             "reasoning": "solid recent form; won last time out; consistent placer (50% placed)"
           }
@@ -17740,18 +17720,18 @@
           "draw": "",
           "odds_str": "3/1",
           "odds_dec": 4.0,
-          "best_odds_dec": 2.63,
+          "best_odds_dec": 2.5,
           "best_odds_book": "Paddy Power",
           "priced_books": 3,
           "silk_url": "20261001sth171003.png",
-          "score": 41.9,
+          "score": 40.1,
           "components": {
-            "odds_value": 25.9,
+            "odds_value": 16.7,
             "recent_form": 61.3,
             "consistency": 50.0,
             "jockey": 53.7,
             "trainer": 36.6,
-            "weight": 15.8,
+            "weight": 100.0,
             "absence_pen": 0.0,
             "going_factor": 1.0,
             "distance": 55.5,
@@ -17764,13 +17744,13 @@
             "last_ran_days": 23,
             "timeform": 80.0,
             "timeform_stars": 4,
-            "class_or": 76.2,
+            "class_or": 0.0,
             "official_rating": 103
           },
           "value": {
-            "model_prob": 0.229,
-            "market_prob": 0.341,
-            "edge": -0.112,
+            "model_prob": 0.27,
+            "market_prob": 0.364,
+            "edge": -0.094,
             "market_basis": "book"
           },
           "recommendation": {
@@ -17791,44 +17771,24 @@
           "draw": "",
           "odds_str": "10/1",
           "odds_dec": 11.0,
-          "best_odds_dec": 17.0,
-          "best_odds_book": "Betfair Sportsbook",
-          "priced_books": 3,
+          "best_odds_dec": null,
+          "best_odds_book": null,
+          "priced_books": 0,
           "silk_url": "20261001sth171004.png",
-          "score": 31.7,
-          "components": {
-            "odds_value": 2.4,
-            "recent_form": 44.3,
-            "consistency": 33.3,
-            "jockey": 54.4,
-            "trainer": 35.1,
-            "weight": 100.0,
-            "absence_pen": 0.0,
-            "going_factor": 1.0,
-            "distance": 47.9,
-            "distance_meta": {
-              "n": 6,
-              "relevance": 5.04,
-              "quality": 0.47
-            },
-            "freshness": 41.9,
-            "last_ran_days": 131,
-            "timeform": 40.0,
-            "timeform_stars": 2,
-            "class_or": 0.0,
-            "official_rating": 87
-          },
+          "score": null,
+          "components": {},
           "value": {
-            "model_prob": 0.144,
-            "market_prob": 0.053,
-            "edge": 0.091,
-            "market_basis": "book"
+            "model_prob": null,
+            "market_prob": null,
+            "edge": null,
+            "market_basis": null
           },
+          "non_runner": true,
           "recommendation": {
             "type": "Skip",
-            "confidence": 12,
-            "label": "Skip",
-            "reasoning": "moderate form"
+            "confidence": 0,
+            "label": "Non-runner",
+            "reasoning": "withdrawn — will not run"
           }
         }
       ]
@@ -17887,7 +17847,7 @@
           "value": {
             "model_prob": 0.128,
             "market_prob": 0.097,
-            "edge": 0.03,
+            "edge": 0.031,
             "market_basis": "book"
           },
           "recommendation": {
@@ -17938,7 +17898,7 @@
           "value": {
             "model_prob": 0.11,
             "market_prob": 0.097,
-            "edge": 0.013,
+            "edge": 0.014,
             "market_basis": "book"
           },
           "recommendation": {
@@ -18039,8 +17999,8 @@
           },
           "value": {
             "model_prob": 0.075,
-            "market_prob": 0.076,
-            "edge": -0.001,
+            "market_prob": 0.075,
+            "edge": -0.0,
             "market_basis": "book"
           },
           "recommendation": {
@@ -18141,8 +18101,8 @@
           },
           "value": {
             "model_prob": 0.064,
-            "market_prob": 0.076,
-            "edge": -0.012,
+            "market_prob": 0.075,
+            "edge": -0.011,
             "market_basis": "book"
           },
           "recommendation": {
@@ -18193,7 +18153,7 @@
           "value": {
             "model_prob": 0.057,
             "market_prob": 0.085,
-            "edge": -0.029,
+            "edge": -0.028,
             "market_basis": "book"
           },
           "recommendation": {
@@ -18244,7 +18204,7 @@
           "value": {
             "model_prob": 0.053,
             "market_prob": 0.068,
-            "edge": -0.015,
+            "edge": -0.014,
             "market_basis": "book"
           },
           "recommendation": {
@@ -18265,7 +18225,7 @@
           "draw": "",
           "odds_str": "8/1",
           "odds_dec": 9.0,
-          "best_odds_dec": 15.0,
+          "best_odds_dec": 13.0,
           "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20261001clo171707.png",
@@ -18294,8 +18254,8 @@
           },
           "value": {
             "model_prob": 0.047,
-            "market_prob": 0.045,
-            "edge": 0.002,
+            "market_prob": 0.052,
+            "edge": -0.005,
             "market_basis": "book"
           },
           "recommendation": {
@@ -18345,7 +18305,7 @@
           },
           "value": {
             "model_prob": 0.043,
-            "market_prob": 0.076,
+            "market_prob": 0.075,
             "edge": -0.032,
             "market_basis": "book"
           },
@@ -18397,7 +18357,7 @@
           "value": {
             "model_prob": 0.042,
             "market_prob": 0.052,
-            "edge": -0.011,
+            "edge": -0.01,
             "market_basis": "book"
           },
           "recommendation": {
@@ -18781,7 +18741,7 @@
           "draw": "",
           "odds_str": "3/1",
           "odds_dec": 4.0,
-          "best_odds_dec": 3.5,
+          "best_odds_dec": 3.25,
           "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20261001sal172502.png",
@@ -18810,8 +18770,8 @@
           },
           "value": {
             "model_prob": 0.18,
-            "market_prob": 0.239,
-            "edge": -0.059,
+            "market_prob": 0.26,
+            "edge": -0.08,
             "market_basis": "book"
           },
           "recommendation": {
@@ -18832,7 +18792,7 @@
           "draw": "",
           "odds_str": "5/2",
           "odds_dec": 3.5,
-          "best_odds_dec": 4.0,
+          "best_odds_dec": 4.33,
           "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20261001sal172504.png",
@@ -18861,8 +18821,8 @@
           },
           "value": {
             "model_prob": 0.175,
-            "market_prob": 0.209,
-            "edge": -0.034,
+            "market_prob": 0.195,
+            "edge": -0.021,
             "market_basis": "book"
           },
           "recommendation": {
@@ -18883,7 +18843,7 @@
           "draw": "",
           "odds_str": "6/1",
           "odds_dec": 7.0,
-          "best_odds_dec": 11.0,
+          "best_odds_dec": 12.0,
           "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20261001sal172510.png",
@@ -18912,8 +18872,8 @@
           },
           "value": {
             "model_prob": 0.125,
-            "market_prob": 0.076,
-            "edge": 0.049,
+            "market_prob": 0.07,
+            "edge": 0.055,
             "market_basis": "book"
           },
           "recommendation": {
@@ -18934,7 +18894,7 @@
           "draw": "",
           "odds_str": "8/1",
           "odds_dec": 9.0,
-          "best_odds_dec": 23.0,
+          "best_odds_dec": 26.0,
           "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20261001sal172506.png",
@@ -18963,8 +18923,8 @@
           },
           "value": {
             "model_prob": 0.123,
-            "market_prob": 0.036,
-            "edge": 0.087,
+            "market_prob": 0.033,
+            "edge": 0.091,
             "market_basis": "book"
           },
           "recommendation": {
@@ -19014,8 +18974,8 @@
           },
           "value": {
             "model_prob": 0.111,
-            "market_prob": 0.088,
-            "edge": 0.023,
+            "market_prob": 0.089,
+            "edge": 0.022,
             "market_basis": "book"
           },
           "recommendation": {
@@ -19065,8 +19025,8 @@
           },
           "value": {
             "model_prob": 0.08,
-            "market_prob": 0.186,
-            "edge": -0.105,
+            "market_prob": 0.188,
+            "edge": -0.108,
             "market_basis": "book"
           },
           "recommendation": {
@@ -19189,7 +19149,7 @@
           "draw": "",
           "odds_str": "25/1",
           "odds_dec": 26.0,
-          "best_odds_dec": 19.0,
+          "best_odds_dec": 21.0,
           "best_odds_book": "Paddy Power",
           "priced_books": 3,
           "silk_url": "20261001sal172503.png",
@@ -19218,8 +19178,8 @@
           },
           "value": {
             "model_prob": 0.042,
-            "market_prob": 0.044,
-            "edge": -0.002,
+            "market_prob": 0.04,
+            "edge": 0.001,
             "market_basis": "book"
           },
           "recommendation": {
@@ -19270,7 +19230,7 @@
           "value": {
             "model_prob": 0.041,
             "market_prob": 0.07,
-            "edge": -0.028,
+            "edge": -0.029,
             "market_basis": "book"
           },
           "recommendation": {
@@ -19306,7 +19266,7 @@
           "draw": "3",
           "odds_str": "13/8",
           "odds_dec": 2.62,
-          "best_odds_dec": 2.63,
+          "best_odds_dec": 2.88,
           "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20261001ncs173002.png",
@@ -19335,8 +19295,8 @@
           },
           "value": {
             "model_prob": 0.259,
-            "market_prob": 0.329,
-            "edge": -0.071,
+            "market_prob": 0.305,
+            "edge": -0.047,
             "market_basis": "book"
           },
           "recommendation": {
@@ -19357,7 +19317,7 @@
           "draw": "5",
           "odds_str": "3/1",
           "odds_dec": 4.0,
-          "best_odds_dec": 9.5,
+          "best_odds_dec": 9.0,
           "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20261001ncs173003.png",
@@ -19384,8 +19344,8 @@
           },
           "value": {
             "model_prob": 0.24,
-            "market_prob": 0.091,
-            "edge": 0.149,
+            "market_prob": 0.098,
+            "edge": 0.142,
             "market_basis": "book"
           },
           "recommendation": {
@@ -19435,8 +19395,8 @@
           },
           "value": {
             "model_prob": 0.218,
-            "market_prob": 0.501,
-            "edge": -0.283,
+            "market_prob": 0.508,
+            "edge": -0.29,
             "market_basis": "book"
           },
           "recommendation": {
@@ -19457,7 +19417,7 @@
           "draw": "4",
           "odds_str": "14/1",
           "odds_dec": 15.0,
-          "best_odds_dec": 19.0,
+          "best_odds_dec": 15.0,
           "best_odds_book": "Paddy Power",
           "priced_books": 3,
           "silk_url": "20261001ncs173005.png",
@@ -19486,8 +19446,8 @@
           },
           "value": {
             "model_prob": 0.167,
-            "market_prob": 0.046,
-            "edge": 0.122,
+            "market_prob": 0.059,
+            "edge": 0.109,
             "market_basis": "book"
           },
           "recommendation": {
@@ -19508,7 +19468,7 @@
           "draw": "2",
           "odds_str": "16/1",
           "odds_dec": 17.0,
-          "best_odds_dec": 26.0,
+          "best_odds_dec": 29.0,
           "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20261001ncs173001.png",
@@ -19537,8 +19497,8 @@
           },
           "value": {
             "model_prob": 0.116,
-            "market_prob": 0.033,
-            "edge": 0.083,
+            "market_prob": 0.03,
+            "edge": 0.086,
             "market_basis": "book"
           },
           "recommendation": {
@@ -19603,8 +19563,8 @@
           },
           "value": {
             "model_prob": 0.203,
-            "market_prob": 0.136,
-            "edge": 0.067,
+            "market_prob": 0.133,
+            "edge": 0.07,
             "market_basis": "book"
           },
           "recommendation": {
@@ -19654,8 +19614,8 @@
           },
           "value": {
             "model_prob": 0.185,
-            "market_prob": 0.161,
-            "edge": 0.024,
+            "market_prob": 0.158,
+            "edge": 0.027,
             "market_basis": "book"
           },
           "recommendation": {
@@ -19705,8 +19665,8 @@
           },
           "value": {
             "model_prob": 0.153,
-            "market_prob": 0.196,
-            "edge": -0.043,
+            "market_prob": 0.193,
+            "edge": -0.039,
             "market_basis": "book"
           },
           "recommendation": {
@@ -19756,8 +19716,8 @@
           },
           "value": {
             "model_prob": 0.148,
-            "market_prob": 0.235,
-            "edge": -0.088,
+            "market_prob": 0.231,
+            "edge": -0.083,
             "market_basis": "book"
           },
           "recommendation": {
@@ -19778,7 +19738,7 @@
           "draw": "3",
           "odds_str": "6/1",
           "odds_dec": 7.0,
-          "best_odds_dec": 6.5,
+          "best_odds_dec": 5.5,
           "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20261001ncs180006.png",
@@ -19807,8 +19767,8 @@
           },
           "value": {
             "model_prob": 0.125,
-            "market_prob": 0.136,
-            "edge": -0.01,
+            "market_prob": 0.158,
+            "edge": -0.032,
             "market_basis": "book"
           },
           "recommendation": {
@@ -19858,7 +19818,7 @@
           },
           "value": {
             "model_prob": 0.115,
-            "market_prob": 0.026,
+            "market_prob": 0.025,
             "edge": 0.089,
             "market_basis": "book"
           },
@@ -19880,7 +19840,7 @@
           "draw": "7",
           "odds_str": "16/1",
           "odds_dec": 17.0,
-          "best_odds_dec": 8.0,
+          "best_odds_dec": 8.5,
           "best_odds_book": "Paddy Power",
           "priced_books": 3,
           "silk_url": "20261001ncs180005.png",
@@ -19909,8 +19869,8 @@
           },
           "value": {
             "model_prob": 0.071,
-            "market_prob": 0.11,
-            "edge": -0.039,
+            "market_prob": 0.102,
+            "edge": -0.031,
             "market_basis": "book"
           },
           "recommendation": {
@@ -19975,8 +19935,8 @@
           },
           "value": {
             "model_prob": 0.151,
-            "market_prob": 0.05,
-            "edge": 0.101,
+            "market_prob": 0.049,
+            "edge": 0.102,
             "market_basis": "book"
           },
           "recommendation": {
@@ -20128,8 +20088,8 @@
           },
           "value": {
             "model_prob": 0.104,
-            "market_prob": 0.195,
-            "edge": -0.091,
+            "market_prob": 0.194,
+            "edge": -0.09,
             "market_basis": "book"
           },
           "recommendation": {
@@ -20281,7 +20241,7 @@
           },
           "value": {
             "model_prob": 0.086,
-            "market_prob": 0.225,
+            "market_prob": 0.224,
             "edge": -0.138,
             "market_basis": "book"
           },
@@ -20303,7 +20263,7 @@
           "draw": "7",
           "odds_str": "16/1",
           "odds_dec": 17.0,
-          "best_odds_dec": 34.0,
+          "best_odds_dec": 31.0,
           "best_odds_book": "Paddy Power",
           "priced_books": 3,
           "silk_url": "20261001ncs183007.png",
@@ -20332,8 +20292,8 @@
           },
           "value": {
             "model_prob": 0.07,
-            "market_prob": 0.025,
-            "edge": 0.045,
+            "market_prob": 0.027,
+            "edge": 0.043,
             "market_basis": "book"
           },
           "recommendation": {
@@ -20434,7 +20394,7 @@
           },
           "value": {
             "model_prob": 0.049,
-            "market_prob": 0.13,
+            "market_prob": 0.129,
             "edge": -0.081,
             "market_basis": "book"
           },
@@ -20974,8 +20934,8 @@
           },
           "value": {
             "model_prob": 0.216,
-            "market_prob": 0.334,
-            "edge": -0.118,
+            "market_prob": 0.331,
+            "edge": -0.115,
             "market_basis": "book"
           },
           "recommendation": {
@@ -20996,7 +20956,7 @@
           "draw": "2",
           "odds_str": "4/1",
           "odds_dec": 5.0,
-          "best_odds_dec": 8.5,
+          "best_odds_dec": 7.5,
           "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20261001ncs193004.png",
@@ -21025,8 +20985,8 @@
           },
           "value": {
             "model_prob": 0.146,
-            "market_prob": 0.098,
-            "edge": 0.047,
+            "market_prob": 0.11,
+            "edge": 0.035,
             "market_basis": "book"
           },
           "recommendation": {
@@ -21127,8 +21087,8 @@
           },
           "value": {
             "model_prob": 0.108,
-            "market_prob": 0.222,
-            "edge": -0.114,
+            "market_prob": 0.221,
+            "edge": -0.112,
             "market_basis": "book"
           },
           "recommendation": {
@@ -21179,7 +21139,7 @@
           "value": {
             "model_prob": 0.083,
             "market_prob": 0.064,
-            "edge": 0.019,
+            "edge": 0.02,
             "market_basis": "book"
           },
           "recommendation": {
@@ -21230,7 +21190,7 @@
           "value": {
             "model_prob": 0.075,
             "market_prob": 0.029,
-            "edge": 0.046,
+            "edge": 0.047,
             "market_basis": "book"
           },
           "recommendation": {
@@ -21281,7 +21241,7 @@
           "value": {
             "model_prob": 0.069,
             "market_prob": 0.016,
-            "edge": 0.052,
+            "edge": 0.053,
             "market_basis": "book"
           },
           "recommendation": {
@@ -21332,7 +21292,7 @@
           "value": {
             "model_prob": 0.067,
             "market_prob": 0.044,
-            "edge": 0.023,
+            "edge": 0.024,
             "market_basis": "book"
           },
           "recommendation": {
@@ -21353,7 +21313,7 @@
           "draw": "6",
           "odds_str": "14/1",
           "odds_dec": 15.0,
-          "best_odds_dec": 9.5,
+          "best_odds_dec": 10.0,
           "best_odds_book": "Paddy Power",
           "priced_books": 3,
           "silk_url": "20261001ncs193010.png",
@@ -21382,8 +21342,8 @@
           },
           "value": {
             "model_prob": 0.065,
-            "market_prob": 0.088,
-            "edge": -0.023,
+            "market_prob": 0.083,
+            "edge": -0.018,
             "market_basis": "book"
           },
           "recommendation": {
@@ -21433,8 +21393,8 @@
           },
           "value": {
             "model_prob": 0.055,
-            "market_prob": 0.056,
-            "edge": -0.0,
+            "market_prob": 0.055,
+            "edge": 0.0,
             "market_basis": "book"
           },
           "recommendation": {
@@ -21470,7 +21430,7 @@
           "draw": "3",
           "odds_str": "5/2",
           "odds_dec": 3.5,
-          "best_odds_dec": 5.5,
+          "best_odds_dec": 5.0,
           "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20261001ncs200001.png",
@@ -21499,8 +21459,8 @@
           },
           "value": {
             "model_prob": 0.181,
-            "market_prob": 0.153,
-            "edge": 0.028,
+            "market_prob": 0.166,
+            "edge": 0.015,
             "market_basis": "book"
           },
           "recommendation": {
@@ -21550,8 +21510,8 @@
           },
           "value": {
             "model_prob": 0.115,
-            "market_prob": 0.281,
-            "edge": -0.166,
+            "market_prob": 0.277,
+            "edge": -0.162,
             "market_basis": "book"
           },
           "recommendation": {
@@ -21572,7 +21532,7 @@
           "draw": "7",
           "odds_str": "6/1",
           "odds_dec": 7.0,
-          "best_odds_dec": 19.0,
+          "best_odds_dec": 15.0,
           "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20261001ncs200006.png",
@@ -21601,8 +21561,8 @@
           },
           "value": {
             "model_prob": 0.109,
-            "market_prob": 0.044,
-            "edge": 0.064,
+            "market_prob": 0.055,
+            "edge": 0.053,
             "market_basis": "book"
           },
           "recommendation": {
@@ -21652,8 +21612,8 @@
           },
           "value": {
             "model_prob": 0.105,
-            "market_prob": 0.121,
-            "edge": -0.015,
+            "market_prob": 0.119,
+            "edge": -0.014,
             "market_basis": "book"
           },
           "recommendation": {
@@ -21703,8 +21663,8 @@
           },
           "value": {
             "model_prob": 0.091,
-            "market_prob": 0.037,
-            "edge": 0.054,
+            "market_prob": 0.036,
+            "edge": 0.055,
             "market_basis": "book"
           },
           "recommendation": {
@@ -21754,8 +21714,8 @@
           },
           "value": {
             "model_prob": 0.089,
-            "market_prob": 0.065,
-            "edge": 0.024,
+            "market_prob": 0.064,
+            "edge": 0.025,
             "market_basis": "book"
           },
           "recommendation": {
@@ -21805,8 +21765,8 @@
           },
           "value": {
             "model_prob": 0.085,
-            "market_prob": 0.141,
-            "edge": -0.055,
+            "market_prob": 0.138,
+            "edge": -0.053,
             "market_basis": "book"
           },
           "recommendation": {
@@ -21856,8 +21816,8 @@
           },
           "value": {
             "model_prob": 0.084,
-            "market_prob": 0.065,
-            "edge": 0.019,
+            "market_prob": 0.064,
+            "edge": 0.02,
             "market_basis": "book"
           },
           "recommendation": {
@@ -21907,7 +21867,7 @@
           },
           "value": {
             "model_prob": 0.074,
-            "market_prob": 0.017,
+            "market_prob": 0.016,
             "edge": 0.058,
             "market_basis": "book"
           },
@@ -21929,7 +21889,7 @@
           "draw": "1",
           "odds_str": "10/1",
           "odds_dec": 11.0,
-          "best_odds_dec": 11.0,
+          "best_odds_dec": 13.0,
           "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20261001ncs200005.png",
@@ -21958,8 +21918,8 @@
           },
           "value": {
             "model_prob": 0.067,
-            "market_prob": 0.077,
-            "edge": -0.01,
+            "market_prob": 0.064,
+            "edge": 0.003,
             "market_basis": "book"
           },
           "recommendation": {
@@ -22024,8 +21984,8 @@
           },
           "value": {
             "model_prob": 0.308,
-            "market_prob": 0.131,
-            "edge": 0.177,
+            "market_prob": 0.128,
+            "edge": 0.18,
             "market_basis": "book"
           },
           "recommendation": {
@@ -22075,8 +22035,8 @@
           },
           "value": {
             "model_prob": 0.184,
-            "market_prob": 0.155,
-            "edge": 0.029,
+            "market_prob": 0.151,
+            "edge": 0.032,
             "market_basis": "book"
           },
           "recommendation": {
@@ -22097,7 +22057,7 @@
           "draw": "6",
           "odds_str": "7/1",
           "odds_dec": 8.0,
-          "best_odds_dec": 3.0,
+          "best_odds_dec": 2.75,
           "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20261001ncs203003.png",
@@ -22126,8 +22086,8 @@
           },
           "value": {
             "model_prob": 0.11,
-            "market_prob": 0.285,
-            "edge": -0.175,
+            "market_prob": 0.303,
+            "edge": -0.193,
             "market_basis": "book"
           },
           "recommendation": {
@@ -22148,7 +22108,7 @@
           "draw": "5",
           "odds_str": "8/1",
           "odds_dec": 9.0,
-          "best_odds_dec": 19.0,
+          "best_odds_dec": 21.0,
           "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20261001ncs203005.png",
@@ -22177,8 +22137,8 @@
           },
           "value": {
             "model_prob": 0.093,
-            "market_prob": 0.045,
-            "edge": 0.048,
+            "market_prob": 0.04,
+            "edge": 0.054,
             "market_basis": "book"
           },
           "recommendation": {
@@ -22228,8 +22188,8 @@
           },
           "value": {
             "model_prob": 0.082,
-            "market_prob": 0.171,
-            "edge": -0.088,
+            "market_prob": 0.167,
+            "edge": -0.084,
             "market_basis": "book"
           },
           "recommendation": {
@@ -22279,8 +22239,8 @@
           },
           "value": {
             "model_prob": 0.082,
-            "market_prob": 0.122,
-            "edge": -0.04,
+            "market_prob": 0.119,
+            "edge": -0.037,
             "market_basis": "book"
           },
           "recommendation": {
@@ -22330,8 +22290,8 @@
           },
           "value": {
             "model_prob": 0.078,
-            "market_prob": 0.078,
-            "edge": 0.0,
+            "market_prob": 0.076,
+            "edge": 0.002,
             "market_basis": "book"
           },
           "recommendation": {
@@ -22352,7 +22312,7 @@
           "draw": "2",
           "odds_str": "33/1",
           "odds_dec": 34.0,
-          "best_odds_dec": 67.0,
+          "best_odds_dec": 51.0,
           "best_odds_book": "Betfair Sportsbook",
           "priced_books": 3,
           "silk_url": "20261001ncs203008.png",
@@ -22381,8 +22341,8 @@
           },
           "value": {
             "model_prob": 0.062,
-            "market_prob": 0.013,
-            "edge": 0.05,
+            "market_prob": 0.016,
+            "edge": 0.046,
             "market_basis": "book"
           },
           "recommendation": {
