@@ -6969,5 +6969,100 @@
         "favourite": "Infraad"
       }
     ]
+  },
+  {
+    "date": "2026-10-03",
+    "summary": {
+      "overall_pct": 50.0,
+      "win_pct": 50.0,
+      "ew_pct": null,
+      "win_correct": 1,
+      "win_total": 2,
+      "ew_correct": 0,
+      "ew_total": 0,
+      "ew_win_count": 0,
+      "ew_placed_count": 0,
+      "excluded": {
+        "non_runner": 0,
+        "unmatched": 0,
+        "no_result": 0
+      },
+      "excluded_total": 0,
+      "dnf_count": 0,
+      "overall_roi": -33.5,
+      "win_roi": -33.5,
+      "ew_roi": null,
+      "roi": {
+        "win_stake": 2.0,
+        "win_ret": 1.33,
+        "ew_stake": 0.0,
+        "ew_ret": 0.0
+      },
+      "settle_basis": {
+        "book": 2,
+        "sp": 0
+      },
+      "roi_forecast": {
+        "stake": 2.0,
+        "ret": 1.44
+      },
+      "fav": {
+        "stake": 2.0,
+        "ret": 1.33,
+        "wins": 1
+      }
+    },
+    "races": [
+      {
+        "course": "Newmarket",
+        "time": "13:35",
+        "race_name": "BetMGM Sun Chariot Stakes (Fillies' & Mares' Group 1)",
+        "date": "2026-10-03",
+        "winner": "Blue Bolt",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 1,
+            "outcome": "correct",
+            "sp": 1.25,
+            "horse": "Blue Bolt",
+            "score": 76.1,
+            "odds": "4/9",
+            "label": "Strong Win Bet",
+            "best_odds": 1.33,
+            "primary": true,
+            "settle_odds": 1.33,
+            "settle_basis": "book"
+          }
+        ],
+        "abandoned": false,
+        "favourite": "Blue Bolt"
+      },
+      {
+        "course": "Ascot",
+        "time": "15:35",
+        "race_name": "BetMGM Challenge Cup (Heritage Handicap)",
+        "date": "2026-10-03",
+        "winner": "Mezcala",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 9,
+            "outcome": "incorrect",
+            "sp": 7.0,
+            "horse": "Thunder Call",
+            "score": 75.3,
+            "odds": "11/4",
+            "label": "Strong Win Bet",
+            "best_odds": 5.0,
+            "primary": true,
+            "settle_odds": 5.0,
+            "settle_basis": "book"
+          }
+        ],
+        "abandoned": false,
+        "favourite": "Thunder Call"
+      }
+    ]
   }
 ]
