@@ -5673,58 +5673,7 @@
         "wins": 1
       }
     },
-    "races": [
-      {
-        "course": "Sedgefield",
-        "time": "14:30",
-        "race_name": "Roxyfet Sports Lounge For Private Hire Mares' Handicap Hurdle",
-        "date": "2026-09-09",
-        "winner": "Spot On Soph",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 2,
-            "outcome": "incorrect",
-            "sp": 2.0,
-            "horse": "Stellarmasterpiece",
-            "score": 72.1,
-            "odds": "4/6",
-            "label": "Strong Win Bet",
-            "best_odds": 2.25,
-            "primary": true,
-            "settle_odds": 2.25,
-            "settle_basis": "book"
-          }
-        ],
-        "abandoned": false,
-        "favourite": "Stellarmasterpiece"
-      },
-      {
-        "course": "Sedgefield",
-        "time": "16:00",
-        "race_name": "Sedgefield Racecourse For Outdoor Events Handicap Hurdle",
-        "date": "2026-09-09",
-        "winner": "Loriko",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 1,
-            "outcome": "correct",
-            "sp": 3.5,
-            "horse": "Loriko",
-            "score": 76.6,
-            "odds": "4/6",
-            "label": "Strong Win Bet",
-            "best_odds": 2.38,
-            "primary": true,
-            "settle_odds": 2.38,
-            "settle_basis": "book"
-          }
-        ],
-        "abandoned": false,
-        "favourite": "Loriko"
-      }
-    ]
+    "races": []
   },
   {
     "date": "2026-09-10",
@@ -7258,5 +7207,75 @@
       }
     },
     "races": []
+  },
+  {
+    "date": "2026-10-09",
+    "summary": {
+      "overall_pct": 100.0,
+      "win_pct": 100.0,
+      "ew_pct": null,
+      "win_correct": 1,
+      "win_total": 1,
+      "ew_correct": 0,
+      "ew_total": 0,
+      "ew_win_count": 0,
+      "ew_placed_count": 0,
+      "excluded": {
+        "non_runner": 0,
+        "unmatched": 0,
+        "no_result": 0
+      },
+      "excluded_total": 0,
+      "dnf_count": 0,
+      "overall_roi": 40.0,
+      "win_roi": 40.0,
+      "ew_roi": null,
+      "roi": {
+        "win_stake": 1.0,
+        "win_ret": 1.4,
+        "ew_stake": 0.0,
+        "ew_ret": 0.0
+      },
+      "settle_basis": {
+        "book": 1,
+        "sp": 0
+      },
+      "roi_forecast": {
+        "stake": 1.0,
+        "ret": 1.5
+      },
+      "fav": {
+        "stake": 1.0,
+        "ret": 1.4,
+        "wins": 1
+      }
+    },
+    "races": [
+      {
+        "course": "Newmarket",
+        "time": "14:57",
+        "race_name": "bet365 Fillies' Mile (Group 1)",
+        "date": "2026-10-09",
+        "winner": "Musical Times",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 1,
+            "outcome": "correct",
+            "sp": 1.44,
+            "horse": "Musical Times",
+            "score": 72.7,
+            "odds": "1/2",
+            "label": "Strong Win Bet",
+            "best_odds": 1.4,
+            "primary": true,
+            "settle_odds": 1.4,
+            "settle_basis": "book"
+          }
+        ],
+        "abandoned": false,
+        "favourite": "Musical Times"
+      }
+    ]
   }
 ]
