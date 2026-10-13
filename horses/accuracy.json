@@ -5805,33 +5805,7 @@
         "wins": 1
       }
     },
-    "races": [
-      {
-        "course": "Leopardstown",
-        "time": "15:55",
-        "race_name": "Coolmore America 'Justify' Matron Stakes (Fillies' And Mares' Group 1)",
-        "date": "2026-09-12",
-        "winner": "Blue Bolt",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 1,
-            "outcome": "correct",
-            "sp": 1.8,
-            "horse": "Blue Bolt",
-            "score": 73.4,
-            "odds": "5/4",
-            "label": "Strong Win Bet",
-            "best_odds": 1.8,
-            "primary": true,
-            "settle_odds": 1.8,
-            "settle_basis": "book"
-          }
-        ],
-        "abandoned": false,
-        "favourite": "Blue Bolt"
-      }
-    ]
+    "races": []
   },
   {
     "date": "2026-09-13",
@@ -7324,6 +7298,50 @@
   },
   {
     "date": "2026-10-11",
+    "summary": {
+      "overall_pct": null,
+      "win_pct": null,
+      "ew_pct": null,
+      "win_correct": 0,
+      "win_total": 0,
+      "ew_correct": 0,
+      "ew_total": 0,
+      "ew_win_count": 0,
+      "ew_placed_count": 0,
+      "excluded": {
+        "non_runner": 0,
+        "unmatched": 0,
+        "no_result": 0
+      },
+      "excluded_total": 0,
+      "dnf_count": 0,
+      "overall_roi": null,
+      "win_roi": null,
+      "ew_roi": null,
+      "roi": {
+        "win_stake": 0.0,
+        "win_ret": 0.0,
+        "ew_stake": 0.0,
+        "ew_ret": 0.0
+      },
+      "settle_basis": {
+        "book": 0,
+        "sp": 0
+      },
+      "roi_forecast": {
+        "stake": 0.0,
+        "ret": 0.0
+      },
+      "fav": {
+        "stake": 0.0,
+        "ret": 0.0,
+        "wins": 0
+      }
+    },
+    "races": []
+  },
+  {
+    "date": "2026-10-12",
     "summary": {
       "overall_pct": null,
       "win_pct": null,
