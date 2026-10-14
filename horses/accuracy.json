@@ -5849,83 +5849,7 @@
         "wins": 2
       }
     },
-    "races": [
-      {
-        "course": "Curragh",
-        "time": "14:50",
-        "race_name": "Moyglare Stud Stakes (Fillies' Group 1)",
-        "date": "2026-09-13",
-        "winner": "Sun Goddess",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 1,
-            "outcome": "correct",
-            "sp": 1.57,
-            "horse": "Sun Goddess",
-            "score": 73.4,
-            "odds": "1/1",
-            "label": "Strong Win Bet",
-            "best_odds": 1.8,
-            "primary": true,
-            "settle_odds": 1.8,
-            "settle_basis": "book"
-          }
-        ],
-        "abandoned": false,
-        "favourite": "Sun Goddess"
-      },
-      {
-        "course": "Doncaster",
-        "time": "15:05",
-        "race_name": "Japan Racing Association Sceptre Fillies' Stakes (Fillies' & Mares Group 3)",
-        "date": "2026-09-13",
-        "winner": "Pina Sonata",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 4,
-            "outcome": "incorrect",
-            "sp": 2.25,
-            "horse": "Forty Years On",
-            "score": 72.2,
-            "odds": "5/2",
-            "label": "Strong Win Bet",
-            "best_odds": 3.0,
-            "primary": true,
-            "settle_odds": 3.0,
-            "settle_basis": "book"
-          }
-        ],
-        "abandoned": false,
-        "favourite": "Forty Years On"
-      },
-      {
-        "course": "Curragh",
-        "time": "16:35",
-        "race_name": "Comer Group International Irish St. Leger (Group 1)",
-        "date": "2026-09-13",
-        "winner": "Scandinavia",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 1,
-            "outcome": "correct",
-            "sp": 1.36,
-            "horse": "Scandinavia",
-            "score": 73.4,
-            "odds": "2/5",
-            "label": "Strong Win Bet",
-            "best_odds": 1.33,
-            "primary": true,
-            "settle_odds": 1.33,
-            "settle_basis": "book"
-          }
-        ],
-        "abandoned": false,
-        "favourite": "Scandinavia"
-      }
-    ]
+    "races": []
   },
   {
     "date": "2026-09-14",
@@ -7342,6 +7266,50 @@
   },
   {
     "date": "2026-10-12",
+    "summary": {
+      "overall_pct": null,
+      "win_pct": null,
+      "ew_pct": null,
+      "win_correct": 0,
+      "win_total": 0,
+      "ew_correct": 0,
+      "ew_total": 0,
+      "ew_win_count": 0,
+      "ew_placed_count": 0,
+      "excluded": {
+        "non_runner": 0,
+        "unmatched": 0,
+        "no_result": 0
+      },
+      "excluded_total": 0,
+      "dnf_count": 0,
+      "overall_roi": null,
+      "win_roi": null,
+      "ew_roi": null,
+      "roi": {
+        "win_stake": 0.0,
+        "win_ret": 0.0,
+        "ew_stake": 0.0,
+        "ew_ret": 0.0
+      },
+      "settle_basis": {
+        "book": 0,
+        "sp": 0
+      },
+      "roi_forecast": {
+        "stake": 0.0,
+        "ret": 0.0
+      },
+      "fav": {
+        "stake": 0.0,
+        "ret": 0.0,
+        "wins": 0
+      }
+    },
+    "races": []
+  },
+  {
+    "date": "2026-10-13",
     "summary": {
       "overall_pct": null,
       "win_pct": null,
