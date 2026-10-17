@@ -5981,33 +5981,7 @@
         "wins": 0
       }
     },
-    "races": [
-      {
-        "course": "Kelso",
-        "time": "17:25",
-        "race_name": "Paul Ferguson's Jumpers To Follow Handicap Hurdle",
-        "date": "2026-09-16",
-        "winner": "Dream's Ka",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 3,
-            "outcome": "incorrect",
-            "sp": 1.62,
-            "horse": "Loriko",
-            "score": 78.6,
-            "odds": "4/5",
-            "label": "Strong Win Bet",
-            "best_odds": 1.91,
-            "primary": true,
-            "settle_odds": 1.91,
-            "settle_basis": "book"
-          }
-        ],
-        "abandoned": false,
-        "favourite": "Loriko"
-      }
-    ]
+    "races": []
   },
   {
     "date": "2026-09-17",
@@ -7398,6 +7372,50 @@
   },
   {
     "date": "2026-10-15",
+    "summary": {
+      "overall_pct": null,
+      "win_pct": null,
+      "ew_pct": null,
+      "win_correct": 0,
+      "win_total": 0,
+      "ew_correct": 0,
+      "ew_total": 0,
+      "ew_win_count": 0,
+      "ew_placed_count": 0,
+      "excluded": {
+        "non_runner": 0,
+        "unmatched": 0,
+        "no_result": 0
+      },
+      "excluded_total": 0,
+      "dnf_count": 0,
+      "overall_roi": null,
+      "win_roi": null,
+      "ew_roi": null,
+      "roi": {
+        "win_stake": 0.0,
+        "win_ret": 0.0,
+        "ew_stake": 0.0,
+        "ew_ret": 0.0
+      },
+      "settle_basis": {
+        "book": 0,
+        "sp": 0
+      },
+      "roi_forecast": {
+        "stake": 0.0,
+        "ret": 0.0
+      },
+      "fav": {
+        "stake": 0.0,
+        "ret": 0.0,
+        "wins": 0
+      }
+    },
+    "races": []
+  },
+  {
+    "date": "2026-10-16",
     "summary": {
       "overall_pct": null,
       "win_pct": null,
