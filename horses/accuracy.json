@@ -7457,5 +7457,75 @@
       }
     },
     "races": []
+  },
+  {
+    "date": "2026-10-17",
+    "summary": {
+      "overall_pct": 100.0,
+      "win_pct": 100.0,
+      "ew_pct": null,
+      "win_correct": 1,
+      "win_total": 1,
+      "ew_correct": 0,
+      "ew_total": 0,
+      "ew_win_count": 0,
+      "ew_placed_count": 0,
+      "excluded": {
+        "non_runner": 0,
+        "unmatched": 0,
+        "no_result": 0
+      },
+      "excluded_total": 0,
+      "dnf_count": 0,
+      "overall_roi": 400.0,
+      "win_roi": 400.0,
+      "ew_roi": null,
+      "roi": {
+        "win_stake": 1.0,
+        "win_ret": 5.0,
+        "ew_stake": 0.0,
+        "ew_ret": 0.0
+      },
+      "settle_basis": {
+        "book": 1,
+        "sp": 0
+      },
+      "roi_forecast": {
+        "stake": 1.0,
+        "ret": 4.0
+      },
+      "fav": {
+        "stake": 1.0,
+        "ret": 0.0,
+        "wins": 0
+      }
+    },
+    "races": [
+      {
+        "course": "Ascot",
+        "time": "15:20",
+        "race_name": "Queen Elizabeth II Stakes (Sponsored By Qatar Racing) (Group 1) (Str)",
+        "date": "2026-10-17",
+        "winner": "Talk Of New York",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 1,
+            "outcome": "correct",
+            "sp": 4.0,
+            "horse": "Talk Of New York",
+            "score": 73.5,
+            "odds": "3/1",
+            "label": "Strong Win Bet",
+            "best_odds": 5.0,
+            "primary": true,
+            "settle_odds": 5.0,
+            "settle_basis": "book"
+          }
+        ],
+        "abandoned": false,
+        "favourite": "Gstaad"
+      }
+    ]
   }
 ]
