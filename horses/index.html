@@ -1099,21 +1099,35 @@ function verdictLine(runner) {
   return reason || 'No strong opinion at the price.';
 }
 
+/* Top Pick: the runner the model makes most likely to win (value.model_prob,
+   market-anchored — scrape_races.py ANCHOR_COEFS), in a race with no Win Bet.
+   With morning bookmaker prices that's the best-priced favourite, which won
+   34.1% of races walk-forward vs 26.2% for the top score. Falls back to the
+   top score for older cards without model_prob. Not a bet. */
+function topPick(race) {
+  const active = race.runners.filter(r => !r.non_runner);
+  if (!active.length || active.some(r => (r.recommendation||{}).type === 'Win')) return null;
+  const key = r => (r.value||{}).model_prob;
+  if (active.every(r => key(r) != null))
+    return active.reduce((a, b) => key(b) > key(a) ? b : a);
+  return active[0];
+}
+
 function renderRunners(race) {
   const el = document.getElementById('runners');
   el.innerHTML = '';
+  const pick = topPick(race);
   race.runners.forEach((runner, idx) => {
     const rec  = runner.recommendation || {};
     const isNR = !!runner.non_runner;
-    // Notable: this race's top-ranked runner, only when no Win Bet already
-    // covers it — the model's stats-based favourite, not a recommended bet.
-    const isNotable = !isNR && rec.type !== 'Win' && idx === 0 && (runner.score||0) >= 45;
+    const isNotable = runner === pick;
     const v    = isNR      ? { state:'nr',      cls:'v-nr',      chip:'NON-RUNNER' }
                : isNotable ? { state:'notable', cls:'v-notable', chip:'TOP PICK' }
                : verdict(rec);
     const val  = runner.value || {};
     const comp = runner.components || {};
-    const topExpanded = !isNR && idx === 0;   // expand factors on the top pick only
+    // expand factors on the lead runner only: the Win Bet, else the Top Pick
+    const topExpanded = !isNR && (rec.type === 'Win' || isNotable);
 
     const card = document.createElement('div');
     card.className = `rcard ${v.cls} ${isNR ? 'nr' : ''} fade s${Math.min(idx+1,8)}`;
@@ -1190,7 +1204,7 @@ function renderLegend() {
   document.getElementById('legend').innerHTML = `
     <h3>Verdict Key</h3>
     <div class="leg-item v-strong"><span class="vchip sm"><span class="vdot"></span>Strong Back</span> The model's strongest call. <span class="swb-note">No betting edge proven yet: it loses money in backtests at real bookmaker prices.</span></div>
-    <div class="leg-item v-notable"><span class="vchip sm"><span class="vdot"></span>Top Pick</span> Model's stats favourite in this race — not a recommended bet</div>
+    <div class="leg-item v-notable"><span class="vchip sm"><span class="vdot"></span>Top Pick</span> Most likely winner, led by the morning bookmaker prices — not a recommended bet</div>
     <div class="leg-item v-skip"><span class="vchip sm"><span class="vdot"></span>Skip</span> Not enough value at the odds</div>
     <div id="leg-disc">Not financial advice. For information only.</div>`;
 }
@@ -1273,8 +1287,8 @@ function betAbbr(label) {
 // Two distinct, mutually-exclusive tiers per race:
 //  - Win Bets: score>=72 & odds<=5.0, backed by profitable walk-forward
 //    backtesting (scripts/backtest_value.py) — the only picks worth staking on.
-//  - Notable Picks: the model's top-ranked runner in every OTHER race — a
-//    stats-based opinion for races that didn't clear the win-bet bar, not a
+//  - Notable Picks: the model's most likely winner (topPick) in every OTHER race — a
+//    model opinion for races that didn't clear the win-bet bar, not a
 //    bet recommendation. Gives an answer for every race on the card without
 //    reopening the retired Win Bet tier (see scrape_races.py::make_recommendation).
 function renderPicks() {
@@ -1286,11 +1300,9 @@ function renderPicks() {
       const rec = runner.recommendation || {};
       if (rec.type === 'Win') { winPicks.push({ race, runner, rec }); hasWin = true; }
     });
-    if (!hasWin) {
-      const top = race.runners.find(r => !r.non_runner);
-      if (top && (top.score||0) >= 45)
-        notablePicks.push({ race, runner: top, rec: { ...(top.recommendation||{}), label: 'Notable Pick' } });
-    }
+    const top = hasWin ? null : topPick(race);
+    if (top)
+      notablePicks.push({ race, runner: top, rec: { ...(top.recommendation||{}), label: 'Notable Pick' } });
   });
   const bySlot = (a, b) => raceMins(a.race) - raceMins(b.race) || (b.runner.score||0) - (a.runner.score||0);
   winPicks.sort(bySlot);
@@ -1335,7 +1347,7 @@ function renderPicks() {
   listEl.innerHTML = html +
     `<div class="picks-legend"><b class="swb">SWB</b> Strong Win Bet · <b class="notable">TOP</b> Notable Pick`
     + `<br>Strong Win Bet is the model's strongest call. No betting edge is proven yet: it loses money in backtests at real bookmaker prices.`
-    + `<br>Notable Picks are the model's stats-based favourite where no Win Bet cleared the bar — not a recommended bet.`
+    + `<br>Notable Picks are the model's most likely winner where no Win Bet cleared the bar — not a recommended bet.`
     + `<br>Not financial advice. For information only.</div>`;
 }
 

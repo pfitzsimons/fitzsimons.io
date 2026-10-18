@@ -81,7 +81,9 @@ def score_and_recommend(prace, table, lastrun, on_date, fresh_weight):
     """Re-score a race with the shipped strike-rate model plus FRESH_WEIGHT,
     injecting each runner's reconstructed days-since-last-run. Returns runners
     (deep-copied), sorted best-first with fresh recommendations."""
-    runners = [copy.deepcopy(r) for r in prace["runners"]]
+    # Production scores only the start-of-day runners: morning non-runners are
+    # excluded from scoring and from the field size (scrape_race `active`).
+    runners = [copy.deepcopy(r) for r in prace["runners"] if not r.get("non_runner")]
     n = len(runners)
 
     s.STRIKE_TABLE = table

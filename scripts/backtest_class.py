@@ -48,7 +48,9 @@ def score_and_recommend(prace, table, or_weight, tf_weight):
     TF_WEIGHT, reading each runner's archived official_rating/timeform_stars
     directly (no reconstruction — these are stored raw, unlike distance/
     freshness). Returns runners (deep-copied), sorted best-first."""
-    runners = [copy.deepcopy(r) for r in prace["runners"]]
+    # Production scores only the start-of-day runners: morning non-runners are
+    # excluded from scoring and from the field size (scrape_race `active`).
+    runners = [copy.deepcopy(r) for r in prace["runners"] if not r.get("non_runner")]
     n = len(runners)
 
     s.STRIKE_TABLE = table
