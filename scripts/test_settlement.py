@@ -15,6 +15,8 @@ Guards the accuracy/ROI settlement rules, without touching the network:
      whole race has one.
   6. The site's Top Pick (highest model_prob, races without a Strong Win
      Bet) is graded as a non-bet line, only from TOP_PICK_SINCE.
+  7. The scraper captures every book's price (book_odds), a consensus price
+     and the best/worst spread, without changing best_odds_dec.
 
 Run: python3 scripts/test_settlement.py
 """
@@ -284,9 +286,37 @@ def test_anchored_model_prob():
     assert all(abs(r["_model_prob"] - 0.5) < 1e-9 for r in rs)
 
 
+def test_book_price_list():
+    ride = {"bookmakerOdds": [
+        {"bookmakerName": "Bet365", "decimalOdds": 4.0},
+        {"bookmakerName": "Betfair Sportsbook", "decimalOdds": "5.0"},
+        {"bookmakerName": "Bet365", "decimalOdds": 3.5},     # duplicate: keep the best
+        {"bookmakerName": "Unibet", "decimalOdds": None},    # unpriced
+        {"bookmakerName": "Coral", "decimalOdds": "SP"},     # unparseable
+        {"bookmakerName": "Paddy", "decimalOdds": 1.0},      # not a price
+        {"decimalOdds": 2.0},                                # priced, unnamed
+    ]}
+    got = s.book_price_list(ride)
+    assert got["book_odds"] == {"Bet365": 4.0, "Betfair Sportsbook": 5.0}
+    # Consensus is 1 / mean implied probability over every priced entry.
+    mean_p = (1 / 4.0 + 1 / 5.0 + 1 / 3.5 + 1 / 2.0) / 4
+    assert got["consensus_odds_dec"] == round(1 / mean_p, 2)
+    assert got["book_spread"] == round(5.0 / 2.0, 3)
+    # The settlement price is still the single best price, untouched.
+    assert s.best_book_odds(ride) == (5.0, "Betfair Sportsbook", 4)
+
+    one = s.book_price_list({"bookmakerOdds": [{"bookmakerName": "Bet365", "decimalOdds": 3.25}]})
+    assert one == {"book_odds": {"Bet365": 3.25}, "consensus_odds_dec": 3.25, "book_spread": 1.0}
+
+    empty = {"book_odds": {}, "consensus_odds_dec": None, "book_spread": None}
+    assert s.book_price_list({}) == empty
+    assert s.book_price_list({"bookmakerOdds": None}) == empty
+    assert s.book_price_list({"bookmakerOdds": [{"bookmakerName": "X", "decimalOdds": "-"}]}) == empty
+
+
 def main():
     tests = [test_prices, test_matching, test_day_report, test_top_pick, test_backtest_settlement,
-             test_derived_log, test_market_readout, test_anchored_model_prob]
+             test_derived_log, test_market_readout, test_anchored_model_prob, test_book_price_list]
     # fetch_results logs progress to stderr; keep the test output clean.
     real_log = fr.log
     fr.log = lambda msg: None
@@ -296,7 +326,7 @@ def main():
     finally:
         fr.log = real_log
     print(f"PASS — {len(tests)} settlement checks: bettable prices, exact-name matching, "
-          f"favourite baseline, top pick, derived accuracy log, market readout, anchored model prob")
+          f"favourite baseline, top pick, derived accuracy log, market readout, anchored model prob, book price list")
 
 
 if __name__ == "__main__":
