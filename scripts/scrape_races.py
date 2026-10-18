@@ -253,8 +253,8 @@ COURSE_COEFFICIENTS = {}
 
 # ─────────────────────────────────────────────────────────────
 # MODEL-VS-MARKET READOUT
-# Turn the raw score into a calibrated win-probability and show it next to
-# the market's implied probability. This is INFORMATIONAL only: a 61-day
+# The model's win probability (market-anchored, below) shown next to the
+# market's implied probability. Recommendations are not gated on it: a 61-day
 # backtest (scripts/backtest_value.py) showed that betting on the model's
 # "value" disagreements with the market DEGRADES ROI — the market's prices
 # are sharper than the model's probabilities, so the model's edge lies in
@@ -264,7 +264,8 @@ COURSE_COEFFICIENTS = {}
 
 # Score→win-probability calibration: band centre → observed win rate,
 # from the 61-day backtest. Linearly interpolated. The 90-99 point is held
-# at the 80-89 value (its own sample was tiny and noisy).
+# at the 80-89 value (its own sample was tiny and noisy). Now only the
+# fallback for races where a runner has no forecast price.
 _CALIB = [
     (5, 0.037), (15, 0.047), (25, 0.048), (35, 0.082), (45, 0.127),
     (55, 0.156), (65, 0.231), (75, 0.316), (85, 0.401), (95, 0.401),
@@ -283,23 +284,121 @@ def score_to_winprob(score: float) -> float:
     return _CALIB[-1][1]
 
 
+# MARKET-ANCHORED WIN PROBABILITY
+# The overall score adds nothing once the price is known, so the model's win
+# probability is a conditional logit anchored on the market:
+#
+#   P(win) ∝ exp( b_market · log(overround-free market prob)
+#                 + Σ b_f · (component_f − field mean) / 10
+#                 + b_runs · (log(1 + runs) − field mean) )
+#
+# The market is the morning best bookmaker price when every runner has one
+# (same rule as the readout below), else the overnight forecast; each basis
+# has its own fit. Book prices are far sharper than the forecast. The model
+# ranks the Top Pick and feeds the readout. It gates no bet, because it still
+# loses money at bookmaker prices. Refit with
+# `python3 scripts/backtest_top_pick.py --fit` and paste the output here.
+ANCHOR_FEATURES = ("recent_form", "consistency", "jockey", "trainer")
+# Which bases use the components (walk-forward, scripts/backtest_top_pick.py,
+# 2026-10-18). Against the forecast they help a little: the top pick wins
+# 30.0% vs 29.5% for the forecast favourite (+0.6pp, CI [+0.0, +1.2]).
+# Against morning book prices they add nothing (log-loss −0.004, CI spans
+# zero), so book races use the price alone, with b_market > 1 sharpening it
+# (favourite–longshot bias). There the top pick is the book favourite, which
+# won 34.1% of races vs 26.2% for the top score (+7.5pp, CI [+5.7, +9.5]).
+ANCHOR_COMPONENTS = {"book": False, "forecast": True}
+# Fit 2026-10-18 on 2026-05-17..10-17 (3,545 book races, 5,902 forecast).
+ANCHOR_COEFS = {
+    "book": {
+        "market": 1.1427,
+        "recent_form": 0.0000,
+        "consistency": 0.0000,
+        "jockey": 0.0000,
+        "trainer": 0.0000,
+        "runs": 0.0000,
+    },
+    "forecast": {
+        "market": 0.9609,
+        "recent_form": -0.0390,
+        "consistency": 0.0275,
+        "jockey": 0.0750,
+        "trainer": 0.0417,
+        "runs": 0.1894,
+    },
+}
+
+
+def market_basis(runners: list) -> Optional[str]:
+    """"book" if every runner has a best bookmaker price, else "forecast" if
+    every runner has a forecast price, else None."""
+    if runners and all((r.get("best_odds_dec") or 0) > 1 for r in runners):
+        return "book"
+    if runners and all((r.get("odds_dec") or 0) > 1 for r in runners):
+        return "forecast"
+    return None
+
+
+def anchor_features(runners: list, basis: str) -> list:
+    """Feature rows (market, *ANCHOR_FEATURES, runs) for one race's active
+    field, in ANCHOR_COEFS[basis] order. Runners must carry "_components"
+    and "_form_analysis" (score_runner) and a price for `basis`."""
+    key = "best_odds_dec" if basis == "book" else "odds_dec"
+    q = [1.0 / r[key] for r in runners]
+    qt = sum(q)
+    cols = [[math.log(x / qt) for x in q]]
+
+    def centred(vals):
+        m = sum(vals) / len(vals)
+        return [v - m for v in vals]
+
+    for f in ANCHOR_FEATURES:
+        vals = []
+        for r in runners:
+            v = (r.get("_components") or {}).get(f)
+            vals.append((float(v) if v is not None else 50.0) / 10.0)
+        cols.append(centred(vals))
+    cols.append(centred([math.log1p((r.get("_form_analysis") or {}).get("num_runs", 0) or 0)
+                         for r in runners]))
+    return [list(row) for row in zip(*cols)]
+
+
+def softmax_probs(rows: list, coefs: list) -> list:
+    u = [sum(b * x for b, x in zip(coefs, row)) for row in rows]
+    m = max(u)
+    e = [math.exp(v - m) for v in u]
+    t = sum(e)
+    return [v / t for v in e]
+
+
+def anchored_probs(runners: list) -> Optional[list]:
+    """Market-anchored win probabilities for the field (sum to 1), or None
+    when the race can't be priced."""
+    basis = market_basis(runners)
+    if basis is None:
+        return None
+    return softmax_probs(anchor_features(runners, basis), list(ANCHOR_COEFS[basis].values()))
+
+
 def compute_value(runners: list) -> None:
     """
     Attach model-vs-market metrics to each runner (mutates in place):
-      _model_prob  — calibrated win prob, normalised so the field sums to 1
+      _model_prob  — market-anchored win prob (see ANCHOR_COEFS), summing to
+                     1 over the field; falls back to the score calibration
+                     when the race has no complete set of prices
       _market_prob — implied prob from odds, overround-removed (sums to 1)
       _market_basis — "book" or "forecast": which price _market_prob uses
 
     The market is the best bookmaker price when every runner has one — a
     price you can actually bet. Otherwise the whole race falls back to the
     Sporting Life overnight forecast (odds_dec), so one race never mixes the
-    two. Runners must already carry a "_score". These feed the informational
-    readout only — recommendations are not gated on them.
+    two. Runners must already carry "_score", "_components" and
+    "_form_analysis". These feed the readout and the site's Top Pick ranking
+    only — recommendations are not gated on them.
     """
-    raw = [score_to_winprob(r.get("_score", 0)) for r in runners]
+    raw = anchored_probs(runners) or [score_to_winprob(r.get("_score", 0)) for r in runners]
     tot = sum(raw) or 1.0
 
-    book = all((r.get("best_odds_dec") or 0) > 1 for r in runners)
+    book = market_basis(runners) == "book"
     key = "best_odds_dec" if book else "odds_dec"
     mkt = []
     for r in runners:

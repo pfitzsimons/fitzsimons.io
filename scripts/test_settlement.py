@@ -199,9 +199,45 @@ def test_market_readout():
     assert all(abs(r["_market_prob"] - 1 / 3) < 1e-9 for r in rs)
 
 
+def test_anchored_model_prob():
+    def runner(od, book=None, jockey=50, runs=5):
+        return {"_score": 50, "odds_dec": od, "best_odds_dec": book,
+                "_components": {"recent_form": 50, "consistency": 50, "jockey": jockey, "trainer": 50},
+                "_form_analysis": {"num_runs": runs}}
+
+    # Forecast basis, identical components: the price alone sets the order.
+    rs = [runner(2.0), runner(4.0), runner(8.0)]
+    s.compute_value(rs)
+    p = [r["_model_prob"] for r in rs]
+    assert abs(sum(p) - 1) < 1e-9 and p[0] > p[1] > p[2]
+    b = s.ANCHOR_COEFS["forecast"]["market"]
+    want = [x ** b for x in (1 / 2, 1 / 4, 1 / 8)]
+    assert all(abs(a - w / sum(want)) < 1e-9 for a, w in zip(p, want))
+
+    # Forecast basis uses the components: a much better jockey breaks a tie.
+    rs = [runner(3.0), runner(3.0, jockey=90), runner(6.0)]
+    s.compute_value(rs)
+    assert s.ANCHOR_COMPONENTS["forecast"] and rs[1]["_model_prob"] > rs[0]["_model_prob"]
+
+    # Book basis follows the book price, not the forecast; with components
+    # off, the jockey changes nothing.
+    rs = [runner(2.0, book=5.0), runner(5.0, book=2.5, jockey=90), runner(6.0, book=3.0)]
+    s.compute_value(rs)
+    assert rs[1]["_model_prob"] == max(r["_model_prob"] for r in rs)
+    if not s.ANCHOR_COMPONENTS["book"]:
+        b = s.ANCHOR_COEFS["book"]["market"]
+        want = [x ** b for x in (1 / 5.0, 1 / 2.5, 1 / 3.0)]
+        assert all(abs(r["_model_prob"] - w / sum(want)) < 1e-9 for r, w in zip(rs, want))
+
+    # An unpriced runner: the whole race falls back to the score calibration.
+    rs = [runner(3.0), runner(None)]
+    s.compute_value(rs)
+    assert all(abs(r["_model_prob"] - 0.5) < 1e-9 for r in rs)
+
+
 def main():
     tests = [test_prices, test_matching, test_day_report, test_backtest_settlement,
-             test_derived_log, test_market_readout]
+             test_derived_log, test_market_readout, test_anchored_model_prob]
     # fetch_results logs progress to stderr; keep the test output clean.
     real_log = fr.log
     fr.log = lambda msg: None
@@ -211,7 +247,7 @@ def main():
     finally:
         fr.log = real_log
     print(f"PASS — {len(tests)} settlement checks: bettable prices, exact-name matching, "
-          f"favourite baseline, derived accuracy log, market readout")
+          f"favourite baseline, derived accuracy log, market readout, anchored model prob")
 
 
 if __name__ == "__main__":
