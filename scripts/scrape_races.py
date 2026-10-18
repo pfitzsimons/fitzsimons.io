@@ -474,6 +474,44 @@ def best_book_odds(ride: dict) -> tuple:
     return best, name, n
 
 
+def book_price_list(ride: dict) -> dict:
+    """Every priced bookmaker's decimal price, plus consensus and spread.
+
+    Capture-only — never a scoring, Top Pick or settlement input (settlement
+    stays on best_odds_dec). Stored so a later walk-forward backtest can test
+    whether a consensus price across books is sharper than the single best
+    price, which is a max and so noisy. Returns a dict with:
+
+      book_odds           {bookmakerName: decimalOdds} for priced, named books
+                          (a book listed twice keeps its best price)
+      consensus_odds_dec  1 / mean implied probability across priced books
+      book_spread         best price / worst price (1.0 with a single book)
+
+    Unpriced or absent lists give ({}, None, None).
+    """
+    named, prices = {}, []
+    for book in (ride.get("bookmakerOdds") or []):
+        try:
+            od = float(book.get("decimalOdds"))
+        except (TypeError, ValueError):
+            continue
+        if od <= 1.0:
+            continue
+        od = round(od, 2)
+        prices.append(od)
+        name = book.get("bookmakerName") or None
+        if name and od > named.get(name, 0):
+            named[name] = od
+    if not prices:
+        return {"book_odds": {}, "consensus_odds_dec": None, "book_spread": None}
+    mean_p = sum(1 / od for od in prices) / len(prices)
+    return {
+        "book_odds":          named,
+        "consensus_odds_dec": round(1 / mean_p, 2),
+        "book_spread":        round(max(prices) / min(prices), 3),
+    }
+
+
 def parse_odds(raw):
     raw = (raw or "").strip().replace(",", "")
     if not raw or raw in ("-", "—", "SP"):
@@ -1308,6 +1346,7 @@ def scrape_race(meta):
 
         odds_str = ride.get("betting", {}).get("current_odds") or "SP"
         best_dec, best_book, priced_books = best_book_odds(ride)
+        book_prices = book_price_list(ride)
 
         # Per-run distance history for the distance-suitability factor. Each
         # entry carries the trip (in furlongs) and finishing position of a past
@@ -1336,6 +1375,9 @@ def scrape_race(meta):
             "best_odds_dec":  best_dec,
             "best_odds_book": best_book,
             "priced_books":   priced_books,
+            # Full per-book price list + consensus/spread — capture-only for a
+            # future consensus-vs-best-price backtest (see book_price_list).
+            **book_prices,
             "silk_url": ride.get("silk_filename", "") or "",
             "_prev_runs": prev_runs,
             # Freshness / class fields — captured now, scored at weight 0 (see
