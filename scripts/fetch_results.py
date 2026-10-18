@@ -487,11 +487,41 @@ def favourite_bet(pred_race: dict, result: dict | None) -> tuple | None:
     if not field:
         return None
     runner = min(field, key=lambda r: r['odds_dec'])
+    graded = grade_to_win(runner, result)
+    if graded is None or graded[1] is None:
+        return None
+    won, pl = graded
+    return (pl[0], pl[1], runner.get('horse', ''))
+
+
+def grade_to_win(runner: dict, result: dict) -> tuple | None:
+    """(won, (stake, return) or None) for £1 to win on `runner`, settled like
+    our own picks (settle_price). None when the horse didn't run to a
+    matchable result; the P&L is None when no bettable price exists."""
     oc = evaluate_prediction({**runner, 'recommendation': {'type': 'Win'}}, result, 0)
     if oc['outcome'] not in ('correct', 'incorrect'):
         return None
-    pl = bet_pnl('Win', oc['outcome'], settle_price(runner, oc)[0])
-    return (pl[0], pl[1], runner.get('horse', '')) if pl else None
+    return oc['outcome'] == 'correct', bet_pnl('Win', oc['outcome'], settle_price(runner, oc)[0])
+
+
+# The site's Top Pick ranks by value.model_prob, which PR #37 made
+# market-anchored (scrape_races.py ANCHOR_COEFS). It merged on 2026-10-18,
+# after that day's start-of-day archive was frozen, so earlier archives hold
+# the old score-calibrated model_prob and are not graded for it.
+TOP_PICK_SINCE = '2026-10-19'
+
+
+def top_pick(pred_race: dict) -> dict | None:
+    """The site's Top Pick (index.html topPick): the active runner with the
+    highest value.model_prob, first on ties, in a race with no Strong Win
+    Bet. None when the race has a Win pick or a runner lacks model_prob."""
+    active = [r for r in pred_race.get('runners', []) if not r.get('non_runner')]
+    if not active or any(r.get('recommendation', {}).get('type') == 'Win' for r in active):
+        return None
+    probs = [(r.get('value') or {}).get('model_prob') for r in active]
+    if any(p is None for p in probs):
+        return None
+    return active[probs.index(max(probs))]
 
 
 def compare_predictions_to_results(predictions: dict, results: list) -> dict:
@@ -526,6 +556,11 @@ def compare_predictions_to_results(predictions: dict, results: list) -> dict:
     # Baseline: back the morning favourite to win in every race where one of
     # our picks was settled, at the same price basis.
     fav = {'stake': 0.0, 'ret': 0.0, 'wins': 0}
+    # The site's Top Pick in every race without a Strong Win Bet — not a bet,
+    # graded to measure the ranking. `total` counts graded races; stake/ret
+    # cover those with a bettable price.
+    grade_top = predictions.get('date', '') >= TOP_PICK_SINCE
+    top = {'wins': 0, 'total': 0, 'stake': 0.0, 'ret': 0.0}
 
     for pred_race in predictions.get('races', []):
         result = match_race(pred_race, results)
@@ -621,6 +656,16 @@ def compare_predictions_to_results(predictions: dict, results: list) -> dict:
                 fav['wins']  += fb[1] > 0
                 race_result['favourite'] = fb[2]
 
+        tp = top_pick(pred_race) if (grade_top and result is not None) else None
+        graded = grade_to_win(tp, result) if tp else None
+        if graded:
+            won, pl = graded
+            top['total'] += 1
+            top['wins']  += won
+            if pl:
+                top['stake'] += pl[0]
+                top['ret']   += pl[1]
+
         if race_result['runners']:
             race_outcomes.append(race_result)
 
@@ -681,6 +726,15 @@ def compare_predictions_to_results(predictions: dict, results: list) -> dict:
                 'ret':   round(fav['ret'], 2),
                 'wins':  fav['wins'],
             },
+            # The site's Top Pick (not a bet) in races without a Strong Win
+            # Bet. Absent before TOP_PICK_SINCE (old model_prob).
+            **({'top_pick': {
+                'wins':  top['wins'],
+                'total': top['total'],
+                'stake': round(top['stake'], 2),
+                'ret':   round(top['ret'], 2),
+                'roi':   roi_pct(top),
+            }} if grade_top else {}),
         },
         'races': race_outcomes,
     }
