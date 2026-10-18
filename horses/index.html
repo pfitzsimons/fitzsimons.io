@@ -1484,6 +1484,15 @@ async function loadAccuracy() {
 }
 
 function renderAccuracy(log) {
+  // Top Pick (not a bet) is graded in races without a Strong Win Bet, so
+  // count it over every day, including days with no bet.
+  let tpWins=0, tpTotal=0, tpStake=0, tpRet=0, tpSince=null;
+  for (const d of log) {
+    const t = d.summary.top_pick;
+    if (!t) continue;
+    tpSince = tpSince || d.date;
+    tpWins += t.wins||0; tpTotal += t.total||0; tpStake += t.stake||0; tpRet += t.ret||0;
+  }
   // Only show days where a prediction actually fired — a day with no Win
   // and no EW pick has nothing to grade (races is empty in that case too).
   log = log.filter(d => (d.summary.win_total || 0) + (d.summary.ew_total || 0) > 0);
@@ -1529,11 +1538,17 @@ function renderAccuracy(log) {
     ${stat('Each Way',ewPct,      `${totEWC}/${totEW}`)}
     ${roiStat('ROI', roiPct, `£1 flat · ${Math.round(stake)} bets`)}
     ${roiStat('Favourite', favPct, `${Math.round(favStake)} same races`)}
+    ${stat('Top Pick', tpTotal ? Math.round(tpWins/tpTotal*100) : null, `${tpWins}/${tpTotal} won · not a bet`, false, true)}
     ${stat('Days', log.length, `since ${since}`, true)}`;
   document.getElementById('acc-price-note').innerHTML =
     `💷 ROI is settled at the <strong>best bookmaker price</strong> in the morning scrape,
     or the starting price where none was captured. <strong>Favourite</strong> is what
-    £1 to win on the morning favourite returned in the same races.` +
+    £1 to win on the morning favourite returned in the same races.
+    <strong>Top Pick</strong> is how often the site's Top Pick won in races without a
+    Strong Win Bet${tpSince ? ` since ${new Date(tpSince + 'T12:00:00')
+      .toLocaleDateString('en-GB', {day:'numeric', month:'short'})}` : ' (graded from 19 Oct)'}
+    — it is not a recommended bet${tpStake ? `; £1 on each would have returned
+    ${(() => { const p = pct(tpStake, tpRet); return (p > 0 ? '+' : '') + p; })()}%` : ''}.` +
     (fcPct != null ? ` At the overnight forecast price the site used to settle at,
     ROI would read ${fcPct > 0 ? '+' : ''}${fcPct}% — flattering, because that price
     runs long on winners.` : '');
@@ -1567,9 +1582,9 @@ function renderAccuracy(log) {
   });
 }
 
-function stat(label, val, sub, neutral=false) {
+function stat(label, val, sub, neutral=false, plainPct=false) {
   const display = val != null ? val + (neutral ? '' : '%') : '—';
-  const cls = neutral ? 'neutral' : val == null ? '' : val >= 60 ? 'good' : val >= 40 ? 'mid' : 'poor';
+  const cls = neutral || plainPct ? 'neutral' : val == null ? '' : val >= 60 ? 'good' : val >= 40 ? 'mid' : 'poor';
   return `<div class="acc-stat">
     <div class="acc-stat-val ${cls}">${display}</div>
     <div class="acc-stat-lbl">${label}</div>

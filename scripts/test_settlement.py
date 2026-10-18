@@ -13,6 +13,8 @@ Guards the accuracy/ROI settlement rules, without touching the network:
      to the last DETAIL_DAYS, and the daily run produces the same file.
   5. The model-vs-market readout uses the bookmaker price only when the
      whole race has one.
+  6. The site's Top Pick (highest model_prob, races without a Strong Win
+     Bet) is graded as a non-bet line, only from TOP_PICK_SINCE.
 
 Run: python3 scripts/test_settlement.py
 """
@@ -121,6 +123,53 @@ def test_day_report():
     # 15:00 Fav wins at SP 2.5. None at 16:00 (no pick) or 17:00 (our pick
     # was void), so the comparison stays like-for-like.
     assert s_["fav"] == {"stake": 2.0, "ret": 2.5, "wins": 1}, s_["fav"]
+
+
+def test_top_pick():
+    def tp(name, forecast, prob, book=None, rec="Skip", label="", non_runner=False):
+        r = pred_runner(name, forecast, book=book, rec=rec, label=label, non_runner=non_runner)
+        r["value"] = {"model_prob": prob}
+        return r
+
+    races = [
+        # Strong Win Bet race: no Top Pick (the bet is graded instead).
+        race("York", "13:00", [
+            tp("Bet", 4.0, 0.30, book=3.5, rec="Win", label="Strong Win Bet"),
+            tp("Fav", 2.0, 0.50, book=2.1),
+        ]),
+        # Highest model_prob wins at the book price, not the forecast.
+        # "Gone" ranks higher but was withdrawn in the morning.
+        race("York", "14:00", [
+            tp("Gone", 1.5, 0.60, non_runner=True),
+            tp("Top", 3.0, 0.45, book=2.8),
+            tp("Next", 2.5, 0.40, book=2.6),
+        ]),
+        # Top Pick has no book price: loses, settled at SP.
+        race("York", "15:00", [tp("Top Two", 2.0, 0.55), tp("Upset", 9.0, 0.10)]),
+        # Top Pick a late non-runner: void, not graded.
+        race("York", "16:00", [tp("Late NR", 2.0, 0.55, book=2.2), tp("Rival", 4.0, 0.30, book=4.5)]),
+        # A runner without model_prob: the race isn't graded.
+        race("York", "17:00", [tp("Has", 2.0, 0.55, book=2.2), pred_runner("Lacks", 4.0, book=4.5)]),
+    ]
+    results = [
+        result("York", "13:00", [res_runner("Fav", 1, "Evs"), res_runner("Bet", 2, "5/2")]),
+        result("York", "14:00", [res_runner("Top", 1, "6/4"), res_runner("Next", 2, "2/1"),
+                                 res_runner("Gone", 0, "", status="non_runner")]),
+        result("York", "15:00", [res_runner("Upset", 1, "8/1"), res_runner("Top Two", 2, "Evs")]),
+        result("York", "16:00", [res_runner("Rival", 1, "3/1"),
+                                 res_runner("Late NR", 0, "", status="non_runner")]),
+        result("York", "17:00", [res_runner("Has", 1, "Evs"), res_runner("Lacks", 2, "3/1")]),
+    ]
+
+    s_ = fr.compare_predictions_to_results({"date": fr.TOP_PICK_SINCE, "races": races}, results)["summary"]
+    assert s_["top_pick"] == {"wins": 1, "total": 2, "stake": 2.0, "ret": 2.8, "roi": 40.0}, s_["top_pick"]
+    # The Strong Win Bet still grades as before; the favourite baseline only in its race.
+    assert (s_["win_correct"], s_["win_total"]) == (0, 1)
+    assert s_["fav"] == {"stake": 1.0, "ret": 2.1, "wins": 1}, s_["fav"]
+
+    # Archives before the market-anchored model_prob carry no Top Pick line.
+    s_ = fr.compare_predictions_to_results({"date": "2026-10-18", "races": races}, results)["summary"]
+    assert "top_pick" not in s_
 
 
 def test_backtest_settlement():
@@ -236,7 +285,7 @@ def test_anchored_model_prob():
 
 
 def main():
-    tests = [test_prices, test_matching, test_day_report, test_backtest_settlement,
+    tests = [test_prices, test_matching, test_day_report, test_top_pick, test_backtest_settlement,
              test_derived_log, test_market_readout, test_anchored_model_prob]
     # fetch_results logs progress to stderr; keep the test output clean.
     real_log = fr.log
@@ -247,7 +296,7 @@ def main():
     finally:
         fr.log = real_log
     print(f"PASS — {len(tests)} settlement checks: bettable prices, exact-name matching, "
-          f"favourite baseline, derived accuracy log, market readout, anchored model prob")
+          f"favourite baseline, top pick, derived accuracy log, market readout, anchored model prob")
 
 
 if __name__ == "__main__":
