@@ -54,7 +54,9 @@ def score_and_recommend(prace, use_strike, table):
     new = data-derived strike-rates at 7.5% + 7.5%. Both paths run the identical
     score_runner / normalise / course-coefficient / make_recommendation code.
     """
-    runners = [copy.deepcopy(r) for r in prace["runners"]]
+    # Production scores only the start-of-day runners: morning non-runners are
+    # excluded from scoring and from the field size (scrape_race `active`).
+    runners = [copy.deepcopy(r) for r in prace["runners"] if not r.get("non_runner")]
     n = len(runners)
 
     # Flip the module knobs that score_runner reads, so both arms exercise the

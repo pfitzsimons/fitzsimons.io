@@ -72,7 +72,9 @@ def score_and_recommend(prace, table, k):
     """Re-score a race with the shipped model; if k is not None, apply the
     experience shrink to each runner's final score before re-ranking and
     re-recommending. Returns runners (deep-copied), best-first."""
-    runners = [copy.deepcopy(r) for r in prace["runners"]]
+    # Production scores only the start-of-day runners: morning non-runners are
+    # excluded from scoring and from the field size (scrape_race `active`).
+    runners = [copy.deepcopy(r) for r in prace["runners"] if not r.get("non_runner")]
     n = len(runners)
 
     s.STRIKE_TABLE = table
