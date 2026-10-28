@@ -1,275 +1,326 @@
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="en-GB">
 <head>
   <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Primary Meta -->
-  <title>Patrick Fitzsimons — Engineering Manager</title>
-  <meta name="description" content="Patrick Fitzsimons — Engineering Manager in Belfast, specialising in vulnerability detection and vulnerability management. Background in Java; currently managing three teams (16 people)." />
+  <title>Patrick Fitzsimons — Engineering leader in vulnerability detection</title>
+  <meta name="description" content="Engineering Manager at Rapid7, Belfast. I lead engineering teams across Belfast, Toronto and Pune working on vulnerability detection and security data." />
   <meta name="author" content="Patrick Fitzsimons" />
-  <meta name="theme-color" content="#0ea5e9" />
+  <link rel="canonical" href="https://www.fitzsimons.io/" />
+  <meta name="theme-color" content="#f6f7fa" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0b1220" media="(prefers-color-scheme: dark)" />
 
   <!-- Open Graph / Twitter -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Patrick Fitzsimons — Engineering Manager" />
-  <meta property="og:description" content="Engineering Manager based in Belfast, focused on vulnerability detection and vulnerability management. Background in Java; managing three teams (16 people)." />
+  <meta property="og:type" content="profile" />
+  <meta property="og:site_name" content="Patrick Fitzsimons" />
+  <meta property="og:title" content="Patrick Fitzsimons — Engineering leader in vulnerability detection" />
+  <meta property="og:description" content="Engineering Manager at Rapid7, Belfast. I lead engineering teams across Belfast, Toronto and Pune working on vulnerability detection and security data." />
   <meta property="og:url" content="https://www.fitzsimons.io/" />
-  <meta property="og:image" content="/og-image.jpg" />
+  <meta property="og:image" content="https://www.fitzsimons.io/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Patrick Fitzsimons — Engineering leader in vulnerability detection and security data" />
+  <meta property="og:locale" content="en_GB" />
+  <meta property="profile:first_name" content="Patrick" />
+  <meta property="profile:last_name" content="Fitzsimons" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Patrick Fitzsimons — Engineering leader in vulnerability detection" />
+  <meta name="twitter:description" content="Engineering Manager at Rapid7, Belfast. I lead engineering teams across Belfast, Toronto and Pune working on vulnerability detection and security data." />
+  <meta name="twitter:image" content="https://www.fitzsimons.io/og-image.png" />
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 
-  <!-- Favicon (optional) -->
-  <!-- Place favicons in / and update paths below. -->
-  <link rel="icon" href="/favicon.ico" sizes="any" />
-  <link rel="icon" href="/icon.svg" type="image/svg+xml" />
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <script>
+    // Apply a saved theme before first paint; otherwise follow the system.
+    try {
+      var t = localStorage.getItem('theme');
+      if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  </script>
+  <link rel="stylesheet" href="css/main.css" />
 
-  <style>
-    /* ---- CSS Reset (trimmed) ---- */
-    *, *::before, *::after { box-sizing: border-box; }
-    html, body { height: 100%; }
-    body { margin: 0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
-    img, picture, video, canvas, svg { display: block; max-width: 100%; }
-    button, input, textarea, select { font: inherit; }
-    a { color: inherit; }
-
-    /* ---- Theme ---- */
-    :root {
-      --bg: #0b1220;               /* slate-950-ish */
-      --panel: #0f172a;            /* slate-900 */
-      --muted: #94a3b8;            /* slate-400 */
-      --text: #e5e7eb;             /* gray-200 */
-      --card: #111827;             /* gray-900 */
-      --border: #1f2937;           /* gray-800 */
-      --brand: #0ea5e9;            /* sky-500 */
-      --brand-2: #22d3ee;          /* cyan-400 */
-      --shadow: 0 10px 30px rgba(2, 6, 23, 0.6);
-      --radius: 16px;
-      --spacing: clamp(16px, 2vw, 24px);
-      --maxw: 1100px;
-    }
-
-    @media (prefers-color-scheme: light) {
-      :root { --bg: #ffffff; --panel: #f8fafc; --card:#ffffff; --text:#0f172a; --muted:#475569; --border:#e5e7eb; --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);}  
-    }
-
-    html.dark { --bg: #0b1220; --panel:#0f172a; --card:#0f172a; --text:#e5e7eb; --muted:#94a3b8; --border:#1f2937; }
-
-    body { background: radial-gradient(1200px 600px at 80% -10%, rgba(56,189,248,.15), transparent),
-                     radial-gradient(1000px 500px at -10% 10%, rgba(99,102,241,.12), transparent),
-                     var(--bg);
-           color: var(--text);
-           line-height: 1.6; }
-
-    /* ---- Layout ---- */
-    .container { max-width: var(--maxw); margin-inline: auto; padding-inline: var(--spacing); }
-
-    /* Skip link */
-    .skip-link { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
-    .skip-link:focus { position: fixed; left: 16px; top: 16px; width: auto; height: auto; padding: 8px 12px; background: var(--panel); color: var(--text); border-radius: 8px; box-shadow: var(--shadow); }
-
-    /* Header */
-    header { position: sticky; top: 0; z-index: 50; backdrop-filter: saturate(180%) blur(10px); background: color-mix(in oklab, var(--bg) 70%, transparent); border-bottom: 1px solid var(--border); }
-    .nav { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 0; }
-    .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: 0.5px; }
-    .brand .logo { width: 28px; height: 28px; border-radius: 8px; background: linear-gradient(135deg, var(--brand), var(--brand-2)); box-shadow: 0 6px 20px rgba(14,165,233,.35); }
-    .brand a { text-decoration: none; }
-
-    .nav-links { display: flex; align-items: center; gap: 18px; }
-    .nav-links a { text-decoration: none; color: var(--muted); font-weight: 500; padding: 8px 10px; border-radius: 10px; transition: color .2s ease, background .2s ease, transform .04s ease; }
-    .nav-links a:hover { color: var(--text); background: color-mix(in oklab, var(--panel) 85%, transparent); }
-    .nav-links a[aria-current="page"], .nav-links a[aria-current="true"] { color: var(--text); }
-
-    .nav-ctas { display: flex; align-items: center; gap: 12px; }
-    .btn { display: inline-flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 999px; text-decoration: none; font-weight: 600; border: 1px solid var(--border); background: color-mix(in oklab, var(--panel) 85%, transparent); }
-    .btn:hover { transform: translateY(-1px); box-shadow: var(--shadow); }
-    .btn-primary { background: linear-gradient(135deg, var(--brand), var(--brand-2)); color: #062231; border-color: transparent; }
-
-    .theme-toggle { border: 1px solid var(--border); background: none; border-radius: 999px; padding: 10px 12px; cursor: pointer; color: var(--muted); }
-
-    /* Hero */
-    .hero { padding: clamp(56px, 8vw, 120px) 0 clamp(40px, 6vw, 80px); }
-    .hero-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: clamp(20px, 5vw, 56px); align-items: center; }
-    .eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 6px 10px; border-radius: 999px; border: 1px solid var(--border); color: var(--muted); background: color-mix(in oklab, var(--panel) 85%, transparent); }
-    .title { margin: 14px 0 10px; font-size: clamp(28px, 5vw, 52px); line-height: 1.1; letter-spacing: -0.02em; font-weight: 800; }
-    .subtitle { color: var(--muted); font-size: clamp(16px, 2.2vw, 19px); max-width: 60ch; }
-    .hero-cta { display: flex; gap: 12px; margin-top: 22px; flex-wrap: wrap; }
-
-    .hero-card { background: linear-gradient(180deg, color-mix(in oklab, var(--panel) 92%, transparent), color-mix(in oklab, var(--panel) 85%, transparent)); border: 1px solid var(--border); border-radius: var(--radius); padding: clamp(16px, 3vw, 24px); box-shadow: var(--shadow); }
-    .hero-list { margin: 0; padding-left: 18px; color: var(--muted); }
-
-    /* Sections */
-    section { padding: clamp(40px, 6vw, 80px) 0; }
-    .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 22px; }
-    .section-head h2 { font-size: clamp(22px, 3vw, 28px); margin: 0; letter-spacing: -0.01em; }
-    .section-head p { color: var(--muted); margin: 0; }
-
-    /* Cards grid */
-    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: clamp(14px, 2vw, 20px); }
-    .card { grid-column: span 12; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: clamp(16px, 3vw, 22px); transition: transform .12s ease, box-shadow .2s ease, border-color .2s ease; }
-    .card:hover { transform: translateY(-2px); box-shadow: var(--shadow); border-color: color-mix(in oklab, var(--brand) 35%, var(--border)); }
-    .card h3 { margin: 0 0 8px; font-size: 20px; }
-    .card p { margin: 0; color: var(--muted); }
-    .card .meta { margin-top: 10px; display: flex; gap: 10px; flex-wrap: wrap; }
-    .tag { font-size: 12px; padding: 6px 10px; background: color-mix(in oklab, var(--panel) 85%, transparent); border: 1px solid var(--border); border-radius: 999px; color: var(--muted); }
-
-    .span-4 { grid-column: span 4; }
-    .span-6 { grid-column: span 6; }
-
-    @media (max-width: 900px) {
-      .hero-grid { grid-template-columns: 1fr; }
-      .span-4, .span-6 { grid-column: span 12; }
-    }
-
-    /* List styles */
-    .linkish { color: var(--text); text-decoration: none; border-bottom: 1px dashed color-mix(in oklab, var(--brand) 60%, var(--border)); }
-    .linkish:hover { border-bottom-style: solid; }
-
-    /* Footer */
-    footer { padding: 34px 0 60px; color: var(--muted); border-top: 1px solid var(--border); margin-top: 40px; }
-    .footer-grid { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 16px; }
-
-    /* Mobile nav */
-    .menu-btn { display: none; }
-    @media (max-width: 740px) {
-      .nav { gap: 8px; }
-      .nav-links { display: none; }
-      .menu-btn { display: inline-flex; border: 1px solid var(--border); background: none; border-radius: 10px; padding: 10px 12px; color: var(--muted); }
-      .mobile-menu { display: none; position: absolute; inset: auto 0 0 0; top: 56px; background: var(--panel); border-top: 1px solid var(--border); box-shadow: var(--shadow); }
-      .mobile-menu a { display: block; padding: 14px var(--spacing); border-bottom: 1px solid var(--border); color: var(--muted); text-decoration: none; }
-      .mobile-menu a:hover { color: var(--text); }
-      .mobile-menu.open { display: block; }
-    }
-  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Patrick Fitzsimons",
+    "url": "https://www.fitzsimons.io/",
+    "email": "mailto:patrick@fitzsimons.io",
+    "jobTitle": "Engineering Manager",
+    "worksFor": { "@type": "Organization", "name": "Rapid7", "url": "https://www.rapid7.com/" },
+    "address": { "@type": "PostalAddress", "addressLocality": "Belfast", "addressRegion": "Northern Ireland", "addressCountry": "GB" },
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "Ulster University" },
+    "knowsAbout": ["Vulnerability management", "Detection engineering", "CVE", "CVSS", "Engineering management"],
+    "sameAs": ["https://www.linkedin.com/in/patrick-fitzsimons-221917107/"]
+  }
+  </script>
 </head>
 
 <body>
-  <header style="text-align:center; padding:40px 0 20px;">
-    <h1 style="margin:0; font-size:clamp(32px, 6vw, 60px); font-weight:800;">Patrick Fitzsimons</h1>
-  </header>
   <a class="skip-link" href="#main">Skip to content</a>
 
+  <header class="site-header">
+    <nav class="container nav" aria-label="Primary">
+      <a class="mark" href="#top" aria-label="Patrick Fitzsimons, back to top">fitzsimons<span>.io</span></a>
+      <div class="nav-links">
+        <a href="#security">Security</a>
+        <a href="#leadership">Leadership</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+        <button class="theme-toggle" type="button" id="themeToggle" aria-label="Switch colour theme">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        </button>
+      </div>
+    </nav>
+  </header>
 
   <main id="main">
     <!-- Hero -->
-    <section class="hero">
+    <section class="hero" id="top" aria-labelledby="name">
       <div class="container hero-grid">
         <div>
-          <span class="eyebrow">👋 Hello — I’m Patrick Fitzsimons.</span>
-          <h1 class="title">Engineering leader focused on secure, resilient software.</h1>
-          <p class="subtitle">Based in Belfast, Northern Ireland. I specialise in vulnerability detection and vulnerability management, with a Java background. I currently manage three teams (16 people).</p>
-          <div class="hero-cta">
-            <a class="btn btn-primary" href="#contact">Get in touch</a>
+          <span class="eyebrow">Engineering Manager · Rapid7 · Belfast</span>
+          <h1 id="name">Patrick Fitzsimons</h1>
+          <p class="positioning">Engineering leader in vulnerability detection and security data.</p>
+          <p class="lede">I lead engineering teams at Rapid7, building vulnerability detections and the data pipelines behind them.</p>
+          <div class="cta">
+            <a class="btn btn-primary" href="https://www.linkedin.com/in/patrick-fitzsimons-221917107/" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+              Connect on LinkedIn
+            </a>
+            <a class="btn" href="mailto:patrick@fitzsimons.io">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+              Email me
+            </a>
           </div>
         </div>
-        <aside class="hero-card" aria-label="At a glance">
-          <h3 style="margin:0 0 8px; font-size:18px">At a glance</h3>
-          <ul class="hero-list">
-            <li>Location: Belfast, Northern Ireland</li>
-            <li>Focus: Vulnerability detection &amp; Vulnerability management</li>
-            <li>Background: Java • Security tooling • Team leadership</li>
-            <li>Currently: Managing 3 teams (16 people)</li>
-          </ul>
+
+        <aside class="record" aria-label="At a glance">
+          <div class="record-bar" aria-hidden="true"><i></i><i></i><i></i><span>~/patrick</span></div>
+          <div class="md">
+            <p class="prompt" aria-hidden="true"><b>$</b> cat patrick_fitzsimons.md</p>
+            <p class="md-h1"><span class="md-syn" aria-hidden="true"># </span>Patrick Fitzsimons</p>
+            <ul>
+              <li><span class="md-syn" aria-hidden="true">- </span><strong><span class="md-syn" aria-hidden="true">**</span>role:<span class="md-syn" aria-hidden="true">**</span></strong> Engineering Manager</li>
+              <li><span class="md-syn" aria-hidden="true">- </span><strong><span class="md-syn" aria-hidden="true">**</span>focus:<span class="md-syn" aria-hidden="true">**</span></strong> Vulnerability detection</li>
+              <li><span class="md-syn" aria-hidden="true">- </span><strong><span class="md-syn" aria-hidden="true">**</span>sites:<span class="md-syn" aria-hidden="true">**</span></strong> Belfast · Toronto · Pune</li>
+              <li><span class="md-syn" aria-hidden="true">- </span><strong><span class="md-syn" aria-hidden="true">**</span>reports:<span class="md-syn" aria-hidden="true">**</span></strong> 2 Engineering Managers</li>
+              <li><span class="md-syn" aria-hidden="true">- </span><strong><span class="md-syn" aria-hidden="true">**</span>tenure:<span class="md-syn" aria-hidden="true">**</span></strong> A decade at Rapid7</li>
+              <li><span class="md-syn" aria-hidden="true">- </span><strong><span class="md-syn" aria-hidden="true">**</span>data:<span class="md-syn" aria-hidden="true">**</span></strong> 200+ vulnerability sources</li>
+            </ul>
+          </div>
         </aside>
       </div>
     </section>
 
-
-
     <!-- About -->
-    <section id="about">
+    <section class="section about" id="about" aria-labelledby="about-title">
       <div class="container">
         <div class="section-head">
-          <h2>About</h2>
-          <p>A quick bio and what I do.</p>
+          <span class="label">// about</span>
+          <h2 id="about-title">About</h2>
+        </div>
+        <p>I joined Rapid7 as an intern in 2015 and have spent the decade since in vulnerability detection, moving from Java engineer to tech lead to Engineering Manager.</p>
+        <p>Since August 2024 I've led engineering teams across Belfast, Toronto and Pune, with two Engineering Managers reporting to me. My teams own vulnerability signatures and detections, and the big data analytics behind them.</p>
+      </div>
+    </section>
+
+    <!-- Security -->
+    <section class="section" id="security" aria-labelledby="security-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="label">// security work</span>
+          <h2 id="security-title">Security work</h2>
+          <p>A decade inside the CVE lifecycle, from upstream advisory and CVSS scoring to a shipped detection.</p>
         </div>
 
-        <div class="grid">
-          <article class="card span-6">
-            <p>I’m an Engineering Manager based in Belfast with a background in Java development. I’ve specialised in vulnerability detection and vulnerability management—building teams and tooling that make secure-by-default the easy path. Today I manage three teams, totalling 16 people, focusing on delivery, developer experience, and measurable risk reduction. I care about clear communication, pragmatic process, and creating an environment where engineers do their best work.</p>
+        <div class="cards three">
+          <article class="card">
+            <span class="id">CVE-2021-44228</span>
+            <h3>Log4Shell</h3>
+            <p>Wrote detections for Log4Shell during the December 2021 response.</p>
           </article>
-          <aside class="card span-6">
-            <h3 style="margin-top:0">Links</h3>
-            <ul>
-              <li><a class="linkish" href="mailto:patrick@fitzsimons.io">Email</a></li>
-              <li><a class="linkish" href="https://www.linkedin.com/in/patrick-fitzsimons-221917107/" target="_blank" rel="noopener">LinkedIn</a></li>
-            </ul>
-          </aside>
+          <article class="card">
+            <span class="id">CISA KEV</span>
+            <h3>Closing the coverage gap</h3>
+            <p>Led a programme to close our detection-coverage gap with competitors, prioritising CISA's Known Exploited Vulnerabilities catalogue.</p>
+          </article>
+          <article class="card">
+            <span class="id">PCI ASV</span>
+            <h3>Keeping the certification</h3>
+            <p>Led the teams responsible for keeping Rapid7's PCI Approved Scanning Vendor certification.</p>
+          </article>
+          <article class="card">
+            <span class="id">200+ SOURCES</span>
+            <h3>Vulnerability data at scale</h3>
+            <p>Teams ingest third-party vulnerability data from 200+ upstream sources, from structured feeds like NVD to scraped vendor advisories, and normalise it into a standard schema that powers detections.</p>
+            <p>A pipeline on AWS Step Functions, EventBridge and Lambda moves <strong>3M+</strong> raw metadata files into a Snowflake data lake.</p>
+          </article>
+          <article class="card">
+            <span class="id">DISCLOSURE</span>
+            <h3>Coordinated disclosure</h3>
+            <p>Coordinated vulnerability disclosures with external vendors.</p>
+          </article>
+          <article class="card">
+            <a class="id" href="https://www.cve.org/CVERecord?id=CVE-2026-14172" rel="noopener">CVE-2026-14172</a>
+            <h3>Credited finder</h3>
+            <p>Co-credited with finding a local privilege escalation (CVSS 7.8, High) in Rapid7 InsightVM, Nexpose and Insight Agent. Fixed and published in July 2026.</p>
+          </article>
+        </div>
+
+        <p class="note"><b>Open source:</b> an Nmap pull request to report host alive state, a Jackson-Core issue for an ArrayIndexOutOfBoundsException, and a queue-timeout contribution to spring-integration-aws.</p>
+      </div>
+    </section>
+
+    <!-- Leadership -->
+    <section class="section" id="leadership" aria-labelledby="leadership-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="label">// leadership</span>
+          <h2 id="leadership-title">Leadership</h2>
+          <p>A manager of managers, across three sites and three time zones.</p>
+        </div>
+        <ul class="facts">
+          <li><b>teams</b><span>Engineering teams in Belfast, Toronto and Pune.</span></li>
+          <li><b>structure</b><span>Two Engineering Managers report to me. I coach them as they lead their own teams.</span></li>
+          <li><b>scope</b><span>Vulnerability signatures and detections, and big data analytics.</span></li>
+          <li><b>grown from within</b><span>Intern to Engineering Manager at the same company. I know the domain and the systems my teams work on.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- AI -->
+    <section class="section" id="ai" aria-labelledby="ai-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="label">// ai in engineering</span>
+          <h2 id="ai-title">AI in engineering</h2>
+          <p>Practical adoption. These are proofs of concept and team adoption, not shipped AI products.</p>
+        </div>
+        <div class="cards three">
+          <article class="card">
+            <span class="id">POC</span>
+            <h3>Faster plugin delivery</h3>
+            <p>An agentic coding PoC cut vulnerability plugin delivery from weeks to days. It won funding from our VP Engineering.</p>
+          </article>
+          <article class="card">
+            <span class="id">POC</span>
+            <h3>Self-healing plugins</h3>
+            <p>Started an initiative where an agent responds to a parser-failure alert and tries to repair the plugin. Currently a PoC on a single plugin.</p>
+          </article>
+          <article class="card">
+            <span class="id">DAILY</span>
+            <h3>Day to day</h3>
+            <p>Claude Code for PoCs and detection logic, plus Codex, Kiro and GitHub Copilot. Gemini for customer request triage.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section class="section" id="experience" aria-labelledby="experience-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="label">// experience</span>
+          <h2 id="experience-title">Experience at Rapid7</h2>
+        </div>
+        <ol class="timeline">
+          <li class="current"><time>Aug 2024 – present</time><span class="role">Engineering Manager</span></li>
+          <li><time>2023 – 2024</time><span class="role">Lead Software Engineer</span></li>
+          <li><time>2021 – 2023</time><span class="role">Senior Software Engineer / Tech Lead</span></li>
+          <li><time>2017 – 2021</time><span class="role">Software Engineer / Software Engineer II</span></li>
+          <li><time>2015 – 2016</time><span class="role">Software Engineering Intern</span></li>
+        </ol>
+        <p class="edu"><b>Education:</b> BSc (Hons) Computer Science, 2:1, Ulster University</p>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="section" id="skills" aria-labelledby="skills-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="label">// skills</span>
+          <h2 id="skills-title">Skills</h2>
+        </div>
+        <div class="skills">
+          <div>
+            <h3>Security</h3>
+            <ul class="tags"><li>Vulnerability management</li><li>Detection engineering</li><li>CVE lifecycle</li><li>CVSS</li><li>CISA KEV</li><li>PCI ASV</li><li>Coordinated disclosure</li></ul>
+          </div>
+          <div>
+            <h3>Engineering</h3>
+            <ul class="tags"><li>Java</li><li>Ruby</li><li>Terraform</li></ul>
+          </div>
+          <div>
+            <h3>Cloud &amp; data</h3>
+            <ul class="tags"><li>AWS Step Functions</li><li>EventBridge</li><li>Lambda</li><li>Snowflake</li></ul>
+          </div>
+          <div>
+            <h3>Observability &amp; delivery</h3>
+            <ul class="tags"><li>Datadog</li><li>Micrometer</li><li>Grafana</li><li>Spinnaker</li></ul>
+          </div>
+          <div>
+            <h3>AI tools</h3>
+            <ul class="tags"><li>Claude Code</li><li>Codex</li><li>Kiro</li><li>GitHub Copilot</li><li>Gemini</li></ul>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Contact -->
-    <section id="contact">
+    <section class="section" id="contact" aria-labelledby="contact-title">
       <div class="container">
-        <div class="section-head">
-          <h2>Contact</h2>
-          <p>Best ways to reach me.</p>
-        </div>
-        <div class="card">
-          <p>Prefer email? <a class="linkish" href="mailto:patrick@fitzsimons.io">Drop me a note</a>. For quick chats, <a class="linkish" href="https://www.linkedin.com/in/patrick-fitzsimons-221917107/" target="_blank" rel="noopener">find me on LinkedIn</a>.</p>
+        <div class="contact-box">
+          <div>
+            <h2 id="contact-title">Get in touch</h2>
+            <p>LinkedIn is the best place to reach me. For anything longer, email.</p>
+          </div>
+          <div class="cta">
+            <a class="btn btn-primary" href="https://www.linkedin.com/in/patrick-fitzsimons-221917107/" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+              LinkedIn
+            </a>
+            <a class="btn" href="mailto:patrick@fitzsimons.io">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+              patrick@fitzsimons.io
+            </a>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="container footer-grid">
-      <p>© <span id="year"></span> Patrick Fitzsimons. All rights reserved.</p>
-      <p><a class="linkish" href="#top">Back to top ↑</a></p>
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year">2026</span> Patrick Fitzsimons · Belfast</p>
+      <p><a href="#top">Back to top ↑</a></p>
     </div>
   </footer>
 
-  <!-- Structured data (SEO) -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Patrick Fitzsimons",
-      "url": "https://www.fitzsimons.io/",
-      "sameAs": [
-        "https://www.linkedin.com/in/patrick-fitzsimons-221917107/<!-- TODO: your LinkedIn slug -->"
-      ]
-    }
-  </script>
-
   <script>
-    // Basic enhancements
-    document.documentElement.classList.remove('no-js');
-
-    // Theme toggle with localStorage
-    const root = document.documentElement;
-    const themeToggle = document.getElementById('themeToggle');
-    const stored = localStorage.getItem('theme');
-    if (stored === 'dark') root.classList.add('dark');
-    if (stored === 'light') root.classList.remove('dark');
-
-    themeToggle?.addEventListener('click', () => {
-      const isDark = root.classList.toggle('dark');
-      localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    });
-
-    // Mobile menu
-    const menuBtn = document.getElementById('menuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    function closeMenu(){ mobileMenu?.classList.remove('open'); menuBtn?.setAttribute('aria-expanded','false'); }
-    window.closeMenu = closeMenu;
-    menuBtn?.addEventListener('click', () => {
-      const open = mobileMenu.classList.toggle('open');
-      menuBtn.setAttribute('aria-expanded', String(open));
-    });
-
-    // Year
-    document.getElementById('year').textContent = new Date().getFullYear();
+    (function () {
+      var root = document.documentElement;
+      var toggle = document.getElementById('themeToggle');
+      function isDark() {
+        var t = root.getAttribute('data-theme');
+        if (t) return t === 'dark';
+        return window.matchMedia('(prefers-color-scheme: dark)').matches;
+      }
+      function label() {
+        toggle.setAttribute('aria-label', isDark() ? 'Switch to light theme' : 'Switch to dark theme');
+      }
+      toggle.addEventListener('click', function () {
+        var next = isDark() ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
+        try { localStorage.setItem('theme', next); } catch (e) {}
+        label();
+      });
+      label();
+      document.getElementById('year').textContent = new Date().getFullYear();
+    })();
   </script>
-
-  <!-- Optional: lightweight analytics (e.g., Umami, Plausible) -->
-  <!-- <script defer data-domain="fitzsimons.io" src="https://plausible.io/js/plausible.js"></script> -->
 </body>
 </html>
