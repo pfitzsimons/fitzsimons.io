@@ -7,12 +7,13 @@ Patrick Fitzsimons' personal site, deployed at [www.fitzsimons.io](https://www.f
 - `index.html` — personal homepage (Engineering Manager, Belfast)
 - `horses/` — Race Day: UK & Ireland horse racing predictions, a static page rendering `horses/races.json`
 - `scripts/` — Python pipeline that scrapes races, scores runners, fetches results, and backtests/calibrates the scoring model
-- `.github/workflows/` — scheduled GitHub Actions that keep the pipeline running
+- `scripts/run_pipeline.sh` + `scripts/launchd/` — the scheduler that keeps the pipeline running (off GitHub Actions)
+- `.github/workflows/` — tests on PRs, plus manual-fallback pipeline runs
 - `css/` — shared styles for the homepage
 
 ## How the horse racing pipeline works
 
-1. **`scrape_races.py`** runs every 20 minutes during UK/IRE racing hours (07:00–20:40 UTC). It scrapes Sporting Life racecards and scores each runner on a dozen factors — recent form, consistency, odds value, weight-for-age, going suitability, jockey quality, recency/DNF penalties, distance suitability, freshness, class, and experience shrinkage — into a 0–100 score with a label, confidence, and Win/Skip recommendation. Separately, each runner gets a market-anchored win probability (`value.model_prob`: the morning best bookmaker price, sharpened; overnight forecast plus jockey/trainer/form when book prices are missing), which picks the site's Top Pick in each race. It writes `horses/races.json`, and the first run of the day freezes a leak-free start-of-day archive in `horses/history/`.
+1. **`scrape_races.py`** runs every 20 minutes during UK/IRE racing hours (07:00–20:59 UTC, see Automation). It scrapes Sporting Life racecards and scores each runner on a dozen factors — recent form, consistency, odds value, weight-for-age, going suitability, jockey quality, recency/DNF penalties, distance suitability, freshness, class, and experience shrinkage — into a 0–100 score with a label, confidence, and Win/Skip recommendation. Separately, each runner gets a market-anchored win probability (`value.model_prob`: the morning best bookmaker price, sharpened; overnight forecast plus jockey/trainer/form when book prices are missing), which picks the site's Top Pick in each race. It writes `horses/races.json`, and the first run of the day freezes a leak-free start-of-day archive in `horses/history/`.
 2. **`fetch_results.py`** runs once daily at 09:00 UTC, pulls the previous day's results, and updates `horses/accuracy.json`. Bets are settled at the best bookmaker price captured in the start-of-day scrape (SP where none was captured) — not at the displayed odds, which are Sporting Life's overnight forecast and run long on winners. Each day also records a favourite-to-win baseline in the same races. `accuracy.json` is fully derived: every run regrades the whole archive from `horses/history/` (full history; per-race detail only for the last 30 days), so it can't drift and a merge conflict on it fixes itself on the next run. `--rebuild` does the same offline.
 3. **`calibrate.py`**, **`drift.py`**, and the **`backtest_*.py`** scripts are offline tools for checking whether the score is honest (calibration curve), whether it's profitable (flat-stake ROI, settled at the same bettable price as the site), and whether a signal is decaying over time.
 
@@ -50,12 +51,24 @@ python3 -m http.server
 
 ## Automation
 
-Two scheduled workflows keep the data live and commit straight back to `main` (`[skip ci]`):
+The pipeline runs on a Mac launchd agent, not GitHub Actions: GitHub's cron queue dropped and delayed runs (community discussion 156282), and the start-of-day archive must be frozen before the first race. `scripts/run_pipeline.sh` runs from a dedicated clone every 20 minutes and works out what's due (UTC throughout):
 
-- **Scrape Races** — every 20 minutes, 07:00–20:40 UTC
-- **Fetch Results & Accuracy** — daily at 09:00 UTC
+- **Scrape** — every run 07:00–20:59 UTC: `scrape_races.py` merges into `horses/races.json`, and the day's first run freezes `horses/history/races_<date>.json`
+- **Results & accuracy** — once a day from 09:00 UTC: `fetch_results.py` grades yesterday. It runs once per day and retries on the next tick if it fails
 
-Both can also be triggered manually via `workflow_dispatch` with a date override.
+Every run pulls before it writes and rebases before it pushes, committing straight to `main` (`[skip ci]`). One lock covers both jobs, so runs can't overlap. If a push fails, the commit is kept and the next run pushes it.
+
+Setup on the Mac (idempotent; clones to `~/.local/share/fitzsimons-pipeline/` and retires the old `workflow_dispatch` trigger agent):
+
+```bash
+scripts/launchd/install.sh
+sudo pmset repeat wakeorpoweron MTWRFSU 06:55:00   # wake before the first scrape
+```
+
+- Log: `~/.local/state/fitzsimons-pipeline/pipeline.log`. A failed job also raises a macOS notification, and runs `$PIPELINE_NOTIFY_CMD "<message>"` if that's set (e.g. a `curl` to ntfy).
+- Run a job by hand: `~/.local/share/fitzsimons-pipeline/fitzsimons.io/scripts/run_pipeline.sh scrape|results [YYYY-MM-DD]`
+- The Mac must be awake. While it's off nothing runs, and the results job's fallback freezes the archive late. The script is plain bash, so any cron/systemd host can run it the same way.
+- Manual fallback: both workflows (**Scrape Races**, **Fetch Results & Accuracy**) still accept `workflow_dispatch` with a date override, but they no longer have a schedule.
 
 ## Contributing
 
