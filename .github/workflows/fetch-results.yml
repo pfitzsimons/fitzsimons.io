@@ -1,11 +1,8 @@
 name: Fetch Results & Accuracy
 
+# Manual fallback only. The daily 09:00 UTC run now comes from
+# scripts/run_pipeline.sh off GitHub Actions (see README "Automation").
 on:
-  schedule:
-    # Once a day at 09:00 UTC (10:00am BST / 9:00am GMT)
-    # Runs after the previous day's last races have finished
-    # and Sporting Life has published all results overnight
-    - cron: '0 9 * * *'
   workflow_dispatch:
     inputs:
       results_date:
@@ -14,7 +11,7 @@ on:
         default: ''
 
 # Never let two results runs commit at once. This alone doesn't stop a
-# concurrent scrape-races push (different group) — the rebase-before-push
+# concurrent scrape push (from Actions or scripts/run_pipeline.sh) — the rebase-before-push
 # in the commit step handles that cross-workflow case.
 concurrency:
   group: fetch-results
