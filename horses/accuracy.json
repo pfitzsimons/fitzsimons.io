@@ -6729,58 +6729,7 @@
         "wins": 1
       }
     },
-    "races": [
-      {
-        "course": "Newmarket",
-        "time": "13:35",
-        "race_name": "BetMGM Sun Chariot Stakes (Fillies' & Mares' Group 1)",
-        "date": "2026-10-03",
-        "winner": "Blue Bolt",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 1,
-            "outcome": "correct",
-            "sp": 1.25,
-            "horse": "Blue Bolt",
-            "score": 76.1,
-            "odds": "4/9",
-            "label": "Strong Win Bet",
-            "best_odds": 1.33,
-            "primary": true,
-            "settle_odds": 1.33,
-            "settle_basis": "book"
-          }
-        ],
-        "abandoned": false,
-        "favourite": "Blue Bolt"
-      },
-      {
-        "course": "Ascot",
-        "time": "15:35",
-        "race_name": "BetMGM Challenge Cup (Heritage Handicap)",
-        "date": "2026-10-03",
-        "winner": "Mezcala",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 9,
-            "outcome": "incorrect",
-            "sp": 7.0,
-            "horse": "Thunder Call",
-            "score": 75.3,
-            "odds": "11/4",
-            "label": "Strong Win Bet",
-            "best_odds": 5.0,
-            "primary": true,
-            "settle_odds": 5.0,
-            "settle_basis": "book"
-          }
-        ],
-        "abandoned": false,
-        "favourite": "Thunder Call"
-      }
-    ]
+    "races": []
   },
   {
     "date": "2026-10-04",
@@ -8204,6 +8153,57 @@
         "stake": 35.0,
         "ret": 29.54,
         "roi": -15.6
+      }
+    },
+    "races": []
+  },
+  {
+    "date": "2026-11-02",
+    "summary": {
+      "overall_pct": null,
+      "win_pct": null,
+      "ew_pct": null,
+      "win_correct": 0,
+      "win_total": 0,
+      "ew_correct": 0,
+      "ew_total": 0,
+      "ew_win_count": 0,
+      "ew_placed_count": 0,
+      "excluded": {
+        "non_runner": 0,
+        "unmatched": 0,
+        "no_result": 0
+      },
+      "excluded_total": 0,
+      "dnf_count": 0,
+      "overall_roi": null,
+      "win_roi": null,
+      "ew_roi": null,
+      "roi": {
+        "win_stake": 0.0,
+        "win_ret": 0.0,
+        "ew_stake": 0.0,
+        "ew_ret": 0.0
+      },
+      "settle_basis": {
+        "book": 0,
+        "sp": 0
+      },
+      "roi_forecast": {
+        "stake": 0.0,
+        "ret": 0.0
+      },
+      "fav": {
+        "stake": 0.0,
+        "ret": 0.0,
+        "wins": 0
+      },
+      "top_pick": {
+        "wins": 2,
+        "total": 27,
+        "stake": 27.0,
+        "ret": 6.75,
+        "roi": -75.0
       }
     },
     "races": []
