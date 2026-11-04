@@ -8207,5 +8207,82 @@
       }
     },
     "races": []
+  },
+  {
+    "date": "2026-11-03",
+    "summary": {
+      "overall_pct": 0.0,
+      "win_pct": 0.0,
+      "ew_pct": null,
+      "win_correct": 0,
+      "win_total": 1,
+      "ew_correct": 0,
+      "ew_total": 0,
+      "ew_win_count": 0,
+      "ew_placed_count": 0,
+      "excluded": {
+        "non_runner": 0,
+        "unmatched": 0,
+        "no_result": 0
+      },
+      "excluded_total": 0,
+      "dnf_count": 0,
+      "overall_roi": -100.0,
+      "win_roi": -100.0,
+      "ew_roi": null,
+      "roi": {
+        "win_stake": 1.0,
+        "win_ret": 0.0,
+        "ew_stake": 0.0,
+        "ew_ret": 0.0
+      },
+      "settle_basis": {
+        "book": 1,
+        "sp": 0
+      },
+      "roi_forecast": {
+        "stake": 1.0,
+        "ret": 0.0
+      },
+      "fav": {
+        "stake": 1.0,
+        "ret": 0.0,
+        "wins": 0
+      },
+      "top_pick": {
+        "wins": 14,
+        "total": 34,
+        "stake": 34.0,
+        "ret": 34.8,
+        "roi": 2.4
+      }
+    },
+    "races": [
+      {
+        "course": "Warwick",
+        "time": "14:03",
+        "race_name": "Alder Demain & Akers Handicap Hurdle",
+        "date": "2026-11-03",
+        "winner": "Woodstock City",
+        "runners": [
+          {
+            "rec": "Win",
+            "actual_pos": 4,
+            "outcome": "incorrect",
+            "sp": 3.25,
+            "horse": "Berry Edge",
+            "score": 72.2,
+            "odds": "11/4",
+            "label": "Strong Win Bet",
+            "best_odds": 3.75,
+            "primary": true,
+            "settle_odds": 3.75,
+            "settle_basis": "book"
+          }
+        ],
+        "abandoned": false,
+        "favourite": "Lucy The Wire"
+      }
+    ]
   }
 ]
