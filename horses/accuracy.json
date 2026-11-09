@@ -6993,33 +6993,7 @@
         "wins": 1
       }
     },
-    "races": [
-      {
-        "course": "Newmarket",
-        "time": "14:57",
-        "race_name": "bet365 Fillies' Mile (Group 1)",
-        "date": "2026-10-09",
-        "winner": "Musical Times",
-        "runners": [
-          {
-            "rec": "Win",
-            "actual_pos": 1,
-            "outcome": "correct",
-            "sp": 1.44,
-            "horse": "Musical Times",
-            "score": 72.7,
-            "odds": "1/2",
-            "label": "Strong Win Bet",
-            "best_odds": 1.4,
-            "primary": true,
-            "settle_odds": 1.4,
-            "settle_basis": "book"
-          }
-        ],
-        "abandoned": false,
-        "favourite": "Musical Times"
-      }
-    ]
+    "races": []
   },
   {
     "date": "2026-10-10",
@@ -8485,6 +8459,57 @@
         "stake": 45.0,
         "ret": 48.31,
         "roi": 7.4
+      }
+    },
+    "races": []
+  },
+  {
+    "date": "2026-11-08",
+    "summary": {
+      "overall_pct": null,
+      "win_pct": null,
+      "ew_pct": null,
+      "win_correct": 0,
+      "win_total": 0,
+      "ew_correct": 0,
+      "ew_total": 0,
+      "ew_win_count": 0,
+      "ew_placed_count": 0,
+      "excluded": {
+        "non_runner": 0,
+        "unmatched": 0,
+        "no_result": 0
+      },
+      "excluded_total": 0,
+      "dnf_count": 0,
+      "overall_roi": null,
+      "win_roi": null,
+      "ew_roi": null,
+      "roi": {
+        "win_stake": 0.0,
+        "win_ret": 0.0,
+        "ew_stake": 0.0,
+        "ew_ret": 0.0
+      },
+      "settle_basis": {
+        "book": 0,
+        "sp": 0
+      },
+      "roi_forecast": {
+        "stake": 0.0,
+        "ret": 0.0
+      },
+      "fav": {
+        "stake": 0.0,
+        "ret": 0.0,
+        "wins": 0
+      },
+      "top_pick": {
+        "wins": 11,
+        "total": 22,
+        "stake": 22.0,
+        "ret": 24.68,
+        "roi": 12.2
       }
     },
     "races": []
