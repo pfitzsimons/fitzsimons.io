@@ -17,6 +17,8 @@ Guards the accuracy/ROI settlement rules, without touching the network:
      Bet) is graded as a non-bet line, only from TOP_PICK_SINCE.
   7. The scraper captures every book's price (book_odds), a consensus price
      and the best/worst spread, without changing best_odds_dec.
+  8. The scraper captures Timeform 1-2-3, insight flags, career record,
+     course/distance record and headgear (ride_extras), capture-only.
 
 Run: python3 scripts/test_settlement.py
 """
@@ -314,9 +316,32 @@ def test_book_price_list():
     assert s.book_price_list({"bookmakerOdds": [{"bookmakerName": "X", "decimalOdds": "-"}]}) == empty
 
 
+def test_ride_extras():
+    ride = {
+        "rating123": 1,
+        "insights": [{"type": "HOT_JOCKEY"}, {"type": "FIRST_TIME_CHEEK_PIECES"}, {"type": "HOT_JOCKEY"}, {}],
+        "horse_lifetime_stats": [{"ride_id": 1, "run_count": "14", "win_count": "1", "place_count": "6"}],
+        "race_history_stats": [{"type": "Course", "value": "1"}, {"type": "Distance", "value": "x"}],
+        "headgear": [{"symbol": "p", "name": "Cheek pieces", "count": 1}],
+    }
+    assert s.ride_extras(ride) == {
+        "timeform_rank": 1,
+        "insights": ["FIRST_TIME_CHEEK_PIECES", "HOT_JOCKEY"],
+        "lifetime": {"runs": 14, "wins": 1, "places": 6},
+        "cd_record": {"Course": 1},
+        "headgear": [{"symbol": "p", "count": 1}],
+    }
+    # Absent or empty fields (an unraced horse, an older feed) don't break.
+    blank = {"timeform_rank": None, "insights": [], "lifetime": None, "cd_record": {}, "headgear": []}
+    assert s.ride_extras({}) == blank
+    assert s.ride_extras({"rating123": None, "horse_lifetime_stats": [], "insights": None}) == blank
+    assert s.ride_extras({"rating123": 7})["timeform_rank"] is None
+
+
 def main():
     tests = [test_prices, test_matching, test_day_report, test_top_pick, test_backtest_settlement,
-             test_derived_log, test_market_readout, test_anchored_model_prob, test_book_price_list]
+             test_derived_log, test_market_readout, test_anchored_model_prob, test_book_price_list,
+             test_ride_extras]
     # fetch_results logs progress to stderr; keep the test output clean.
     real_log = fr.log
     fr.log = lambda msg: None
@@ -326,7 +351,7 @@ def main():
     finally:
         fr.log = real_log
     print(f"PASS — {len(tests)} settlement checks: bettable prices, exact-name matching, "
-          f"favourite baseline, top pick, derived accuracy log, market readout, anchored model prob, book price list")
+          f"favourite baseline, top pick, derived accuracy log, market readout, anchored model prob, book price list, ride extras")
 
 
 if __name__ == "__main__":
