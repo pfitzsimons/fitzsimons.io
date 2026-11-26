@@ -1,0 +1,235 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: >-
+  fitzsimons.io /horses pipeline trigger. EventBridge Scheduler (UTC, every 20
+  minutes 07:00-20:59) invokes a small Python Lambda that calls GitHub's
+  workflow_dispatch API for the Horses Pipeline workflow on main. The GitHub
+  token is a SecureString in SSM Parameter Store, created by hand and read at
+  run time; it never appears in this template.
+
+# Deploy (from the repo root):
+#   aws cloudformation deploy --profile fitzsimons --region eu-west-2 \
+#     --stack-name fitzsimons-pipeline-scheduler \
+#     --template-file infra/pipeline-scheduler.yaml \
+#     --capabilities CAPABILITY_NAMED_IAM
+#
+# patrick-dev may only create IAM roles named fitzsimons-* and pass them to
+# lambda.amazonaws.com / scheduler.amazonaws.com, so both roles carry explicit
+# RoleNames with that prefix.
+
+Parameters:
+  GitHubRepo:
+    Type: String
+    Default: pfitzsimons/fitzsimons.io
+    Description: owner/name of the repository to dispatch.
+  WorkflowFile:
+    Type: String
+    Default: scrape-races.yml
+    Description: Workflow file name under .github/workflows/.
+  GitRef:
+    Type: String
+    Default: main
+    Description: Branch the workflow runs on.
+  TokenParameterName:
+    Type: String
+    Default: /fitzsimons/pipeline/github-token
+    AllowedPattern: '^/.+'
+    Description: >-
+      SSM SecureString holding a fine-grained GitHub token (this repo only,
+      Actions read/write). Encrypted with the default aws/ssm key.
+  ScheduleState:
+    Type: String
+    Default: ENABLED
+    AllowedValues: [ENABLED, DISABLED]
+    Description: Set DISABLED to pause the schedule without deleting anything.
+  AlertEmail:
+    Type: String
+    Default: ''
+    Description: >-
+      Optional. If set, an SNS topic emails this address when a dispatch
+      fails (confirm the subscription email AWS sends).
+
+Conditions:
+  HasAlertEmail: !Not [!Equals [!Ref AlertEmail, '']]
+
+Resources:
+  DispatchLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: /aws/lambda/fitzsimons-pipeline-dispatch
+      RetentionInDays: 30
+
+  DispatchRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: fitzsimons-pipeline-lambda
+      Description: Execution role for fitzsimons-pipeline-dispatch - logs plus read of one SSM parameter.
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal: { Service: lambda.amazonaws.com }
+            Action: sts:AssumeRole
+      Policies:
+        - PolicyName: dispatch
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Sid: WriteOwnLogs
+                Effect: Allow
+                Action: [logs:CreateLogStream, logs:PutLogEvents]
+                Resource: !Sub '${DispatchLogGroup.Arn}:*'
+              # The default aws/ssm key lets any principal in the account
+              # decrypt through SSM, so no kms:Decrypt grant is needed.
+              - Sid: ReadGitHubToken
+                Effect: Allow
+                Action: ssm:GetParameter
+                Resource: !Sub 'arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:parameter${TokenParameterName}'
+
+  DispatchFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: fitzsimons-pipeline-dispatch
+      Description: Starts the Horses Pipeline GitHub Actions workflow via workflow_dispatch.
+      Runtime: python3.13
+      Architectures: [arm64]
+      Handler: index.handler
+      MemorySize: 128
+      Timeout: 30
+      Role: !GetAtt DispatchRole.Arn
+      LoggingConfig:
+        LogGroup: !Ref DispatchLogGroup
+      Environment:
+        Variables:
+          GITHUB_REPO: !Ref GitHubRepo
+          WORKFLOW_FILE: !Ref WorkflowFile
+          GIT_REF: !Ref GitRef
+          TOKEN_PARAM: !Ref TokenParameterName
+      Code:
+        ZipFile: |
+          """POST /repos/{repo}/actions/workflows/{file}/dispatches.
+
+          Raises (so the invocation is an Error in CloudWatch) on any non-2xx
+          response or network failure, logging GitHub's status and body.
+          """
+          import json, os, urllib.error, urllib.request
+          import boto3
+
+          ssm = boto3.client("ssm")
+
+          def handler(event, context):
+              repo, wf, ref = os.environ["GITHUB_REPO"], os.environ["WORKFLOW_FILE"], os.environ["GIT_REF"]
+              # Optional overrides for a manual invoke, e.g. {"ref": "my-branch"}.
+              ref = (event or {}).get("ref", ref)
+              token = ssm.get_parameter(Name=os.environ["TOKEN_PARAM"],
+                                        WithDecryption=True)["Parameter"]["Value"]
+              url = f"https://api.github.com/repos/{repo}/actions/workflows/{wf}/dispatches"
+              req = urllib.request.Request(
+                  url, method="POST", data=json.dumps({"ref": ref}).encode(),
+                  headers={
+                      "Authorization": f"Bearer {token}",
+                      "Accept": "application/vnd.github+json",
+                      "X-GitHub-Api-Version": "2022-11-28",
+                      "User-Agent": "fitzsimons-pipeline-dispatch",
+                      "Content-Type": "application/json",
+                  })
+              try:
+                  with urllib.request.urlopen(req, timeout=15) as r:
+                      status, body = r.status, r.read().decode(errors="replace")
+              except urllib.error.HTTPError as e:
+                  body = e.read().decode(errors="replace")
+                  print(json.dumps({"level": "ERROR", "msg": "GitHub rejected workflow_dispatch",
+                                    "status": e.code, "body": body[:2000], "repo": repo,
+                                    "workflow": wf, "ref": ref}))
+                  raise RuntimeError(f"workflow_dispatch failed: HTTP {e.code}: {body[:500]}") from None
+              print(json.dumps({"level": "INFO", "msg": "workflow_dispatch accepted", "status": status,
+                                "body": body[:500], "repo": repo, "workflow": wf, "ref": ref}))
+              return {"status": status, "repo": repo, "workflow": wf, "ref": ref}
+
+  # Async invokes from the Scheduler: one retry, and never deliver a dispatch
+  # that's older than the next tick anyway.
+  DispatchInvokeConfig:
+    Type: AWS::Lambda::EventInvokeConfig
+    Properties:
+      FunctionName: !Ref DispatchFunction
+      Qualifier: $LATEST
+      MaximumRetryAttempts: 1
+      MaximumEventAgeInSeconds: 900
+
+  SchedulerRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: fitzsimons-pipeline-scheduler
+      Description: Lets EventBridge Scheduler invoke fitzsimons-pipeline-dispatch and nothing else.
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal: { Service: scheduler.amazonaws.com }
+            Action: sts:AssumeRole
+            Condition:
+              StringEquals: { 'aws:SourceAccount': !Ref AWS::AccountId }
+      Policies:
+        - PolicyName: invoke-dispatch
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action: lambda:InvokeFunction
+                Resource: !GetAtt DispatchFunction.Arn
+
+  PipelineSchedule:
+    Type: AWS::Scheduler::Schedule
+    Properties:
+      Name: fitzsimons-pipeline-every-20-min
+      Description: Horses pipeline tick - every 20 min, 07:00-20:59 UTC (the hours run_pipeline.sh scrapes).
+      ScheduleExpression: cron(0/20 7-20 * * ? *)
+      ScheduleExpressionTimezone: UTC
+      FlexibleTimeWindow:
+        Mode: 'OFF'
+      State: !Ref ScheduleState
+      Target:
+        Arn: !GetAtt DispatchFunction.Arn
+        RoleArn: !GetAtt SchedulerRole.Arn
+        Input: '{}'
+        RetryPolicy:
+          MaximumRetryAttempts: 2
+          MaximumEventAgeInSeconds: 900
+
+  AlertTopic:
+    Type: AWS::SNS::Topic
+    Condition: HasAlertEmail
+    Properties:
+      TopicName: fitzsimons-pipeline-alerts
+      # Unencrypted on purpose: CloudWatch alarms can't publish to a topic
+      # encrypted with the AWS managed aws/sns key, and alerts carry no secrets.
+      Subscription:
+        - Protocol: email
+          Endpoint: !Ref AlertEmail
+
+  DispatchErrorsAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmName: fitzsimons-pipeline-dispatch-errors
+      AlarmDescription: workflow_dispatch to GitHub failed - check /aws/lambda/fitzsimons-pipeline-dispatch.
+      Namespace: AWS/Lambda
+      MetricName: Errors
+      Dimensions:
+        - Name: FunctionName
+          Value: !Ref DispatchFunction
+      Statistic: Sum
+      Period: 1200
+      EvaluationPeriods: 1
+      Threshold: 1
+      ComparisonOperator: GreaterThanOrEqualToThreshold
+      TreatMissingData: notBreaching
+      AlarmActions: !If [HasAlertEmail, [!Ref AlertTopic], !Ref AWS::NoValue]
+
+Outputs:
+  FunctionName:
+    Value: !Ref DispatchFunction
+  ScheduleName:
+    Value: !Ref PipelineSchedule
+  TokenParameterName:
+    Value: !Ref TokenParameterName
+  LogGroup:
+    Value: !Ref DispatchLogGroup

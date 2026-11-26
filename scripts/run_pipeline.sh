@@ -15,31 +15,50 @@
 #              archive (enforced in persist_scrape, tested by
 #              test_intraday_merge.py).
 #   results  — once a day at/after 09:00 UTC: scripts/fetch_results.py grades
-#              yesterday. A per-day marker is written only on success, so a
-#              failed run retries on the next tick.
+#              yesterday. "Done" is read from the repo itself — yesterday's
+#              horses/history/results_full_<date>.json is on origin, and it is
+#              only ever pushed by a successful run — so it works from a fresh
+#              clone (Actions) and across hosts. The Mac also keeps a per-day
+#              marker in $STATE_DIR as a cheap early exit. A failed run retries
+#              on the next tick.
 #
 # Force a job (manual fallback, ignores the schedule):
 #   run_pipeline.sh scrape [YYYY-MM-DD]
 #   run_pipeline.sh results [YYYY-MM-DD]
 #
-# Overlap: one lock (a mkdir lock dir, holder's pid inside) covers BOTH jobs,
-# so two runs can never interleave writes or pushes. A run that can't get the
-# lock within LOCK_WAIT seconds exits and the next tick picks the work up. A
-# manual workflow_dispatch on Actions pushing at the same time is handled by
-# rebasing on origin before every push.
+# Overlap: on one host, a lock (a mkdir lock dir, holder's pid inside) covers
+# BOTH jobs, so two runs never interleave; a run that can't get it within
+# LOCK_WAIT seconds exits and the next tick picks the work up. On Actions the
+# workflow's concurrency group does the same. ACROSS hosts, origin always
+# wins: if a push is rejected because the other host pushed first, this run
+# never text-merges JSON (a git rebase could silently splice two races.json
+# versions together). It resets to origin and redoes the job on top, so the
+# scrape merges into the newer races.json and accuracy.json is regraded. The
+# only local work carried over is a horses/history/ file origin doesn't have
+# yet (create-if-absent, like the start-of-day archive itself), so a frozen
+# archive origin already has is never overwritten.
 #
-# Failures: everything goes to $STATE_DIR/pipeline.log; a failed job also
-# raises a macOS notification (when osascript exists) and runs
-# $PIPELINE_NOTIFY_CMD with the message as $1, if set.
+# Failures: the job exits non-zero. On Actions the output goes to the job log
+# (and a failed run emails the repo owner). Elsewhere everything goes to
+# $STATE_DIR/pipeline.log, a failed job raises a macOS notification (when
+# osascript exists) and runs $PIPELINE_NOTIFY_CMD with the message as $1.
+#
+# Environment overrides: PIPELINE_REPO_DIR (the clone to work in; default:
+# the clone this script lives in), PIPELINE_STATE_DIR, PIPELINE_PYTHON,
+# PIPELINE_BRANCH, PIPELINE_LOCK_WAIT.
 #
 # The whole body is inside main() and the last line exits: `git pull` can
 # rewrite this file mid-run, and bash must have parsed all of it beforehand.
 
 main() {
   set -u
-  export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin"
+  # launchd starts with a bare PATH; keep whatever the caller had after it
+  # (Actions puts setup-python's interpreter there).
+  export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin${PATH:+:$PATH}"
 
-  REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+  ON_ACTIONS=0
+  [ "${GITHUB_ACTIONS:-}" = true ] && ON_ACTIONS=1
+  REPO_DIR="${PIPELINE_REPO_DIR:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)}"
   STATE_DIR="${PIPELINE_STATE_DIR:-$HOME/.local/state/fitzsimons-pipeline}"
   PYTHON="${PIPELINE_PYTHON:-python3}"
   BRANCH="${PIPELINE_BRANCH:-main}"
@@ -51,7 +70,7 @@ main() {
   mkdir -p "$STATE_DIR"
   LOG="$STATE_DIR/pipeline.log"
   LOCK="$STATE_DIR/pipeline.lock"
-  exec >>"$LOG" 2>&1
+  [ "$ON_ACTIONS" -eq 1 ] || exec >>"$LOG" 2>&1
 
   local force="${1:-}" force_date="${2:-}"
   local hour today
@@ -76,12 +95,25 @@ main() {
   cd "$REPO_DIR" || { fail "cannot cd to $REPO_DIR"; return 1; }
   sync_repo || return 1
 
+  # Results already graded today (by this host or the other one)? Decided
+  # from origin's content, after the sync, so a fresh clone gets it right.
+  if [ "$do_results" -eq 1 ] && [ -z "$force" ]; then
+    local yday
+    yday=$("$PYTHON" -c 'import datetime; print(datetime.date.today() - datetime.timedelta(days=1))') \
+      || { fail "could not work out yesterday's date"; return 1; }
+    if [ -f "horses/history/results_full_$yday.json" ]; then
+      log "results: $yday already graded on origin — skipping"
+      do_results=0
+      touch "$STATE_DIR/results-$today.done"
+    fi
+  fi
+
   local rc=0
   if [ "$do_scrape" -eq 1 ]; then
-    run_scrape "$force_date" || rc=1
+    with_redo run_scrape "$force_date" || rc=1
   fi
   if [ "$do_results" -eq 1 ]; then
-    if run_results "$force_date"; then
+    if with_redo run_results "$force_date"; then
       [ -z "$force" ] && touch "$STATE_DIR/results-$today.done"
     else
       rc=1
@@ -90,10 +122,32 @@ main() {
   return "$rc"
 }
 
+# Exit status a job returns when origin moved under it and it must be redone.
+REDO=75
+
+# Run a job; if its push lost a race with the other host, re-sync onto origin
+# and run it again on top (up to 3 attempts).
+with_redo() {
+  local attempt rc
+  for attempt in 1 2 3; do
+    "$@"
+    rc=$?
+    [ "$rc" -ne "$REDO" ] && return "$rc"
+    log "origin moved during $1 (attempt $attempt) — redoing on top of it"
+    sync_repo || return 1
+  done
+  fail "$1: origin kept moving — gave up after 3 attempts"
+  return 1
+}
+
 log()  { echo "$(date -u '+%Y-%m-%dT%H:%M:%SZ') $*"; }
 
 fail() {
   log "FAILED: $*"
+  if [ "${ON_ACTIONS:-0}" -eq 1 ]; then
+    echo "::error title=Horses pipeline failed::$*"
+    return 0
+  fi
   local msg="fitzsimons.io pipeline: $*"
   if command -v osascript >/dev/null 2>&1; then
     osascript -e "display notification \"${msg//\"/}\" with title \"Horses pipeline failed\" sound name \"Basso\"" || true
@@ -126,22 +180,44 @@ acquire_lock() {
 # Bring the clone up to date before writing anything: the scraper merges into
 # the CURRENT races.json, and "first run of the day" means "no archive on
 # origin yet". Uncommitted leftovers from a crashed run are discarded (they get
-# regenerated); committed-but-unpushed work from a failed push is kept and
-# rebased, so a start-of-day archive that missed its push still lands.
+# regenerated). Local commits a failed push left behind are kept if origin
+# hasn't moved (the next push sends them). If origin HAS moved, origin wins:
+# reset to it, carrying over only horses/history/ files origin lacks (e.g. a
+# start-of-day archive whose push failed). Never a text merge of JSON.
 sync_repo() {
   if [ -n "$(git status --porcelain)" ]; then
     log "discarding uncommitted leftovers: $(git status --porcelain | tr '\n' ' ')"
     git reset --hard -q HEAD && git clean -fdq horses/
   fi
   git fetch -q origin "$BRANCH" || { fail "git fetch failed"; return 1; }
-  if ! git rebase -q "origin/$BRANCH"; then
-    git rebase --abort 2>/dev/null
-    fail "could not rebase local commits onto origin/$BRANCH — fix the clone by hand ($REPO_DIR)"
-    return 1
+  local remote="origin/$BRANCH"
+  if git merge-base --is-ancestor "$remote" HEAD; then
+    return 0                                  # up to date, or only ahead
   fi
+  if git merge-base --is-ancestor HEAD "$remote"; then
+    git reset --hard -q "$remote"             # plain fast-forward
+    return 0
+  fi
+
+  local keep base f
+  keep=$(mktemp -d)
+  if base=$(git merge-base HEAD "$remote"); then
+    for f in $(git diff --name-only --diff-filter=A "$base" HEAD -- horses/history/); do
+      git cat-file -e "$remote:$f" 2>/dev/null && continue   # origin has its own
+      mkdir -p "$keep/$(dirname "$f")" && cp "$f" "$keep/$f"
+    done
+  fi
+  log "origin moved; dropping local commits $(git rev-list --count "$remote..HEAD") and resetting to $remote"
+  git reset --hard -q "$remote"
+  if [ -d "$keep/horses" ]; then
+    log "carrying over files origin lacks: $(cd "$keep" && find horses -type f | tr '\n' ' ')"
+    cp -R "$keep/horses" .
+  fi
+  rm -rf "$keep"
 }
 
-# Commit the given paths and push, rebasing on anything pushed meanwhile.
+# Commit the given paths and push. Returns $REDO if the other host pushed
+# first, so with_redo re-syncs and runs the job again on the newer origin.
 commit_and_push() {
   local msg="$1"; shift
   git add "$@" 2>/dev/null || true
@@ -150,19 +226,14 @@ commit_and_push() {
     return 0
   fi
   git commit -q -m "$msg" || { fail "git commit failed"; return 1; }
-  local attempt
-  for attempt in 1 2 3; do
-    if git push -q origin "HEAD:$BRANCH"; then
-      log "pushed: $msg"
-      return 0
-    fi
-    log "push attempt $attempt rejected — rebasing on origin/$BRANCH"
-    git fetch -q origin "$BRANCH" || true
-    if ! git rebase -q "origin/$BRANCH"; then
-      git rebase --abort 2>/dev/null
-      break
-    fi
-  done
+  if git push -q origin "HEAD:$BRANCH"; then
+    log "pushed: $msg"
+    return 0
+  fi
+  if git fetch -q origin "$BRANCH" && ! git merge-base --is-ancestor "origin/$BRANCH" HEAD; then
+    log "push rejected — origin moved: $msg"
+    return "$REDO"
+  fi
   fail "push failed: $msg (commit kept locally; next run retries)"
   return 1
 }
