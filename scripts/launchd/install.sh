@@ -1,8 +1,9 @@
 #!/bin/bash
 # Install (or refresh) the launchd agent that runs the /horses pipeline on this
 # Mac. Idempotent. Creates a dedicated clone the pipeline owns — never point it
-# at a checkout you work in — and retires the old workflow_dispatch trigger
-# agent, so GitHub Actions and this Mac don't both scrape.
+# at a checkout you work in — and retires the old io.fitzsimons.scrape-trigger
+# agent. Since 2026-11 the primary host is GitHub Actions, dispatched from AWS
+# (README "Automation"); this agent is the fallback and safe to run alongside.
 #
 #   scripts/launchd/install.sh            # install / reload
 #   scripts/launchd/install.sh uninstall  # stop and remove the agent

@@ -30,3 +30,6 @@ jobs:
 
       - name: Settlement, favourite baseline and derived accuracy log
         run: python3 scripts/test_settlement.py
+
+      - name: Two pipeline hosts (Actions + Mac) can't corrupt each other
+        run: python3 scripts/test_pipeline_overlap.py

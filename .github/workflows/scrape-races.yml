@@ -1,70 +1,84 @@
-name: Scrape Races
+name: Horses Pipeline
 
-# Manual fallback only. The schedule moved off GitHub Actions — its cron queue
-# dropped and delayed runs (community discussion 156282) — to
-# scripts/run_pipeline.sh, driven by a launchd agent (see README "Automation").
-# The first run of the day writes the frozen start-of-day accuracy record;
-# later runs refresh the live races.json without touching it.
+# Runs scripts/run_pipeline.sh — the same script the Mac's launchd agent runs —
+# so both hosts share one set of safeguards (sync before write, origin-wins
+# redo on a lost push race, create-if-absent start-of-day archive).
+#
+# There is deliberately no `schedule:` here: GitHub's cron queue drops and
+# delays runs (community discussion 156282). An EventBridge Scheduler in AWS
+# (infra/pipeline-scheduler.yaml) calls workflow_dispatch on main every 20
+# minutes, 07:00–20:59 UTC; with no inputs the script decides what's due.
+#
+# The file keeps its old name (scrape-races.yml) because the AWS trigger
+# dispatches it by file name.
 on:
   workflow_dispatch:
     inputs:
-      date_override:
-        description: 'Date override YYYY-MM-DD (leave blank for today)'
+      job:
+        description: 'auto = whatever is due now; scrape / results = force that job'
+        type: choice
+        options: [auto, scrape, results]
+        default: auto
+      date:
+        description: 'Date for a forced job, YYYY-MM-DD (blank = today for scrape, yesterday for results)'
         required: false
         default: ''
 
-# Never let two scrapes run at once — a queued run waits for the in-flight one
-# to finish committing, so intraday merges can't race each other.
+# One group for every run, whatever it does, so two runs never write or push
+# at once. A run that's already going finishes; GitHub keeps at most one
+# pending run, which is all a 20-minute tick needs.
 concurrency:
-  group: scrape-races
+  group: horses-pipeline
   cancel-in-progress: false
 
-jobs:
-  scrape:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
+permissions:
+  contents: write
 
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
-      - name: Checkout
+      # The data clone is always main, whichever ref was dispatched: the script
+      # commits and pushes to main.
+      - name: Check out main
         uses: actions/checkout@v4
+        with:
+          ref: main
+
+      # Pre-merge testing: dispatching with ref=<branch> runs that branch's
+      # run_pipeline.sh against main (the data scripts it calls come from main).
+      - name: Take run_pipeline.sh from the dispatched ref
+        env:
+          REF: ${{ github.ref }}
+        run: |
+          if [ "$REF" = refs/heads/main ]; then
+            cp scripts/run_pipeline.sh "$RUNNER_TEMP/run_pipeline.sh"
+          else
+            git fetch -q --depth=1 origin "$REF"
+            git show FETCH_HEAD:scripts/run_pipeline.sh > "$RUNNER_TEMP/run_pipeline.sh"
+            echo "::notice::Using run_pipeline.sh from $REF"
+          fi
 
       - name: Set up Python
+        id: py
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: '3.14'   # match the Mac
 
-      - name: Scrape today's races
+      - name: Run pipeline
         env:
-          DATE_OVERRIDE: ${{ github.event.inputs.date_override }}
-        run: |
-          DATE_ARG=""
-          if [ -n "$DATE_OVERRIDE" ]; then
-            DATE_ARG="--date $DATE_OVERRIDE"
-          fi
-          python3 scripts/scrape_races.py $DATE_ARG --out "$GITHUB_WORKSPACE/horses"
-
-      - name: Verify output
-        run: |
-          if [ ! -f horses/races.json ]; then
-            echo "ERROR: horses/races.json not found"
-            exit 1
-          fi
-          RACE_COUNT=$(python3 -c "import json; d=json.load(open('horses/races.json')); print(len(d.get('races',[])))")
-          echo "Scraped $RACE_COUNT races"
-
-      - name: Commit and push
+          JOB: ${{ inputs.job }}
+          DATE: ${{ inputs.date }}
+          PIPELINE_REPO_DIR: ${{ github.workspace }}
+          PIPELINE_STATE_DIR: ${{ runner.temp }}/pipeline-state
+          PIPELINE_PYTHON: ${{ steps.py.outputs.python-path }}
         run: |
           git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          # Live file plus the start-of-day archive the first run writes.
-          git add horses/races.json horses/history/ || true
-          if git diff --staged --quiet; then
-            echo "No content changes — nothing to commit"
-          else
-            git commit -m "🏇 Races $(date -u +%Y-%m-%dT%H:%M)Z [skip ci]"
-            # A concurrent run may have pushed between our checkout and now;
-            # rebase on the latest before pushing so we never clobber it.
-            git pull --rebase --autostash origin "$GITHUB_REF_NAME" || true
-            git push
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          ARGS=()
+          if [ -n "$JOB" ] && [ "$JOB" != auto ]; then
+            ARGS=("$JOB")
+            [ -n "$DATE" ] && ARGS+=("$DATE")
           fi
+          bash "$RUNNER_TEMP/run_pipeline.sh" ${ARGS[@]+"${ARGS[@]}"}
