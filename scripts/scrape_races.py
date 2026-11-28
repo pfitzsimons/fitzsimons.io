@@ -512,6 +512,50 @@ def book_price_list(ride: dict) -> dict:
     }
 
 
+def ride_extras(ride: dict) -> dict:
+    """Free Sporting Life racecard fields we didn't use before.
+
+    Capture-only — never a scoring, Top Pick or settlement input. Stored so
+    a later walk-forward backtest can test each against the book price
+    (2026-11-01: no paid data, so these are the next candidates). Returns:
+
+      timeform_rank   Timeform's 1-2-3 pick in the race (rating123), else None
+      insights        sorted flag types, e.g. FIRST_TIME_CHEEK_PIECES,
+                      WIND_SURGERY_SINCE_LAST_RUN, HOT_JOCKEY, HOT_TRAINER
+      lifetime        {"runs", "wins", "places"} career record, else None
+      cd_record       {type: count} from race_history_stats, e.g. Course,
+                      Distance, BeatenFavourite
+      headgear        [{"symbol", "count"}]; count is times worn (1 = first time)
+    """
+    rank = _as_int(ride.get("rating123"))
+    insights = sorted({i.get("type") for i in (ride.get("insights") or [])
+                       if isinstance(i, dict) and i.get("type")})
+
+    lifetime = None
+    stats = ride.get("horse_lifetime_stats") or []
+    if stats and isinstance(stats[0], dict):
+        runs, wins, places = (_as_int(stats[0].get(k)) for k in ("run_count", "win_count", "place_count"))
+        if runs is not None:
+            lifetime = {"runs": runs, "wins": wins or 0, "places": places or 0}
+
+    cd = {}
+    for st in (ride.get("race_history_stats") or []):
+        n = _as_int(st.get("value")) if isinstance(st, dict) else None
+        if st.get("type") and n is not None:
+            cd[st["type"]] = n
+
+    headgear = [{"symbol": h.get("symbol"), "count": _as_int(h.get("count"))}
+                for h in (ride.get("headgear") or []) if isinstance(h, dict) and h.get("symbol")]
+
+    return {
+        "timeform_rank": rank if rank in (1, 2, 3) else None,
+        "insights":      insights,
+        "lifetime":      lifetime,
+        "cd_record":     cd,
+        "headgear":      headgear,
+    }
+
+
 def parse_odds(raw):
     raw = (raw or "").strip().replace(",", "")
     if not raw or raw in ("-", "—", "SP"):
@@ -1378,6 +1422,9 @@ def scrape_race(meta):
             # Full per-book price list + consensus/spread — capture-only for a
             # future consensus-vs-best-price backtest (see book_price_list).
             **book_prices,
+            # Timeform 1-2-3, insight flags, career record, C/D, headgear —
+            # capture-only for future backtests (see ride_extras).
+            **ride_extras(ride),
             "silk_url": ride.get("silk_filename", "") or "",
             "_prev_runs": prev_runs,
             # Freshness / class fields — captured now, scored at weight 0 (see
